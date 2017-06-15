@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/zxing_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/zxing_header_name"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:background="@drawable/shap_radius_winelight_r10">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_scan_white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请将二维码对准扫码框记进行冰箱绑定"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/x20"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <SurfaceView
+            android:id="@+id/preview_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center" />
+
+        <com.thlh.jhmjmw.moudle.zxing.view.ViewfinderView
+            android:id="@+id/viewfinder_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

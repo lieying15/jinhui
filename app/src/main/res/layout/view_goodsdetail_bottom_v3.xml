@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:mv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="@dimen/y90">
+
+    <!-- 收藏-->
+    <com.thlh.viewlib.ripple.RippleFrameLayout
+        android:id="@+id/goods_bottom_collect"
+        style="@style/divide_linealayout_horizontal"
+        ripple:ripColor="@color/gray_shallow"
+        android:background="@drawable/bg_null"
+        >
+        <ImageView
+            android:id="@+id/goodsdetail_collect_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@+id/goodsdetail_collect_tv"
+            android:src="@drawable/icon_collect_gray"/>
+    </com.thlh.viewlib.ripple.RippleFrameLayout>
+
+    <!-- 购物车-->
+    <RelativeLayout
+        android:id="@+id/goods_bottom_shopcart"
+        android:background="@color/white"
+        style="@style/divide_linealayout_horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/goodsdetail_shopcart_iv"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/icon_shopcart_black"/>
+
+            <TextView
+                android:id="@+id/goodsdetail_shopcart_tv"
+                style="@style/text_goodsdetail_bottom"
+                android:layout_alignBottom="@+id/goodsdetail_shopcart_iv"
+                android:layout_toRightOf="@+id/goodsdetail_shopcart_iv"
+                android:text="@string/goodsdetail_addcart"
+                android:visibility="gone"/>
+            <com.thlh.viewlib.tablayout.MsgView
+                android:id="@+id/goodsdetail_shopcart_num_tv"
+                style="@style/text_shopcart"
+                android:layout_toRightOf="@+id/goodsdetail_shopcart_iv"
+                android:layout_marginLeft="-3dp"
+                android:layout_marginTop="5dp"
+                mv:mv_backgroundColor="@color/app_theme"
+                mv:mv_isRadiusHalfHeight="true"
+                mv:mv_strokeColor="#ffffff"
+                mv:mv_strokeWidth="0.5dp"
+                android:text="0"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <!-- 加入购物车-->
+
+
+    <com.thlh.viewlib.ripple.RippleLinearLayout
+        android:id="@+id/goods_bottom_addcart"
+        style="@style/divide_linealayout_horizontal_center"
+        ripple:ripColor="@color/white"
+        android:background="@drawable/selector_yellow">
+        <TextView
+            android:id="@+id/goods_bottom_addcart_tv"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small_x"
+            android:text="@string/goodsdetail_addcart"/>
+    </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+
+    <com.thlh.viewlib.ripple.RippleLinearLayout
+        android:id="@+id/goods_bottom_buy"
+        style="@style/divide_linealayout_horizontal_center"
+        ripple:ripColor="@color/white"
+        android:background="@drawable/selector_theme">
+        <TextView
+            android:id="@+id/goods_bottom_buy_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small_x"
+            android:text="立即购买"/>
+    </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+
+</LinearLayout>

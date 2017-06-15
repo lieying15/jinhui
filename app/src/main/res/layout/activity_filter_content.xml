@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/white">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/filter_brand_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/filter_header_name" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/filter_content_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <!-- 这个是浮动的提示 ，配合字母栏实现放大浮动提示滑动到哪个字母-->
+        <!--下面的自定义属性都是默认的,可以不写-->
+        <com.thlh.viewlib.quicksidebar.QuickSideBarTipsView
+            android:id="@+id/filter_sidebar_tips"
+            android:layout_width="@dimen/height_quicksidebartips"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/filter_sidebar"
+            app:sidebarBackgroundColor="@color/colorPrimary"
+            app:sidebarTextColor="@android:color/white"
+            app:sidebarTextSize="@dimen/textSize_quicksidebartips" />
+        <!-- 这个是字母栏的提示 -->
+        <!--下面的自定义属性都是默认的,可以不写-->
+        <com.thlh.viewlib.quicksidebar.QuickSideBarView
+            android:id="@id/filter_sidebar"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            app:sidebarItemHeight="@dimen/height_quicksidebaritem"
+            app:sidebarTextColor="@android:color/black"
+            app:sidebarTextColorChoose="@color/colorPrimary"
+            app:sidebarTextSize="@dimen/textSize_quicksidebar"
+            app:sidebarTextSizeChoose="@dimen/textSize_quicksidebar_choose" />
+
+    </RelativeLayout>
+</LinearLayout>
+

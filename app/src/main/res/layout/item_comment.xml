@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:paddingBottom="@dimen/y5"
+        android:layout_marginTop="@dimen/y10">
+        <ImageView
+            android:id="@+id/comment_avatar_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:background="@color/app_subtheme"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/comment_name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text=""
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx" />
+        <TextView
+            android:id="@+id/comment_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-05-02 13:52:42"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y25" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="@color/app_mainback"/>
+
+
+    <TextView
+        android:id="@+id/comment_content_tv"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/y80"
+        android:paddingLeft="@dimen/comment_margin_sile"
+        android:paddingRight="@dimen/comment_margin_sile"
+        android:paddingBottom="@dimen/y10"
+        android:paddingTop="5dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:text="物品很棒，送到时间很快"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/y25" />
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/comment_pic_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/comment_margin_sile"
+        android:paddingRight="@dimen/comment_margin_sile"
+        android:paddingBottom="8dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="@color/app_mainback"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/x20"
+        android:paddingLeft="@dimen/x20">
+        <TextView
+            android:id="@+id/comment_buytime_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/x20"
+            android:text="购买日期  2016-05-02 13:52:42"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y25" />
+
+        <com.thlh.jhmjmw.view.PoiRedStar
+            android:id="@+id/comment_rank_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10" />
+</LinearLayout>

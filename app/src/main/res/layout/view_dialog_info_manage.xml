@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/dialog_info_manage_marging_side"
+        android:layout_marginLeft="@dimen/dialog_info_manage_marging_side"
+        android:layout_marginRight="@dimen/dialog_info_manage_marging_side"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/dialog_info_manage_remind_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_small_xx"
+            android:textColor="@color/text_nomal"
+            android:text="新消息提醒"/>
+        <com.thlh.viewlib.togglebutton.ToggleButton
+            android:id="@+id/dialog_info_manage_remind_btn"
+            android:layout_width="35dp"
+            android:layout_height="17dp"
+            android:layout_marginRight="@dimen/addr_edit_margin_side"
+            toggle:isDefaultOn="false"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dialog_info_manage_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_info_manage_marging_side"
+        android:layout_marginLeft="@dimen/dialog_info_manage_marging_side"
+        android:layout_marginRight="@dimen/dialog_info_manage_marging_side"
+        android:textSize="@dimen/text_size_small_xx"
+        android:textColor="@color/text_nomal"
+        android:text="静音免打扰时段"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/dialog_info_manage_marging_side"
+        android:background="@color/white">
+            <com.thlh.viewlib.PickerView
+                android:id="@+id/open_hour_pv"
+                style="@style/timepiker" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/timepick_height"
+                android:textSize = "@dimen/text_size_small_xx"
+                android:textColor = "@color/text_nomal"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:gravity="center_vertical"
+                android:text=":"/>
+            <com.thlh.viewlib.PickerView
+                android:id="@+id/open_minute_pv"
+                style="@style/timepiker" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/timepick_height"
+                android:textSize = "@dimen/text_size_small_xx"
+                android:textColor = "@color/text_nomal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:gravity="center_vertical"
+                android:text="至"/>
+            <com.thlh.viewlib.PickerView
+                android:id="@+id/close_hour_pv"
+                style="@style/timepiker" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/timepick_height"
+                android:textSize = "@dimen/text_size_small_xx"
+                android:textColor = "@color/text_nomal"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:gravity="center_vertical"
+                android:text=":"/>
+            <com.thlh.viewlib.PickerView
+                android:id="@+id/close_minute_pv"
+                style="@style/timepiker" />
+    </LinearLayout>
+
+
+
+
+    <FrameLayout
+        android:id="@+id/dialog_response_bottom_ll"
+        android:layout_width="300dp"
+        android:layout_height="@dimen/tall_item_height"
+        android:layout_marginTop="@dimen/dialog_marging_title_top">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_editview_height"
+            android:layout_marginLeft="@dimen/dialog_margin_sile"
+            android:layout_marginRight="@dimen/dialog_margin_sile"
+            android:orientation="horizontal"
+            android:background="@drawable/shap_radius_white"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/dialog_info_manage_clear_tv"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="清空全部消息"
+                android:textSize="@dimen/login_edit_text_size"
+                android:textColor="@color/white"
+                android:background="@drawable/selector_radius_theme" />
+
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

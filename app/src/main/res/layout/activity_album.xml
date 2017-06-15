@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical" >
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/album_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="相册"/>
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/album_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"/>
+</LinearLayout>

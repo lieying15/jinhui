@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_contact_swipe_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:background="@drawable/shap_radius_half_top_white"
+        android:paddingRight="@dimen/shopcart_margin_side"
+        android:paddingBottom="@dimen/shopcart_margin_side"
+        android:paddingTop="@dimen/shopcart_margin_side">
+
+        <TextView
+            android:id="@+id/shopcart_supplier_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/shopcart_supplier_iv"
+            android:layout_marginLeft="15dp"
+            android:maxLines="1"
+            android:text="供应商"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y28" />
+    </RelativeLayout>
+    <View
+        style="@style/divide_line_horizontal_match_mianback"/>
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/shopcart_goods_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@drawable/shap_radius_half_bottom_white" />
+</LinearLayout>

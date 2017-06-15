@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_orderconfirm_select_deliverytime"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="120dp"
+    android:orientation="vertical"
+    android:background="@drawable/shap_stroke_grayshallow"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pop_orderconfirm_select_deliverytime_all"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/selector_white_to_subtheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="任何时间"
+            android:textSize="@dimen/text_size_small_xx"
+            android:textColor="@color/text_nomal" />
+    </LinearLayout>
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pop_orderconfirm_select_deliverytime_8ll"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/selector_white_to_subtheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="08:00 - 12:00"
+            android:textSize="@dimen/text_size_small_xx"
+            android:textColor="@color/text_nomal" />
+    </LinearLayout>
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+    <LinearLayout
+        android:id="@+id/pop_orderconfirm_select_deliverytime_12ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/selector_white_to_subtheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="12:00 - 24:00"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx"/>
+    </LinearLayout>
+
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:id="@+id/pop_orderconfirm_select_deliverytime_14ll"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/selector_white_to_subtheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="14:00 - 18:00"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx"/>
+    </LinearLayout>
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:id="@+id/pop_orderconfirm_select_deliverytime_18ll"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/selector_white_to_subtheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="18:00 - 20:00"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx"/>
+    </LinearLayout>
+</LinearLayout>

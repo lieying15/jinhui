@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.thlh.jhmjmw.business.index.homepage.ViewpagerFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/homepage_goods_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_mainback" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+</FrameLayout>

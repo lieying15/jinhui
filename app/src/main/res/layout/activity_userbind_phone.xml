@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="修改绑定手机" />
+
+    <LinearLayout
+        android:id="@+id/userbindphone_manage_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y120"
+        android:layout_marginLeft="@dimen/x80"
+        android:layout_marginRight="@dimen/x80"
+        android:background="@drawable/shap_framentdialog_radius_white"
+        android:orientation="vertical">
+
+        <!--标题-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/y60"
+                android:src="@drawable/img_dialog_link"/>
+            <ImageView
+                android:layout_width="@dimen/x45"
+                android:layout_height="@dimen/y45"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_dialog_cancel"
+                android:layout_marginRight="@dimen/x30"
+                android:visibility="gone"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y2"
+            android:background="@color/app_mainback"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_marginBottom="@dimen/y10"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x50"
+            android:layout_marginRight="@dimen/x50"
+            android:layout_marginTop="@dimen/y30"
+            android:layout_marginBottom="@dimen/y30"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/text_nomal"
+            android:gravity="center_horizontal"
+            android:text="绑定手机号" />
+
+        <LinearLayout
+            android:id="@+id/userbind_phone_number_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/shap_stroke_grayshallow_r50"
+            android:layout_marginTop="@dimen/y20">
+
+            <EditText
+                android:id="@+id/userbind_phone_number_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:inputType="phone"
+                android:hint="输入11位有效手机号"
+                android:maxLength="11"
+                android:paddingLeft="@dimen/x50"
+                android:textSize="@dimen/y28" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userbind_phone_next_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/selector_stoke_mainback_r50"
+            android:layout_marginTop="@dimen/y20"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/y20">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下一步"
+                android:textSize="@dimen/y28"
+                android:textColor="@color/wine_light"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

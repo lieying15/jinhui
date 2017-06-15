@@ -1,0 +1,712 @@
+<resources>
+    <string name="app_name">每家美物</string>
+
+    <!--登录注册的界面-->
+    <string name="login_header_name">账户登录</string>
+    <string name="regist_header_name">注册</string>
+    <string name="regist_header_name_success">注册成功</string>
+    <string name="regist_password_header_name">填写密码</string>
+    <string name="regist_password_input">请输入登录密码</string>
+    <string name="regist_password_confirm">请确认登录密码</string>
+    <!--我的界面-->
+    <string name="mine_header_name">我的</string>
+    <string name="mine_colloct">我的收藏</string>
+    <string name="mine_footprint">历史足迹</string>
+    <string name="mine_order">我的订单</string>
+    <string name="mine_wait_pay">待付款</string>
+    <string name="mine_wait_sendout">待发货</string>
+    <string name="mine_wait_gain">待收货</string>
+    <string name="mine_wait_comment">待评价</string>
+    <string name="mine_goods_return">退换货</string>
+    <string name="mine_wallet">我的钱包</string>
+    <string name="mine_coupon">优惠券</string>
+    <string name="mine_setting">设置</string>
+    <string name="mine_help">帮助</string>
+    <string name="mine_safe">账户安全</string>
+    <!--用户界面-->
+    <string name="userinfo_header_name">个人信息</string>
+    <string name="userinfo_nickname">我的昵称</string>
+    <string name="userinfo_rank">我的等级</string>
+    <string name="userinfo_account">账号安全</string>
+    <!--账户安全界面-->
+    <string name="account_header_name">账户安全</string>
+    <!--修改密码-->
+    <string name="changepw_login_header_name">登录密码</string>
+    <string name="changepw_input_oldpw_title">请输入旧密码</string>
+    <string name="changepw_input_newpw_title">请输入新密码</string>
+    <string name="changepw_input_newpw_hint">请输入新密码</string>
+    <string name="changepw_confirm_newpw_title">请确认新密码</string>
+    <!--密码找回-->
+    <string name="pwretrieve_header_name">密码找回</string>
+    <string name="pwretrieve_input_phone">输入手机号</string>
+    <!-- 全部订单-->
+
+    <!--待付款界面-->
+    <!--待收货界面-->
+    <!--退换货界面-->
+    <!--待发货界面-->
+    <!--收货地址管理界面-->
+    <string name="addr_manage_header_name">收货地址管理</string>
+    <!--收货地址编辑界面-->
+    <string name="addr_edit_header_name">编辑收货地址</string>
+    <string name="addr_edit_name">收货人</string>
+    <string name="addr_edit_addr">详细地址</string>
+    <string name="addr_edit_phone">联系电话</string>
+    <string name="addr_edit_states">是否设为常用地址</string>
+    <string name="addr_edit_name_hint">输入收货人姓名</string>
+    <string name="addr_edit_addr_hint">输入详细地址</string>
+    <string name="addr_edit_phone_hint">输入联系电话</string>
+    <string name="addr_edit_save">保存</string>
+    <!--待评价界面-->
+    <!--写评价界面-->
+    <string name="comment_write_tips">文字长度在1～100之间，写下您在购物过程中的体会</string>
+    <!-- 分类界面-->
+    <string name="category_name_hot">热门推荐</string>
+    <!--商品详情界面-->
+    <string name="goodsdetail_header_name">商品名称</string>
+    <string name="goodsdetail_comment">评价</string>
+    <string name="goodsdetail_collect">收藏</string>
+    <string name="goodsdetail_addcart">加入购物车</string>
+    <string name="goodsdetail_picture">— 商品简介 —</string>
+
+    <!-- 购物车界面-->
+    <string name="shopcart_header_name">购物车</string>
+    <string name="shopcart_clearing">去支付</string>
+    <string name="shopcart_selectall">全选</string>
+    <string name="shopcart_total_price">合计</string>
+
+
+    <!--订单确认界面-->
+    <string name="order_confirm_header_name">订单确认</string>
+    <string name="order_confirm_topay">去支付</string>
+    <string name="order_confirm_info_coupon">优惠券</string>
+    <string name="order_confirm_info_invoice">发票</string>
+    <string name="order_confirm_paytype_weixin">微信支付</string>
+    <string name="order_confirm_paytype_yue">余额支付</string>
+
+    <!--搜索栏字体-->
+    <string name="select_goods_bar_sort">综合排序</string>
+    <string name="select_goods_bar_priority">销量优先</string>
+    <string name="select_goods_bar_filter">精确筛选</string>
+    <string name="select_goods_bar_show_bigimg">显示大图</string>
+    <!-- 搜索页面-->
+    <string name="search_goods_hotsearch">热搜商品</string>
+    <string name="search_goods_hotsale">热卖推荐</string>
+    <string name="search_goods_seen">看过的商品</string>
+    <!--客服中心-->
+    <string name="service_center_header_name">客服中心</string>
+    <string name="service_center_content">客服中心</string>
+    <!--我的小店界面-->
+    <!--收藏界面-->
+    <string name="collect_header_name">我的收藏</string>
+    <!--足迹界面-->
+    <string name="footprint_header_name">历史足迹</string>
+    <string name="footprint_title">历史记录</string>
+    <!--我的消息界面-->
+
+    <!--设置界面-->
+    <string name="setting_header_name">设置中心</string>
+    <string name="setting_push_info">信息推送</string>
+    <!--二维码界面-->
+    <string name="zxing_header_name">扫描二维码</string>
+    <!--界平台协议面-->
+
+    <!--筛选界面-->
+    <string name="filter_header_name">筛选</string>
+    <!--  red star  -->
+    <style name="redstar">
+        <item name="android:layout_width">@dimen/redstar_size</item>
+        <item name="android:layout_height">@dimen/redstar_size</item>
+        <item name="android:layout_marginRight">@dimen/redstar_margin</item>
+        <item name="android:src">@drawable/icon_star_gray</item>
+    </style>
+
+    <!--添加-->
+    <string name="shopcart_total_editor">编辑</string>
+    <string name="shopcart_total_finish">完成</string>
+    <string name="shopcart_total_noshop">您的购物车没有任何商品</string>
+    <string name="shopcart_total_golook">去逛逛</string>
+    <string name="shopcart_total_choosee">已选(</string>
+    <string name="shopcart_total_deleteshop">确认删除所选商品</string>
+    <string name="shopcart_total_cannal">取消</string>
+    <string name="shopcart_total_confirm">确认</string>
+    <string name="minename">我的昵称</string>
+    <string name="call_return">请拔打客服电话进行退换货</string>
+
+    <string name="myshop">"真正用心的人才会知道，\n"
+                "土壤、气温、水分、日照对于橄榄油品质的影响，\n"
+                "我们甚至寻味西班牙，为您甄选百年好品质......\n"
+                "\n"
+                "现在，足不出户，身边小店送货上门\n"
+                "品质生活，从每家美物智能冰箱开始\n"
+                "\n"
+                "此刻，“万元冰箱抱回家”活动风暴\n"
+                "\n"
+                "商城充值¥6999等值购物无忧，\n"
+                "另送万元智能冰箱，智慧生活掌控在手！\n";</string>
+        <string name="myshop_bj">"真正用心的人才会知道，\n"
+                "土壤、气温、水分、日照对于橄榄油品质的影响，\n"
+                "我们甚至寻味西班牙，为您甄选百年好品质......\n"
+                "\n"
+                "现在，足不出户，身边小店送货上门\n"
+                "品质生活，从每家美物智能冰箱开始\n"
+                "\n"
+                "此刻，“万元冰箱抱回家”活动风暴\n"
+                "\n"
+                "商城充值¥6900等值购物无忧，\n"
+                "另送万元智能冰箱，智慧生活掌控在手！\n";</string>
+
+    <string name="registration_agreement">" 本协议是您与每家美物网上购物商城（简称\"商城\"）所有者（以下简称为\"每家美物\"）之间就每家美物商城服务等相关事宜所订立的契约，请您仔细阅读本注册协议，您点击\"同意并继续\"按钮后，本协议即构成对双方有约束力的法律文件。\n\n"
+                "第1条 商城服务条款的确认和接纳\n\n"
+                "1.1 商城的各项电子服务的所有权和运作权归每家美物所有。用户同意所有注册协议条款并完成注册程序，才能成为商城的正式用户。用户确认：本协议条款是处理双方权利义务的契约，始终有效，法律另有强制性规定或双方另有特别约定的，依其规定。\n\n"
+                "1.2 用户点击同意本协议的，即视为用户确认自己具有享受商城服务、下单购物等相应的权利能力和行为能力，能够独立承担法律责任。\n\n"
+                "1.3 如果您在18周岁以下，您只能在父母或监护人的监护参与下才能使用商城。\n\n"
+                "1.4 每家美物保留在中华人民共和国大陆地区法施行之法律允许的范围内独自决定拒绝服务、关闭用户账户、清除或编辑内容或取消订单的权利。\n\n"
+                "第2条 商城服务\n\n"
+                "2.1 每家美物通过互联网依法为用户提供互联网信息等服务，用户在完全同意本协议及商城规定的情况下，方有权使用商城的相关服务。\n\n"
+                "第3条 用户信息\n\n"
+                "3.1 用户应自行诚信向商城提供注册资料，用户同意其提供的注册资料真实、准确、完整、合法有效，用户注册资料如有变动的，应及时更新其注册资料。如果用户提供的注册资料不合法、不真实、不准确、不详尽的，用户需承担因此引起的相应责任及后果，并且每家美物保留终止用户使用每家美物各项服务的权利。\n\n"
+                "3.2 用户在商城进行浏览、下单购物等活动时，涉及用户真实姓名/名称、通信地址、联系电话、电子邮箱等隐私信息的，商城将予以严格保密，除非得到用户的授权或法律另有规定，商城不会向外界披露用户隐私信息。\n\n"
+                "3.3 用户注册成功后，将产生用户名和密码等账户信息，您可以根据商城规定改变您的密码。用户应谨慎合理的保存、使用其用户名和密码。用户若发现任何非法使用用户账号或存在安全漏洞的情况，请立即通知商城并向公安机关报案。\n\n"
+                "3.4 用户同意，每家美物拥有通过邮件、短信电话等形式，向在商城注册、购物用户、收货人发送订单信息、促销活动等告知信息的权利。\n\n"
+                "3.5 用户不得将在商城注册获得的账户借给他人使用，否则用户应承担由此产生的全部责任，并与实际使用人承担连带责任。\n\n"
+                "3.6 用户同意，每家美物有权使用用户的注册信息、用户名、密码等信息，登录进入用户的注册账户，进行证据保全，包括但不限于公证、见证等。\n\n"
+                "第4条 用户依法言行义务\n\n"
+                "本协议依据国家相关法律法规规章制定，用户同意严格遵守以下义务：\n\n"
+                "（1）不得传输或发表：煽动抗拒、破坏宪法和法律、行政法规实施的言论，煽动颠覆国家政权，推翻社会主义制度的言论，煽动分裂国家、破坏国家统一的的言论，煽动民族仇恨、民族歧视、破坏民族团结的言论；\n\n"
+                "（2）从中国大陆向境外传输资料信息时必须符合中国有关法规；\n\n"
+                "（3）不得利用商城从事洗钱、窃取商业秘密、窃取个人信息等违法犯罪活动；\n\n"
+                "（4）不得干扰商城的正常运转，不得侵入商城及国家计算机信息系统；\n\n"
+                "（5）不得传输或发表任何违法犯罪的、骚扰性的、中伤他人的、辱骂性的、恐吓性的、伤害性的、庸俗的，淫秽的、不文明的等信息资料；\n\n"
+                "（6）不得传输或发表损害国家社会公共利益和涉及国家安全的信息资料或言论；\n\n"
+                "（7）不得教唆他人从事本条所禁止的行为；\n\n"
+                "（8）不得利用在商城注册的账户进行牟利性经营活动；\n\n"
+                "（9）不得发布任何侵犯他人著作权、商标权等知识产权或合法权利的内容；\n\n"
+                "用户应不时关注并遵守商城不时公布或修改的各类合法规则规定。商城保有删除站内各类不符合法律政策或不真实的信息内容而无须通知用户的权利。若用户未遵守以上规定的，商城有权作出独立判断并采取暂停或关闭用户帐号等措施。用户须对自己在网上的言论和行为承担法律责任。" + "\n\n"
+                "第5条 商品信息\n\n"
+                "商城上的商品价格、数量、是否有货等商品信息随时都有可能发生变动，商城不作特别通知。由于网站上商品信息的数量极其庞大，虽然商城会尽最大努力保证您所浏览商品信息的准确性，但由于众所周知的互联网技术因素等客观原因存在，商城网页显示的信息可能会有一定的滞后性或差错，对此情形您知悉并理解；每家美物欢迎纠错，并会视情况给予纠错者一定的奖励。\n\n"
+                "为表述便利，商品和服务简称为\"商品\"或\"货物\"。\n\n"
+                "第6条 订单\n\n"
+                "6.1 在您下订单时，请您仔细确认所购商品的名称、价格、数量、型号、规格、尺寸、联系地址、电话、收货人等信息。收货人与用户本人不一致的，收货人的行为和意思表示视为用户的行为和意思表示，用户应对收货人的行为及意思表示的法律后果承担连带责任。\n"
+                "6.2 除法律另有强制性规定外，双方约定如下：商城上销售方展示的商品和价格等信息仅仅是交易信息的发布，您下单时须填写您希望购买的商品数量、价款及支付方式、收货人、联系方式、收货地址等内容；系统生成的订单信息是计算机信息系统根据您填写的内容自动生成的数据，仅是您向销售方发出的交易诉求；销售方收到您的订单信息后，只有在销售方将您在订单中订购的商品从仓库实际直接向您发出时（ 以商品出库为标志），方视为您与销售方之间就实际直接向您发出的商品建立了交易关系；如果您在一份订单里订购了多种商品并且销售方只给您发出了部分商品时，您与销售方之间仅就实际直接向您发出的商品建立了交易关系；只有在销售方实际直接向您发出了订单中订购的其他商品时，您和销售方之间就订单中该其他已实际直接向您发出的商品才成立交易关系。您可以随时登录您在商城注册的账户，查询您的订单状态。\n\n"
+                "6.3 由于市场变化及各种以合理商业努力难以控制的因素的影响，商城无法保证您提交的订单信息中希望购买的商品都会有货；如您拟购买的商品，发生缺货，您有权取消订单。\n\n"
+                "第7条 配送\n\n"
+                "7.1 销售方将会把商品（货物）送到您所指定的收货地址，所有在商城上列出的送货时间为参考时间，参考时间的计算是根据库存状况、正常的处理过程和送货时间、送货地点的基础上估计得出的。\n"
+                "7.2 因如下情况造成订单延迟或无法配送等，销售方不承担延迟配送的责任：\n\n"
+                "（1）用户提供的信息错误、地址不详细等原因导致的；\n\n"
+                "（2）货物送达后无人签收，导致无法配送或延迟配送的；\n\n"
+                "（3）情势变更因素导致的；\n\n"
+                "（4）不可抗力因素导致的，例如：自然灾害、交通戒严、突发战争等。\n\n"
+                "第8条 所有权及知识产权条款\n\n"
+                "8.1 用户一旦接受本协议，即表明该用户主动将其在任何时间段在商城发表的任何形式的信息内容（包括但不限于客户评价、客户咨询、各类话题文章等信息内容）的财产性权利等任何可转让的权利，如著作权财产权（包括并不限于：复制权、发行权、出租权、展览权、表演权、放映权、广播权、信息网络传播权、摄制权、改编权、翻译权、汇编权以及应当由著作权人享有的其他可转让权利），全部独家且不可撤销地转让给每家美物所有，用户同意每家美物有权就任何主体侵权而单独提起诉讼。\n"
+                "8.2 本协议已经构成《中华人民共和国著作权法》第二十五条（条文序号依照2011年版著作权法确定）及相关法律规定的著作财产权等权利转让书面协议，其效力及于用户在每家美物网站上发布的任何受著作权法保护的作品内容，无论该等内容形成于本协议订立前还是本协议订立后。\n"
+                "8.3 用户同意并已充分了解本协议的条款，承诺不将已发表于商城的信息，以任何形式发布或授权其它主体以任何方式使用（包括但不限于在各类网站、媒体上使用）。\n\n"
+                "8.4 每家美物是商城的制作者,拥有此网站内容及资源的著作权等合法权利,受国家法律保护,有权不时地对本协议及商城的内容进行修改，并在商城张贴，无须另行通知用户。在法律允许的最大限度范围内，每家美物对本协议及商城内容拥有解释权。\n\n"
+                "8.5 除法律另有强制性规定外，未经每家美物明确的特别书面许可,任何单位或个人不得以任何方式非法地全部或部分复制、转载、引用、链接、抓取或以其他方式使用商城的信息内容，否则，每家美物有权追究其法律责任。\n\n"
+                "8.6 商城所刊登的资料信息（诸如文字、图表、标识、按钮图标、图像、声音文件片段、数字下载、数据编辑和软件），均是每家美物或其内容提供者的财产，受中国和国际版权法的保护。商城上所有内容的汇编是每家美物的排他财产，受中国和国际版权法的保护。商城上所有软件都是每家美物或其关联公司或其软件供应商的财产，受中国和国际版权法的保护。\n\n"
+                "第9条 责任限制及不承诺担保\n\n"
+                "除非另有明确的书面说明,商城及其所包含的或以其它方式通过商城提供给您的全部信息、内容、材料、产品（包括软件）和服务，均是在\"按现状\"和\"按现有\"的基础上提供的。\n\n"
+                "除非另有明确的书面说明,每家美物不对商城的运营及其包含在本网站上的信息、内容、材料、产品（包括软件）或服务作任何形式的、明示或默示的声明或担保（根据中华人民共和国法律另有规定的以外）。\n\n"
+                "每家美物不担保商城所包含的或以其它方式通过商城提供给您的全部信息、内容、材料、产品（包括软件）和服务、其服务器或从商城发出的电子信件、信息没有病毒或其他有害成分。\n\n"
+                "如因不可抗力或其它商城无法控制的原因使商城销售系统崩溃或无法正常使用导致网上交易无法完成或丢失有关的信息、记录等，每家美物会合理地尽力协助处理善后事宜。\n\n"
+                "第10条 协议更新及用户关注义务\n\n"
+                "根据国家法律法规变化及网站运营需要，每家美物有权对本协议条款不时地进行修改，修改后的协议一旦被张贴在商城上即生效，并代替原来的协议。用户可随时登录查阅最新协议； 用户有义务不时关注并阅读最新版的协议及网站公告。如用户不同意更新后的协议，可以且应立即停止接受每家美物网站依据本协议提供的服务；如用户继续使用本网站提供的服务的，即视为同意更新后的协议。每家美物建议您在使用商城之前阅读本协议及商城的公告。 如果本协议中任何一条被视为废止、无效或因任何理由不可执行，该条应视为可分的且并不影响任何其余条款的有效性和可执行性。\n\n"
+                "第11条 法律管辖和适用\n\n"
+                "本协议的订立、执行和解释及争议的解决均应适用在中华人民共和国大陆地区适用之有效法律（但不包括其冲突法规则）。 如发生本协议与适用之法律相抵触时，则这些条款将完全按法律规定重新解释，而其它有效条款继续有效。 如缔约方就本协议内容或其执行发生任何争议，双方应尽力友好协商解决；协商不成时，任何一方均可向有管辖权的中华人民共和国大陆地区法院提起诉讼。\n\n"
+                "第12条 其他\n\n"
+                "12.1 每家美物网站所有者是指在政府部门依法许可或备案的每家美物网站经营主体。\n\n"
+                "12.2 每家美物尊重用户和消费者的合法权利，本协议及本网站上发布的各类规则、声明等其他内容，均是为了更好的、更加便利的为用户和消费者提供服务。商城欢迎用户和社会各界提出意见和建议，每家美物将虚心接受并适时修改本协议及商城上的各类规则。\n\n"
+                "12.3 本协议内容中以黑体、加粗、下划线、斜体等方式显著标识的条款，请用户着重阅读。\n\n"
+                "12.4 您点击本协议下方的\"同意并继续\"按钮即视为您完全接受本协议，在点击之前请您再次确认已知悉并完全理解本协议的全部内容。\n\n";</string>
+
+    <string name="one_time_top_up">一次性充值￥</string>
+    <string name="free_ice">元免费赠送冰箱</string>
+    <string name="free_ice_water">元免费赠送冰箱及水卡</string>
+    <string name="beijingtianjin">6900元</string>
+    <string name="othercity">6999元</string>
+
+    <string name="top_up">"天小美温馨提示：鉴于部分银行卡有支付金额限制，请使用以下支付方式的用户，更换付款方式，以便顺利参与充值送冰箱活动。\n"
+                    "1、微信支付，并绑定了宁波银行信用卡、中国农业银行信用卡、中国农业银行储蓄卡及中国邮政银行储蓄卡。\n"
+                    "2、支付宝支付，并绑定了中国邮政银行储蓄卡。\n"
+                    "如给您带来不便，还请谅解，谢谢！"</string>
+
+      <string name="top_up_change_icebox">"天小美温馨提示：鉴于部分银行卡有支付金额限制，请您充 \n"
+                    "值前先确保充值金额在银行限额之内，以便顺利充值。\n"</string>
+
+    <string name="mjz_top_up">美家钻充值</string>
+    <string name="disagree">您还没有同意预存协议</string>
+    <string name="mjz_top_up_money_input">请输入充值金额"</string>
+
+    <string name="pay_choose">请选择支付方式</string>
+    <string name="no_money_choose_help">余额不足，请选择第三方支付</string>
+    <string name="mjmw_shop">每家美物商品</string>
+
+    <string name="shop">商品</string>
+    <string name="shop_details">详情</string>
+    <string name="shop_evaluation">评价</string>
+    <string name="shop_to_evaluation">待评价</string>
+    <string name="shop_have_evaluation">已评价</string>
+    <string name="no_evaluation_shop">您还没有评价商品</string>
+
+
+    <string name="add_car">已加入购物车</string>
+
+    <string name="ice_voucher">仅限使用冰箱兑换券</string>
+    <string name="ice_voucher_use">仅限冰箱兑换券使用</string>
+
+    <string name="stock">备货中</string>
+    <string name="shelves">已下架</string>
+    <string name="gone">已抢光</string>
+    <string name="gone_">已被抢光</string>
+
+    <string name="order_no">您还没有相关订单</string>
+    <string name="think_about">考虑一下</string>
+    <string name="order_cannal">确认取消订单</string>
+    <string name="order_no_finish">未完成订单</string>
+    <string name="order_finish">已完成订单</string>
+    <string name="ordercaanal">已取消订单</string>
+    <string name="yes_no_goods">是否确认收货？</string>
+
+    <string name="pay">待付款</string>
+    <string name="send_goods">待发货</string>
+    <string name="goods">待收货</string>
+    <string name="comment">待评论</string>
+    <string name="comment_ok">已评论</string>
+
+
+    <string name="one">件/套 ×</string>
+    <string name="ones">件</string>
+    <string name="shops">件商品</string>
+    <string name="you">由 </string>
+    <string name="gong">共 </string>
+    <string name="distribution">进行配送</string>
+
+    <string name="mail">包邮 </string>
+    <string name="freight">运费：￥ </string>
+
+    <string name="shop_no_mjz">此商品不支持美家钻 </string>
+    <string name="shop_no_mjz1">商品不支持美家钻 </string>
+    <string name="one_yes">单件可用</string>
+    <string name="ch_mjz">美家钻</string>
+    <string name="ch_mjz_sy">美家钻(剩余</string>
+
+    <string name="shop_information_wrong">商品信息有误</string>
+    <string name="choose">该商品已设置为美家钻全额支付，若需更换支付方式，请先关闭美家钻支付设置开关</string>
+
+    <string name="zero">￥ 0.0</string>
+    <string name="money">￥ </string>
+    <string name="multiply"> X </string>
+
+    <!---->
+    <string name="money_">¥</string>
+    <string name="multiplys">×</string>
+
+    <string name="pay_money">支付</string>
+    <string name="Continue_pay_money">继续支付</string>
+    <string name="pay_money_success">支付成功</string>
+    <string name="congratulation">恭喜您</string>
+
+    <string name="pay_password">为了您的账户安全，您可前往“我的-账户安全”设置支付密码</string>
+    <string name="set_password">设置密码</string>
+
+    <string name="input_goods_address">请输入收货地址</string>
+
+    <string name="name">姓名：</string>
+    <string name="phone">电话：</string>
+    <string name="address">地址：</string>
+    <string name="order_num">订单号: </string>
+    <string name="order_time">下单时间： </string>
+    <string name="use">使用</string>
+
+    <string name="mjmw_bz">"Q：在每家美物商城购物是免运费吗？\n"
+                "A：1、每家美物“满198”包邮活动。在单一厂商店铺消费满198元即减免邮费。\n"
+                "   2、如商品详情页公示明确提示，该商品不参加“满198包邮”活动，需要您按运费标准支付运费。\n"
+                "   3、用户购买的商品，以商品详情页公示的运费标准收取。\n"
+                "\n"
+                "备注：每家美物商城平台致力于为消费者优选商品，提供源头直采的货物，保障消费者可以放心、安心的使用我们为您选择的商品。每一家供应商或合作厂商都会经过我们严格审核。"</string>
+
+    <string name="wait_pay">等待付款</string>
+    <string name="need_pay">需付款</string>
+    <string name="cannal_order">取消订单</string>
+    <string name="wait_send">等待发货</string>
+    <string name="wait_goods">等待收货</string>
+    <string name="look">查看物流</string>
+    <string name="zhen_pay">实付款</string>
+    <string name="true_goods">确认收货</string>
+    <string name="wait_evaluation">等待评价</string>
+
+    <string name="again_buy">再次购买</string>
+    <string name="cannal">已取消</string>
+    <string name="finish">已完成</string>
+    <string name="total_price">总价</string>
+
+    <string name="goods_receive">货到收取</string>
+    <string name="sy_pay_time">剩余支付时间：</string>
+    <string name="order_have_cannal">订单已取消</string>
+
+    <string name="no_pay_need_pay">(未付)需付款:</string>
+    <string name="bind_ice_zing">请将冰箱二维码放入框内进行绑定</string>
+    <string name="bind_ice">绑定智能冰箱</string>
+
+
+    <string name="use_mjz">可用美家钻</string>
+    <string name="Customer_service">客服将为您提供服务</string>
+    <string name="store">店铺:</string>
+    <string name="send">配送:由</string>
+
+    <string name="all_evaluation">全部评价</string>
+    <string name="good_evaluation">好评</string>
+    <string name="moddle_evaluation">中评</string>
+    <string name="bad_evaluation">差评</string>
+    <string name="picture">晒图</string>
+    <string name="no_evaluation">还没有评价</string>
+
+    <string name="no_content">您尚未发布此评论</string>
+    <string name="edit_save">是否对已编辑内容进行保存</string>
+    <string name="no_save">不保存</string>
+    <string name="save">保存</string>
+
+    <string name="please_evaluation">请进行评价</string>
+    <string name="evaluation_content">请填写评价内容</string>
+    <string name="evaluation_success">评价成功</string>
+
+    <string name="will">将由</string>
+    <string name="offer_service">提供服务</string>
+
+    <string name="buy_date">购买日期 </string>
+    <string name="all_order">全部订单 </string>
+
+    <string name="suit_sell">包整箱销售 </string>
+
+    <string name="ice_play">正在使用移动网络，是否要播放视频？ </string>
+
+    <string name="suit">去套装 </string>
+
+    <string name="every_limit">每人限购 </string>
+
+    <string name="once_top_up_change">立即充值兑换 </string>
+    <string name="top_up_change">充值兑换 </string>
+
+    <string name="good_probability">好评率( </string>
+    <string name="info_message">物流消息 </string>
+    <string name="no_info_message">您暂时没有新消息 </string>
+    <string name="delete_message">确认删除此消息？ </string>
+    <string name="activity">促销活动 </string>
+    <string name="no_message">没有消息 </string>
+
+    <string name="re_password">密码修改 </string>
+    <string name="re_password_success">密码修改成功 </string>
+    <string name="re_password_success_num">密码不能小于6位 </string>
+    <string name="input_password_diff">两次输入密码不相同 </string>
+
+    <string name="register_thlh_agree">注册需同意天会联合平台协议 </string>
+    <string name="name_no">账户不能为空 </string>
+    <string name="input_no">输入账户格式不正确 </string>
+    <string name="code">验证码不能为空 </string>
+    <string name="password_null">密码不能为空 </string>
+    <string name="next">下一步 </string>
+    <string name="trues">确认 </string>
+    <string name="re_send_code">重新发送验证码 </string>
+    <string name="second_send">秒后 重新发送 </string>
+    <string name="back">返回</string>
+
+    <string name="mj_wallet_topup">每家钱包余额充值</string>
+
+    <string name="order_pay_fail">订单支付失败</string>
+    <string name="cannal_zfb_pay">取消支付宝支付</string>
+    <string name="net_wrong">网络连接出错</string>
+    <string name="order_pay_wrong">订单支付错误</string>
+    <string name="pay_fail">支付失败</string>
+    <string name="join_return_change">参加，返回修改</string>
+    <string name="topup_money_no">您充值的金额不足￥</string>
+    <string name="topup_money_no_join_conti">，将无法参加充值送冰箱活动，请问您是否继续？</string>
+    <string name="no_join_next">不参加，下一步</string>
+    <string name="no_bind_shop">您还未绑定小店，请先前往附近小店进行绑定</string>
+    <string name="gps_near_shop">导航至附近小店</string>
+
+    <string name="topup_success">充值成功</string>
+    <string name="ice_one">恭喜您获得冰箱兑换券一张</string>
+    <string name="once_exchange">立即兑换</string>
+
+    <string name="order_commit_wait_pay">订单已提交，等待付款</string>
+    <string name="pay_success_wait_goods">付款成功，等待发货</string>
+
+    <string name="none_record">沒有交易记录</string>
+    <string name="balance_top_up">余额充值</string>
+    <string name="balance_consumer">余额消费</string>
+    <string name="mjz_Obtain">美家钻获取</string>
+    <string name="mjz_consumer">美家钻消费</string>
+    <string name="all_transaction">全部交易</string>
+    <string name="plus">+</string>
+    <string name="alls">全部</string>
+    <string name="in">存入</string>
+    <string name="out">支出</string>
+
+    <string name="reset_password">重置密码</string>
+    <string name="set_pay_password">设置支付密码</string>
+    <string name="reset_password_lengh">密码长度6-20位字符组成，包含数字、字母。区分大小写，不含有特殊符号。</string>
+    <string name="password_num">密码由6位数字组成</string>
+    <string name="reset_pay_password">重置支付密码</string>
+    <string name="password_set_success">密码设置成功</string>
+    <string name="set_new_password">设置新密码</string>
+    <string name="bind_phone">绑定手机</string>
+    <string name="bind_phone_success">绑定成功</string>
+    <string name="welcome_join_mjmw">欢迎加入每家美物平台</string>
+    <string name="welcome_join_mjmw_choose_shop">，您可以在此获得每家美物平台为您精心挑选的优质商品。</string>
+
+    <!--个人信息-->
+    <string name="Modify_nickname_success">修改昵称成功</string>
+    <string name="Modify">修改</string>
+    <string name="nickname_finish">完成</string>
+    <string name="input_nickname">请输入昵称</string>
+
+    <!--我的收藏-->
+    <string name="no_collect_shop">您还没有收藏任何商品</string>
+    <string name="collect_goLook">去逛逛</string>
+    <string name="ture_collect_shop">确认取消收藏此商品？</string>
+    <string name="collect_ture">确认</string>
+    <string name="collect_cannal">取消</string>
+    <!--我的优惠券-->
+
+    <string name="my_coupon">我的优惠券</string>
+    <string name="my_coupon_exchange_card">兑换卡</string>
+
+    <string name="coupon_no_use">未使用</string>
+    <string name="coupon_About_expired">即将过期</string>
+    <string name="coupon_used">已使用</string>
+    <string name="coupon_Valid_until">有效期至：</string>
+
+    <string name="no_used_coupon">没有使用优惠券</string>
+    <string name="About_expired_coupon">无将过期优惠券</string>
+    <string name="no_use_coupon">无可用过优惠券</string>
+    <!--历史足迹-->
+    <string name="foot_once_look">赶紧逛起来吧</string>
+    <string name="foot_goLook">去逛逛</string>
+    <string name="foot_true_delete_shop_record">确认删除此商品记录吗？</string>
+    <string name="foot_true">确认</string>
+
+    <!--我的地址-->
+    <string name="address_add_new">增加新收货地址</string>
+    <string name="address_person_none">收货人不能为空</string>
+    <string name="address_pro_shi">请选择省市区地址</string>
+    <string name="address_phone_none">联系电话不能为空</string>
+    <string name="address_phone_no_true">联系电话格式不正确</string>
+    <string name="address_please_choose">请选择地址</string>
+
+    <string name="address_no_goods_">您还没有收货地址</string>
+    <string name="address_add">添加地址</string>
+    <string name="address_delete">是否确认删除</string>
+    <string name="address_cannal">取消</string>
+    <string name="address_delete_success">成功删除地址</string>
+    <string name="address_new_add">添加新地址</string>
+
+    <!--我的帮助-->
+
+    <string name="help_title_one">每家美物•美的冰箱的售后服务如何？</string>
+    <string name="help_title_one_content">该冰箱是天汇联合、TCL智能家居与美的联合研发、由美的生产的。售后服务依照国家标准，享受美的品牌售后服务保障。按照国家三包条例，自购买之日起，整机免费包修一年，主要零部件免费包修三年。主要零部件包括：压缩机、主控板、显控板、温控器、蒸发器、冷凝器、电磁阀、过滤器、毛细管、风扇电机。</string>
+    <string name="help_title_two">参与“充值送冰箱活动”，免费送的冰箱能开具发票吗？</string>
+    <string name="help_title_two_content">每家美物•美的智能冰箱是商城充值赠送给您的，不是商品购买，因此不能开具发票。此冰箱无需凭借发票享受美的质保和售后服务，请您放心。</string>
+    <string name="help_title_three">冰箱物流费用如何结算</string>
+    <string name="help_title_three_content">物流费用取决于您的实际收货地址，因此请您在填写订单信息时，准确、完整填写您的收货信息，我们会根据您的收货地址提供预估物流费用，您在收货时根据实际发生物流费用直接支付给送货人员即可。</string>
+    <string name="help_title_four">物流到货后需要自己搬运吗？</string>
+    <string name="help_title_four_content">物流公司提供送货入户服务，楼层为1层的用户不收取入户费用。楼梯住户需提供入户服务时，入户搬运费用=楼层*100元/层。电梯2层以上用户统一收取100元入户搬运费用（以上计费标准为最高计费标准，不同区域会有差异，请以物流人员实际结算报价为准）。</string>
+    <string name="help_title_five">冰箱到货后发现损坏如何处理？</string>
+    <string name="help_title_five_content">请您在冰箱到货后先检查冰箱外包装，确认外包装完好后再进行签收。若外包装破损，请您拍照留存外包装破损情况，并拒绝签收，我们的客服人员会与您联系核实，并重新为您配送新的冰箱。若外包装完好，签收后发现冰箱有损坏，您可以拨打美的售后服务热线400-889-9315，会有专人为您解决问题。</string>
+    <string name="help_title_six">冰箱到货后可以直接使用吗？</string>
+    <string name="help_title_six_content">冰箱运送途中因颠簸，可能会使冰箱内制冷液不稳定。请您在冰箱到货后，先将冰箱静置4小时后再通电使用。</string>
+
+
+    <!--我的设置-->
+    <string name="setting_user">已成为扫码用户</string>
+    <string name="setting_bing_shop">已绑定小店</string>
+    <string name="setting_user_bing_shop">已成为扫码用户,已绑定小店</string>
+    <string name="setting_updata_">已经是最新版本</string>
+
+    <!--我的账户-->
+    <string name="user_bind_phone">绑定手机</string>
+    <string name="user_change_bind_phone">修改绑定手机</string>
+    <string name="user_once_set">立即设置</string>
+    <string name="user_change_password">修改密码</string>
+    <string name="picture_no_ture">图片数据有误</string>
+
+    <!--个人信息-->
+    <string name="person_bind_phone">绑定手机号</string>
+    <string name="person_no_bind_phone">您还没有绑定手机号</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="already_send_yzm">已经发送验证码</string>
+    <string name="please_input_yzm">请输入验证码</string>
+
+    <string name="success_bind_phone">已成功绑定手机</string>
+    <string name="input_phone_no_ture">输入手机格式不正确</string>
+    <string name="call_phone">拨打电话</string>
+    <string name="safe_">安全验证</string>
+
+    <!---->
+    <string name="ice_exchage">冰箱兑换券</string>
+    <string name="agains_next_out_app">再按一次退出程序</string>
+    <string name="binding_ice">绑定冰箱</string>
+    <string name="binding_ice_success">冰箱成功绑定</string>
+
+    <string name="no_loading">您还没有登录</string>
+    <string name="loading">登录</string>
+
+    <string name="App_dw_qx">App请求访问定位权限</string>
+    <string name="App_xji_qx">App请求访问相机权限</string>
+
+    <string name="please_choose_goods_adress">请选择收货地址</string>
+    <string name="choose_person_address">冰箱不能使用小店地址,请选择个人地址</string>
+    <string name="dh_success">兑换成功</string>
+    <string name="dh_fail">兑换失败</string>
+    <string name="coupon_dh">优惠券兑换</string>
+    <string name="yunfei">"运费说明：\n"
+    "为保障商品安全配送，您的冰箱由物流公司为您配送。根据您填写的配送地址，预计配送费用为￥430元（如需搬运上楼，需另支付搬运费用￥50元）。冰箱到货后，会由物流公司向您收取配送费用，实际配送费用以物流公司收费金额为准。\n"
+    "\n"
+    "注：\n"
+    "如收货方不能及时收货，免费为收货方留仓2天，\n"
+    "超过两天收费标准为25元／天／件。\n"
+    </string>
+    <string name="shop_mjz_pay">该商品已设置为美家钻全额支付，若需更换支付方式，请先关闭美家钻支付设置开关</string>
+
+    <string name="me_know">我知道了</string>
+    <string name="pay_choose_way">运费不支持美家钻支付，请再选择一种支付方式</string>
+    <string name="another_pays_way">美家钻不足，请选择另一种支付方式</string>
+    <string name="mjz_no_pay_another_pays_way">不支持美家钻支付，请选择另一种支付方式</string>
+
+    <string name="need_pays">还需支付</string>
+    <string name="qian">元，请到订单中支付</string>
+    <string name="pays_password">支付密码</string>
+
+    <string name="mjmw_price">美家价 ￥</string>
+    <string name="sheng">立省 ￥</string>
+    <string name="group_price">组合价格 ￥</string>
+
+    <!--套装-->
+
+    <string name="youhui_suit">优惠套装数据有误</string>
+    <string name="suit_">优惠套装</string>
+
+    <string name="shoping_look">此商品正在采购中，请您随时关注。</string>
+
+
+    <!---->
+    <string name="wechat_pay_fail">微信支付失败</string>
+    <string name="zfb_pay_fail">支付宝支付失败</string>
+    <string name="choose_pay_goods">请选中要结算的商品</string>
+    <string name="hava_shelves_shop">有已下架商品</string>
+    <string name="shop_no_cun">商品无库存</string>
+    <!---->
+    <string name="ice_lock_please_unlock">冰箱锁定状态，请解除锁定</string>
+    <string name="cool_room_close_no_">冷藏室关闭，无法设置速冷</string>
+    <string name="cool_room_no_close">冷冻室无法关闭</string>
+
+    <string name="cool_cang">冷藏调节范围 2 ～ 8℃</string>
+    <string name="cool_dong">冷冻调节范围 -24 ～ -16℃</string>
+    <!---->
+    <string name="sorry">抱歉</string>
+    <string name="regist_fail">注册失败</string>
+    <string name="second_re_send_code">秒后重新发送验证码</string>
+
+    <string name="smart_ice">智能冰箱</string>
+
+    <string name="all_shops">已加载全部商品</string>
+    <string name="going">正在加载</string>
+    <string name="sorry_no_find">抱歉，没有找到与\"</string>
+    <string name="about_shop_try">\"相关的商品， 您可以换个词试试</string>
+
+
+    <string name="ice_free_song">万元冰箱免费送</string>
+    <string name="sorry_no_find_result">抱歉，未找到结果</string>
+
+    <!---->
+    <string name="down_fresh">下拉可以刷新</string>
+    <string name="downing">正在加载中</string>
+    <string name="return_top">释放后返回顶部</string>
+    <string name="laoding_all_things">已加载全部数据</string>
+
+    <!---->
+    <string name="remarks">备注:</string>
+    <string name="order_remarks">选填，给商家留言（50字以内）</string>
+
+    <!---->
+
+    <string name="shaomiaoing">正在扫描...</string>
+
+    <string name="exchage_success">换购成功</string>
+    <string name="exchage_success_content">
+        "1、本次换购行为消耗4099美家钻，获得价值5000元水卡，剩余3900美家钻可在商城消费。"
+        "\n2、水卡发放及后续使用问题归水卡所属公司负责，如有疑问请与属地水卡公司联系。"
+        "\n3、冰箱兑换券已发放在\"我的—优惠券\"中。"
+    </string>
+
+
+    <string name="look_exchange_record"> 查看换购记录</string>
+
+    <string name="con_exchange_ice">  继续兑换冰箱</string>
+
+    <string name="water_exchang"> 水卡换购券</string>
+
+    <string name="mjz_exchange_watercard">4099美家钻换购价值5000元水卡</string>
+
+
+    <!---->
+    <string name="mjz_pay">美家钻支付</string>
+    <string name="zfb_pay">支付宝支付</string>
+
+    <!--物流-->
+    <string name="coupon_message">优惠券信息</string>
+
+    <!---->
+    <string name="return_home">返回首页</string>
+    <string name="setting_fail">操作失败</string>
+    <string name="resetting_call_phone">请重复操作或联系客服</string>
+    <string name="goods_arrive_info">到货后物流公司收取</string>
+
+    <!---->
+    <string name="yunfei_money">运费:</string>
+
+    <!--模板界面-->
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="mjz">💎</string>
+
+    <string name="bjtj">
+1、本协议内容包括协议正文及所有每家美物已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，任何每家美物及其关联公司提供的服务均受本协议约束。\n
+2、请您在使用每家美物服务之前务必认真阅读全部协议内容，如您对协议有任何疑问，可向每家美物咨询。一旦您使用每家美物服务，则默认您已阅读并同意本协议内容，且接受本协议对您的约束。届时您不应以未阅读本协议的内容或者未获得每家美物对您问询问题的解答等为理由，主张本协议无效，或要求撤销本协议。\n
+3、您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止充值活动或停止使用每家美物服务。\n
+4、一次性在每家美物商城充值6900元人民币，充值金额将等值兑换为商城专用货币美家钻，即6900元人民币=6900美家钻。同时您可免费获赠每家美物•美的智能双开门冰箱一台（指定机型BCD-533TH1）。\n
+5、一个帐号只能参与一次充值兑换冰箱活动。\n
+6、充值金额不再参加折扣、成长值及其它商城优惠。\n
+7、您在每家美物商城充值的美家钻，仅限用于每家美物商城商品选购。充值金额不可退、不可取出且不可转让赠予。\n
+8、每家美物有权根据需要不时地制订、修改本协议及/或各类规则，并以网站公示的方式进行公告，不再单独通知您。变更后的协议和规则一经在网站公布后，立即自动生效。如您不同意相关变更，应当立即停止使用每家美物服务。您继续使用每家美物服务的，即默认您接受经修订的协议和规则。\n
+</string>
+    <string name="sz">
+1、本协议内容包括协议正文及所有每家美物已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，任何每家美物及其关联公司提供的服务均受本协议约束。\n
+2、请您在使用每家美物服务之前务必认真阅读全部协议内容，如您对协议有任何疑问，可向每家美物咨询。一旦您使用每家美物服务，则默认您已阅读并同意本协议内容，且接受本协议对您的约束。届时您不应以未阅读本协议的内容或者未获得每家美物对您问询问题的解答等为理由，主张本协议无效，或要求撤销本协议。\n
+3、您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止充值活动或停止使用每家美物服务。\n
+4、一次性在每家美物商城充值6999元人民币，充值金额将等值兑换为商城专用货币美家钻，即6999元人民币=6999美家钻。同时您可免费获赠每家美物•美的智能双开门冰箱一台（指定机型BCD-533TH1）。\n
+5、一个帐号只能参与一次充值兑换冰箱活动。 \n
+6、充值金额不再参加折扣、成长值及其它商城优惠。\n
+7、您在每家美物商城充值的美家钻，仅限用于每家美物商城商品选购。充值金额不可退、不可取出且不可转让赠予。\n
+8、每家美物有权根据需要不时地制订、修改本协议及/或各类规则，并以网站公示的方式进行公告，不再单独通知您。变更后的协议和规则一经在网站公布后，立即自动生效。如您不同意相关变更，应当立即停止使用每家美物服务。您继续使用每家美物服务的，即默认您接受经修订的协议和规则。\n
+
+    </string>
+
+    <string name="hadrecharge">
+1、本协议内容包括协议正文及所有每家美物已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，任何每家美物及其关联公司提供的服务均受本协议约束。\n
+2、请您在使用每家美物服务之前务必认真阅读全部协议内容，如您对协议有任何疑问，可向每家美物咨询。一旦您使用每家美物服务，则默认您已阅读并同意本协议内容，且接受本协议对您的约束。届时您不应以未阅读本协议的内容或者未获得每家美物对您问询问题的解答等为理由，主张本协议无效，或要求撤销本协议。\n
+3、您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止充值活动或停止使用每家美物服务。\n
+4、您在每家美物商城充值的美家钻，仅限用于每家美物商城商品选购。\n
+5、充值金额不可退、不可取出且不可转让赠予。\n
+6、每家美物有权根据需要不时地制订、修改本协议及/或各类规则，并以网站公示的方式进行公告，不再单独通知您。变更后的协议和规则一经在网站公布后，立即自动生效。如您不同意相关变更，应当立即停止使用每家美物服务。您继续使用每家美物服务的，即默认您接受经修订的协议和规则。\n
+</string>
+
+    <string name="updatatitle">更新提示</string>
+    <string name="updating">正在更新</string>
+    <string name="updata">立即更新</string>
+
+    <string name="mjbzq">美家钻  专区</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

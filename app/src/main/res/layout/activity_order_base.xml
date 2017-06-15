@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/order_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        app:layout_scrollFlags="scroll"
+        custom:title="全部订单"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:background="@drawable/shap_radius_half_top_white"/>
+        <com.thlh.viewlib.tablayout.CommonTabLayout
+            android:id="@+id/order_tabtop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y70"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10"
+            tl:tl_indicator_margin_top="@dimen/y10"
+            tl:tl_indicator_margin_bottom="@dimen/y10"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_corner_radius="@dimen/y30"
+            tl:tl_indicator_color="@color/wine_light"
+            tl:tl_textSelectColor="@color/white"
+            tl:tl_textUnselectColor="@color/text_nomal"
+            tl:tl_indicator_style="BLOCK"
+            tl:tl_iconGravity="RIGHT" />
+        <View
+            android:id="@+id/order_tab_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:background="@color/app_mainback"/>
+        <com.thlh.viewlib.tablayout.CommonTabLayout
+            android:id="@+id/order_tab_complete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y70"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10"
+            tl:tl_indicator_margin_top="@dimen/y10"
+            tl:tl_indicator_margin_bottom="@dimen/y10"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_color="@color/wine_light"
+            tl:tl_indicator_corner_radius="@dimen/y30"
+            tl:tl_divider_color="@color/white"
+            tl:tl_divider_width="1dp"
+            tl:tl_divider_padding="0dp"
+            tl:tl_textSelectColor="@color/white"
+            tl:tl_textUnselectColor="@color/text_nomal"
+            tl:tl_indicator_style="BLOCK"
+            tl:tl_iconGravity="RIGHT"
+            android:visibility="visible"/>
+
+        <com.thlh.viewlib.tablayout.CommonTabLayout
+            android:id="@+id/order_tab_uncomplete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y70"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/x100"
+            android:paddingRight="@dimen/x100"
+            tl:tl_indicator_margin_left="@dimen/x10"
+            tl:tl_indicator_margin_top="@dimen/y10"
+            tl:tl_indicator_margin_right="@dimen/x10"
+            tl:tl_indicator_margin_bottom="@dimen/y10"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_corner_radius="@dimen/y30"
+            tl:tl_indicator_color="@color/wine_light"
+            tl:tl_divider_color="@color/white"
+            tl:tl_divider_width="1dp"
+            tl:tl_divider_padding="0dp"
+            tl:tl_textSelectColor="@color/white"
+            tl:tl_textUnselectColor="@color/text_nomal"
+            tl:tl_indicator_style="BLOCK"
+            tl:tl_iconGravity="RIGHT"
+            android:visibility="gone"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:background="@drawable/shap_radius_half_bottom_white"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/order_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+
+        <com.thlh.jhmjmw.view.NoInfoView
+            android:id="@+id/order_noinfoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+    </FrameLayout>
+</LinearLayout>
+

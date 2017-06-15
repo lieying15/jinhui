@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--5.0系统控件默认颜色-->
+    <color name="colorPrimary">#e5004f</color>
+    <color name="colorPrimaryDark">#bf0244</color>
+    <color name="colorAccent">#dddcdc</color>
+
+    <!--主题颜色-->
+    <color name="app_mainback">#e7ecf0</color>
+    <color name="app_mainback_press">#c3c8cc</color>
+    <color name="app_mainback_light">#e6e8e9</color>
+    <!--<color name="app_theme">#fdd23d</color>-->
+    <!--<color name="app_theme_press">#cfab2e</color>-->
+    <color name="app_theme">#e5004f</color>
+
+    <color name="app_theme_press">#840101</color>
+    <color name="app_subtheme">#dddcdc</color>
+    <color name="app_subtheme_press">#bebdbd</color>
+
+    <color name="btn_press">#840101</color>
+
+    <color name="gray_shallow">#cdcdcd</color>
+    <color name="gray">#777777</color>
+    <color name="pink">#f08caa</color>
+    <color name="pink_shallow">#e76e7c</color>
+    <color name="red">#ff122d</color>
+    <!---->
+    <color name="btn">#a2000d</color>
+    <!---->
+    <color name="wine">#a2000d</color>
+    <!---->
+    <color name="wine_light">#e5004f</color>
+
+
+
+    <color name="black">#313131</color>
+    <color name="black_shallow">#252525</color>
+    <color name="dark">#000000</color>
+        <!-- 透明 半透明-->
+    <color name="transparent">#00000000</color>
+    <color name="translucent_black">#50000000</color>
+    <color name="translucent_white">#a0fdfbfb</color>
+    <color name="translucent_mainback">#a0eaeaea</color>
+    <color name="translucent_theme">#50e5004f</color>
+    <color name="translucent_winelight">#80e5004f</color>
+
+    <!--通用颜色-->
+    <color name="yellow">#f8be40</color>
+    <color name="yellowdark">#d4a337</color>
+    <color name="orange">#f27327</color>
+    <color name="orangedark">#ca5b19</color>
+    <color name="white">#ffffff</color>
+    <color name="lightbule">#ecf0f3</color>
+    <color name="blue_light">#d83f64fa</color>
+    <color name="blue">#4260d9</color>
+    <color name="blue_press">#182969</color>
+    <color name="green">#3da6a1</color>
+    <!--字体颜色-->
+    <color name="text_black">#252525</color>
+    <color name="text_title">#444444</color>
+    <color name="text_tips">#8f8f8f</color>
+    <color name="text_nomal">#444444</color>
+
+    <!-- 自定义滚动条颜色-->
+    <color name="scrollbar">#ffb6b6b6</color>
+
+</resources>

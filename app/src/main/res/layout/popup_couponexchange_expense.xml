@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_couponexchange_expense_topll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_item_height"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical">
+            <ImageView
+                android:id="@+id/pop_couponexchange_expense_backiv"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/icon_back"/>
+            <TextView
+                android:id="@+id/pop_expense_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginRight="@dimen/icon_size"
+                android:textSize="@dimen/text_size_small_x"
+                android:textColor="@color/text_nomal"
+                android:text="运费说明"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/app_mainback"/>
+        <TextView
+            android:id="@+id/pop_couponexchange_expense_hint_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small_xx"
+            android:textColor="@color/text_nomal"
+            android:paddingTop="20dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:layout_marginBottom="20dp"/>
+</LinearLayout>

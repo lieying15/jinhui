@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/order_base_cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_mainback"
+    android:orientation="vertical">
+    <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+        android:id="@+id/order_base_ptpr_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"/>
+    <com.thlh.jhmjmw.view.NoInfoView
+        android:id="@+id/order_noinfoview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+</FrameLayout>

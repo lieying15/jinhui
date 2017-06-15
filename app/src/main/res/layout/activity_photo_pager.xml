@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
+    <LinearLayout
+        android:id="@+id/photopager_header"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="@dimen/y90"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        app:layout_scrollFlags="scroll">
+        <FrameLayout
+            android:id="@+id/header_nomal_left_fl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/header_nomal_left_iv"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_arrow_left_gray"/>
+        </FrameLayout>
+        <TextView
+            android:id="@+id/photopager_photonum_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingRight="50dp"
+            android:textColor="@color/wine_light"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_small"
+            android:text="0 / 0"/>
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/photopager_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/photopager_header"/>
+</RelativeLayout>

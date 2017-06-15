@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/homepage_btab_height"
+    android:orientation="horizontal">
+    <!--首页-->
+    <LinearLayout
+        android:id="@+id/homepage_btab_hp_ll"
+        style="@style/homepage_btab_layout_v3">
+        <ImageView
+            android:id="@+id/homepage_btab_hp_iv"
+            style="@style/homepage_btab_image_v3"
+            android:background="@drawable/icon_home_gray"/>
+        <TextView
+            android:id="@+id/homepage_btab_hp_tv"
+            style="@style/homepage_btab_text_v3"
+            android:text="首页"/>
+    </LinearLayout>
+
+    <!--分类 后改为精选-->
+    <LinearLayout
+        android:id="@+id/homepage_btab_choice_ll"
+        style="@style/homepage_btab_layout_v3">
+        <ImageView
+            android:id="@+id/homepage_btab_choice_iv"
+            style="@style/homepage_btab_image_v3"
+            android:background="@drawable/icon_choice_gray"/>
+        <TextView
+            android:id="@+id/homepage_btab_choice_tv"
+            style="@style/homepage_btab_text_v3"
+            android:text="商城精选"/>
+    </LinearLayout>
+
+    <!--小店-->
+    <LinearLayout
+        android:id="@+id/homepage_btab_shop_ll"
+        style="@style/homepage_btab_layout_v3">
+        <ImageView
+            android:id="@+id/homepage_btab_shop_iv"
+            style="@style/homepage_btab_image_v3"
+            android:background="@drawable/icon_shop_gray"/>
+        <TextView
+            android:id="@+id/homepage_btab_shop_tv"
+            style="@style/homepage_btab_text_v3"
+            android:text="我的小店"/>
+    </LinearLayout>
+    <!--购物车-->
+    <RelativeLayout
+        android:id="@+id/homepage_btab_shopcart_ll"
+        style="@style/homepage_btab_layout_v3">
+        <ImageView
+            android:id="@+id/homepage_btab_shopcart_iv"
+            style="@style/homepage_btab_image_v3"
+            android:scaleType="fitXY"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/icon_shopcart_gray"/>
+
+        <TextView
+            android:id="@+id/homepage_btab_shopcart_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y19"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/text_tips"
+            android:gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:text="购物车"
+            android:paddingBottom="@dimen/maintab_text_margin_tobottom"/>
+
+        <com.thlh.viewlib.tablayout.MsgView
+            android:id="@+id/homepage_btab_shopcart_num_msg"
+            style="@style/text_shopcart"
+            android:layout_toRightOf="@+id/homepage_btab_shopcart_iv"
+            android:text="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="@dimen/homgpage_bottomview_shopcart_offsetx"
+            mv:mv_backgroundColor="@color/app_theme"
+            mv:mv_isRadiusHalfHeight="true"
+            mv:mv_strokeColor="#ffffff"
+            mv:mv_strokeWidth="0.5dp"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <!--我的-->
+    <LinearLayout
+        android:id="@+id/homepage_btab_mine_ll"
+        style="@style/homepage_btab_layout_v3">
+        <ImageView
+            android:id="@+id/homepage_btab_mine_iv"
+            style="@style/homepage_btab_image_v3"
+            android:background="@drawable/icon_mine_gray"/>
+        <TextView
+            android:id="@+id/homepage_btab_mine_tv"
+            style="@style/homepage_btab_text_v3"
+            android:text="我的"/>
+    </LinearLayout>
+
+</LinearLayout>

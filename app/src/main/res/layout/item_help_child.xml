@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/help_content_up_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_half_bottom_white"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@color/app_mainback"/>
+    <TextView
+        android:id="@+id/help_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/y40"
+        android:paddingLeft="@dimen/x100"
+        android:paddingRight="@dimen/x100"
+        android:paddingBottom="@dimen/y40"
+        android:singleLine="false"
+        android:text=""
+        android:textColor="@color/text_tips"
+        android:textSize="@dimen/y25" />
+
+</LinearLayout>

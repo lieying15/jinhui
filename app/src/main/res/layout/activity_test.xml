@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y40"
+        android:background="@color/gray">
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/y480"
+        android:layout_height="@dimen/x480"
+        android:layout_gravity="center"
+        android:background="@drawable/shap_ring_theme"/>
+</LinearLayout>

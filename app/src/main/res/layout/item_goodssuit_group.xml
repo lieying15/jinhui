@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/goodssuit_top_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/app_mainback"
+        android:paddingLeft="@dimen/normal_margin_side_x"
+        android:paddingRight="@dimen/normal_margin_side_x"
+        android:paddingBottom="@dimen/normal_margin_side"
+        android:paddingTop="@dimen/normal_margin_side"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/goodssuit_select_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginRight="@dimen/normal_margin_side"
+            android:src="@drawable/icon_check_black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx"/>
+        <TextView
+            android:id="@+id/goodssuit_title_name_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx"/>
+
+        <TextView
+            android:id="@+id/goodssuit_title_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/wine"
+            android:layout_marginLeft="15dp"
+            android:textSize="@dimen/text_size_small_xx"/>
+
+        <ImageView
+            android:id="@+id/goodssuit_title_arrow_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginRight="@dimen/normal_margin_side"
+            android:src="@drawable/icon_circle_down_arrow"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/goodssuit_item_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/comment_margin_sile"
+        android:paddingRight="@dimen/comment_margin_sile"
+        android:paddingBottom="8dp"
+        android:visibility="visible"/>
+
+    <LinearLayout
+        android:id="@+id/goodssuit_shopcart_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/normal_margin_side_x"
+            android:paddingRight="@dimen/normal_margin_side_x"
+            android:paddingBottom="@dimen/normal_margin_side"
+            android:paddingTop="@dimen/normal_margin_side"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/goodssuit_group_initprice_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="美家价 ￥200"
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/text_size_small_xx"/>
+            <TextView
+                android:id="@+id/goodssuit_group_discountprice_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="立省 ￥200"
+                android:textColor="@color/app_theme"
+                android:textSize="@dimen/text_size_small_xx"/>
+        </LinearLayout>
+        <View
+            style="@style/divide_line_horizontal_match_mianback"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/normal_margin_side_x"
+            android:paddingRight="@dimen/normal_margin_side_x"
+            android:paddingBottom="@dimen/normal_margin_side"
+            android:paddingTop="@dimen/normal_margin_side"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/goodssuit_group_finalprice_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="组合价格 ￥200"
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/text_size_small_xx"/>
+            <TextView
+                android:id="@+id/goodssuit_group_shopcart_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加入购物车"
+                android:textColor="@color/white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/selector_radius_theme"
+                android:textSize="@dimen/text_size_small_xx"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/app_mainback"/>
+</LinearLayout>

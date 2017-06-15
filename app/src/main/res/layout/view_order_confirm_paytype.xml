@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white"
+    android:paddingTop="@dimen/y10"
+    android:layout_marginTop="@dimen/y10">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="支付方式"
+        android:textSize="@dimen/y28"
+        android:paddingTop="@dimen/y5"
+        android:paddingBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"/>
+
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+
+    <LinearLayout
+        android:id="@+id/order_confirm_paytype_mjmwcurrency_ll"
+        style="@style/order_confirm_paytype_ll"
+        android:layout_marginTop="5dp">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_mjz"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="美家钻支付"
+            android:layout_marginLeft="10dp"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/text_nomal"/>
+        <ImageView
+        android:id="@+id/order_confirm_info_freight_iv"
+        android:layout_width="@dimen/icon_pxsize_x"
+        android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+        android:src="@drawable/icon_question"/>
+
+        <TextView
+            android:id="@+id/order_confirm_paytype_mjmwcurrency_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0.0"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/wine_light"/>
+        <ImageView
+            android:id="@+id/order_confirm_paytype_mjmwcurrency_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_right_arrow_gray"/>
+    </LinearLayout>
+
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+
+    <LinearLayout
+        android:id="@+id/order_confirm_paytype_weixin_ll"
+        style="@style/order_confirm_paytype_ll">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/i_wx"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_confirm_paytype_weixin"
+            android:textSize="@dimen/y28"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/text_nomal"/>
+        <ImageView
+            android:id="@+id/order_confirm_paytype_weixin_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/icon_check_wine"/>
+    </LinearLayout>
+
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+
+    <LinearLayout
+        android:id="@+id/order_confirm_paytype_zhifubao_ll"
+        style="@style/order_confirm_paytype_ll">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/i_pay"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="支付宝支付"
+            android:layout_weight="1"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/text_nomal"/>
+        <ImageView
+            android:id="@+id/order_confirm_paytype_zhifubao_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/icon_check_wine"/>
+    </LinearLayout>
+</LinearLayout>

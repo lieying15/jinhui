@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/paymjb_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="美家钻"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white">
+        <TextView
+            android:id="@+id/paymjb_usemjb_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:text=""
+            android:paddingLeft="@dimen/x20"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_x"/>
+        <View style="@style/divide_line_horizontal_match_mianback"/>
+
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/paymjb_canpay_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_above="@+id/shopcart_snack_fl"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/paymjb_uncanpay_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white">
+        <TextView
+            android:id="@+id/paymjb_uncanpay_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:text="不支持美家钻"
+            android:paddingLeft="@dimen/x20"
+            android:textColor="@color/text_nomal"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_small_x"/>
+
+        <View style="@style/divide_line_horizontal_match_mianback"/>
+
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/paymjb_uncanpay_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/shopcart_snack_fl"/>
+    </LinearLayout>
+
+</LinearLayout>

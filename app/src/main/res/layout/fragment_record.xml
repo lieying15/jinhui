@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coupon_cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom">
+
+    <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+        android:id="@+id/record_ptpr_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+<!--
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:id="@+id/quan"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="换购水卡"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-4099"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016.09.25"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+-->
+
+
+
+
+    <com.thlh.jhmjmw.view.NoInfoView
+        android:id="@+id/balance_noinfoview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+</android.support.design.widget.CoordinatorLayout>

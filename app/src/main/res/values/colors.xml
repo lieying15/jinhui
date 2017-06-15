@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Zxing  start -->
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <!--end  Zxing-->
+
+
+    <color name="homepage_btab_bg">#cff5f3f2</color>
+    <color name="mine_rip">#777777</color>
+
+
+</resources>

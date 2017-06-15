@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/myinfo_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/order_goods_iv"
+        android:paddingTop="@dimen/normal_margin_side_x"
+        android:paddingLeft="@dimen/myinfo_content_margin_side"
+        android:paddingRight="@dimen/myinfo_content_margin_side"
+        android:singleLine="false"
+        android:text="小台农芒果小台农芒果小台农芒果小台农芒果小台农芒果小台农芒果小台农芒果小台农芒果小台农芒果小台农芒果小台农芒果"
+        android:textColor="@color/text_tips"
+        android:textSize="@dimen/text_size_little" />
+
+    <LinearLayout
+        android:id="@+id/myinfo_content_up_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:padding="@dimen/normal_margin_side">
+        <ImageView
+            android:id="@+id/myinfo_title_arrow_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginRight="@dimen/normal_margin_top"
+            android:src="@drawable/icon_circle_up_arrow_black"/>
+        <TextView
+            android:id="@+id/order_goods_name_tv"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="收起"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_x" />
+    </LinearLayout>
+</LinearLayout>

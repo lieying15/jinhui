@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/x10"
+    android:paddingRight="@dimen/x10"
+    android:paddingTop="@dimen/y10">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y260"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/y10"
+        android:background="@drawable/shap_radius_white"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/trace_supplier_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_nomal"
+            android:text=""
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/text_size_small_xx" />
+        <View
+            style="@style/divide_line_horizontal_match_mianback" />
+
+        <RelativeLayout
+            android:id="@+id/trace_info_topll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x15"
+            android:paddingRight="@dimen/x15"
+            android:paddingTop="@dimen/y10"
+            android:paddingBottom="@dimen/y10">
+            <ImageView
+                android:layout_width="@dimen/x160"
+                android:layout_height="@dimen/y160"
+                android:background="@drawable/shap_radius_white_stroke_mainback_r20"/>
+
+            <ImageView
+                android:id="@+id/trace_image_iv"
+                android:layout_width="@dimen/x156"
+                android:layout_height="@dimen/y156"
+                android:layout_marginTop="@dimen/x2"
+                android:layout_marginLeft="@dimen/x2" />
+
+
+            <RelativeLayout
+                android:id="@+id/trace_info_ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/x190">
+                <!--快递公司-->
+                <!--android:layout_marginTop="@dimen/y30"-->
+                <TextView
+                    android:id="@+id/order_trace_company_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_tips"
+                    android:text="店铺："
+                    android:layout_marginTop="@dimen/y20"
+                    android:textSize="@dimen/y28"/>
+                <!--快递单号-->
+                <!--android:maxEms="13"-->
+                <TextView
+                    android:id="@+id/order_trace_no_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_tips"
+                    android:maxLines="1"
+                    android:text="配送:"
+                    android:layout_below="@+id/order_trace_company_name_tv"
+                    android:layout_marginTop="@dimen/y10"
+                    android:textSize="@dimen/y28"/>
+                <TextView
+                    android:id="@+id/order_trace_phone_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_tips"
+                    android:text="运费:"
+                    android:layout_below="@+id/order_trace_no_tv"
+                    android:layout_marginTop="@dimen/y10"
+                    android:textSize="@dimen/y28"/>
+                <TextView
+                    android:id="@+id/order_trace_expree_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/wine_light"
+                    android:text=""
+                    android:layout_below="@+id/order_trace_no_tv"
+                    android:layout_toRightOf="@+id/order_trace_phone_tv"
+                    android:layout_marginTop="@dimen/y10"
+                    android:textSize="@dimen/y28"/>
+                <TextView
+                    android:id="@+id/trace_goodsnum_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="共  件"
+                    android:textColor="@color/text_tips"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/order_trace_no_tv"
+                    android:textSize="@dimen/y28"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:background="@drawable/shap_radius_half_top_white"/>
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/order_trace_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:background="@drawable/shap_radius_half_bottom_white"/>
+    </LinearLayout>
+
+</LinearLayout>

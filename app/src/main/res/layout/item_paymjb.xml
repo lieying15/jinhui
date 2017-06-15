@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_contact_swipe_root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y180">
+    <ImageView
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/y160"
+        android:layout_marginTop="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:background="@drawable/shap_radius_white_stroke_mainback_r20"/>
+    <ImageView
+        android:id="@+id/paymjb_goods_iv"
+        android:layout_width="@dimen/x152"
+        android:layout_height="@dimen/y152"
+        android:layout_marginTop="@dimen/x14"
+        android:layout_marginLeft="@dimen/x14" />
+
+    <TextView
+        android:id="@+id/paymjb_goods_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/y30"
+        android:layout_toRightOf ="@+id/paymjb_goods_iv"
+        android:gravity="left"
+        android:maxLines="2"
+        android:text=""
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/y28" />
+
+
+
+    <TextView
+        android:id="@+id/paymjb_goods_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_toRightOf ="@+id/paymjb_goods_iv"
+        android:layout_below="@+id/paymjb_goods_name_tv"
+        android:text=""
+        android:gravity="left"
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:id="@+id/paymjb_goods_mjbprice_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/paymjb_goods_price_tv"
+        android:layout_below="@+id/paymjb_goods_price_tv"
+        android:layout_marginLeft="@dimen/x10"
+        android:text=""
+        android:background="@drawable/shap_radius_white_stroke_theme_r20"
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/y22"
+        android:paddingLeft="@dimen/x5"
+        android:paddingRight="@dimen/x5" />
+
+    <com.thlh.viewlib.togglebutton.ToggleButton
+        android:id="@+id/paymjb_goods_tbn"
+        android:layout_width="35dp"
+        android:layout_height="17dp"
+        android:layout_alignBottom="@+id/paymjb_goods_mjbprice_tv"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/x10"
+        toggle:isDefaultOn="false" />
+</RelativeLayout>

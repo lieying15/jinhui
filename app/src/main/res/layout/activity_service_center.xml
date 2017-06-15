@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/white">
+    <!--标题栏-->
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/service_center_header_name"/>
+
+    <com.thlh.viewlib.ripple.RippleRelativeLayout
+        android:id="@+id/service_center_rip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_item_height"
+        android:background="@color/blue">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_marginLeft="@dimen/normal_margin_side_x"
+                android:layout_marginRight="@dimen/normal_margin_side_x"
+                android:src="@drawable/icon_phone_white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small_x"
+                android:layout_marginRight="@dimen/normal_margin_side_x"
+                android:text="@string/service_center_content"/>
+            <TextView
+                android:id="@+id/service_center_phone_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small_x"
+                android:layout_marginLeft="@dimen/normal_margin_side_x"
+                android:text="400-8888-8888"/>
+        </LinearLayout>
+
+    </com.thlh.viewlib.ripple.RippleRelativeLayout>
+
+
+</LinearLayout>

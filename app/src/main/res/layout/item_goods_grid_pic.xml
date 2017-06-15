@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/goods_pic_ll"
+    android:layout_width="@dimen/x130"
+    android:layout_height="@dimen/y130">
+
+    <ImageView
+        android:id="@+id/goods_pic_iv"
+        android:layout_width="@dimen/x130"
+        android:layout_height="@dimen/y130"
+        android:scaleType="fitXY"/>
+
+
+</LinearLayout>

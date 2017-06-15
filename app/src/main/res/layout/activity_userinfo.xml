@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/userinfo_header_name"/>
+
+    <!--头像-->
+    <LinearLayout
+        android:id="@+id/userinfo_avatar_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="我的头像"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:textColor="@color/text_nomal"
+            android:id="@+id/textView5" />
+
+        <ImageView
+            android:id="@+id/userinfo_avatar_iv"
+            android:layout_width="@dimen/y125"
+            android:layout_height="@dimen/x125"
+            android:layout_weight="1"
+            android:src="@drawable/img_mine_avatar" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="修改"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="@color/text_tips" />
+    </LinearLayout>
+
+    <!--昵称-->
+    <LinearLayout
+        android:id="@+id/userinfo_nikename_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="昵称"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:textColor="@color/text_nomal"/>
+        <TextView
+            android:id="@+id/userinfo_name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wine_light"
+            android:textSize="@dimen/y28"
+            android:layout_weight="3"
+            android:maxLines="2"
+            android:maxLength="10"
+            android:gravity="center_horizontal"
+            android:text="用户名" />
+        <EditText
+            android:id="@+id/userinfo_editname_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y28"
+            android:layout_weight="3"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:gravity="center_horizontal"
+            android:hint="请输入昵称"
+            android:textColorHint="@color/text_tips"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/userinfo_changename_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="修改"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="@color/text_tips" />
+    </LinearLayout>
+
+    <!--手机绑定-->
+    <com.thlh.viewlib.ripple.RippleLinearLayout
+        android:id="@+id/userinfo_bindphone_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        ripple:ripColor="@color/gray_shallow"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机绑定"
+            android:textSize="@dimen/y28"
+            android:gravity="center_vertical" />
+        <TextView
+            android:id="@+id/userinfo_bindphone_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/y28"
+            android:textColor="@color/wine_light"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/x80"/>
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_arrow_right_gry" />
+    </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+</LinearLayout>

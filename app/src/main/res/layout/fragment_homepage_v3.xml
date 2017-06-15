@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.thlh.jhmjmw.view.HeaderIndex
+        android:id="@+id/homepage_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_scrollFlags="scroll|enterAlways" />
+
+    <com.thlh.jhmjmw.view.GestureSwipeRefreshLayout
+        android:id="@+id/homepage_swiperl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_mainback"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/homepage_cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/homepage_appbarlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_mainback"
+                android:elevation="0dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/toolbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/y230"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+                    <!--轮播图和八个图标-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.thlh.viewlib.convenientbanner.ConvenientBanner
+                            android:id="@+id/homepage_convenientBanner"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y370"
+                            android:descendantFocusability="beforeDescendants"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true" />
+
+                        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                            android:id="@+id/homepage_tabimg_rv"
+                            android:layout_width="@dimen/x750"
+                            android:layout_height="@dimen/y300"
+                            android:background="@color/white" />
+
+                        <include layout="@layout/layout_homepage_todaygoods" />
+
+                        <RadioGroup
+                            android:id="@+id/homepage_mjb_select_rg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:paddingLeft="@dimen/x10"
+                            android:paddingRight="@dimen/x10"
+                            android:paddingTop="@dimen/y10"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/homepage_mjb1_select_rb"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/x80"
+                                android:layout_weight="1"
+                                android:background="@drawable/homepage_ismjb_selecter"
+                                android:button="@null"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:text="美家钻专区"
+                                android:textColor="@color/white" />
+
+                            <RadioButton
+                                android:id="@+id/homepage_mjb2_select_rb"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/x80"
+                                android:layout_weight="1"
+                                android:background="@drawable/homepage_ismjb_selecter"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="美家钻 + 现金 专区"
+                                android:textColor="@color/gray" />
+                        </RadioGroup>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/app_theme"
+                            android:layout_marginLeft="@dimen/x10"
+                            android:layout_marginRight="@dimen/x10" />
+
+                    </LinearLayout>
+
+                    <!--隐藏的指示器-->
+                    <LinearLayout
+                        android:id="@+id/homepage_tabtext_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y230"
+                        android:orientation="vertical"
+                        android:background="@color/app_mainback"
+                        android:visibility="gone"
+                        app:layout_collapseMode="pin">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/x10"
+                            android:paddingRight="@dimen/x10"
+                            android:paddingTop="@dimen/y10"
+                            android:paddingBottom="@dimen/y10">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shap_radius_white">
+
+                                <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                                    android:id="@+id/homepage_tabtext_rv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/x5" />
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/homepage_mjb_rg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:paddingLeft="@dimen/x10"
+                            android:paddingRight="@dimen/x10"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/homepage_mjb1_rb"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/x80"
+                                android:layout_weight="1"
+                                android:background="@drawable/homepage_ismjb_selecter"
+                                android:button="@null"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:text="美家钻专区"
+                                android:textColor="@color/white" />
+
+                            <RadioButton
+                                android:id="@+id/homepage_mjb2_rb"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/x80"
+                                android:layout_weight="1"
+                                android:background="@drawable/homepage_ismjb_selecter"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="美家钻 + 现金 专区"
+                                android:textColor="@color/gray" />
+                        </RadioGroup>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/app_theme"
+                            android:layout_marginLeft="@dimen/x10"
+                            android:layout_marginRight="@dimen/x10" />
+                    </LinearLayout>
+
+                </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.AppBarLayout>
+
+            <!--今日特供和商品显示-->
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/homepage_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="1dp"
+                    android:orientation="vertical">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/homepage_viewpage_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/app_mainback"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/x10"
+                        android:paddingRight="@dimen/x10" />
+
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+            <!--悬浮按钮，回到顶部-->
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/searchresult_totop_fbtn"
+                android:layout_width="@dimen/x65"
+                android:layout_height="@dimen/y65"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="@dimen/y15"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@drawable/icon_goto_top_v2"
+                android:visibility="gone"
+                app:backgroundTint="#ffffff"
+                app:borderWidth="0dp"
+                app:fabSize="mini"
+                app:rippleColor="#ffffff" />
+        </android.support.design.widget.CoordinatorLayout>
+    </com.thlh.jhmjmw.view.GestureSwipeRefreshLayout>
+</LinearLayout>
+

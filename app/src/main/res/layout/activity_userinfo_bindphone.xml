@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/userbindphone_manage_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="绑定手机"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/userbindphone_manage_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y120"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="@drawable/shap_framentdialog_radius_white"
+            android:orientation="vertical">
+
+            <!--标题-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y80">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="@dimen/x60"
+                    android:layout_height="@dimen/y60"
+                    android:src="@drawable/img_dialog_key"/>
+                <ImageView
+                    android:layout_width="@dimen/x45"
+                    android:layout_height="@dimen/y45"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_dialog_cancel"
+                    android:layout_marginRight="@dimen/x30"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y2"
+                    android:background="@color/app_mainback"
+                    android:layout_marginTop="@dimen/y10"
+                    android:layout_marginBottom="@dimen/y10"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x50"
+                android:layout_marginRight="@dimen/x50"
+                android:layout_marginTop="@dimen/y30"
+                android:layout_marginBottom="@dimen/y30"
+                android:textSize="@dimen/y28"
+                android:textColor="@color/text_nomal"
+                android:text="您正在修改每家美物账户绑定的手机号码，请进行身份验证！" />
+
+            <com.thlh.viewlib.ripple.RippleLinearLayout
+                android:id="@+id/userbindphone_manage_cansms_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y100"
+                android:orientation="horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
+                android:background="@drawable/shap_stroke_grayshallow_r50"
+                android:layout_marginTop="@dimen/y20"
+                android:gravity="center_vertical"
+                ripple:ripColor="@color/gray_shallow">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="原手机号能接受验证码"
+                    android:textSize="@dimen/y28"
+                    android:textColor="@color/blue_light"
+                    android:gravity="center" />
+            </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+            <com.thlh.viewlib.ripple.RippleLinearLayout
+                android:id="@+id/userbindphone_manage_cantsms_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y100"
+                android:orientation="horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
+                android:background="@drawable/shap_stroke_grayshallow_r50"
+                android:layout_marginTop="@dimen/y20"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/y20"
+                ripple:ripColor="@color/gray_shallow">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="原手机号不能接受验证码"
+                    android:textSize="@dimen/y28"
+                    android:textColor="@color/wine_light"
+                    android:gravity="center" />
+            </com.thlh.viewlib.ripple.RippleLinearLayout>
+        </LinearLayout>
+
+        <com.thlh.jhmjmw.view.NoInfoView
+            android:id="@+id/bindmobile_noinfoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+
+</LinearLayout>

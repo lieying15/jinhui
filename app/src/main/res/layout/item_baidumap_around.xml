@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:ripple="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/item_baidumap_around_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/item_baidumap_around_iv"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_location_gray"
+            android:layout_marginLeft="@dimen/x20"/>
+
+        <TextView
+            android:id="@+id/item_baidumap_around_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item_baidumap_around_iv"
+            android:text="当前位置"
+            android:layout_centerVertical="true"
+            android:textColor="@color/wine_light"
+            android:layout_marginRight="10dp"
+            android:textSize="@dimen/text_size_small_xx"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/item_baidumap_around_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item_baidumap_around_title"
+            android:layout_toLeftOf="@+id/item_baidumap_around_select_iv"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/text_size_small_xx" />
+
+    <ImageView
+        android:id="@+id/item_baidumap_around_select_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:button="@null"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_centerVertical="true"
+        android:background="@drawable/selector_icon_cb_winelight"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/app_subtheme_press"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+<!--</com.thlh.viewlib.ripple.RippleLinearLayout>-->

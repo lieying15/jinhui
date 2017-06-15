@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="获取当前位置"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y500"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10">
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/store_baidumap_mapview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y500"
+            android:layout_above="@+id/locinfo"
+            android:background="@color/white"
+            android:clickable="true" />
+        <ImageView
+            android:layout_width="@dimen/icon_size_large"
+            android:layout_height="@dimen/icon_size_large"
+            android:src="@drawable/img_map_point"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/baidumap_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:background="@drawable/shap_radius_half_bottom_white"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:id="@+id/address_baidumap_bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:background="@drawable/shap_radius_theme"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y28"
+            android:text="确认"/>
+    </RelativeLayout>
+
+</LinearLayout>

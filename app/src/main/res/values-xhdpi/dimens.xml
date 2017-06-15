@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="homgpage_goods_margin_left">18dp</dimen>
+    <dimen name="login_btn_margin_side">80dp</dimen>
+    <dimen name="goodsdetail_popwindow_offsetx">40dp</dimen>
+    <dimen name="goodsdetail_bottom_text_margingright">6dp</dimen>
+    <dimen name="goods_select_popwindow_offsetx">3dp</dimen>
+    <dimen name="homgpage_goods_text_mright">12dp</dimen>
+    <dimen name="dialog_base_width">210dp</dimen>
+    <!--首页底部控件购物车字符X偏移-->
+    <dimen name="homgpage_bottomview_shopcart_offsetx">-5dp</dimen>
+</resources>

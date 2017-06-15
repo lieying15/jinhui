@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="titles">
+        <item>未使用</item>
+        <item>即将过期</item>
+        <item>已使用</item>
+    </array>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.thlh.viewlib.swipview.SwipeItemLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_contact_swipe_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:bga_sil_bottomMode="pullOut"
+    app:bga_sil_springDistance="20dp"
+    app:bga_sil_swipeDirection="left">
+
+    <LinearLayout
+        android:id="@+id/item_delete_ll"
+        android:layout_width="50dp"
+        android:layout_height="@dimen/y160"
+        android:background="@color/app_mainback"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/icon_delete_wine"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:orientation="vertical"
+        android:background="@drawable/shap_radius_white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+            <TextView
+                android:id="@+id/info_transport_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/y25" />
+            <TextView
+                android:id="@+id/info_transport_status_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/y25" />
+        </LinearLayout>
+
+        <View
+            style="@style/divide_line_horizontal_match_mianback" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+            <ImageView
+                android:id="@+id/info_transport_goods_iv"
+                android:layout_below="@+id/info_transport_time_tv"
+                android:layout_width="@dimen/order_goods_img_size"
+                android:layout_height="@dimen/order_goods_img_size"
+                android:layout_marginLeft="@dimen/info_margin_side"
+                android:background="@color/app_mainback"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/info_transport_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text=""
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/y25" />
+
+            <TextView
+                android:id="@+id/info_transport_orderno_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/text_size_small_xx" />
+
+            <TextView
+                android:id="@+id/info_transport_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/app_theme"
+                android:textSize="@dimen/text_size_small_xx" />
+        </LinearLayout>
+        </LinearLayout>
+
+</com.thlh.viewlib.swipview.SwipeItemLayout>

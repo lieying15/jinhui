@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/y10"
+       android:background="@drawable/shap_radius_half_top_white"/>
+    <TextView
+        android:id="@+id/order_detail_supliername_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y70"
+        android:paddingLeft="@dimen/x20"
+        android:text="供货商"
+        android:gravity="center_vertical"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/y28" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="@color/app_mainback"/>
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/order_detail_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@drawable/shap_radius_half_bottom_white"/>
+</LinearLayout>

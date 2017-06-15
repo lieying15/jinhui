@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thlh.jhmjmw">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <!-- 极光 -->
+    <permission
+        android:name="com.thlh.jhmjmw.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.thlh.mjmw.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- 极光 -->
+    <application
+        android:name="com.thlh.baselib.base.BaseApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.thlh.baselib.base.BaseGlideMoudle"
+            android:value="GlideModule" />
+        <!-- <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="3C5Wk6aBh1dFuRW6KL1jSxGL0ItpphjG" /> -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="nyOpdjTocE8udyWM6fk2Go48H6XZ6egf" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="${UMENG_APPKEY}" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${CHANNEL_NAME}" />
+        <!-- 引导页 -->
+        <activity
+            android:name="com.thlh.jhmjmw.business.entrance.GuideActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.thlh.jhmjmw.business.index.IndexActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.thlh.jhmjmw.business.index.shop.ShopActivity"
+            android:screenOrientation="portrait" />
+        <!-- android:launchMode="singleTask" -->
+        <activity
+            android:name="com.thlh.jhmjmw.business.entrance.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.entrance.regist.RegisterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.entrance.regist.RegisterPasswordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.pay.PayPasswordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.UserInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.UserSafeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.password.PasswordChangeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.PhoneVerifyCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.password.PasswordSetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.goodsdetail.GoodsDetailV3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.suit.GoodsSuitDetailActivity"
+            android:screenOrientation="portrait">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.BuyConfirmActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx8c4fb33bf1dbc4d6" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.list.BuyConfirmListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.coupon.CouponExchangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.order.trace.OrderTraceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.order.list.OrderListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.coupon.CouponActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.address.AddrManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.address.AddrEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.order.comment.OrderCommentWriteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.search.SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <!-- android:configChanges="keyboardHidden|orientation|screenSize" -->
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.search.SearchResultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.ServiceCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.collection.CollectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.footprint.FootPrintActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.info.InfoSystemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneMangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneByPwActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneByPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.wallet.WalletActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.recharge.RechargeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.recharge.RechargeQRActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.wallet.DealRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.wallet.MjzActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.order.comment.OrderCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.info.InfoManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.info.InfoTransportionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.info.InfoCouponActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.info.InfoPromotionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.suit.GoodsSuitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.GoodsAdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.buy.shopcart.ShopCartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.devices.BindDevicesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.other.ProtocolRegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.other.ProtocolRechargeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.filter.GoodsFilterBrandActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.filter.GoodsFilterSupplierActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.filter.GoodsFilterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.address.AddressMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.index.shop.ShopMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.other.AboatUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.order.orderdetail.OrderDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.other.PhotoPagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.devices.IceboxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.goods.SupplierGoodsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.pay.PayOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.selectmjz.SelectPayMjbActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.ablum.AlbumTopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.ablum.AlbumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.help.HelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.express.BuyExpressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.other.ResponseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.thlh.jhmjmw.business.user.coupon.ExchangeCardActivity"
+            android:screenOrientation="portrait" />
+
+        <!--
+            <activity
+            android:name=".moudle.zxing.activity.CaptureActivity"
+            android:screenOrientation="portrait" />
+        -->
+        <!-- 网络检测 -->
+        <!-- <receiver -->
+        <!-- android:name=".receiver.ConnectionChangeReceiver" -->
+        <!-- android:label="NetworkConnection" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter android:priority="1001"> -->
+        <!-- <action android:name="android.intent.action.USER_PRESENT" /> -->
+        <!-- <action android:name="android.NET.conn.CONNECTIVITY_CHANGE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+
+        <!-- 友盟分享 start -->
+        <activity
+            android:name="com.thlh.jhmjmw.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.thlh.jhmjmw.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <!-- 新浪微博 -->
+        <activity
+            android:name="com.thlh.jhmjmw.activity.share.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 微信支付 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- end 友盟分享 -->
+
+
+        <!-- 支付宝 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <!--<service
+            android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false" />
+-->
+        <!-- 极光 start -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+
+                <category android:name="com.thlh.mjmw" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="999">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+
+                <category android:name="com.thlh.mjmw" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.thlh.mjmw" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="5f9ce11fb6b11541805323ea" />
+
+        <receiver
+            android:name="com.thlh.jhmjmw.receiver.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+
+                <!-- Required 用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required 用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required 用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required 用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.thlh.mjmw" />
+            </intent-filter>
+        </receiver>
+        <!--
+            ATTENTION: This was auto-generated to add Google Play services to your project for
+            App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+       <!-- <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />-->
+        <!-- 极光 end -->
+
+        <activity android:name="com.thlh.jhmjmw.business.recharge.RechargerAgreementActivity"></activity>
+    </application>
+
+</manifest>

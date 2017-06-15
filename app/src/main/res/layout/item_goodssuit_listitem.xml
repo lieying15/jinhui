@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/goodssuit_goods_iv"
+        android:layout_width="@dimen/order_goods_img_size"
+        android:layout_height="@dimen/order_goods_img_size"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="@dimen/collect_margin_side"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/goodssuit_goods_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/goodssuit_goods_iv"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="@dimen/collect_margin_side"
+        android:layout_marginTop="@dimen/collect_margin_side"
+        android:text=""
+        android:layout_centerVertical="true"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_size_small_x" />
+
+    <ImageView
+        android:id="@+id/goodssuit_item_arrow_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/icon_circle_right_arrow_gray"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/app_mainback"/>
+</RelativeLayout>

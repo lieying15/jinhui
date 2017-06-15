@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchgoods_item_text_ll"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/y70"
+    android:minWidth="@dimen/x120">
+
+    <TextView
+        android:id="@+id/searchgoods_item_text_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y50"
+        android:layout_marginTop="@dimen/y20"
+        android:minWidth="@dimen/x120"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:background="@drawable/selector_radius_gray"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/y25" />
+
+</LinearLayout>

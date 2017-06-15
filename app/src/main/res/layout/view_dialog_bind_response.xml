@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bind_dialog_top_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/x80"
+    android:layout_marginRight="@dimen/x80"
+    android:layout_marginTop="@dimen/y100"
+    android:background="@drawable/shap_framentdialog_radius_white"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/x60"
+            android:layout_height="@dimen/y60"
+            android:src="@drawable/img_dialog_fridge"/>
+    </RelativeLayout>
+    <View style="@style/divide_line_horizontal_match_mianback" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x40">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_tips"
+            android:text="冰箱编码："/>
+        <TextView
+            android:id="@+id/bind_dialog_code_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_nomal"
+            android:text=""/>
+    </LinearLayout>
+
+    <View style="@style/divide_line_horizontal_match_mianback" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x40">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_tips"
+            android:text="姓名："/>
+        <TextView
+            android:id="@+id/bind_dialog_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_nomal"
+            android:text=""/>
+    </LinearLayout>
+    <View style="@style/divide_line_horizontal_match_mianback" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/y60"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x40"
+        android:paddingRight="@dimen/x40"
+        android:paddingTop="@dimen/y8"
+        android:paddingBottom="@dimen/y8">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_tips"
+            android:text="家庭地址："/>
+        <TextView
+            android:id="@+id/bind_dialog_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_nomal"
+            android:text=""/>
+    </LinearLayout>
+
+    <View style="@style/divide_line_horizontal_match_mianback" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x40">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_tips"
+            android:text="联系电话："/>
+        <TextView
+            android:id="@+id/bind_dialog_contact_phone_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_nomal"
+            android:text=""/>
+    </LinearLayout>
+
+    <View style="@style/divide_line_horizontal_match_mianback" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/y60"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x40"
+        android:paddingRight="@dimen/x40"
+        android:paddingTop="@dimen/y8"
+        android:paddingBottom="@dimen/y8">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_tips"
+            android:text="专属服务店地址："/>
+        <TextView
+            android:id="@+id/bind_dialog_service_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_nomal"
+            android:text=""/>
+    </LinearLayout>
+    <View style="@style/divide_line_horizontal_match_mianback" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x40">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_tips"
+            android:text="电话："/>
+        <TextView
+            android:id="@+id/bind_dialog_service_phone_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_nomal"
+            android:text=""/>
+    </LinearLayout>
+
+    <View style="@style/divide_line_horizontal_match_mianback" />
+
+    <LinearLayout
+        android:id="@+id/bind_devices_back_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_marginRight="@dimen/x25"
+        android:orientation="horizontal"
+        android:background="@drawable/selector_stoke_mainback_r50"
+        android:layout_marginTop="@dimen/y20">
+        <TextView
+            android:id="@+id/bind_devices_back_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="返回"
+            android:textSize="@dimen/y25"
+            android:gravity="center"
+            android:textColor="@color/text_tips" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/bind_devices_next_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_marginRight="@dimen/x25"
+        android:orientation="horizontal"
+        android:background="@drawable/selector_stoke_mainback_r50"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginBottom="@dimen/y20">
+        <TextView
+            android:id="@+id/bind_devices_next_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="确认"
+            android:textSize="@dimen/y25"
+            android:gravity="center"
+            android:textColor="@color/wine_light" />
+    </LinearLayout>
+
+
+</LinearLayout>

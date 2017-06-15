@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">BaseLib</string>
+    <string name="back">返回</string>
+    <string name="confirm">确认</string>
+    <!--注册-->
+    <string name="sms_send">发送验证吗</string>
+    <string name="input_sms_hint">请输入短信验证码</string>
+    <string name="regist_phone">手机号</string>
+    <string name="input_phone_hint">输入的手机号</string>
+    <string name="regist_sms">短信验证</string>
+    <string name="regist_reget_sms">重新获取验证码</string>
+
+    <string name="regist_password">密码</string>
+    <string name="input_password_setting_hint">设置密码</string>
+    <string name="regist_next">下一步</string>
+    <string name="regist_complete">完成</string>
+    <string name="regist_protocol">同意天汇联合平台相关协议</string>
+    <string name="regist_redo">重新注册</string>
+
+    <!--登录-->
+    <string name="login_phone_in">手机号快捷登录</string>
+    <string name="login_input_account_text">用户名</string>
+    <string name="login_input_password_text">登录密码</string>
+    <string name="login_input_account_hint">请输入用户名</string>
+    <string name="login_input_password_hint">请输入登录密码</string>
+    <string name="login_input_forget_password">忘记密码</string>
+    <string name="login">登录</string>
+    <string name="logout">退出登录</string>
+    <string name="longin_weixin">微信登录</string>
+
+    <string name="cancel">取消</string>
+
+    <!--极光-->
+    <string name="hello">Hello World, JPush!</string>
+    <string name="tag_hint">Tag为大小写字母，数字，下划线,中文， 多个用以逗号分隔</string>
+    <string name="alias_hint">Alias为大小写字母，数字，下划线</string>
+    <string name="style_hint">style为数字</string>
+    <string name="error_style_empty">style不能为空</string>
+    <string name="error_alias_empty">alias不能为空</string>
+    <string name="error_tag_empty">tag不能为空</string>
+    <string name="error_tag_gs_empty">格式不对</string>
+    <string name="error_network">网络连接异常,初始化失败 请检查网络！</string>
+    <string name="logining">程序在后台执行, 请查看日志！</string>
+    <string name="setting_su">设置成功</string>
+
+
+
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="LOADING">Loading...</string>
+
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:layout_height="@dimen/y90">
+
+
+    <!-- 全选-->
+    <RelativeLayout
+        android:id="@+id/order_confirm_bottom_selectall_rl"
+        android:layout_weight = "3"
+        android:layout_width = "0dp"
+        android:layout_height = "match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y2"
+            android:background="@color/app_mainback" />
+        <TextView
+            android:id="@+id/order_confirm_total_price_title"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/wine_light"
+            android:text="实付款:"
+            android:layout_alignBaseline="@+id/order_confirm_total_price_tv"
+            android:textSize="@dimen/text_size_small_x"/>
+
+        <TextView
+            android:id="@+id/order_confirm_total_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/order_confirm_total_price_title"
+            android:text="0.0"
+            android:textColor="@color/app_theme"
+            android:textSize="@dimen/text_size_small" />
+
+
+    </RelativeLayout>
+
+    <!-- 结算-->
+    <LinearLayout
+        android:id="@+id/order_confirm_bottom_gopay_ll"
+        style="@style/divide_linealayout_horizontal_center"
+        android:background="@drawable/selector_theme">
+
+        <TextView
+            android:id="@+id/order_confirm_bottom_gopay_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/white"
+            android:text="@string/order_confirm_topay"/>
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_clearing_white"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

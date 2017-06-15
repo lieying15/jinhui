@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/homgpage_tabtext_ll"
+    android:layout_width="@dimen/x132"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingLeft="@dimen/x5"
+    android:paddingRight="@dimen/x5">
+    <ImageView
+        android:id="@+id/homgpage_tabtext_iv"
+        android:layout_width="@dimen/x50"
+        android:layout_height="@dimen/x50" />
+
+    <TextView
+        android:id="@+id/homgpage_tabtext_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/text_tips"
+        android:gravity="center"
+        android:textSize="@dimen/y26"/>
+
+</LinearLayout>

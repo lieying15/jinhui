@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/homepage_fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/homepage_btab_height"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y3"
+        android:background="@drawable/gradient_gray_to_mainback"
+        android:layout_above="@+id/homepage_btab"/>
+    <com.thlh.jhmjmw.view.BottomTabViewV3
+        android:id="@+id/homepage_btab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/homepage_btab_height"
+        android:background="@color/homepage_btab_bg"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

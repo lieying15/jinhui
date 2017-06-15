@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="评价中心"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:background="@drawable/shap_radius_white"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10"
+>
+        <com.thlh.viewlib.tablayout.CommonTabLayout
+            android:id="@+id/comment_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x140"
+            android:paddingRight="@dimen/x140"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_color="@color/wine_light"
+            tl:tl_textSelectColor="@color/white"
+            tl:tl_textUnselectColor="@color/text_nomal"
+            tl:tl_indicator_corner_radius="@dimen/y30"
+            tl:tl_indicator_style="BLOCK" />
+    </FrameLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/comment_vp"
+        android:layout_below="@+id/comment_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"/>
+
+</LinearLayout>

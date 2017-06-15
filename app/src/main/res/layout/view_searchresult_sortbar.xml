@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/y10"
+    android:layout_marginLeft="@dimen/x10"
+    android:layout_marginRight="@dimen/x10"
+    android:layout_marginBottom="@dimen/x10"
+    android:background="@drawable/shap_radius_white"
+    android:gravity="center_vertical">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/sortbar_title_synthesize_ll"
+            style="@style/divide_linealayout_horizontal_center">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/selector_icon_goodsselect_sort" />
+            <TextView
+                style="@style/searchresult_title_text"
+                android:text="@string/select_goods_bar_sort"/>
+        </LinearLayout>
+
+        <View style="@style/divide_line_vertical_white"/>
+
+        <LinearLayout
+            android:id="@+id/sortbar_title_priority_ll"
+            style="@style/divide_linealayout_horizontal_center">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/selector_icon_goodsselect_recommend" />
+            <TextView
+                style="@style/searchresult_title_text"
+                android:text="@string/select_goods_bar_priority"/>
+        </LinearLayout>
+        <View style="@style/divide_line_vertical_white"/>
+
+        <LinearLayout
+            style="@style/divide_linealayout_horizontal_center"
+            android:id="@+id/sortbar_title_filter_ll">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/selector_icon_goodsselect_filter" />
+            <TextView
+                style="@style/searchresult_title_text"
+                android:text="@string/select_goods_bar_filter"/>
+        </LinearLayout>
+        <View style="@style/divide_line_vertical_white"/>
+
+    </LinearLayout>
+    <com.thlh.viewlib.expandableLayout.ExpandableLinearLayout
+        android:id="@+id/searchresult_synthesize_expandableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:ael_duration="300"
+        app:ael_interpolator="decelerate"
+        app:ael_orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:orientation="horizontal"
+            android:background="@drawable/shap_radius_half_bottom_gray"
+            android:gravity="center">
+            <FrameLayout
+                android:id="@+id/explayout_synthesize_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/divide_linealayout_horizontal_center">
+                <TextView
+                    android:id="@+id/explayout_synthesize_tv"
+                    style="@style/searchresult_sort_text"
+                    android:text="综合排序"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/explayout_synthesize_htol_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/divide_linealayout_horizontal_center">
+                <TextView
+                    android:id="@+id/explayout_synthesize_htol_tv"
+                    style="@style/searchresult_sort_text"
+                    android:text="从高到低"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/explayout_synthesize_ltoh_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/divide_linealayout_horizontal_center">
+                <TextView
+                    android:id="@+id/explayout_synthesize_ltoh_tv"
+                    style="@style/searchresult_sort_text"
+                    android:text="从低到高"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/explayout_synthesize_credit_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/divide_linealayout_horizontal_center">
+                <TextView
+                    android:id="@+id/explayout_synthesize_credit_tv"
+                    style="@style/searchresult_sort_text"
+                    android:text="信用排序"/>
+            </FrameLayout>
+        </LinearLayout>
+
+    </com.thlh.viewlib.expandableLayout.ExpandableLinearLayout>
+</LinearLayout>

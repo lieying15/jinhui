@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.thlh.jhmjmw.view.HeaderHomePage
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/category_header"/>
+    <com.thlh.viewlib.materialprogressbar.MaterialProgressBar
+        android:id="@+id/category_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:mpb_progressStyle="horizontal"
+        android:layout_marginTop="@dimen/header_height"
+        app:layout_collapseMode="pin"
+        android:visibility="gone"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/category_top_rv"
+            android:layout_width="@dimen/category_subclass_item_weight"
+            android:layout_height="match_parent"
+            android:background="@color/app_subtheme" />
+
+        <ExpandableListView
+            android:id="@+id/category_explv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:groupIndicator="@null"
+            android:layout_toRightOf="@+id/category_top_rv"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
+    </RelativeLayout>
+
+</LinearLayout>

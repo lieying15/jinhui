@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="支付"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10">
+        <TextView
+            android:id="@+id/pay_shouldpay_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_item_height"
+            android:text="需支付："
+            android:textSize="@dimen/text_size_small_x"
+            android:paddingLeft="20dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"/>
+        <include layout="@layout/view_order_confirm_pricelist"/>
+        <include layout="@layout/view_order_confirm_paytype"/>
+    </LinearLayout>
+
+    <com.thlh.viewlib.ripple.RippleRelativeLayout
+        android:id="@+id/pay_confrim_rip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:layout_gravity="center"
+        android:background="@drawable/selector_theme"
+        ripple:ripColor="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="确认"
+            android:gravity="center"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/white" />
+    </com.thlh.viewlib.ripple.RippleRelativeLayout>
+</LinearLayout>
+
+

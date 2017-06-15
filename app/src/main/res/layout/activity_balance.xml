@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="账户余额"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="@dimen/normal_item_height"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_small_x"
+            android:text="账号余额："/>
+        <TextView
+            android:id="@+id/balance_account_balance_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/app_theme"
+            android:text=""/>
+        <TextView
+            android:id="@+id/balance_recharge_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/selector_radius_btn"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small_xx"
+            android:text="充值"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <com.thlh.viewlib.tablayout.CommonTabLayout
+        android:id="@+id/balance_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_item_height"
+        android:background="@color/app_subtheme"
+        tl:tl_indicator_margin_left="0dp"
+        tl:tl_indicator_margin_top="0dp"
+        tl:tl_indicator_margin_right="0dp"
+        tl:tl_indicator_margin_bottom="0dp"
+        tl:tl_indicator_anim_enable="true"
+        tl:tl_indicator_color="@color/app_theme"
+        tl:tl_divider_color="@color/white"
+        tl:tl_divider_width="1dp"
+        tl:tl_divider_padding="2dp"
+        tl:tl_textSelectColor="@color/white"
+        tl:tl_textUnselectColor="@color/text_nomal"
+        tl:tl_indicator_corner_radius="0dp"
+        tl:tl_indicator_style="BLOCK" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/balance_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+</LinearLayout>

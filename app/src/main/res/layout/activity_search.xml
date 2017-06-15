@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+
+    <include layout="@layout/view_search_header"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--热搜商品-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/y10"
+                android:background="@drawable/shap_radius_white"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y80"
+                    android:orientation="horizontal"
+                    android:paddingRight="@dimen/x10"
+                    android:paddingLeft="@dimen/x10"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="@dimen/icon_pxsize_x"
+                        android:layout_height="@dimen/icon_pxsize_y"
+                        android:src="@drawable/icon_hot"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_goods_margin_side"
+                        android:layout_marginRight="@dimen/normal_goods_margin_side"
+                        android:text="@string/search_goods_hotsearch"
+                        android:textColor="@color/text_nomal"
+                        android:textSize="@dimen/text_size_small_xx"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y2"
+                    android:background="@color/app_mainback"/>
+                <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                    android:id="@+id/search_goods_text_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y70"
+                    android:paddingRight="@dimen/x10"
+                    android:paddingLeft="@dimen/x10"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y10" />
+            </LinearLayout>
+
+             <!-- 热门推荐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/y10"
+                android:layout_marginBottom="@dimen/y10"
+                android:background="@drawable/shap_radius_white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y80"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/x10"
+                    android:paddingLeft="@dimen/x10">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_pxsize_x"
+                        android:layout_height="@dimen/icon_pxsize_y"
+                        android:src="@drawable/icon_recommend"
+                        android:id="@+id/imageView" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_goods_hotsale"
+                        android:textColor="@color/text_nomal"
+                        android:layout_marginLeft="@dimen/normal_goods_margin_side"
+                        android:textSize="@dimen/text_size_small_xx" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y2"
+                    android:background="@color/app_mainback"/>
+                <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                    android:id="@+id/search_goods_recommend_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/x10"
+                    android:paddingLeft="@dimen/x10" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y10" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_goods_seen_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_marginBottom="@dimen/y10"
+            android:background="@drawable/shap_radius_white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y80"
+                android:gravity="center_vertical"
+                android:paddingRight="@dimen/x10"
+                android:paddingLeft="@dimen/x10">
+                <ImageView
+                    android:layout_width="@dimen/icon_pxsize_x"
+                    android:layout_height="@dimen/icon_pxsize_y"
+                    android:src="@drawable/icon_foot" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_goods_seen"
+                    android:textSize="@dimen/text_size_small_xx"
+                    android:textColor="@color/text_nomal"
+                    android:layout_marginLeft="@dimen/normal_goods_margin_side"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y2"
+                android:background="@color/app_mainback"/>
+            <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                android:id="@+id/search_goods_seen_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/x10"
+                android:paddingLeft="@dimen/x10"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_delete_seengoods_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/y40"
+            android:layout_marginBottom="@dimen/y20"
+            android:orientation="vertical"
+            android:background="@drawable/selector_radius_gray">
+            <ImageView
+                android:layout_width="@dimen/x65"
+                android:layout_height="@dimen/x65"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_empty" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/y5"
+                android:text="清空足迹"
+                android:textColor="@color/text_tips"
+                android:textSize="@dimen/y22" />
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
+

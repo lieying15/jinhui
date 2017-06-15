@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="@dimen/x600"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y160"
+        android:background="@drawable/shap_framentdialog_radius_white"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!--标题-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80">
+            <ImageView
+                android:id="@+id/regist_dialogfrg_title_iv"
+                android:layout_centerInParent="true"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/y60"
+                android:src="@drawable/img_dialog_phone"/>
+            <ImageView
+                android:id="@+id/regist_dialogfrg_cancel_iv"
+                android:layout_width="@dimen/x45"
+                android:layout_height="@dimen/y45"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_dialog_cancel"
+                android:layout_marginRight="@dimen/x30"
+                android:visibility="visible"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y2"
+            android:background="@color/app_mainback"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_marginBottom="@dimen/y10"/>
+        <!--手机号-->
+        <LinearLayout
+            android:id="@+id/regist_dialogfrg_phone_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/shap_stroke_grayshallow_r50"
+            android:layout_marginTop="@dimen/y20">
+            <EditText
+                android:id="@+id/regist_dialogfrg_phone_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:paddingLeft="@dimen/x50"
+                android:inputType="phone"
+                android:textSize="@dimen/y28"
+                android:hint="请输入本人手机号" />
+        </LinearLayout>
+       <!-- &lt;!&ndash;协议&ndash;&gt;
+        &lt;!&ndash;&ndash;&gt;
+        <LinearLayout
+            android:id="@+id/regist_dialogfrg_protocol_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:paddingLeft="@dimen/x50"
+            android:gravity="center_vertical"
+            android:background="@drawable/shap_stroke_grayshallow_r50"
+            android:layout_marginTop="@dimen/y20">
+            <CheckBox
+                android:id="@+id/regist_dialogfrg_protocol_cb"
+                android:layout_width="@dimen/icon_pxsize_x"
+                android:layout_height="@dimen/icon_pxsize_y"
+                android:button="@drawable/selector_icon_cb_winelight" />
+            <TextView
+                android:id="@+id/regist_dialogfrg_protocol_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/y25"
+                android:textColor="@color/wine_light"
+                android:layout_marginLeft="@dimen/x10"
+                android:text="@string/regist_protocol"/>
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:id="@+id/regist_verifycode_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/shap_stroke_grayshallow_r50"
+            android:layout_marginTop="@dimen/y20">
+            <EditText
+                android:id="@+id/regist_verifycode_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:paddingLeft="@dimen/x50"
+                android:inputType="textPassword"
+                android:textSize="@dimen/y28"
+                android:hint="请输入短信验证码" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/regist_time_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/selector_stoke_mainback_r50"
+            android:layout_marginTop="@dimen/y20">
+            <TextView
+                android:id="@+id/regist_time_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:textSize="@dimen/y28"
+                android:textColor="@color/blue_light"
+                android:gravity="center"
+                android:clickable="false"
+                android:text="重新发送验证码" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/regist_dialogfrg_password_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/shap_stroke_grayshallow_r50"
+            android:layout_marginTop="@dimen/y20">
+            <EditText
+                android:id="@+id/regist_dialogfrg_password_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:paddingLeft="@dimen/x50"
+                android:inputType="textPassword"
+                android:textSize="@dimen/y28"
+                android:hint="请输入登录密码" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/regist_passwordsecond_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/shap_stroke_grayshallow_r50"
+            android:layout_marginTop="@dimen/y20">
+            <EditText
+                android:id="@+id/regist_passwordsecond_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:paddingLeft="@dimen/x50"
+                android:inputType="textPassword"
+                android:textSize="@dimen/y28"
+                android:hint="请再次输入登录密码" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/regist_dialogfrg_content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/y120"
+            android:text="恭喜您，注册成功!"
+            android:textSize="@dimen/y25"
+            android:paddingLeft="@dimen/x50"
+            android:paddingRight="@dimen/x50"
+            android:lineSpacingMultiplier="1.2"
+            android:gravity="center"
+            android:textColor="@color/text_nomal"
+            android:paddingTop="@dimen/y20"
+            android:paddingBottom="@dimen/y20"/>
+        <!--下一步-->
+        <LinearLayout
+            android:id="@+id/regist_dialogfrg_next_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:orientation="horizontal"
+            android:background="@drawable/selector_stoke_mainback_r50"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_marginBottom="@dimen/y20" >
+            <!--android:layout_marginBottom="@dimen/y20"-->
+            <TextView
+                android:id="@+id/regist_dialogfrg_next_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="返回"
+                android:textSize="@dimen/y25"
+                android:gravity="center"
+                android:textColor="@color/wine_light" />
+        </LinearLayout>
+
+        <!--协议-->
+        <!---->
+        <LinearLayout
+            android:id="@+id/regist_dialogfrg_protocol_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:paddingLeft="@dimen/x50"
+            android:gravity="center_vertical"
+            >
+            <!--android:layout_marginTop="@dimen/y20"-->
+            <CheckBox
+                android:id="@+id/regist_dialogfrg_protocol_cb"
+                android:layout_width="@dimen/icon_pxsize_x"
+                android:layout_height="@dimen/icon_pxsize_y"
+                android:button="@drawable/selector_icon_cb_winelight" />
+            <TextView
+                android:id="@+id/regist_dialogfrg_protocol_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/y25"
+                android:textColor="@color/wine_light"
+                android:layout_marginLeft="@dimen/x10"
+                android:text="@string/regist_protocol"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

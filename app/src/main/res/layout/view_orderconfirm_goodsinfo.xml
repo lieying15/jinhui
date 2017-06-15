@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="@dimen/y10"
+android:background="@drawable/shap_radius_white"
+android:orientation="vertical">
+<View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y10" />
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/order_confirm_goods_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y180"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="@dimen/x15"
+        android:paddingRight="@dimen/x15"
+        android:paddingTop="@dimen/y10"
+        android:paddingBottom="@dimen/y10"/>
+
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y2"
+    android:background="@color/app_mainback"/>
+<LinearLayout
+    android:id="@+id/order_confirm_goods_ll"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y80"
+    android:paddingLeft="@dimen/x20"
+    android:paddingRight="@dimen/x20"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/order_confirm_goods_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/y28"
+        android:textColor="@color/text_nomal"
+        android:text="共 1 件商品"/>
+    <TextView
+        android:id="@+id/order_confirm_goods_total_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/wine_light"
+        android:textSize="@dimen/y28"
+        android:gravity="center_horizontal"
+        android:text="" />
+    <TextView
+        android:id="@+id/order_confirm_goodslist_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/y28"
+        android:gravity="center_horizontal"
+        android:text="商品清单"
+        android:paddingRight="@dimen/x10"/>
+    <ImageView
+        android:id="@+id/order_confirm_goodslist_arrow_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:src="@drawable/icon_right_arrow_gray"/>
+</LinearLayout>
+
+</LinearLayout>

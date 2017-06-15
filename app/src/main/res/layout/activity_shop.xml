@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title=""/>
+
+    <RelativeLayout
+        android:id="@+id/shop_top_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/shop_img_iv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y650"
+            android:scaleType="fitXY"
+            android:background="@drawable/img_half_store"/>
+
+        <TextView
+            android:id="@+id/shop_content_tv"
+            android:layout_width="@dimen/x600"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text_nomal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/shop_img_iv"
+            android:layout_marginTop="@dimen/y10"
+            android:lineSpacingMultiplier="1.2"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/y24"/>
+        <LinearLayout
+                android:id="@+id/shop_btn_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+                <TextView
+                    android:id="@+id/shop_share"
+                    style="@style/shop_btn"
+                    android:text="分享"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/shop_shtore"
+                    style="@style/shop_btn"
+                    android:text="附近小店"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/shop_recharge"
+                    style="@style/shop_btn"
+                    android:visibility="gone"
+                    android:text="充值送冰箱"/>
+                <TextView
+                    android:id="@+id/shop_activity"
+                    style="@style/shop_btn"
+                    android:textColor="@color/app_theme"
+                    android:textSize="@dimen/y30"
+                    android:text="前往小店参与活动"
+                    android:background="@drawable/selector_stoke_mainback_solid_gradient_r50"/>
+            </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>
+

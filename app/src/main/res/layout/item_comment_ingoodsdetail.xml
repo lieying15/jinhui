@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comment_ingoodsdetail_topll"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y160"
+    android:paddingTop="@dimen/y10"
+    android:paddingBottom="@dimen/y10"
+    android:paddingLeft="@dimen/x20"
+    android:paddingRight="@dimen/x20"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/x280"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/comment_ingoodsdetail_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="评价人"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y25" />
+        <com.thlh.jhmjmw.view.PoiRedStar
+            android:id="@+id/comment_ingoodsdetail_rank_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y40" />
+
+        <TextView
+            android:id="@+id/comment_ingoodsdetail_content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="商品不错，物流很快~"
+            android:maxLines="2"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y25"
+            android:layout_marginTop="@dimen/y5"
+            android:layout_marginBottom="5dp"/>
+
+    </LinearLayout>
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/comment_ingoodsdetail_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/y5"
+        android:paddingTop="@dimen/y5"/>
+</LinearLayout>

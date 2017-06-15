@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mv="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_mainback"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:gravity="center"
+            android:text="@string/mine_header_name"
+            android:textColor="@color/app_theme" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="@color/app_mainback" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="5dp"
+        android:scrollbarThumbVertical="@drawable/scrollbar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--头像-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y210"
+                android:background="@drawable/gradient_white_to_mainback"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/mine_avatar_iv"
+                    android:layout_width="@dimen/y120"
+                    android:layout_height="@dimen/y120"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/y30"
+                    android:src="@drawable/img_mine_avatar" />
+
+                <TextView
+                    android:id="@+id/mine_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/y15"
+                    android:ellipsize="end"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/y24" />
+            </LinearLayout>
+
+            <!--我的钱包-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y160"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
+                android:background="@drawable/shap_radius_white"
+                android:gravity="center_vertical">
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_wallet_ripll"
+                    android:layout_width="@dimen/x170"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_null"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/x10"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:src="@drawable/img_mine_wallet" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y15"
+                        android:text="@string/mine_wallet"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <View
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/y25"
+                    android:layout_marginTop="@dimen/y25"
+                    android:background="@color/app_mainback" />
+
+                <LinearLayout
+                    android:id="@+id/mine_mjz_ll"
+                    android:layout_width="@dimen/x356"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_null"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/x50"
+                        android:layout_height="@dimen/y50"
+                        android:src="@drawable/icon_mjz" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y10"
+                        android:text="美家钻"
+                        android:textSize="@dimen/y25" />
+
+                    <TextView
+                        android:id="@+id/mine_mjz_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y10"
+                        android:text="0"
+                        android:textColor="@color/wine_light"
+                        android:textSize="@dimen/y25" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/x2"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/y25"
+                    android:layout_marginTop="@dimen/y25"
+                    android:background="@color/app_mainback" />
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_recharge_ripll"
+                    android:layout_width="@dimen/x170"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_null"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="@dimen/x10"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:src="@drawable/img_mine_recharge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y15"
+                        android:text="充值"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+            </LinearLayout>
+
+            <!--订单-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y160"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@drawable/shap_radius_white"
+                android:gravity="center_vertical">
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_order_ripll"
+                    android:layout_width="@dimen/x170"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_null"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/x10"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:src="@drawable/img_mine_order" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y15"
+                        android:text="我的订单"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x358"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/mine_wait_gain_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x60"
+                        android:layout_marginTop="@dimen/y50"
+                        android:text="待收货"
+                        android:textColor="@color/text_nomal"
+                        android:textSize="@dimen/y25" />
+
+                    <com.thlh.viewlib.tablayout.MsgView
+                        android:id="@+id/mine_wait_gain_msgtv"
+                        style="@style/mine_order_num"
+                        android:layout_marginLeft="@dimen/x140"
+                        android:layout_marginTop="@dimen/y55"
+                        android:text=""
+                        android:visibility="invisible"
+                        mv:mv_backgroundColor="@color/app_theme"
+                        mv:mv_isRadiusHalfHeight="true"
+                        mv:mv_strokeColor="#ffffff"
+                        mv:mv_strokeWidth="0.5dp" />
+
+                    <TextView
+                        android:id="@+id/mine_wait_sendout_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x60"
+                        android:layout_marginTop="@dimen/y100"
+                        android:text="待发货"
+                        android:textColor="@color/text_nomal"
+                        android:textSize="@dimen/y25" />
+
+                    <com.thlh.viewlib.tablayout.MsgView
+                        android:id="@+id/mine_wait_sendout_msgtv"
+                        style="@style/mine_order_num"
+                        android:layout_marginLeft="@dimen/x140"
+                        android:layout_marginTop="@dimen/y105"
+                        android:text="0"
+                        android:visibility="invisible"
+                        mv:mv_backgroundColor="@color/app_theme"
+                        mv:mv_isRadiusHalfHeight="true"
+                        mv:mv_strokeColor="#ffffff"
+                        mv:mv_strokeWidth="0.5dp" />
+
+                    <TextView
+                        android:id="@+id/mine_wait_comment_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x240"
+                        android:layout_marginTop="@dimen/y50"
+                        android:text="待评价"
+                        android:textColor="@color/text_nomal"
+                        android:textSize="@dimen/y25" />
+
+                    <com.thlh.viewlib.tablayout.MsgView
+                        android:id="@+id/mine_wait_comment_msgtv"
+                        style="@style/mine_order_num"
+                        android:layout_marginLeft="@dimen/x320"
+                        android:layout_marginTop="@dimen/y55"
+                        android:text="0"
+                        android:visibility="invisible"
+                        mv:mv_backgroundColor="@color/app_theme"
+                        mv:mv_isRadiusHalfHeight="true"
+                        mv:mv_strokeColor="#ffffff"
+                        mv:mv_strokeWidth="0.5dp" />
+
+                    <TextView
+                        android:id="@+id/mine_wait_pay_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x240"
+                        android:layout_marginTop="@dimen/y100"
+                        android:text="待付款"
+                        android:textColor="@color/text_nomal"
+                        android:textSize="@dimen/y25" />
+
+                    <com.thlh.viewlib.tablayout.MsgView
+                        android:id="@+id/mine_wait_pay_msgtv"
+                        style="@style/mine_order_num"
+                        android:layout_marginLeft="@dimen/x320"
+                        android:layout_marginTop="@dimen/y105"
+                        android:text=""
+                        android:visibility="invisible"
+                        mv:mv_backgroundColor="@color/app_theme"
+                        mv:mv_isRadiusHalfHeight="true"
+                        mv:mv_strokeColor="#ffffff"
+                        mv:mv_strokeWidth="0.5dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x170"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="@dimen/x10">
+
+                    <TextView
+                        android:id="@+id/mine_orderall_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/y50"
+                        android:text="全部订单"
+                        android:textSize="@dimen/y25" />
+
+                    <TextView
+                        android:id="@+id/mine_goods_return_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/y100"
+                        android:text="退换货"
+                        android:textSize="@dimen/y25" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <!--综合-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y20"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_collect_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_collect" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="我的收藏"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <com.thlh.viewlib.ripple.RippleRelativeLayout
+                    android:id="@+id/mine_coupon_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mine_coupon_iv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="优惠券"
+                        android:textSize="@dimen/y25" />
+
+                    <com.thlh.viewlib.tablayout.MsgView
+                        android:id="@+id/mine_coupon_msgtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/x30"
+                        android:layout_marginTop="@dimen/y20"
+                        android:background="@drawable/shap_ring_red"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/y23"
+                        android:visibility="invisible"
+                        mv:mv_backgroundColor="@color/app_theme"
+                        mv:mv_isRadiusHalfHeight="true"
+                        mv:mv_strokeColor="#ffffff"
+                        mv:mv_strokeWidth="0.5dp" />
+
+                    <ImageView
+                        android:id="@+id/mine_coupon_iv"
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_alignTop="@+id/mine_coupon_msgtv"
+                        android:layout_toLeftOf="@+id/mine_coupon_msgtv"
+                        android:layout_toStartOf="@+id/mine_coupon_msgtv"
+                        android:src="@drawable/img_mine_coupon" />
+                </com.thlh.viewlib.ripple.RippleRelativeLayout>
+
+                <com.thlh.viewlib.ripple.RippleRelativeLayout
+                    android:id="@+id/mine_changecard_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:id="@+id/mine_changecard_iv"
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/i_card" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mine_changecard_iv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="兑换卡"
+                        android:textSize="@dimen/y25" />
+
+                    <com.thlh.viewlib.tablayout.MsgView
+                        android:id="@+id/mine_changecard_msgtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/x30"
+                        android:layout_marginTop="@dimen/y20"
+                        android:background="@drawable/shap_ring_red"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/y23"
+                        android:visibility="invisible"
+                        mv:mv_backgroundColor="@color/app_theme"
+                        mv:mv_isRadiusHalfHeight="true"
+                        mv:mv_strokeColor="#ffffff"
+                        mv:mv_strokeWidth="0.5dp" />
+                </com.thlh.viewlib.ripple.RippleRelativeLayout>
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_footmark_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_footmark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="历史足迹"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y20"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_address_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_address" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="我的地址"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_device_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_device" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="智能设备"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_help_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_help" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="帮助"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_setting_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_settings" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="设置"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y20"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_service_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_phone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="客服"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_safe_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_safety" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="账户安全"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_wechat_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_wechat" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="关注公众号"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+                <com.thlh.viewlib.ripple.RippleLinearLayout
+                    android:id="@+id/mine_more_ripll"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/y160"
+                    android:background="@drawable/shap_radius_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    ripple:ripColor="@color/mine_rip">
+
+                    <ImageView
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/y75"
+                        android:layout_marginTop="@dimen/y25"
+                        android:src="@drawable/img_mine_more" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="更多功能"
+                        android:textSize="@dimen/y25" />
+                </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

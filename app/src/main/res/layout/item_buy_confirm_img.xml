@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x160"
+    android:layout_height="@dimen/y160"
+    android:background="@drawable/shap_radius_white_stroke_mainback_r20"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingTop="@dimen/y2"
+    android:paddingBottom="@dimen/y2"
+    android:paddingRight="@dimen/x2"
+    android:paddingLeft="@dimen/x2">
+
+    <ImageView
+        android:id="@+id/order_confirm_goods_iv"
+        android:layout_width="@dimen/x156"
+        android:layout_height="@dimen/y156" />
+</LinearLayout>

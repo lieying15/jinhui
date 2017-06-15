@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y180"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/y160"
+        android:layout_marginTop="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_toRightOf="@+id/shopcart_item_cbfl"
+        android:background="@drawable/shap_radius_white_stroke_mainback_r20"/>
+    <ImageView
+        android:id="@+id/shopcart_iv"
+        android:layout_width="@dimen/x152"
+        android:layout_height="@dimen/y152"
+        android:layout_marginTop="@dimen/x14"
+        android:layout_marginLeft="@dimen/x14"
+        android:layout_toRightOf="@+id/shopcart_item_cbfl" />
+
+    <ImageView
+        android:id="@+id/shopcart_back_iv"
+        android:layout_width="@dimen/x100"
+        android:layout_height="@dimen/y100"
+        android:layout_marginTop="@dimen/x39"
+        android:layout_marginLeft="@dimen/x39"
+        android:background="@drawable/shap_ring_tanslucent_winelight"
+        android:layout_toRightOf="@+id/shopcart_item_cbfl"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/shopcart_status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/shopcart_back_iv"
+        android:layout_alignRight="@+id/shopcart_back_iv"
+        android:layout_alignTop="@+id/shopcart_back_iv"
+        android:layout_alignBottom="@+id/shopcart_back_iv"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="已抢光"
+        android:textColor="@color/white"
+        android:textSize="@dimen/y25"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/shopcart_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y30"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_toRightOf ="@+id/shopcart_iv"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text=""
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small" />
+
+
+    <TextView
+        android:id="@+id/shopcart_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/shopcart_name_tv"
+        android:layout_below="@+id/shopcart_name_tv"
+        android:text=""
+        android:textColor="@color/wine_light"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:id="@+id/shopcart_num_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/shopcart_name_tv"
+        android:layout_below="@+id/shopcart_name_tv"
+        android:text=""
+        android:gravity="right"
+        android:layout_marginTop="10dp"
+        android:paddingRight="@dimen/x20"
+        android:textColor="@color/text_tips"
+        android:textSize="@dimen/y25" />
+</RelativeLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:slideswitch="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        custom:title="@string/setting_header_name"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y300"
+            android:layout_marginTop="@dimen/y50"
+            android:src="@drawable/img_logo_large"/>
+        <ImageView
+            android:layout_width="@dimen/x140"
+            android:layout_height="@dimen/y40"
+            android:src="@drawable/img_logo_text"
+            android:layout_marginTop="@dimen/y30"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/setting_chmemeber_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/y26"
+        android:textColor="@color/text_tips"
+        android:layout_marginTop="@dimen/y20"
+        android:gravity="center_horizontal"
+        android:text="已成为扫码用户"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/setting_aboatus_tv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="@dimen/y26"
+        android:textColor="@color/text_tips"
+        android:layout_marginTop="@dimen/y20"
+        android:gravity="center_horizontal"
+        android:text="关于我们"
+        android:visibility="visible"
+        android:clickable="true"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@drawable/shap_radius_white">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x20"
+            android:src="@drawable/icon_defense_black"/>
+        <TextView
+            android:id="@+id/setting_update_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_small_xx"
+            android:textColor="@color/text_nomal"
+            android:text="检查更新"/>
+        <TextView
+            android:id="@+id/setting_version_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y26"
+            android:textColor="@color/text_tips"
+            android:layout_marginRight="@dimen/x20"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@drawable/shap_radius_white">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x20"
+            android:src="@drawable/icon_wallet_black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_small_xx"
+            android:textColor="@color/text_nomal"
+            android:text="@string/setting_push_info"/>
+
+        <com.thlh.viewlib.togglebutton.ToggleButton
+            android:id="@+id/setting_btn"
+            android:layout_width="35dp"
+            android:layout_height="17dp"
+            android:layout_marginRight="@dimen/x20"
+            toggle:isDefaultOn="false"/>
+    </LinearLayout>
+
+
+    <com.thlh.viewlib.ripple.RippleRelativeLayout
+        android:id="@+id/logout_normal_rip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@drawable/selector_radius_theme">
+        ripple:ripColor="@color/white">
+        <TextView
+            android:text="@string/logout"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y28"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+    </com.thlh.viewlib.ripple.RippleRelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x730"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/y95"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/y80"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/y50"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/order_trace_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-07-22"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/wine_light"/>
+        <TextView
+            android:id="@+id/order_trace_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center_horizontal"
+            android:text="07:59:55"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/wine_light"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/x70"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <View
+            android:id="@+id/order_trace_topline_iv"
+            android:layout_width="@dimen/order_trace_line_width"
+            android:layout_height="@dimen/y50"
+            android:background="@color/app_mainback" />
+        <ImageView
+            android:id="@+id/order_trace_point_iv"
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y16"
+            android:src="@drawable/shap_ring_mainback" />
+        <View
+            android:id="@+id/order_trace_bottompline_iv"
+            android:layout_width="@dimen/order_trace_line_width"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/y80"
+            android:background="@color/app_mainback"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/order_trace_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/y40"
+            android:text=""
+            android:gravity="center_vertical"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/text_tips"
+            android:paddingTop="@dimen/y5"
+            android:paddingBottom="@dimen/y5"
+            android:paddingRight="@dimen/y10"
+            android:paddingLeft="@dimen/x40"
+            android:layout_marginTop="@dimen/y58"
+            android:layout_marginRight="@dimen/x10"
+            android:background="@drawable/order_trace_info_winlight" />
+
+</LinearLayout>
+

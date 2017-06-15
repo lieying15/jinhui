@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_icebox_img_rl"
+    android:layout_width="@dimen/x240"
+    android:layout_height="@dimen/y240"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/item_icebox_img_iv"
+        android:layout_width="@dimen/x240"
+        android:layout_height="@dimen/y240"
+        android:scaleType="centerCrop"/>
+    <ImageView
+        android:id="@+id/item_icebox_img_delete_iv"
+        android:layout_width="@dimen/x240"
+        android:layout_height="@dimen/y240"
+        android:scaleType="center"
+        android:visibility="invisible"
+        android:src="@drawable/icon_delete_circle_winelight"
+        android:background="@color/translucent_white"/>
+</RelativeLayout>

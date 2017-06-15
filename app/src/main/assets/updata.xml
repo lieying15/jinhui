@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="updatatitle">更新提示</string>
+    <string name="updating">正在更新</string>
+    <string name="updata">立即更新</string>
+
+</resources>

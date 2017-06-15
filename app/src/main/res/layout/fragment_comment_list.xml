@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comment_snack_cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom">
+    <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+        android:id="@+id/comment_mine_ptpr_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/y10" />
+
+    <com.thlh.jhmjmw.view.NoInfoView
+        android:id="@+id/comment_noinfoview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+</android.support.design.widget.CoordinatorLayout>

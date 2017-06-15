@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/wallet_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="我的钱包"/>
+
+    <com.thlh.viewlib.ripple.RippleLinearLayout
+        android:id="@+id/wallet_mjz_ripll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal"
+        ripple:ripColor="@color/gray_shallow"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_mjz"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="美家钻"
+            android:textSize="@dimen/text_size_small_x"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x20"/>
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_right_arrow_gray"/>
+    </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+    <com.thlh.viewlib.ripple.RippleLinearLayout
+        android:id="@+id/wallet_record_ripll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal"
+        ripple:ripColor="@color/gray_shallow"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_record"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="交易记录"
+            android:textSize="@dimen/text_size_small_x"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x20"/>
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_right_arrow_gray"/>
+    </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+</LinearLayout>

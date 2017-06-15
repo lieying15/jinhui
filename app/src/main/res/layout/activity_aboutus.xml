@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:fitsSystemWindows = "true">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/aboutus_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        custom:title="关于我们"/>
+
+
+    <include layout="@layout/view_homepage_logo"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/aboutus_introduce_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:textSize="@dimen/text_size_small_xx"
+            android:background="@drawable/shap_stroke_grayshallow"/>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/aboutus_copyright_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Copyright ©2012-2016"
+        android:textSize="@dimen/text_size_small_xx"
+        android:layout_marginTop="10dp"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/aboutus_copyright_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:padding="5dp"
+        android:text="天汇联合（北京）科技发展有限公司"
+        android:textSize="@dimen/text_size_small_xx"
+        android:gravity="center" />
+</LinearLayout>

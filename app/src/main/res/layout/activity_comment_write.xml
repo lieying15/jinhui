@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/comment_write_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="评价中心"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:orientation="vertical"
+        android:background="@drawable/shap_radius_white">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y180"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/y10"
+            android:paddingBottom="@dimen/y10"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20"
+            android:background="@drawable/shap_radius_white">
+
+            <ImageView
+                android:layout_width="@dimen/x160"
+                android:layout_height="@dimen/y160"
+                android:background="@drawable/shap_radius_white_stroke_mainback_r20"/>
+            <ImageView
+                android:id="@+id/comment_write_goods_iv"
+                android:layout_width="@dimen/x156"
+                android:layout_height="@dimen/y156"
+                android:layout_marginTop="@dimen/x2"
+                android:layout_marginLeft="@dimen/x2"
+                android:src="@color/app_theme"/>
+            <TextView
+                android:id="@+id/comment_write_goods_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="商品名称"
+                android:textColor="@color/text_nomal"
+                android:layout_marginLeft="@dimen/x180"
+                android:layout_marginTop="@dimen/y30"
+                android:textSize="@dimen/y28" />
+            <TextView
+                android:id="@+id/comment_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥ 26.9"
+                android:layout_marginLeft="@dimen/x180"
+                android:textColor="@color/app_theme"
+                android:layout_marginTop="@dimen/y100"
+                android:textSize="@dimen/y25" />
+            <TextView
+                android:id="@+id/comment_num_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X 5"
+                android:textColor="@color/text_tips"
+                android:layout_marginTop="@dimen/y70"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textSize="@dimen/y25" />
+            <com.thlh.jhmjmw.view.PoiRedStar
+                android:id="@+id/comment_rank_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+        <View style="@style/divide_line_horizontal_match_mianback"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+            <EditText
+                android:id="@+id/comment_write_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/y80"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20"
+                android:layout_marginTop="@dimen/y10"
+                android:layout_marginBottom="@dimen/y10"
+                android:padding="10dp"
+                android:gravity="top"
+                android:maxLength="100"
+                android:textColorHint="@color/text_tips"
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/text_size_small_xx"
+                android:hint="@string/comment_write_tips"
+                android:background="@drawable/shap_stroke_grayshallow" />
+        </LinearLayout>
+        <View style="@style/divide_line_horizontal_match_mianback"/>
+
+        <FrameLayout
+            android:id="@+id/comment_write_img_fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                android:id="@+id/comment_write_img_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/comment_margin_sile"
+                android:paddingRight="@dimen/comment_margin_sile"
+                android:paddingTop="@dimen/y10"
+                android:paddingBottom="@dimen/y10"
+                android:gravity="center_horizontal"
+                android:background="@color/white"
+                />
+
+        </FrameLayout>
+
+
+        <View
+            style="@style/divide_line_horizontal_match_mianback" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/comment_write_hidename_cb"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_gravity="center"
+                android:button="@drawable/bg_null"
+                android:background="@drawable/selector_icon_cb_winelight"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/text_tips"
+                android:textSize="@dimen/text_size_small_xx"
+                android:layout_marginLeft="10dp"
+                android:text="匿名评价"/>
+
+            <TextView
+                android:id="@+id/comment_write_pics_tv"
+                android:text="晒单传图"
+                android:layout_width="@dimen/x160"
+                android:layout_height="@dimen/y45"
+                android:layout_marginRight="@dimen/x20"
+                android:gravity="center"
+                android:background="@drawable/selector_radius_white_stoke_mainblack_r20"
+                android:layout_marginTop="@dimen/y15"
+                android:layout_marginBottom="@dimen/y15"
+                android:layout_gravity="center_vertical|right"
+                android:textColor="@color/text_tips"
+                android:textSize="@dimen/text_size_small_xx" />
+
+            <TextView
+                android:id="@+id/comment_write_submit_tv"
+                android:text="提交"
+                android:layout_width="@dimen/x160"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x20"
+                android:paddingLeft="@dimen/x30"
+                android:paddingRight="@dimen/x30"
+                android:paddingTop="@dimen/y5"
+                android:paddingBottom="@dimen/y5"
+                android:gravity="center"
+                android:background="@drawable/shap_radius_white_stroke_theme_r20"
+                android:layout_marginTop="@dimen/y15"
+                android:layout_marginBottom="@dimen/y15"
+                android:layout_gravity="center_vertical|right"
+                android:textColor="@color/wine"
+                android:textSize="@dimen/text_size_small_xx" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

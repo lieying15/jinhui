@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="美家钻"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="@dimen/y160"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10"
+        android:background="@drawable/shap_radius_white">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/mjcurrency_mjb_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small_x"
+                android:textColor="@color/wine_light"
+                android:text="￥00"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y10"
+                android:textSize="@dimen/y28"
+                android:text="可用美家钻 "/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="@dimen/x2"
+            android:layout_height="@dimen/y100"
+            android:background="@color/app_mainback"
+            android:layout_gravity="center_vertical"/>
+        <LinearLayout
+            android:id="@+id/mjcurrency_mjb_recharge_ll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="@dimen/icon_pxsize_x"
+                android:layout_height="@dimen/icon_pxsize_y"
+                android:src="@drawable/icon_mjz"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/y10"
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/y28"
+                android:text="充值"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.thlh.viewlib.tablayout.CommonTabLayout
+        android:id="@+id/mjcurrency_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@drawable/shap_radius_half_top_white"
+        tl:tl_indicator_margin_left="@dimen/x10"
+        tl:tl_indicator_margin_top="@dimen/y15"
+        tl:tl_indicator_margin_right="@dimen/x10"
+        tl:tl_indicator_margin_bottom="@dimen/y15"
+        tl:tl_indicator_anim_enable="true"
+        tl:tl_indicator_color="@color/app_theme"
+        tl:tl_divider_color="@color/white"
+        tl:tl_divider_width="1dp"
+        tl:tl_divider_padding="2dp"
+        tl:tl_textSelectColor="@color/white"
+        tl:tl_textUnselectColor="@color/text_nomal"
+        tl:tl_indicator_corner_radius="@dimen/y30"
+        tl:tl_indicator_style="BLOCK" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@color/app_mainback"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mjcurrency_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10" />
+
+</LinearLayout>

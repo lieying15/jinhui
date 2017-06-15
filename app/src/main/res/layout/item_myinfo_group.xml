@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/normal_margin_side_x"
+    android:paddingRight="@dimen/normal_margin_side_x"
+    android:paddingBottom="@dimen/normal_margin_side"
+    android:paddingTop="@dimen/normal_margin_side">
+    <ImageView
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:src="@drawable/icon_info_blue_black"/>
+    <TextView
+        android:id="@+id/myinfo_title_tv"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="恭喜您，所购买的货品已送达"
+        android:textColor="@color/text_nomal"
+       android:layout_marginLeft="@dimen/normal_margin_side"
+        android:textSize="@dimen/text_size_little"/>
+
+    <ImageView
+        android:id="@+id/myinfo_title_arrow_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginRight="@dimen/normal_margin_side"
+        android:src="@drawable/icon_circle_down_arrow"/>
+
+    <ImageView
+        android:id="@+id/myinfo_title_delete_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:src="@drawable/icon_delete_gray"/>
+
+</LinearLayout>

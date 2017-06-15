@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg_null"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shap_radius_white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="上传头像"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/text_size_small_xx"
+            android:gravity="center_horizontal"/>
+        <View style="@style/divide_line_horizontal_match_mianback"/>
+        <Button
+            android:id="@+id/dialog_avatar_camera"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@drawable/selector_white_mainback"
+            android:text="拍照"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@drawable/selector_color_text_normal_theme" />
+        <View style="@style/divide_line_horizontal_match_mianback"/>
+        <Button
+            android:id="@+id/dialog_avatar_album"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@drawable/selector_radius_halfbotoom_white_minback"
+            android:text="从相册中选择"
+            android:textColor="@drawable/selector_color_text_normal_theme"
+            android:textSize="@dimen/text_size_small_x" />
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/dialog_avatar_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_radius_white_minback"
+        android:text="取消"
+        android:textColor="@drawable/selector_color_text_normal_theme"
+        android:textSize="@dimen/text_size_small_x" />
+</LinearLayout>

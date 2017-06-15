@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:custom="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows = "true"
+	android:orientation="vertical"
+	android:gravity="center_horizontal">
+
+	<com.thlh.jhmjmw.view.HeaderNormal
+		android:id="@+id/wechat_pay_result_header"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		custom:title="支付"/>
+	<ImageView
+		android:id="@+id/wechat_pay_result_title_iv"
+		android:layout_width="@dimen/mine_avatar_size"
+		android:layout_height="@dimen/mine_avatar_size"
+		android:layout_marginTop="60dp" />
+	<TextView
+		android:id="@+id/wechat_pay_result_title_tv"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/dialog_marging_title_top"
+		android:textSize="14sp"
+		android:textColor="@color/text_nomal"
+		android:text=""/>
+	<TextView
+		android:id="@+id/wechat_pay_result_content_tv"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:textColor="@color/text_nomal"
+		android:textSize="@dimen/text_size_large"
+		android:text=""/>
+	<ImageView
+		android:id="@+id/wechat_pay_result_result_iv"
+		android:layout_width="@dimen/image_small_size"
+		android:layout_height="@dimen/image_small_size"
+		android:layout_marginTop="@dimen/dialog_marging_title_top" />
+
+	<Button
+		android:id="@+id/wechat_pay_result_back_btn"
+		android:layout_width="100dp"
+		android:layout_height="38dp"
+		android:layout_marginTop="20dp"
+		android:text="返回"
+		android:textColor="@color/white"
+		android:textSize="@dimen/text_size_small_x"
+		android:background="@drawable/selector_radius_btn"
+		android:visibility="gone"/>
+	
+</LinearLayout>

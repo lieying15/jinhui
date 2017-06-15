@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+        android:id="@+id/goodsdetail_comment_ptpr_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"/>
+    <com.thlh.jhmjmw.view.NoInfoView
+        android:id="@+id/comment_noinfoview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/goodsdetail_floatbtn"
+        android:layout_width="@dimen/x65"
+        android:layout_height="@dimen/y65"
+        android:layout_marginRight="@dimen/x15"
+        android:layout_marginBottom="@dimen/y15"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/icon_goto_top_v2"
+        app:backgroundTint="#ffffff"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:rippleColor="#ffffff"
+        android:visibility="gone"/>
+</android.support.design.widget.CoordinatorLayout>
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/x10"
+    android:paddingRight="@dimen/x10"
+    android:paddingTop="@dimen/y10"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/homepage_goods_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_mainback"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:paddingTop="@dimen/x10" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+</LinearLayout>

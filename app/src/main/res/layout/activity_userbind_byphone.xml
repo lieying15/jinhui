@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/userbind_byphone_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="验证绑定手机" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y120"
+        android:layout_marginLeft="@dimen/x80"
+        android:layout_marginRight="@dimen/x80"
+        android:background="@drawable/shap_framentdialog_radius_white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!--标题-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80">
+            <ImageView
+                android:id="@+id/regist_dialogfrg_title_iv"
+                android:layout_centerInParent="true"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/y60"
+                android:src="@drawable/img_dialog_phone"/>
+            <ImageView
+                android:id="@+id/userbind_byphone_cancel_iv"
+                android:layout_width="@dimen/x45"
+                android:layout_height="@dimen/y45"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_dialog_cancel"
+                android:layout_marginRight="@dimen/x30"
+                android:visibility="visible"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y2"
+            android:background="@color/app_mainback"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_marginBottom="@dimen/y10"/>
+
+        <LinearLayout
+            android:id="@+id/userbind_byphone_verify_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/shap_stroke_grayshallow_r50"
+            android:layout_marginTop="@dimen/y20">
+            <EditText
+                android:id="@+id/userbind_byphone_verify_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:paddingLeft="@dimen/x50"
+                android:inputType="number"
+                android:textSize="@dimen/y28"
+                android:maxLength="10"
+                android:hint="请输入短信验证码" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userbind_byphone_regetsms_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/selector_stoke_mainback_r50"
+            android:layout_marginTop="@dimen/y20">
+            <TextView
+                android:id="@+id/userbind_byphone_regetsms_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/login_edit_text_v3"
+                android:textSize="@dimen/y28"
+                android:textColor="@color/blue_light"
+                android:gravity="center"
+                android:clickable="false"
+                android:text="重新发送验证码" />
+        </LinearLayout>
+
+        <!--下一步-->
+        <LinearLayout
+            android:id="@+id/userbind_byphone_next_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:orientation="horizontal"
+            android:background="@drawable/selector_stoke_mainback_r50"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_marginBottom="@dimen/y20">
+            <TextView
+                android:id="@+id/regist_dialogfrg_next_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="确认"
+                android:textSize="@dimen/y25"
+                android:gravity="center"
+                android:textColor="@color/wine_light" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

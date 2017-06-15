@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_mainback"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/addr_manage_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/addr_manage_header_name"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10">
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/addr_manage_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y10"/>
+
+        <com.thlh.jhmjmw.view.NoInfoView
+            android:id="@+id/addr_manage_noinfoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <com.thlh.viewlib.ripple.RippleLinearLayout
+        android:id="@+id/addr_manage_addaddr_llrip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="@drawable/selector_theme"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/addr_manage_add_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_small_x"
+            android:text="添加新地址"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
+    </com.thlh.viewlib.ripple.RippleLinearLayout>
+
+</LinearLayout>

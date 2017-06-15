@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/y120"
+    android:background="@color/white"
+    android:id="@+id/addr_manage_item_ll"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/x20"
+    android:paddingRight="@dimen/x20"
+    android:paddingBottom="@dimen/y5"
+    android:paddingTop="@dimen/y5">
+    <CheckBox
+        android:id="@+id/addr_manage_cb"
+        android:layout_width="@dimen/icon_pxsize_x"
+        android:layout_height="@dimen/icon_pxsize_y"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_centerVertical="true"
+        android:button="@null"
+        android:background="@drawable/selector_icon_cb_winelight"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/addr_manage_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/addr_manage_cb"
+        android:layout_marginLeft="10dp"
+        android:maxLength="14"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text=""
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_x" />
+
+
+    <TextView
+        android:id="@+id/addr_manage_addr_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addr_manage_name_tv"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:text=""
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_x"
+        android:layout_alignLeft="@+id/addr_manage_name_tv"
+        android:layout_toLeftOf="@+id/addr_manage_phone_tv"
+        />
+
+    <TextView
+        android:id="@+id/addr_manage_phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_alignBottom="@+id/addr_manage_addr_tv"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_x" />
+
+    <TextView
+        android:id="@+id/addr_manage_edit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="编辑"
+        android:layout_alignBottom="@+id/addr_manage_name_tv"
+        android:layout_toLeftOf="@+id/addr_manage_edit_fl"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_x" />
+    <FrameLayout
+        android:id="@+id/addr_manage_edit_fl"
+        android:layout_width="30dp"
+        android:layout_height="@dimen/comfort_press_large_size"
+
+        android:layout_alignParentRight="true">
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:id="@+id/addr_manage_edit_iv"
+            android:background="@drawable/icon_address_edit"
+            android:layout_gravity="top|right"/>
+
+    </FrameLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/addr_manage_delete_fl"
+        android:layout_width="@dimen/comfort_press_large_size"
+        android:layout_height="@dimen/comfort_press_large_size"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:id="@+id/addr_manage_delete_iv"
+            android:background="@drawable/icon_delete_gray"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+</RelativeLayout>

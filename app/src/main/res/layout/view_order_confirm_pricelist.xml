@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/y10"
+    android:layout_marginTop="@dimen/y10"
+    android:paddingBottom="@dimen/y10"
+    android:background="@drawable/shap_radius_white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:text="费用清单"
+        android:textSize="@dimen/y28"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x15"
+        android:id="@+id/textView3" />
+
+    <View
+        style="@style/divide_line_horizontal_match_mianback"/>
+    <!--总价-->
+    <LinearLayout
+        android:id="@+id/order_confirm_pricelist_total_ll"
+        style="@style/order_confirm_price_ll">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商品金额"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/text_tips"/>
+        <TextView
+            android:id="@+id/order_confirm_pricelist_total_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="￥ 0.0"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/x15"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/wine_light"/>
+    </LinearLayout>
+    <!--美家钻-->
+    <LinearLayout
+        android:id="@+id/order_confirm_pricelist_mjb_ll"
+        style="@style/order_confirm_price_ll">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="美家钻"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/text_tips"/>
+        <TextView
+            android:id="@+id/order_confirm_pricelist_mjb_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0.0"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/x15"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/wine_light"/>
+    </LinearLayout>
+
+
+    <!--余额-->
+    <LinearLayout
+        android:id="@+id/order_confirm_pricelist_balacne_ll"
+        style="@style/order_confirm_paytype_ll"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="余额"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/text_nomal"/>
+        <TextView
+            android:id="@+id/order_confirm_pricelist_balacne_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="￥ 0.0"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/wine_light"/>
+    </LinearLayout>
+    <!--运费-->
+    <LinearLayout
+        android:id="@+id/order_confirm_pricelist_express_ll"
+        style="@style/order_confirm_price_ll">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="运费"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:textColor="@color/text_tips"/>
+
+        <TextView
+            android:id="@+id/order_confirm_pricelist_express_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="￥ 0.0"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/x15"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/wine_light"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/order_confirm_pricelist_shouldpay_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="gone">
+        <View
+            android:layout_marginBottom="10dp"
+            style="@style/divide_line_horizontal_match_mianback"/>
+        <!--实付款-->
+        <LinearLayout
+            android:id="@+id/order_confirm_pricelist_shouldpay_ll"
+            style="@style/order_confirm_price_ll">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实付款"
+                android:textSize="@dimen/y28"
+                android:layout_weight="1"
+                android:textColor="@color/wine_light" />
+            <TextView
+                android:id="@+id/order_confirm_pricelist_shouldpay_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="￥ 0.0"
+                android:layout_marginLeft="10dp"
+                android:gravity="right"
+                android:layout_marginRight="@dimen/x15"
+                android:textSize="@dimen/text_size_small_x"
+                android:textColor="@color/wine_light"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

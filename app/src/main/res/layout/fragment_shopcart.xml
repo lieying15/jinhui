@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_mainback"
+    android:fitsSystemWindows = "true">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/shopcart_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/shopcart_header_name"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/y10">
+
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/shopcart_goods_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/shopcart_bottom_layout" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:background="@color/app_mainback"
+            android:layout_below="@+id/shopcart_bottom_layout"/>
+
+        <include
+            android:id="@+id/shopcart_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y90"
+            android:layout_alignParentBottom="true"
+            layout="@layout/view_shopcart_bottom"/>
+
+        <com.thlh.jhmjmw.view.NoInfoView
+            android:id="@+id/shopcart_goods_noinfoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

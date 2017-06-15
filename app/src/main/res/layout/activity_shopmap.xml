@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="附近小店"/>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/store_baidumap_mapview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y600"
+        android:background="@drawable/shap_radius_white"
+        android:clickable="true"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"/>
+
+    <LinearLayout
+        style="@style/normal_info_layout"
+        android:layout_marginBottom="@dimen/y10">
+        <ImageView
+            android:id="@+id/store_name_iv"
+            android:src="@drawable/icon_shop_logo"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/y28"
+            android:text="小店名称"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_marginLeft="@dimen/x20"/>
+        <TextView
+            android:id="@+id/store_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y28"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/normal_info_layout"
+        android:layout_marginBottom="@dimen/y10"
+        android:minHeight="@dimen/y80"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_address_shop"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/y28"
+            android:text="小店地址"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_marginLeft="@dimen/x20"/>
+        <TextView
+            android:id="@+id/store_addr_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y28"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/normal_info_layout"
+        android:layout_marginBottom="@dimen/y10"
+        android:minHeight="@dimen/y80"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_address_phone"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/y28"
+            android:text="联系电话"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_marginLeft="@dimen/x20"/>
+        <TextView
+            android:id="@+id/store_phone_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y28"
+            android:text="" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/shop_bottom_route_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y90"
+            android:layout_gravity="bottom"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/selector_theme"
+            android:text="导航至小店"/>
+    </FrameLayout>
+
+</LinearLayout>

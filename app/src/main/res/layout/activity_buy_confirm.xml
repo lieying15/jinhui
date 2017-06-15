@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/order_confirm_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/order_confirm_header_name"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="@color/app_mainback"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10">
+        <LinearLayout
+            android:id="@+id/order_confirm_topll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/view_order_address"/>
+            <include layout="@layout/view_orderconfirm_goodsinfo"/>
+            <include layout="@layout/view_order_confirm_info"/>
+            <!--支付方式-->
+            <include layout="@layout/view_order_confirm_paytype"/>
+            <!--备注-->
+            <include layout="@layout/view_order_beizhu"/>
+            <!--费用清单-->
+            <include layout="@layout/view_order_confirm_pricelist"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/view_order_confirm_bottom"/>
+</LinearLayout>

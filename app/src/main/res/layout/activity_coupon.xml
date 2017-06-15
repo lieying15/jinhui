@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_mainback"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/coupon_headerNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="我的优惠券" />
+
+    <com.thlh.viewlib.tablayout.CommonTabLayout
+        android:id="@+id/coupon_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_marginBottom="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white"
+        tl:tl_iconGravity="RIGHT"
+        tl:tl_indicator_anim_enable="true"
+        tl:tl_indicator_color="@color/wine_light"
+        tl:tl_indicator_corner_radius="@dimen/y30"
+        tl:tl_indicator_margin_bottom="@dimen/y15"
+        tl:tl_indicator_margin_left="@dimen/x20"
+        tl:tl_indicator_margin_right="@dimen/x20"
+        tl:tl_indicator_margin_top="@dimen/y15"
+        tl:tl_indicator_style="BLOCK"
+        tl:tl_textSelectColor="@color/white"
+        tl:tl_textUnselectColor="@color/text_nomal" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/coupon_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

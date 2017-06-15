@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:orientation="vertical"
+    android:background="@color/app_mainback">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/recharge_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="账户充值"/>
+
+    <LinearLayout
+        android:id="@+id/recharge_wechat_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/i_wx"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="微信充值"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/wallet_margin_text_toiv"/>
+        <ImageView
+            android:id="@+id/recharge_wechat_select_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_gravity="center_vertical|right"
+            android:src="@drawable/icon_check_wine"/>
+    </LinearLayout>
+
+
+<!--支付宝充值-->
+    <LinearLayout
+        android:id="@+id/recharge_alipay_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/i_pay"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="支付宝充值"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/wallet_margin_text_toiv"/>
+
+        <ImageView
+            android:id="@+id/recharge_alipy_select_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_check_wine"/>
+    </LinearLayout>
+
+<!--新版UI-->
+    <RadioGroup
+        android:id="@+id/recharge_number_select_rg"
+        android:layout_marginTop="30px"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/top_up_6999_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_recharge_mainback_r50_red"
+            android:layout_weight="1"
+            android:text="6999元"
+            android:textSize="@dimen/y28"
+            android:layout_marginRight="25px"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="5px"
+            android:gravity="center"
+            android:checked="true"
+            android:button="@null"
+            android:textColor="@color/text_black"/>
+
+        <RadioButton
+            android:id="@+id/top_up_7999_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_recharge_mainback_r50_red"
+            android:layout_weight="1"
+            android:text="7999元"
+            android:textSize="@dimen/y28"
+            android:layout_marginRight="25px"
+            android:layout_marginTop="5px"
+            android:gravity="center"
+            android:button="@null"
+            android:textColor="@color/text_black"/>
+
+        <RadioButton
+            android:id="@+id/top_up_other_money_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_recharge_mainback_r50_red"
+            android:layout_weight="1"
+            android:text="其他金额"
+            android:textSize="@dimen/y28"
+            android:layout_marginRight="50px"
+            android:layout_marginTop="5px"
+            android:gravity="center"
+            android:button="@null"
+            android:textColor="@color/text_black"/>
+
+    </RadioGroup>
+
+
+    <!--输入的金额-->
+    <LinearLayout
+        android:id="@+id/money_mjz"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white_r50"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/y40"
+        android:paddingLeft="@dimen/y50"
+        android:paddingRight="@dimen/y50"
+        android:layout_marginLeft="@dimen/x100"
+        android:layout_marginRight="@dimen/x100"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/text_nomal"
+            android:text="金额"/>
+        <View
+            android:layout_width="1.5px"
+            android:layout_height="35px"
+            android:background="@color/gray"
+            android:layout_marginLeft="46px"
+            android:layout_marginRight="25px"/>
+        <EditText
+            android:id="@+id/recharge_input_et"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:hint="请输入其他充值金额"
+            android:inputType="numberDecimal"
+            android:textColor="@color/text_nomal"
+            android:textColorHint="@color/text_tips"
+            android:textSize="@dimen/y28"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_null"/>
+    </LinearLayout>
+
+<!--充值按钮-->
+    <LinearLayout
+        android:id="@+id/recharge_rechargenormal_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:gravity="center"
+        android:background="@drawable/selector_stoke_mainback_r50_red"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/y40"
+        android:paddingLeft="@dimen/y50"
+        android:paddingRight="@dimen/y50"
+        android:layout_marginLeft="@dimen/x100"
+        android:layout_marginRight="@dimen/x100">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="充值"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!--换购协议-->
+    <LinearLayout
+        android:id="@+id/recharge_protocol_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_item_height"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <CheckBox
+            android:id="@+id/recharge_protocol_cb"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_gravity="center"
+            android:button="@drawable/selector_icon_cb_winelight" />
+        <TextView
+            android:id="@+id/recharge_protocol_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/wine_light"
+            android:text="同意充值换购预存协议"/>
+    </LinearLayout>
+
+
+    <!--小美温馨提示-->
+    <TextView
+        android:id="@+id/recharge_hint_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y40"
+        android:textSize="@dimen/y22"
+        android:lineSpacingMultiplier="1.3"
+        android:layout_marginLeft="@dimen/x100"
+        android:layout_marginRight="@dimen/x100"
+        android:textColor="@color/text_tips"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px"
+        android:textSize="@dimen/y25"
+        android:text="客服电话：4001688521"
+        android:gravity="center"
+        android:textColor="@color/wine_light"/>
+
+
+</LinearLayout>

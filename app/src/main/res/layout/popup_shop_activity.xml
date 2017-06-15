@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_shop_topll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shap_radius_half_top_white"
+    android:paddingTop="25dp"
+    android:paddingBottom="25dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp">
+    <TextView
+        android:id="@+id/pop_shop_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_small_x"
+        android:lineSpacingMultiplier="1.2"
+        android:gravity="center_horizontal"
+        android:textColor="@color/text_nomal"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/pop_shop_tips_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/text_size_medium"
+        android:gravity="center_horizontal"
+        android:textColor="@color/text_nomal"
+        android:text=""/>
+
+
+    <TextView
+        android:id="@+id/pop_shop_action_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text_size_small_xx"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/text_nomal"
+        android:background="@drawable/selector_radius_gray"
+        android:text="前往小店"/>
+
+</LinearLayout>

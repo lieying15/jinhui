@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="@dimen/header_height"
+    android:background="@color/app_theme"
+    android:gravity="center_vertical"
+    app:layout_scrollFlags="scroll">
+    <FrameLayout
+        android:id="@+id/header_goods_left_fl"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/header_goods_left_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center"
+        android:src="@drawable/icon_back_white"/>
+    </FrameLayout>
+    <TextView
+        android:id="@+id/header_goods_tv"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="@dimen/header_height"
+        android:background="@color/app_theme"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_small"
+        android:text="@string/goodsdetail_header_name"/>
+    <FrameLayout
+        android:id="@+id/header_goods_share_fl"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/icon_share_black" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/header_goods_more_fl"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_more_white" />
+    </FrameLayout>
+</LinearLayout>

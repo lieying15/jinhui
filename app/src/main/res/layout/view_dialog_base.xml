@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white"
+    android:padding="10dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <!--标题-->
+    <TextView
+        android:id="@+id/dialog_base_title_tv"
+        android:layout_width="@dimen/dialog_base_width"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="@dimen/text_size_small"
+        android:text=""
+        android:visibility="invisible"/>
+
+
+    <LinearLayout
+        android:id="@+id/dialog_base_btnll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_base_title_tv"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+        <Button
+            android:id="@+id/dialog_base_top_tv"
+            android:layout_marginRight="5dp"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="3"
+            android:background="@drawable/bg_null"
+            android:text=""
+            android:gravity="right"
+            android:textColor="@drawable/selector_color_text_normal_theme"
+            android:textSize="@dimen/text_size_small_x"
+            android:visibility="invisible"/>
+        <Button
+            android:id="@+id/dialog_base_bottom_tv"
+            android:layout_marginLeft="5dp"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_null"
+            android:text=""
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@drawable/selector_color_text_normal_theme"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+</LinearLayout>

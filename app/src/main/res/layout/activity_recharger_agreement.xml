@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_recharger_agreement"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.thlh.jhmjmw.business.recharge.RechargerAgreementActivity">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/recharge_agreement_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="协议">
+
+    </com.thlh.jhmjmw.view.HeaderNormal>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recharge_agreement_header">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/y50"
+            android:layout_marginRight="@dimen/y50">
+
+            <TextView
+                android:id="@+id/recharge_agreement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="充值换购预存协议"
+                android:gravity="center"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/beijingortianjin_tv"
+                android:layout_below="@+id/recharge_agreement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small"
+                android:lineSpacingMultiplier="1.3"/>
+
+             <TextView
+                 android:id="@+id/shengzhen_tv"
+                 android:layout_below="@+id/recharge_agreement_title"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="@dimen/text_size_small"
+                 android:lineSpacingMultiplier="1.3"/>
+
+             <TextView
+                 android:id="@+id/hadRechargeBox_tv"
+                 android:layout_below="@+id/recharge_agreement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:textSize="@dimen/text_size_small"
+                 android:lineSpacingMultiplier="1.3"/>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

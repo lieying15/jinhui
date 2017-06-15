@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/homgpage_goods_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/homgpage_stargoods_title_height"
+        android:background="@color/app_mainback"
+        android:gravity="center"
+        android:text="— 明星产品 —"/>
+    <!--横线 解决4.2.2不满整屏的奇葩问题。-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/app_mainback"/>
+    <include layout="@layout/item_homepage_stargoods"/>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/white">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/homgpage_goods_iv"-->
+            <!--android:layout_width="@dimen/homgpage_goods_img_size"-->
+            <!--android:layout_height="@dimen/homgpage_goods_img_size"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/homgpage_goods_margin_left"-->
+            <!--android:layout_marginBottom="@dimen/homgpage_goods_marging_bottom"-->
+            <!--android:layout_marginTop="@dimen/homgpage_goods_marging_top"-->
+            <!--android:scaleType="fitXY" />-->
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/homgpage_goods_name_tv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/homgpage_goods_marging_top"-->
+            <!--android:layout_toRightOf="@+id/homgpage_goods_iv"-->
+            <!--android:layout_marginRight="@dimen/homgpage_goods_text_mright"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:maxLines="1"-->
+            <!--android:ellipsize="end"-->
+            <!--android:gravity="right"-->
+            <!--android:text=""-->
+            <!--android:textColor="@color/text_black"-->
+            <!--android:textSize="@dimen/text_size_small" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/homgpage_goods_describe_tv"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="@dimen/homgpage_goods_text_mright"-->
+            <!--android:layout_toRightOf ="@+id/homgpage_goods_iv"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:maxLines="1"-->
+            <!--android:ellipsize="end"-->
+            <!--android:layout_below="@+id/homgpage_goods_name_tv"-->
+            <!--android:layout_marginTop="@dimen/homgpage_goods_text_mrighttop"-->
+            <!--android:text=""-->
+            <!--android:gravity="right"-->
+            <!--android:textColor="@color/text_tips"-->
+            <!--android:textSize="@dimen/text_size_small_xx" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/homgpage_goods_unit_tv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignRight="@+id/homgpage_goods_name_tv"-->
+            <!--android:layout_below="@+id/homgpage_goods_describe_tv"-->
+            <!--android:layout_marginTop="@dimen/homgpage_goods_text_mrighttop"-->
+            <!--style="@style/drawable_text_padding_small"-->
+            <!--android:background="@drawable/shap_radius_gray"-->
+            <!--android:text=""-->
+            <!--android:gravity="right"-->
+            <!--android:textColor="@color/text_nomal"-->
+            <!--android:visibility="invisible"-->
+            <!--android:textSize="@dimen/text_size_little_xx" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/homgpage_goods_price_tv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignRight="@+id/homgpage_goods_name_tv"-->
+            <!--android:layout_below="@+id/homgpage_goods_unit_tv"-->
+            <!--android:layout_marginTop="@dimen/homgpage_goods_text_mrighttop_tall"-->
+            <!--android:text=""-->
+            <!--android:gravity="right"-->
+            <!--android:textColor="@color/app_theme"-->
+            <!--android:textSize="@dimen/text_size_large" />-->
+        <!--<TextView-->
+            <!--android:id="@+id/homgpage_goods_coupon_tv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignRight="@+id/homgpage_goods_name_tv"-->
+            <!--android:layout_below="@+id/homgpage_goods_unit_tv"-->
+            <!--android:layout_marginTop="@dimen/homgpage_goods_text_mrighttop_tall"-->
+            <!--android:text="仅限冰箱兑换券使用"-->
+            <!--android:gravity="right"-->
+            <!--android:textColor="@color/app_theme"-->
+            <!--android:textSize="@dimen/text_size_small_xx"-->
+            <!--android:visibility="gone"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/homgpage_goods_symbol_tv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/homgpage_goods_price_tv"-->
+            <!--android:layout_toLeftOf="@+id/homgpage_goods_price_tv"-->
+            <!--android:text="￥"-->
+            <!--android:textColor="@color/app_theme"-->
+            <!--android:textSize="@dimen/text_size_small_xx" />-->
+
+        <!--<FrameLayout-->
+            <!--android:id="@+id/homgpage_goods_buy_fl"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignRight="@+id/homgpage_goods_name_tv"-->
+            <!--android:layout_below="@+id/homgpage_goods_price_tv"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:paddingTop="5dp"-->
+            <!--android:paddingBottom="5dp"-->
+            <!--android:paddingLeft="10dp">-->
+            <!--<TextView-->
+                <!--android:id="@+id/homgpage_goods_buy_tv"-->
+                <!--android:layout_width="65dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center"-->
+                <!--style="@style/drawable_text_padding"-->
+                <!--android:background="@drawable/selector_radius_theme"-->
+                <!--android:text="立即购买"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="@dimen/text_size_little" />-->
+        <!--</FrameLayout>-->
+        <!--<ImageView-->
+            <!--android:id="@+id/homgpage_goods_tag_iv"-->
+            <!--android:layout_width="@dimen/homgpage_todaygoods_tagsize"-->
+            <!--android:layout_height="@dimen/homgpage_todaygoods_tagsize"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/hp_prepare_tag"-->
+            <!--android:visibility="gone"/>-->
+    <!--</RelativeLayout>-->
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/choiceness_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="商城精选"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="@color/app_mainback"
+        android:layout_marginBottom="@dimen/y10"/>
+    <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+        android:id="@+id/choiceness_ptpr_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"/>
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/choiceness_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_xx"
+        android:text="— 更多商品，敬请期待 —"/>
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:paddingRight="5dp">
+
+    <ImageView
+        android:id="@+id/normal_goods_grid_iv"
+        android:layout_width="@dimen/normal_goods_grid_image_size"
+        android:layout_height="@dimen/normal_goods_grid_image_size"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/normal_goods_grid_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/normal_goods_grid_iv"
+        android:layout_centerHorizontal="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text=""
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_size_small_xx" />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/normal_goods_grid_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/normal_goods_grid_name_tv"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/text_size_normal" />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/normal_goods_grid_coupon_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/normal_goods_grid_name_tv"
+        android:text="仅限"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/text_size_small_xx"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/normal_goods_cart_iv"
+        android:layout_width="@dimen/icon_size_large"
+        android:layout_height="@dimen/icon_size_large"
+        android:background="@drawable/icon_shopcart_wine"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="10dp" />
+    <TextView
+        android:id="@+id/normal_goods_cart_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="10dp"
+        style="@style/drawable_text_padding"
+        android:background="@drawable/shap_radius_gray_shallow"
+        android:text="已抢光"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_little"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/normal_goods_tag_iv"
+        android:layout_width="@dimen/homgpage_todaygoods_tagsize"
+        android:layout_height="@dimen/homgpage_todaygoods_tagsize"
+        android:scaleType="fitXY"
+        android:src="@drawable/hp_prepare_tag"
+        android:visibility="gone"/>
+</RelativeLayout>

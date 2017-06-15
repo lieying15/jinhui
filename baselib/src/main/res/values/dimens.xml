@@ -1,0 +1,98 @@
+<resources>
+
+    <!-- 文本的字体大小 -->
+    <dimen name="text_size_large_x">23sp</dimen>
+    <dimen name="text_size_large">19sp</dimen>
+    <dimen name="text_size_medium_x">18sp</dimen>
+    <dimen name="text_size_medium">17sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_small">15sp</dimen>
+    <dimen name="text_size_small_x">14sp</dimen>
+    <dimen name="text_size_small_xx">13sp</dimen>
+    <dimen name="text_size_little">12sp</dimen>
+    <dimen name="text_size_little_x">11sp</dimen>
+    <dimen name="text_size_little_xx">10sp</dimen>
+
+    <!--边距-->
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <!--shap 图形圆角-->
+    <dimen name="shap_radius">6dp</dimen>
+    <dimen name="shap_radius_r10">@dimen/y10</dimen>
+    <!--header-->
+    <dimen name="header_height">45dp</dimen>
+
+    <!--图片相关尺寸-->
+    <!--icon图标-->
+    <dimen name="icon_size">20dp</dimen>
+    <dimen name="icon_size_large">25dp</dimen>
+    <dimen name="icon_size_large_x">36dp</dimen>
+    <dimen name="image_smallx_size">28dp</dimen>
+    <dimen name="image_small_size">35dp</dimen>
+    <dimen name="image_normal_size">60dp</dimen>
+    <dimen name="goods_img_size">360dp</dimen>
+
+    <dimen name="icon_pxsize_x">@dimen/x38</dimen>
+    <dimen name="icon_pxsize_y">@dimen/y38</dimen>
+    <dimen name="icon_header_pxsize_x">@dimen/x34</dimen>
+    <dimen name="icon_header_pxsize_y">@dimen/y34</dimen>
+    <dimen name="icon_mjz_x">@dimen/x25</dimen>
+    <dimen name="icon_mjz_y">@dimen/y25</dimen>
+
+    <dimen name="icon_pxsize_large">25dp</dimen>
+    <dimen name="icon_pxsize_large_x">36dp</dimen>
+    <dimen name="image_pxsmallx_size">28dp</dimen>
+    <dimen name="image_pxsmall_size">35dp</dimen>
+    <dimen name="image_pxnormal_size">60dp</dimen>
+    <dimen name="goods_img_pxsize">360dp</dimen>
+
+
+    <!-- listview的item中图片的合适高度 -->
+    <dimen name="item_img_width">80dp</dimen>
+    <dimen name="item_img_height">72dp</dimen>
+
+    <!--dialog 尺寸-->
+    <dimen name="dialog_margin_sile">20dp</dimen>
+
+    <!--最小点击尺寸尺寸-->
+    <dimen name="comfort_press_size">25dp</dimen>
+    <dimen name="comfort_press_medium_size">30dp</dimen>
+    <dimen name="comfort_press_large_size">36dp</dimen>
+    <!--常按钮-->
+    <dimen name="normal_center_btn_weight">120dp</dimen>
+    <dimen name="normal_center_btn_height">38dp</dimen>
+
+
+
+    <!-- ========================================== -->
+    <!-- EasyGank item data -->
+    <dimen name="data_type_tv">12sp</dimen>
+    <dimen name="data_border_padding_infra_spans">0dp</dimen>
+    <dimen name="data_border_divider_height">0dp</dimen>
+    <dimen name="welfare_border_padding_infra_spans">3dp</dimen>
+    <dimen name="welfare_border_divider_height">6dp</dimen>
+
+    <!--pulltofresh  start -->
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">4dp</dimen>
+    <!--end  pulltofresh-->
+
+    <!--quicksidebar-->
+    <dimen name="textSize_quicksidebar">10sp</dimen>
+    <dimen name="textSize_quicksidebar_choose">15sp</dimen>
+    <dimen name="textSize_quicksidebartips">20sp</dimen>
+    <dimen name="height_quicksidebartips">45dp</dimen>
+    <dimen name="height_quicksidebaritem">20dp</dimen>
+
+    <!--sweetdialog-->
+    <dimen name="alert_width">150dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+
+    <!--frgmentdialog-->
+    <dimen name="frgmentdialog_radius">@dimen/x50</dimen>
+</resources>

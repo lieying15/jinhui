@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white"
+    android:paddingTop="@dimen/y10"
+    android:layout_marginTop="@dimen/y10"
+    android:layout_marginBottom="@dimen/y10">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remarks"
+        android:textSize="@dimen/y28"
+        android:paddingTop="@dimen/y5"
+        android:paddingBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        />
+    <EditText
+        android:id="@+id/order_offer_beizhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxEms="20"
+        android:background="@drawable/bg_null"
+        android:textColor="@color/black"
+        android:maxLength="50"
+        android:hint="选填，给商家留言（50字以内）"
+        android:textColorHint="@color/text_tips"
+        android:textSize="@dimen/y28"
+        android:paddingTop="@dimen/y5"
+        android:paddingBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"/>
+
+</LinearLayout>

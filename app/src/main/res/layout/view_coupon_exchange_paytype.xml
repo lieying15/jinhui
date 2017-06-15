@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y140"
+    android:orientation="vertical"
+    android:background="@drawable/shap_radius_white"
+    android:layout_marginTop="@dimen/y10">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:text="支付方式"
+        android:textSize="@dimen/y25"
+        android:textColor="@color/text_tips"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"/>
+    <View style="@style/divide_line_horizontal_match_mianback"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="冰箱兑换券"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/text_nomal"/>
+    </LinearLayout>
+</LinearLayout>

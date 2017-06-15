@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingTop="2dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="2dp">
+
+    <TextView
+        android:id="@+id/goodsdetail_property_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="品牌："
+        android:textColor="@color/text_tips"
+        android:textSize="@dimen/text_size_small_xx" />
+
+    <TextView
+        android:id="@+id/goodsdetail_property_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="比夫家人"
+        android:gravity="left"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_xx"
+        android:layout_marginLeft="5dp"/>
+
+</LinearLayout>

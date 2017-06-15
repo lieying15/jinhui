@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="5dp">
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:id="@+id/dialog_phone_title_iv"
+        android:layout_width="@dimen/icon_size_large"
+        android:layout_height="@dimen/icon_size_large"
+        android:layout_marginTop="@dimen/dialog_marging_title_top"
+        android:src="@drawable/icon_phone_black"/>
+    <TextView
+        android:id="@+id/dialog_phone_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_marging_title_top"
+        android:textSize="@dimen/text_size_small_x"
+        android:textColor="@color/text_nomal"
+        android:text="将为您提供退货服务"/>
+    <TextView
+        android:id="@+id/dialog_phone_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_x"
+        android:text="010-71078668"/>
+
+
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="@dimen/tall_item_height"
+        android:id="@+id/dialog_phone_bottom_ll">
+        <TextView
+            android:id="@+id/dialog_phone_btn_tv"
+            android:layout_gravity="center"
+            android:text="立即拨打"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/selector_radius_theme"
+            android:textSize="@dimen/login_edit_text_size" />
+    </FrameLayout>
+</LinearLayout>
+    <ImageView
+        android:id="@+id/dialog_phone_cancel_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_gravity="right"
+        android:src="@drawable/icon_mistake_black"/>
+</FrameLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.thlh.viewlib.swipview.SwipeItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_contact_swipe_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:bga_sil_bottomMode="pullOut"
+    app:bga_sil_springDistance="20dp"
+    app:bga_sil_swipeDirection="left">
+
+    <LinearLayout
+        android:id="@+id/item_delete_ll"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:background="@color/app_theme"
+        android:minHeight="321dp"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/icon_delete_white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10"
+            android:background="@drawable/shap_radius_half_top_white">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="套装"
+                android:textColor="@color/wine_light"
+                android:background="@drawable/shap_radius_white_stroke_wine"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:textSize="@dimen/y25" />
+            <TextView
+                android:id="@+id/shopcart_suit_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="@color/text_nomal"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/text_size_small_x" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="套装价:"
+                android:textColor="@color/wine_light"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:textSize="@dimen/y28" />
+            <TextView
+                android:id="@+id/shopcart_suit_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:text=""
+                android:layout_weight="1"
+                android:textColor="@color/app_theme"
+                android:textSize="@dimen/text_size_medium" />
+            <TextView
+                android:id="@+id/shopcart_suit_num_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_tips"
+                android:textSize="@dimen/y28"
+                android:text="共1件"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:paddingLeft="30dp"
+            android:background="@color/app_mainback"/>
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/shopcart_suit_item_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:background="@drawable/shap_radius_half_bottom_white"/>
+    </LinearLayout>
+
+</com.thlh.viewlib.swipview.SwipeItemLayout>

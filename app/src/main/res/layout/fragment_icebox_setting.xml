@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/y10"
+    android:layout_marginBottom="@dimen/y10">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/icebox_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="冰箱设置"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y10"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:background="@drawable/shap_radius_white">
+        <TextView
+            android:id="@+id/icebox_setting_ttop_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x15"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="冷藏"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/y28" />
+
+        <ImageView
+            android:id="@+id/icebox_setting_ttop_iv"
+            android:layout_width="@dimen/x60"
+            android:layout_height="@dimen/y115"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/icebox_setting_padding"
+            android:layout_marginRight="@dimen/icebox_setting_padding"
+            android:background="@drawable/img_icebox_temp_top" />
+
+        <ImageView
+            android:id="@+id/icebox_setting_temperature_top_iv"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/y70"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x25"
+            android:background="@drawable/img_icebox_temp_hight" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/icebox_setting_temperature_top_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="2"
+                android:textColor="@color/text_nomal"
+                android:textSize="80px" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="℃"
+                android:textColor="@color/text_nomal"
+                android:textSize="44px" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/icebox_setting_top_sub_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginRight="@dimen/x50"
+            android:background="@drawable/selector_icon_icebox_sub" />
+
+        <ImageView
+            android:id="@+id/icebox_setting_top_add_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:background="@drawable/selector_icon_icebox_add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:background="@drawable/shap_radius_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x15"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="冷冻"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx"
+            android:id="@+id/textView4" />
+
+        <ImageView
+            android:id="@+id/icebox_setting_tbottom_iv"
+            android:layout_width="@dimen/x60"
+            android:layout_height="@dimen/y115"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/icebox_setting_padding"
+            android:layout_marginRight="@dimen/icebox_setting_padding"
+            android:background="@drawable/img_icebox_temp_bottom" />
+
+        <ImageView
+            android:id="@+id/icebox_setting_temperature_bottom_iv"
+            android:layout_width="@dimen/x32"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x25"
+            android:background="@drawable/img_icebox_temp_snow" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/icebox_setting_temperature_bottom_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-18"
+                android:textColor="@color/text_nomal"
+                android:textSize="80px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="℃"
+                android:layout_marginRight="@dimen/icebox_setting_padding"
+                android:textColor="@color/text_nomal"
+                android:textSize="44px" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/icebox_setting_bottom_sub_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginRight="@dimen/x50"
+            android:background="@drawable/selector_icon_icebox_sub" />
+        <ImageView
+            android:id="@+id/icebox_setting_bottom_add_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:background="@drawable/selector_icon_icebox_add" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/shap_radius_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="功能"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="@dimen/x522"
+            android:layout_height="@dimen/y122"
+            android:layout_marginLeft="@dimen/icebox_setting_padding"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/icebox_setting_topleft_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y60"
+                    android:background="@drawable/shap_radius_quarter_topleft_gray"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="速冷"
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/y28" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y2"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/icebox_setting_bottomleft_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y60"
+                    android:background="@drawable/shap_radius_quarter_bottomleft_gray"
+                    android:button="@null"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="智能"
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/text_size_small_xx" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/x2"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@color/white" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/icebox_setting_topright_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y60"
+                    android:background="@drawable/shap_radius_quarter_topright_gray"
+                    android:button="@null"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="速冻"
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/text_size_small_xx" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y2"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/icebox_setting_bottomright_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y60"
+                    android:background="@drawable/shap_radius_quarter_bottomright_gray"
+                    android:button="@null"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="锁定"
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/text_size_small_xx" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

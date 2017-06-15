@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_contact_swipe_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shap_radius_white">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:id="@+id/shopcart_supplier_cbfl"
+            android:layout_width="@dimen/x80"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+            <ImageView
+                android:id="@+id/shopcart_supplier_cb"
+                android:layout_width="@dimen/icon_pxsize_x"
+                android:layout_height="@dimen/icon_pxsize_y"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/x20"
+                android:background="@drawable/selector_icon_cb_winelight"/>
+        </FrameLayout>
+        <TextView
+            android:id="@+id/shopcart_supplier_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:layout_marginRight="@dimen/x15"
+            android:maxLines="1"
+            android:text="供应商"
+            android:gravity="center_vertical|right"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y30" />
+    </RelativeLayout>
+    <View
+        style="@style/divide_line_horizontal_match_mianback"/>
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/shopcart_goods_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"/>
+</LinearLayout>

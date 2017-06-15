@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback"
+    android:orientation="vertical">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/collect_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/collect_header_name" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10">
+        <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+            android:id="@+id/collect_goods_ptpr_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/y10"/>
+        <com.thlh.jhmjmw.view.NoInfoView
+            android:id="@+id/collect_goods_noinfoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+</LinearLayout>

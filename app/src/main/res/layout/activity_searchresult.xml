@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback">
+    <include layout="@layout/view_search_header"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@color/app_mainback"/>
+    <!--<com.thlh.mjmw.view.SelectGoodsBar-->
+        <!--android:id="@+id/select_goods_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
+    <include layout="@layout/view_searchresult_sortbar"/>
+
+    <include layout="@layout/view_searchresult_filterbar"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.thlh.jhmjmw.view.NoInfoView
+            android:id="@+id/searchresult_noinfoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10">
+            <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+                android:id="@+id/searchresult_ptpr_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/searchresult_totop_fbtn"
+                android:layout_width="@dimen/x65"
+                android:layout_height="@dimen/y65"
+                android:layout_marginRight="@dimen/x15"
+                android:layout_marginBottom="@dimen/y15"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/icon_goto_top_v2"
+                app:backgroundTint="#ffffff"
+                app:borderWidth="0dp"
+                app:fabSize="mini"
+                app:rippleColor="#ffffff"
+                android:visibility="gone"/>
+        </android.support.design.widget.CoordinatorLayout>
+    </FrameLayout>
+
+
+</LinearLayout>
+

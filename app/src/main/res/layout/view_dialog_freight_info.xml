@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="@dimen/x600"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shap_framentdialog_radius_white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <!--标题-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80">
+            <ImageView
+                android:id="@+id/exchange_card_title_iv"
+                android:layout_centerInParent="true"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/y60"
+                android:src="@drawable/img_dialog_car"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y2"
+            android:background="@color/app_mainback"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_marginBottom="@dimen/y10"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="运费说明："
+            android:layout_marginTop="@dimen/x20"
+            android:textSize="@dimen/y26"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30"
+            android:textColor="@color/wine_light"
+            android:id="@+id/textView6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="为保障商品安全配送，您的冰箱由物流公司为您配送。根据您填写的配送地址，预计配送费用为430元（如需搬运上楼，需另支付搬运费用50元）。冰箱到货后，会由物流公司向您收取配送费用，实际配送费用以物流公司收费金额为准。"
+            android:textSize="@dimen/y26"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="注："
+            android:textSize="@dimen/y30"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30"
+            android:layout_marginTop="@dimen/x20"
+            android:textColor="@color/wine_light"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="如收货方不能及时收货，免费为收货方留仓2天，超过两天收费标准为25元／天／件。"
+            android:textSize="@dimen/y26"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30"
+            android:layout_marginBottom="@dimen/y30"
+            android:layout_marginLeft="@dimen/x27"
+            android:textColor="@color/wine_light"/>
+
+
+
+        <FrameLayout
+            android:id="@+id/colse_fl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginRight="@dimen/x25"
+            android:orientation="horizontal"
+            android:background="@drawable/selector_stoke_mainback_r50"
+            android:layout_marginBottom="@dimen/y20"
+            android:paddingLeft="@dimen/x50"
+            android:paddingRight="@dimen/x50">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="关闭"
+                android:textSize="@dimen/y25"
+                android:gravity="center"
+                android:textColor="@color/wine_light" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

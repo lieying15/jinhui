@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="@dimen/y91"
+    android:gravity="center_vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@color/app_mainback"/>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="@dimen/y90"
+    android:gravity="center_vertical">
+    <ImageView
+        android:id="@+id/shopcart_bottom_selectall_iv"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:src="@drawable/icon_check_wine"
+        android:layout_marginLeft="@dimen/x25" />
+    <TextView
+        android:id="@+id/shopcart_bottom_select_tv"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_tips"
+        android:text="已选择(0)"
+        android:textSize="@dimen/y25"/>
+    <LinearLayout
+        android:id="@+id/shopcart_bottom_price_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="visible">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x20"
+            android:textColor="@color/text_tips"
+            android:text="合计:"
+            android:gravity="right|center_vertical"
+            android:textSize="@dimen/y25"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_marginBottom="@dimen/y10"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/shopcart_total_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="right|center_vertical"
+                android:layout_weight="1"
+                android:text="￥ 0"
+                android:textColor="@color/wine_light"
+                android:textSize="@dimen/y24" />
+            <TextView
+                android:id="@+id/shopcart_mjb_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:text=" 0"
+                android:textColor="@color/wine"
+                android:textSize="@dimen/y22"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- 结算-->
+        <LinearLayout
+            android:id="@+id/shopcart_bottom_clearing_ll"
+            android:layout_width="@dimen/x180"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/selector_theme">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginRight="10dp"
+                android:textSize="@dimen/text_size_small_x"
+                android:textColor="@color/white"
+                android:text="去结算"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/shopcart_bottom_delete_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/shopcart_bottom_delete_tv"
+            android:layout_width="@dimen/x375"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/y28"
+            android:textColor="@color/white"
+            android:text="删除"
+            android:background="@drawable/selector_theme"/>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

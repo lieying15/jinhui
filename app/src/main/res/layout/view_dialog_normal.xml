@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:gravity="center_horizontal"
+    android:background="@drawable/shap_radius_white"
+    android:orientation="vertical">
+
+    <!--标题 内容-->
+    <LinearLayout
+        android:layout_width="@dimen/dialog_base_width"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/dialog_base_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_nomal"
+            android:text="提示" />
+        <TextView
+            android:id="@+id/dialog_base_subtitle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx"
+            android:text=""
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <!--按钮-->
+    <LinearLayout
+        android:id="@+id/dialog_base_btnll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/dialog_base_top_tv"
+            android:layout_marginRight="5dp"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radius_white_stoke_theme_r20"
+            android:text="取消"
+            android:textColor="@drawable/selector_color_text_normal_theme"
+            android:textSize="@dimen/text_size_small_x"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/dialog_base_bottom_tv"
+            android:layout_marginLeft="5dp"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radius_theme"
+            android:text="确认"
+            android:textSize="@dimen/text_size_small_x"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

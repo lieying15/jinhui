@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchgoods_hotsale_goods_ll"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/y330"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="@dimen/y10"
+    android:paddingLeft="@dimen/x10"
+    android:paddingRight="@dimen/x10">
+
+    <RelativeLayout
+        android:layout_width="@dimen/x220"
+        android:layout_height="@dimen/y220">
+        <ImageView
+            android:id="@+id/searchgoods_hotsale_goods_iv"
+            android:layout_width="@dimen/x220"
+            android:layout_height="@dimen/y220"
+            android:layout_marginBottom="@dimen/x10"/>
+        <ImageView
+            android:id="@+id/searchgoods_tag_iv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/hp_prepare_tag"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/searchgoods_hotsale_goods_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/y25" />
+    <TextView
+        android:id="@+id/searchgoods_hotsale_goods_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/y25" />
+    <TextView
+        android:id="@+id/searchgoods_hotsale_goods_mjz_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/y22"
+        android:paddingLeft="@dimen/x5"
+        android:paddingRight="@dimen/x5"
+        android:background="@drawable/shap_radius_white_stroke_theme_r20"
+        android:visibility="gone"/>
+
+
+</LinearLayout>

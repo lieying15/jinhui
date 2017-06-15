@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/maintab_center_layout_hight">
+
+    <LinearLayout
+        android:id="@+id/homepage_tab_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/maintab_center_layout_hight"
+        android:orientation="horizontal">
+
+        <!--首页-->
+        <LinearLayout
+            android:id="@+id/homepage_btab_hp_ll"
+            android:background="@color/white"
+            style="@style/homepage_btab_layout">
+
+            <ImageView
+                android:id="@+id/homepage_btab_hp_iv"
+                style="@style/homepage_btab_image"
+                android:background="@drawable/icon_home_gray"/>
+            <TextView
+                android:id="@+id/homepage_btab_hp_tv"
+                style="@style/homepage_btab_text"
+                android:text="首页"/>
+        </LinearLayout>
+
+        <!--分类 后改为精选-->
+        <LinearLayout
+            android:id="@+id/homepage_btab_choice_ll"
+            android:background="@color/white"
+            style="@style/homepage_btab_layout">
+
+            <ImageView
+                android:id="@+id/homepage_btab_choice_iv"
+                style="@style/homepage_btab_image"
+                android:background="@drawable/icon_package_gray"/>
+            <TextView
+                android:id="@+id/homepage_btab_choice_tv"
+                style="@style/homepage_btab_text"
+                android:text="商城精选"/>
+        </LinearLayout>
+
+        <!--小店-->
+        <LinearLayout
+            style="@style/homepage_btab_layout">
+            <View
+                style="@style/homepage_btab_image" />
+            <TextView
+                android:id="@+id/homepage_btab_shop_tv"
+                style="@style/homepage_btab_text"
+                android:text="我的小店"/>
+        </LinearLayout>
+        <!--购物车-->
+        <RelativeLayout
+            android:id="@+id/homepage_btab_shopcart_ll"
+            style="@style/homepage_tab_shopcart_layout_v3">
+            <ImageView
+                android:id="@+id/homepage_btab_shopcart_iv"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:scaleType="fitXY"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/maintab_icon_margin_top"
+                android:background="@drawable/icon_shopcart_gray"/>
+
+            <TextView
+                android:id="@+id/homepage_btab_shopcart_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/maintab_text_height"
+                android:textSize="@dimen/maintab_text_size"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/text_tips"
+                android:gravity="bottom"
+                android:layout_alignParentBottom="true"
+                android:text="购物车"
+                android:paddingBottom="@dimen/maintab_text_margin_tobottom"/>
+            <com.thlh.viewlib.tablayout.MsgView
+                android:id="@+id/homepage_btab_shopcart_num_msg"
+                style="@style/text_shopcart"
+                android:layout_toRightOf="@+id/homepage_btab_shopcart_iv"
+                android:text="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="@dimen/homgpage_bottomview_shopcart_offsetx"
+                mv:mv_backgroundColor="@color/app_theme"
+                mv:mv_isRadiusHalfHeight="true"
+                mv:mv_strokeColor="#ffffff"
+                mv:mv_strokeWidth="0.5dp"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--个人-->
+        <LinearLayout
+            android:id="@+id/homepage_btab_mine_ll"
+            style="@style/homepage_btab_layout"
+            android:background="@color/white">
+            <ImageView
+                android:id="@+id/homepage_btab_mine_iv"
+                style="@style/homepage_btab_image"
+                android:background="@drawable/icon_user_gray"/>
+            <TextView
+                android:id="@+id/homepage_btab_mine_tv"
+                style="@style/homepage_btab_text"
+                android:text="我的"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <com.thlh.jhmjmw.view.TabLine
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/maintab_line_height"
+        android:layout_marginTop="@dimen/maintab_layout_margin_top" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/maintab_line_height"
+        android:id="@+id/iv_homepage_tab_line"
+        android:background="@color/app_theme"
+        android:scaleType="matrix"
+        android:layout_marginTop="@dimen/maintab_layout_margin_top" />
+
+    <FrameLayout
+        android:id="@+id/iv_homepage_tab_shop_fl"
+        android:layout_width="@dimen/maintab_center_img_size"
+        android:layout_height="@dimen/maintab_center_img_size"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/shap_ring_theme">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/icon_shop_white" />
+    </FrameLayout>
+
+</RelativeLayout>

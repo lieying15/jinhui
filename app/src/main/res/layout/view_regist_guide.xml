@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y80"
+    android:background="@drawable/shap_radius_white"
+    android:layout_marginTop="@dimen/y10"
+    android:layout_marginBottom="@dimen/y10"
+    android:layout_marginLeft="@dimen/x10"
+    android:layout_marginRight="@dimen/x10">
+    <View
+        android:layout_width="@dimen/x550"
+        android:layout_height="@dimen/y2"
+        android:layout_marginTop="@dimen/y25"
+        android:layout_marginLeft="@dimen/x90"
+        android:background="@color/app_mainback"/>
+    <View
+        android:id="@+id/regist_topnum_line"
+        android:layout_width="@dimen/x550"
+        android:layout_height="@dimen/y2"
+        android:layout_marginTop="@dimen/y25"
+        android:layout_marginLeft="@dimen/x90"
+        android:background="@color/wine_light"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            style="@style/divide_linealayout_vertical_center">
+            <TextView
+                android:id="@+id/regist_topnumone_tv"
+                style="@style/regist_topnumber"
+                android:text="1"/>
+            <TextView
+                android:id="@+id/regist_toptextone_tv"
+                style="@style/regist_toptext"
+                android:text="验证手机号" />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/divide_linealayout_vertical_center">
+            <TextView
+                android:id="@+id/regist_topnumtwo_tv"
+                style="@style/regist_topnumber"
+                android:text="2" />
+            <TextView
+                android:id="@+id/regist_toptexttwo_tv"
+                style="@style/regist_toptext"
+                android:text="输入验证码" />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/divide_linealayout_vertical_center">
+            <TextView
+                android:id="@+id/regist_topnumthree_tv"
+                style="@style/regist_topnumber"
+                android:text="3" />
+            <TextView
+                android:id="@+id/regist_toptextthree_tv"
+                style="@style/regist_toptext"
+                android:text="填写密码" />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/divide_linealayout_vertical_center">
+
+            <TextView
+                android:id="@+id/regist_topnumfour_tv"
+                style="@style/regist_topnumber"
+                android:text="4" />
+
+            <TextView
+                android:id="@+id/regist_toptextfour_tv"
+                style="@style/regist_toptext"
+                android:text="完成" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+

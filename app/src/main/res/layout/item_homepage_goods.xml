@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_homgpage_goods_toprl"
+    android:layout_width="@dimen/x360"
+    android:layout_height="@dimen/y460"
+    android:background="@drawable/shap_radius_white"
+    android:paddingLeft="@dimen/x10"
+    android:paddingRight="@dimen/x10"
+    android:paddingBottom="@dimen/y10">
+
+
+    <ImageView
+        android:id="@+id/item_homgpage_goods_iv"
+        android:layout_width="@dimen/x340"
+        android:layout_height="@dimen/y340"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:paddingTop="10dp"
+        android:src="@color/app_mainback"/>
+    <ImageView
+        android:id="@+id/item_homgpage_goods_tagiv"
+        android:layout_width="@dimen/x60"
+        android:layout_height="@dimen/y83"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/homepag_goodstag_today"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/item_homgpage_goods_name_tv"
+        android:layout_width="@dimen/x360"
+        android:layout_height="@dimen/y62"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_below="@+id/item_homgpage_goods_iv"
+        android:gravity="center_vertical|left"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text=""
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:id="@+id/item_homgpage_goods_describe_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_homgpage_goods_name_tv"
+        android:layout_centerHorizontal="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text=""
+        android:background="@drawable/shap_radius_lightblue"
+        android:textColor="@color/text_tips"
+        android:paddingLeft="@dimen/x5"
+        android:paddingRight="@dimen/x5"
+        android:textSize="@dimen/y23"
+        android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true"
+        android:gravity="left"
+        android:layout_below="@+id/item_homgpage_goods_describe_tv">
+        <TextView
+            android:id="@+id/item_homgpage_goods_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/yellowdark"
+            android:textSize="@dimen/y28" />
+
+        <TextView
+            android:id="@+id/item_homgpage_goods_mjz_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x5"
+            android:text=""
+            android:textColor="@color/app_theme"
+            android:textSize="@dimen/y28"
+            android:paddingLeft="@dimen/x5"
+            android:paddingRight="@dimen/x5"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/item_homgpage_goods_back_iv"
+        android:layout_width="@dimen/x100"
+        android:layout_height="@dimen/y100"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/item_homgpage_goods_iv"
+        android:layout_marginBottom="@dimen/y112"
+        android:background="@drawable/shap_ring_tanslucent_winelight"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/item_homgpage_goods_status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/y145"
+        android:layout_alignBottom="@+id/item_homgpage_goods_iv"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/y28"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/item_homgpage_cart_fl"
+        android:layout_width="@dimen/x80"
+        android:layout_height="@dimen/y80"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_above="@+id/item_homgpage_goods_name_tv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+        <ImageView
+            android:id="@+id/item_homgpage_cart_iv"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/y40"
+            android:scaleType="fitXY"
+            android:layout_gravity="bottom|right"
+            android:src="@drawable/icon_homepage_cart"/>
+    </FrameLayout>
+</RelativeLayout>

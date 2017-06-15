@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true"
+    android:background="@color/app_mainback"
+    android:orientation="vertical">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/footprint_header_name" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/footprint_title_ll"
+            style="@style/normal_info_layout"
+            android:layout_marginBottom="@dimen/y10"
+            android:layout_marginTop="@dimen/y10"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true">
+            <ImageView
+                android:layout_width="@dimen/icon_pxsize_x"
+                android:layout_height="@dimen/icon_pxsize_y"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/icon_foot"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/footprint_title"
+                android:layout_marginLeft="@dimen/x20"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/y28"/>
+
+            <TextView
+                android:id="@+id/footprint_delete_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清空"
+                android:textColor="@color/wine_light"
+                android:textSize="@dimen/text_size_small_xx"/>
+
+            <ImageView
+                android:id="@+id/footprint_delete_iv"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/icon_delete_wine"/>
+        </LinearLayout>
+
+        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+            android:id="@+id/footprint_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_below="@+id/footprint_title_ll"/>
+
+        <com.thlh.jhmjmw.view.NoInfoView
+            android:id="@+id/footprint_noinfoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

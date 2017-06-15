@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shap_radius_white">
+        <include layout="@layout/item_goods_base"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y2"
+            android:background="@color/app_mainback"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:gravity="center_horizontal">
+            <com.thlh.jhmjmw.view.PoiRedStar
+                android:id="@+id/comment_rank_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_gravity="center_vertical|right"
+                android:gravity="left" />
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/comment_action_left_tv"
+                android:layout_width="@dimen/x160"
+                android:layout_height="@dimen/y45"
+                android:gravity="center"
+                android:background="@drawable/selector_radius_white_stoke_mainblack_r20"
+                android:layout_marginRight="@dimen/x20"
+                android:layout_gravity="center_vertical|right"
+                android:text="再次购买"
+                android:textColor="@color/text_tips"
+                android:textSize="@dimen/y25" />
+            <TextView
+                android:id="@+id/comment_action_right_tv"
+                android:layout_width="@dimen/x160"
+                android:layout_height="@dimen/y45"
+                android:gravity="center"
+                android:background="@drawable/selector_radius_white_stoke_theme_r20"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_gravity="center_vertical|right"
+                android:text="评价"
+                android:textColor="@color/wine_light"
+                android:textSize="@dimen/y25" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comment_mine_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/comment_margin_sile"
+        android:layout_marginLeft="@dimen/comment_margin_sile"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/text_tips"
+        android:textSize="@dimen/text_size_little"
+        android:text="感觉挺不错"
+        android:background="@drawable/shap_stroke_grayshallow"
+        android:visibility="gone"/>
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/comment_mine_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/comment_margin_sile"
+        android:paddingRight="@dimen/comment_margin_sile"
+        android:paddingTop="@dimen/x10"
+        android:paddingBottom="@dimen/x10"
+        android:visibility="gone"/>
+</LinearLayout>

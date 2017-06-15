@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/icebox_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="冰箱屏保设置"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
+            android:id="@+id/icebox_screen_ptpr_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_marginTop="@dimen/y10"
+            android:background="@color/app_mainback"/>
+        <View
+            android:id="@+id/icebox_screen_bg_v"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:background="@drawable/shap_radius_half_top_white">
+
+            <LinearLayout
+                android:id="@+id/icebox_screen_action_clock_ll"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/icebox_screen_action_clock_iv"
+                    android:layout_width="@dimen/icon_pxsize_x"
+                    android:layout_height="@dimen/icon_pxsize_y"
+                    android:background="@drawable/icon_icebox_clock"
+                    android:layout_marginRight="@dimen/x10"/>
+                <TextView
+                    android:id="@+id/icebox_screen_action_clock_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/y28"
+                    android:gravity="center"
+                    android:text="显示时钟"/>
+            </LinearLayout>
+            <View style="@style/divide_line_vertical_white"/>
+            <LinearLayout
+                android:id="@+id/icebox_screen_action_paly_ll"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/icebox_screen_action_paly_iv"
+                    android:layout_width="@dimen/icon_pxsize_x"
+                    android:layout_height="@dimen/icon_pxsize_y"
+                    android:background="@drawable/icon_icebox_play"
+                    android:layout_marginRight="@dimen/x10"/>
+                <TextView
+                    android:id="@+id/icebox_screen_action_paly_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/y28"
+                    android:gravity="center"
+                    android:text="播放相册"/>
+            </LinearLayout>
+            <View style="@style/divide_line_vertical_white"/>
+            <LinearLayout
+                android:id="@+id/icebox_screen_action_addimg_ll"
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/icebox_screen_action_addimg_iv"
+                    android:layout_width="@dimen/icon_pxsize_x"
+                    android:layout_height="@dimen/icon_pxsize_y"
+                    android:background="@drawable/icon_icebox_adds"
+                    android:layout_marginRight="@dimen/x10"/>
+                <TextView
+                    android:id="@+id/icebox_screen_action_addimg_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_nomal"
+                    android:textSize="@dimen/y28"
+                    android:gravity="center"
+                    android:text="添加图片"/>
+            </LinearLayout>
+        </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@color/app_mainback"/>
+</LinearLayout>

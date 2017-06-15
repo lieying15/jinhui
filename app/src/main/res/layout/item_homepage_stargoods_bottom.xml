@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--横线 解决4.2.2不满整屏的奇葩问题。-->
+
+    <include layout="@layout/item_homepage_stargoods"/>
+    <include layout="@layout/view_item_bottom"/>
+
+
+</LinearLayout>

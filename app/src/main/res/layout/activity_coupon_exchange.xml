@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows = "true">
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/order_confirm_header_name"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:background="@color/app_mainback">
+        <LinearLayout
+            android:id="@+id/order_confirm_topll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10">
+            <include layout="@layout/view_order_address"/>
+            <include layout="@layout/view_orderconfirm_goodsinfo"/>
+            <include layout="@layout/view_coupon_exchange_info"/>
+            <include layout="@layout/view_coupon_exchange_paytype"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/order_confirm_bottom_gopay_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:background="@color/wine_light"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认兑换"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y28"/>
+    </LinearLayout>
+</LinearLayout>

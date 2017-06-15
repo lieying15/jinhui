@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y80"
+    android:layout_marginTop="@dimen/y10"
+    android:background="@drawable/shap_radius_white"
+    android:orientation="vertical">
+    <!-- 配送信息-->
+    <LinearLayout
+        android:id="@+id/order_confirm_info_freight_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="配送信息"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/y28"/>
+        <ImageView
+            android:id="@+id/order_confirm_info_freight_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_question"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="运费 "
+            android:gravity="right"
+            android:textColor="@color/text_nomal"
+            android:layout_marginRight="@dimen/x10"
+            android:textSize="@dimen/y28"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="到货后物流公司收取"
+            android:gravity="right"
+            android:textColor="@color/wine_light"
+            android:textSize="@dimen/y28"
+            android:layout_marginRight="@dimen/x10"/>
+
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/bg_null"/>
+    </LinearLayout>
+
+</LinearLayout>

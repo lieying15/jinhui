@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消客的列表 -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y180"
+    android:paddingTop="@dimen/y10"
+    android:paddingLeft="@dimen/x15"
+    android:paddingRight="@dimen/x15"
+    android:paddingBottom="@dimen/y10">
+
+    <ImageView
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/y160"
+        android:background="@drawable/shap_radius_white_stroke_mainback_r20"/>
+
+    <ImageView
+        android:id="@+id/item_goods_base_iv"
+        android:layout_width="@dimen/x156"
+        android:layout_height="@dimen/y156"
+        android:layout_marginTop="@dimen/x2"
+        android:layout_marginLeft="@dimen/x2" />
+
+    <ImageView
+        android:id="@+id/item_goods_base_tag_iv"
+        android:layout_width="@dimen/x70"
+        android:layout_height="@dimen/y70"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="@dimen/x2"
+        android:layout_marginTop="@dimen/y2"
+        android:src="@drawable/hp_prepare_tag"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/item_goods_base_statubg_iv"
+        android:layout_width="@dimen/x120"
+        android:layout_height="@dimen/y120"
+        android:layout_marginTop="@dimen/y22"
+        android:layout_marginLeft="@dimen/x22"
+        android:background="@drawable/shap_ring_tanslucent_black"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/item_goods_base_status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/item_goods_base_statubg_iv"
+        android:layout_alignRight="@+id/item_goods_base_statubg_iv"
+        android:layout_alignTop="@+id/item_goods_base_statubg_iv"
+        android:layout_alignBottom="@+id/item_goods_base_statubg_iv"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/y22"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/item_goods_base_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y60"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginLeft="@dimen/x15"
+        android:layout_toRightOf ="@+id/item_goods_base_iv"
+        android:gravity="left"
+        android:maxLines="2"
+        android:text=""
+        android:ellipsize="end"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:id="@+id/item_goods_base_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y35"
+        android:layout_alignLeft="@+id/item_goods_base_name_tv"
+        android:layout_below="@+id/item_goods_base_name_tv"
+        android:layout_marginTop="@dimen/y8"
+        android:text=""
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:id="@+id/item_goods_base_mjz_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/item_goods_base_name_tv"
+        android:layout_below="@+id/item_goods_base_price_tv"
+        android:text=""
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/y22"
+        android:paddingLeft="@dimen/x5"
+        android:paddingRight="@dimen/x5"
+        android:layout_marginTop="@dimen/y5"
+        android:background="@drawable/shap_radius_white_stroke_theme_r20"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/item_goods_base_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:textColor="@color/text_tips"
+        android:textSize="@dimen/y28" />
+
+    <FrameLayout
+        android:id="@+id/item_goods_base_cart_fl"
+        android:layout_width="@dimen/x80"
+        android:layout_height="@dimen/y80"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/item_goods_base_cart_iv"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/y40"
+            android:scaleType="fitXY"
+            android:layout_gravity="bottom|right"
+            android:src="@drawable/icon_homepage_cart"/>
+    </FrameLayout>
+</RelativeLayout>

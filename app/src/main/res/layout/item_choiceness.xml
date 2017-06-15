@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_choiceness_topll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/item_choiceness_title_iv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y240"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:id="@+id/item_choiceness_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/y28"
+        android:layout_marginTop="@dimen/y15"
+        android:gravity="center"
+        android:text="" />
+    <TextView
+        android:id="@+id/item_choiceness_subtitle_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_tips"
+        android:textSize="@dimen/text_size_small_xx"
+        android:gravity="center"
+        android:text=""
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="@dimen/y25"
+        />
+</LinearLayout>
+
+

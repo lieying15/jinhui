@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows = "true"
+    android:background="@color/white">
+
+    <com.thlh.jhmjmw.view.HeaderNormal
+        android:id="@+id/filter_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:title="@string/filter_header_name" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/normal_margin_side"
+                android:layout_marginTop="@dimen/normal_margin_side"
+                android:textSize="@dimen/text_size_small_x"
+                android:text="价格区间"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/normal_margin_side"
+                android:paddingBottom="@dimen/normal_margin_side"
+                android:paddingRight="@dimen/normal_margin_side"
+                android:paddingLeft="@dimen/normal_margin_side"
+                android:gravity="center_vertical">
+                <EditText
+                    android:id="@+id/filter_start_price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100dp"
+                    android:minHeight="@dimen/low_item_height"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textColor="@color/text_nomal"
+                    android:background="@drawable/shap_radius_white_stroke_black_r20"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/normal_margin_side"
+                    android:layout_marginRight="@dimen/normal_margin_side"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="@dimen/text_size_small_x"
+                    android:layout_gravity="center_vertical"
+                    android:text="至"/>
+                <EditText
+                    android:id="@+id/filter_end_price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100dp"
+                    android:minHeight="@dimen/low_item_height"
+                    android:gravity="center"
+                    android:textColor="@color/text_nomal"
+                    android:inputType="number"
+                    android:background="@drawable/shap_radius_white_stroke_black_r20"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/normal_margin_side"
+                    android:layout_marginRight="@dimen/normal_margin_side"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="@dimen/text_size_small_x"
+                    android:layout_gravity="center_vertical"
+                    android:text="元"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/app_mainback"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/normal_margin_side"
+                    android:textSize="@dimen/text_size_small_x"
+                    android:text="店铺"/>
+                <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                    android:id="@+id/filter_supplier_result_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/normal_margin_side"
+                    android:paddingLeft="@dimen/normal_margin_side"/>
+            </LinearLayout>
+
+            <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                android:id="@+id/filter_supplier_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/normal_margin_side"
+                android:paddingLeft="@dimen/normal_margin_side"/>
+            <View style="@style/divide_line_horizontal_match_mianback"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/normal_margin_side"
+                    android:layout_marginTop="@dimen/normal_margin_side"
+                    android:layout_marginBottom="@dimen/normal_margin_side"
+                    android:textSize="@dimen/text_size_small_x"
+                    android:text="品牌"/>
+                <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                    android:id="@+id/filter_brand_result_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/normal_margin_side"
+                    android:paddingLeft="@dimen/normal_margin_side"/>
+            </LinearLayout>
+            <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+                android:id="@+id/filter_brand_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/normal_margin_side"
+                android:paddingLeft="@dimen/normal_margin_side" />
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/filter_reset_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/normal_btn_gray_style"
+                            android:text="重置" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/filter_submit_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="确认"
+                            style="@style/normal_btn_theme_style" />
+                    </FrameLayout>
+                </LinearLayout>
+
+            </android.support.design.widget.CoordinatorLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
