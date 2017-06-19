@@ -1,15 +1,11 @@
 [
     {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_crop.png",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_crop.png"
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_cross.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_cross.png"
     },
     {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_rotate.png",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_rotate.png"
-    },
-    {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_crop.png",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_crop.png"
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_next.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_next.png"
     },
     {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_rotate.png",
@@ -24,32 +20,28 @@
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_reset.png"
     },
     {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_angle.png",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_angle.png"
-    },
-    {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_vector_loader.png",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ucrop_vector_loader.png"
     },
     {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_reset.png",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_reset.png"
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_vector_loader.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ucrop_vector_loader.png"
     },
     {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_vector_ic_crop.png",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ucrop_vector_ic_crop.png"
     },
     {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_done.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_done.png"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_crop.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_crop.png"
+    },
+    {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_scale.png",
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_scale.png"
-    },
-    {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_next.png",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_next.png"
-    },
-    {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_scale.png",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_scale.png"
     },
     {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_cross.png",
@@ -60,6 +52,58 @@
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_cross.png"
     },
     {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_done.png",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_done.png"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_reset.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_reset.png"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_angle.png",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_angle.png"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_crop.png",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_crop.png"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_rotate.png",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_rotate.png"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_scale.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_scale.png"
+    },
+    {
+        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_crop.png",
+        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_crop.png"
+    },
+    {
+        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_angle.png",
+        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_angle.png"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_angle.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_angle.png"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_reset.png",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_reset.png"
+    },
+    {
+        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_next.png",
+        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_next.png"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_scale.png",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_scale.png"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_rotate.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_rotate.png"
+    },
+    {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_next.png",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_next.png"
     },
@@ -68,15 +112,11 @@
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ucrop_vector_loader.png"
     },
     {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_done.png",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_done.png"
-    },
-    {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_angle.png",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\drawable-ldpi\\ucrop_ic_angle.png"
-    },
-    {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_vector_ic_crop.png",
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ucrop_vector_ic_crop.png"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_vector_ic_crop.png",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ucrop_vector_ic_crop.png"
     }
 ]

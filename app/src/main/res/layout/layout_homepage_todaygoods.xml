@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x5"
                 android:text=""
-                android:textColor="@color/app_theme"
+                android:textColor="@color/yellowdark"
                 android:textSize="@dimen/y22"
                 android:paddingLeft="@dimen/x5"
                 android:paddingRight="@dimen/x5"

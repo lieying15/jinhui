@@ -15,7 +15,6 @@ import com.thlh.baselib.model.Goods;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.other.ImageLoader;
-import com.thlh.jhmjmw.other.L;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 
 import java.util.ArrayList;
@@ -70,37 +69,26 @@ public class HomePageGoodsAdapter extends RecyclerView.Adapter<HomePageGoodsAdap
         holder.goodsStatusTv.setVisibility(View.GONE);
         holder.goodsBackIv.setVisibility(View.GONE);
         holder. cartIv.setImageResource(R.drawable.icon_homepage_cart);
-        holder.goodsMjzTv.setVisibility(View.GONE);
-        holder.goodsPriceTv.setVisibility(View.GONE);
-        String priceStr = goods.getItem_price();
-        String mjzStr = goods.getMjb_value();
+
         if(goods.getItem_id().equals("1")){
             holder.goodsPriceTv.setVisibility(View.VISIBLE);
             holder.goodsMjzTv.setVisibility(View.GONE);
             holder.goodsPriceTv.setText(context.getResources().getString(R.string.ice_exchage));
         }else {
 
-            holder.goodsDescribeTv.setText(goods.getItem_subtitle());
-
-            L.e("priceStr=== " + priceStr + "mjzStr====" + mjzStr);
-            L.e(".getIs_mjb()==========" + goods.getIs_mjb());
-            if (goods.getIs_mjb() != null) {
-                if (goods.getIs_mjb().toString().equals("1")) {
-                    holder.goodsMjzTv.setVisibility(View.VISIBLE);
-                    holder.goodsPriceTv.setVisibility(View.GONE);
-                    holder.goodsMjzTv.setText(TextUtils.showOnlyMjz(context, priceStr));
-                } else if (goods.getIs_mjb().toString().equals("0")) {
-                    holder.goodsMjzTv.setVisibility(View.GONE);
-                    holder.goodsPriceTv.setVisibility(View.VISIBLE);
-                    holder.goodsPriceTv.setText(context.getResources().getString(R.string.money_) + goods.getItem_price());
-                } else if (goods.getIs_mjb().toString().equals("2")) {
-                    holder.goodsMjzTv.setVisibility(View.VISIBLE);
-                    holder.goodsPriceTv.setVisibility(View.VISIBLE);
-                    double price = Double.valueOf(priceStr) - Double.valueOf(mjzStr);
-                    holder.goodsPriceTv.setText(context.getResources().getString(R.string.money_) + TextUtils.showPrice(price) + "+");
-                    holder.goodsMjzTv.setText(TextUtils.showOnlyMjz(context, mjzStr));
-                }
+            String priceStr = goods.getItem_price();
+            holder.goodsPriceTv.setText(context.getResources().getString(R.string.money_)+priceStr);
+            if(goods.getIs_mjb().equals("0")){
+                holder.goodsMjzTv.setVisibility(View.GONE);
+            }else {
+                holder.goodsMjzTv.setVisibility(View.VISIBLE);
+                String mjzStr = goods.getItem_price();
+                if(goods.getIs_mjb().equals("2"))
+                    mjzStr = goods.getMjb_value();
+                holder.goodsMjzTv.setText(TextUtils.showMjz(context,mjzStr));
             }
+
+            holder.goodsDescribeTv.setText(goods.getItem_subtitle());
         }
         holder.goodsDescribeTv.setText(goods.getItem_subtitle());
 

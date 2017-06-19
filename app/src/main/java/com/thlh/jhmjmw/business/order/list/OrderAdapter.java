@@ -15,6 +15,8 @@ import com.thlh.baselib.model.GoodsOrder;
 import com.thlh.baselib.model.Order;
 import com.thlh.baselib.model.OrderItem;
 import com.thlh.baselib.model.OrderPay;
+import com.thlh.baselib.utils.SPUtils;
+import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.order.comment.OrderCommentActivity;
 import com.thlh.jhmjmw.business.order.orderdetail.OrderDetailActivity;
@@ -67,6 +69,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         TextView priceTv = (TextView) viewHolder.findViewById(R.id.order_goods_price_tv);
         TextView actionLeftTv = (TextView) viewHolder.findViewById(R.id.order_goods_nextaction_left_tv);
         TextView actionRightTv = (TextView) viewHolder.findViewById(R.id.order_goods_nextaction_right_tv);
+        TextView mjzTv = (TextView) viewHolder.findViewById(R.id.order_goods_mjz_tv);
         EasyRecyclerView goodsRv = (EasyRecyclerView) viewHolder.findViewById(R.id.order_item_rv);
 
         double finalprice = Double.parseDouble(order.getGoods_amount()) + Double.parseDouble(order.getExpress_fee()) ;
@@ -81,6 +84,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 * 状态*/
                 statesTv.setText(context.getResources().getString(R.string.wait_pay));
                 priceTitleTv.setText(context.getResources().getString(R.string.need_pay));
+                mjzTv.setVisibility(View.VISIBLE);
                 finalprice = order.getShould_pay();
                 List<OrderPay> tempPaylist = order.getPay();
                 if(null!=tempPaylist && tempPaylist.size()>0){
@@ -95,6 +99,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                         }
                     }
                 }
+
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.VISIBLE);
 
@@ -135,6 +140,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setText(context.getResources().getString(R.string.look));
                 actionLeftTv.setVisibility(View.VISIBLE);
+                mjzTv.setVisibility(View.GONE);
                 actionLeftTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -242,11 +248,16 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         OrderItemsAdapter orderImgAdapter = new OrderItemsAdapter(context);
         List<OrderItem> orderItems = order.getOrder_items();
         List<GoodsOrder> goodsOrders = new ArrayList<>();
+        double mjz = 0.0d;
         for(OrderItem orderItem :orderItems ){
             for(GoodsOrder goodsOrder : orderItem.getItem() ){
                 goodsOrders.add(goodsOrder);
+                String mjb_value = goodsOrder.getMjb_value();
+                mjz = mjz + Double.parseDouble(mjb_value);
+
             }
         }
+
         orderImgAdapter.setList(goodsOrders);
         goodsRv.setLayoutManager( new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         goodsRv.setAdapter(orderImgAdapter);
@@ -261,9 +272,29 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
 //        Spannable finalpriceSpan = new SpannableString("￥" + finalprice);
 //        finalpriceSpan.setSpan(new AbsoluteSizeSpan(DisplayUtil.sp2px(context,13)), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 //
-        priceTv.setText(OrderUtils.getListTotalPrice(order,context));
-        goodsNumTv.setText(context.getResources().getString(R.string.gong) +        order.getOrder_items().get(0).getItem().size() + context.getResources().getString(R.string.shops));
 
+
+        priceTv.setText(OrderUtils.getListTotalPrice(order,context));
+        goodsNumTv.setText(context.getResources().getString(R.string.gong) +        goodsOrders.size() + context.getResources().getString(R.string.shops));
+
+        /**
+         * 1,如果不支持金惠币显示   金惠币可抵 零元
+         * 2，如果自己的金惠币不足，显示自己金惠币的数量
+         * 3，如果自己金惠币大于需要抵消的。直接显示需要抵消的
+         * if ()
+         *
+         */
+        String user_mjb = (String) SPUtils.get("user_mjb", "0");
+        double jhb = Double.parseDouble(user_mjb);
+        if (jhb > 0){
+            if (jhb < mjz){
+                mjzTv.setText(TextUtils.showMjz(context,String.valueOf(jhb)));
+            }else{
+                mjzTv.setText(TextUtils.showMjz(context,String.valueOf(mjz)));
+            }
+        }else {
+            mjzTv.setText(TextUtils.showMjz(context,"0"));
+        }
 
     }
 

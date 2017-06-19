@@ -3,7 +3,6 @@ package com.thlh.jhmjmw.business.index.homepage;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,8 +27,6 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -73,8 +70,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-import static android.graphics.Color.GRAY;
-
 public class HomePageFragment extends BaseFragment {
     private static final String TAG = "HomePageFragment";
     private final int BANNER_TURN_TIME = 3000;
@@ -117,18 +112,6 @@ public class HomePageFragment extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.homepage_viewpage_rv)
     ViewPager homepageViewpageRv;
-    @BindView(R.id.homepage_mjb1_select_rb)
-    RadioButton homepageMjb1SelectRb;
-    @BindView(R.id.homepage_mjb2_select_rb)
-    RadioButton homepageMjb2SelectRb;
-    @BindView(R.id.homepage_mjb_select_rg)
-    RadioGroup homepageMjbSelectRg;
-    @BindView(R.id.homepage_mjb1_rb)
-    RadioButton homepageMjb1Rb;
-    @BindView(R.id.homepage_mjb2_rb)
-    RadioButton homepageMjb2Rb;
-    @BindView(R.id.homepage_mjb_rg)
-    RadioGroup homepageMjbRg;
     @BindView(R.id.homgpage_todaygoods_describe_fl)
     FrameLayout homgpageTodaygoodsDescribeFl;
     private HomePageTabAdapter tabAdapter;
@@ -158,7 +141,6 @@ public class HomePageFragment extends BaseFragment {
     private List<String> mTitles = new ArrayList<>();
     private boolean isShowTextTab = false;
     private CollapsingToolbarLayoutState state; // Toolbar滚动状态
-    private String is_mjb = "1";
     private LinearLayoutManager layoutManager;
     private boolean flag = true;
 
@@ -215,19 +197,6 @@ public class HomePageFragment extends BaseFragment {
     @Override
     protected void initView() {
 
-        homepageMjb1SelectRb.setChecked(true);
-        homepageMjb2SelectRb.setChecked(false);
-        homepageMjb1Rb.setChecked(true);
-        homepageMjb2Rb.setChecked(false);
-        SpannableString spannableString = new SpannableString(getResources().getString(R.string.mjbzq));
-        Drawable drawable = getResources().getDrawable(R.drawable.icon_boutique);
-        drawable.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_pxsize_x), (int) getResources().getDimension(R.dimen.icon_pxsize_x));
-        ImageSpan imageSpan = new ImageSpan(drawable);
-        spannableString.setSpan(imageSpan, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-        homepageMjb1SelectRb.setText(spannableString);
-        homepageMjb1Rb.setText(spannableString);
-
-
         viewpagerFragment0 = new ViewpagerFragment(getContext());
         viewpagerFragment1 = new ViewpagerFragment(getContext());
         viewpagerFragment2 = new ViewpagerFragment(getContext());
@@ -252,7 +221,6 @@ public class HomePageFragment extends BaseFragment {
         homepageViewpageRv.setOffscreenPageLimit(9);
         homepageViewpageRv.setCurrentItem(0);
         ((ViewpagerFragment)list.get(0)).setIsHome(true);
-        ((ViewpagerFragment)list.get(0)).setIs_mjb(is_mjb);
 
         animatCart = new AnimatCartUtils(getActivity(), ((IndexActivity) getActivity()).getBottomTabView().getTabShopcartIv());
         homepageHeader.setActivityContext(getActivity());
@@ -430,7 +398,6 @@ public class HomePageFragment extends BaseFragment {
                     updateTopTab(position-1);
                     ((ViewpagerFragment)list.get(position)).setIsHome(false);
                     ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
-                    ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setIs_mjb(is_mjb);
                     ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
                     ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
                 }else {
@@ -440,7 +407,6 @@ public class HomePageFragment extends BaseFragment {
                         selectStates.setValueAt(i, false);
                     }
                     ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
-                    ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setIs_mjb(is_mjb);
                     ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
                     tabAdapter.setSelectStates(selectStates);
                     tabTextAdapter.setSelectStates(selectStates);
@@ -472,7 +438,7 @@ public class HomePageFragment extends BaseFragment {
     protected void loadData() {
 //        showProgressBar();
         loadCategoryData(true);
-        loadHomePageData(true,is_mjb);
+        loadHomePageData(true);
     }
 
     public void initTopTab(List<Category> categoryTopList) {
@@ -542,92 +508,9 @@ public class HomePageFragment extends BaseFragment {
         }
     }
 
-    @OnClick({R.id.homepage_mjb1_select_rb, R.id.homepage_mjb2_select_rb, R.id.homepage_mjb1_rb, R.id.homepage_mjb2_rb,
-            R.id.homgpage_todaygoods_cart_iv, R.id.homepage_todaygoods_toprl, R.id.searchresult_totop_fbtn})
+    @OnClick({R.id.homgpage_todaygoods_cart_iv, R.id.homepage_todaygoods_toprl, R.id.searchresult_totop_fbtn})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.homepage_mjb1_select_rb:
-                SpannableString spannableString = new SpannableString(getResources().getString(R.string.mjbzq));
-                Drawable drawable = getResources().getDrawable(R.drawable.icon_boutique);
-                drawable.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_pxsize_x), (int) getResources().getDimension(R.dimen.icon_pxsize_x));
-                ImageSpan imageSpan = new ImageSpan(drawable);
-                spannableString.setSpan(imageSpan, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                homepageMjb1SelectRb.setText(spannableString);
-                homepageMjb1Rb.setText(spannableString);
-                homepageMjb1SelectRb.setChecked(true);
-                homepageMjb2SelectRb.setChecked(false);
-                homepageMjb1Rb.setChecked(true);
-                homepageMjb2Rb.setChecked(false);
-                homepageMjb1SelectRb.setTextColor(Color.WHITE);
-                homepageMjb2SelectRb.setTextColor(GRAY);
-                homepageMjb1Rb.setTextColor(Color.WHITE);
-                homepageMjb2Rb.setTextColor(GRAY);
-                is_mjb = "1";
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setIs_mjb(is_mjb);
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
-                break;
-            case R.id.homepage_mjb2_select_rb:
-                SpannableString spannableString2 = new SpannableString(getResources().getString(R.string.mjbzq));
-                Drawable drawable2 = getResources().getDrawable(R.drawable.i_mj2);
-                drawable2.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_pxsize_x), (int) getResources().getDimension(R.dimen.icon_pxsize_x));
-                ImageSpan imageSpan2 = new ImageSpan(drawable2);
-                spannableString2.setSpan(imageSpan2, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                homepageMjb1SelectRb.setText(spannableString2);
-                homepageMjb1Rb.setText(spannableString2);
-                homepageMjb1SelectRb.setChecked(false);
-                homepageMjb2SelectRb.setChecked(true);
-                homepageMjb1Rb.setChecked(false);
-                homepageMjb2Rb.setChecked(true);
-                homepageMjb1SelectRb.setTextColor(GRAY);
-                homepageMjb2SelectRb.setTextColor(Color.WHITE);
-                homepageMjb1Rb.setTextColor(GRAY);
-                homepageMjb2Rb.setTextColor(Color.WHITE);
-                is_mjb = "2";
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setIs_mjb(is_mjb);
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
-                break;
-            case R.id.homepage_mjb1_rb:
-                SpannableString spannableString3 = new SpannableString(getResources().getString(R.string.mjbzq));
-                Drawable drawable3 = getResources().getDrawable(R.drawable.icon_boutique);
-                drawable3.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_pxsize_x), (int) getResources().getDimension(R.dimen.icon_pxsize_x));
-                ImageSpan imageSpan3 = new ImageSpan(drawable3);
-                spannableString3.setSpan(imageSpan3, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                homepageMjb1SelectRb.setText(spannableString3);
-                homepageMjb1Rb.setText(spannableString3);
-                homepageMjb1SelectRb.setChecked(true);
-                homepageMjb2SelectRb.setChecked(false);
-                homepageMjb1Rb.setChecked(true);
-                homepageMjb2Rb.setChecked(false);
-                homepageMjb1SelectRb.setTextColor(Color.WHITE);
-                homepageMjb2SelectRb.setTextColor(GRAY);
-                homepageMjb1Rb.setTextColor(Color.WHITE);
-                homepageMjb2Rb.setTextColor(GRAY);
-                is_mjb = "1";
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setIs_mjb(is_mjb);
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
-                break;
-            case R.id.homepage_mjb2_rb:
-                SpannableString spannableString4 = new SpannableString(getResources().getString(R.string.mjbzq));
-                Drawable drawable4 = getResources().getDrawable(R.drawable.i_mj2);
-                drawable4.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_pxsize_x), (int) getResources().getDimension(R.dimen.icon_pxsize_x));
-                ImageSpan imageSpan4 = new ImageSpan(drawable4);
-                spannableString4.setSpan(imageSpan4, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                homepageMjb1SelectRb.setText(spannableString4);
-                homepageMjb1Rb.setText(spannableString4);
-                homepageMjb1SelectRb.setChecked(false);
-                homepageMjb2SelectRb.setChecked(true);
-                homepageMjb1Rb.setChecked(false);
-                homepageMjb2Rb.setChecked(true);
-                homepageMjb1SelectRb.setTextColor(GRAY);
-                homepageMjb2SelectRb.setTextColor(Color.WHITE);
-                homepageMjb1Rb.setTextColor(GRAY);
-                homepageMjb2Rb.setTextColor(Color.WHITE);
-                is_mjb = "2";
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setIs_mjb(is_mjb);
-                ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
-                break;
 
             case R.id.homgpage_todaygoods_cart_iv:
                 int[] item_location = new int[2];
@@ -669,7 +552,7 @@ public class HomePageFragment extends BaseFragment {
                 Drawable drawable = getResources().getDrawable(R.drawable.icon_mjz);
                 drawable.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_mjz_x), (int) getResources().getDimension(R.dimen.icon_mjz_y));
                 ImageSpan imageSpan = new ImageSpan(drawable);
-                spannableString.setSpan(imageSpan, 2, 5, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                spannableString.setSpan(imageSpan, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                 todaygoodsMjzTv.setText(spannableString);
             }
         }
@@ -741,7 +624,7 @@ public class HomePageFragment extends BaseFragment {
      * @param needBar
      */
 
-    public void loadHomePageData(final boolean needBar,String is_mjb) {
+    public void loadHomePageData(final boolean needBar) {
         L.e(TAG + " loadHomePageData");
         homePageDateObserver = new BaseObserver<HomepageResponse>() {
             @Override
@@ -763,7 +646,7 @@ public class HomePageFragment extends BaseFragment {
         };
 
         NetworkManager.getGoodsDataApi()
-                .getHomepageDate(current_page , Constants.PageDataCount,Integer.parseInt(is_mjb))
+                .getHomepageDate(current_page , Constants.PageDataCount)
                 .compose(RxUtils.androidSchedulers(this,needBar))
                 .subscribe(homePageDateObserver);
     }
@@ -782,7 +665,7 @@ public class HomePageFragment extends BaseFragment {
             public void onNextResponse(CategoryTopResponse categoryTopResponse) {
                 categoryTopList.addAll(categoryTopResponse.getData().getTop());
                 initTopTab(categoryTopList);
-                loadHomePageData(needBar,is_mjb);
+                loadHomePageData(needBar);
             }
         };
         NetworkManager.getGoodsDataApi()

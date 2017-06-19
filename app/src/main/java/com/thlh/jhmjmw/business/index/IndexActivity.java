@@ -412,7 +412,7 @@ public class IndexActivity extends BaseActivity {
             case BottomTabViewV3.POSITON_HOMEPAGE:
                 tofragment = homePageFragment;
                 if (homePageFragment != null) {
-                    homePageFragment.loadHomePageData(true,"1");
+                    homePageFragment.loadHomePageData(true);
                     homePageFragment.updateHomePage();
                 }
                 break;

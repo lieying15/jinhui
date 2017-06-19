@@ -142,7 +142,7 @@
                             android:paddingLeft="@dimen/x10"
                             android:paddingRight="@dimen/x10"
                             android:text=""
-                            android:textColor="@color/wine_light"
+                            android:textColor="@color/yellowdark"
                             android:textSize="@dimen/y18"
                             android:visibility="gone" />
                     </LinearLayout>

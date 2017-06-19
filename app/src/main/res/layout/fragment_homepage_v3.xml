@@ -35,7 +35,7 @@
                     android:id="@+id/toolbar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/y230"
+                    android:minHeight="@dimen/y120"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
                     <!--轮播图和八个图标-->
                     <LinearLayout
@@ -59,7 +59,7 @@
 
                         <include layout="@layout/layout_homepage_todaygoods" />
 
-                        <RadioGroup
+                       <!-- <RadioGroup
                             android:id="@+id/homepage_mjb_select_rg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
                                 android:button="@null"
                                 android:checked="true"
                                 android:gravity="center"
-                                android:text="美家钻专区"
+                                android:text="金惠币专区"
                                 android:textColor="@color/white" />
 
                             <RadioButton
@@ -89,7 +89,7 @@
                                 android:background="@drawable/homepage_ismjb_selecter"
                                 android:button="@null"
                                 android:gravity="center"
-                                android:text="美家钻 + 现金 专区"
+                                android:text="金惠币 + 现金 专区"
                                 android:textColor="@color/gray" />
                         </RadioGroup>
 
@@ -98,7 +98,7 @@
                             android:layout_height="3dp"
                             android:background="@color/app_theme"
                             android:layout_marginLeft="@dimen/x10"
-                            android:layout_marginRight="@dimen/x10" />
+                            android:layout_marginRight="@dimen/x10" />-->
 
                     </LinearLayout>
 
@@ -106,7 +106,7 @@
                     <LinearLayout
                         android:id="@+id/homepage_tabtext_ll"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/y230"
+                        android:layout_height="@dimen/y120"
                         android:orientation="vertical"
                         android:background="@color/app_mainback"
                         android:visibility="gone"
@@ -134,7 +134,7 @@
 
                         </LinearLayout>
 
-                        <RadioGroup
+               <!--         <RadioGroup
                             android:id="@+id/homepage_mjb_rg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                             android:layout_height="3dp"
                             android:background="@color/app_theme"
                             android:layout_marginLeft="@dimen/x10"
-                            android:layout_marginRight="@dimen/x10" />
+                            android:layout_marginRight="@dimen/x10" />-->
                     </LinearLayout>
 
                 </android.support.design.widget.CollapsingToolbarLayout>

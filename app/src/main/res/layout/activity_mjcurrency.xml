@@ -12,7 +12,7 @@
     <com.thlh.jhmjmw.view.HeaderNormal
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:title="美家钻"/>
+        custom:title="金惠币"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/y10"
                 android:textSize="@dimen/y28"
-                android:text="可用美家钻 "/>
+                android:text="可用金惠币 "/>
 
         </LinearLayout>
         <View

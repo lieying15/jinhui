@@ -9,6 +9,6 @@
 
     <stroke
         android:width="@dimen/x2"
-        android:color="@color/app_theme"/>
+        android:color="@color/yellowdark"/>
 
 </shape>

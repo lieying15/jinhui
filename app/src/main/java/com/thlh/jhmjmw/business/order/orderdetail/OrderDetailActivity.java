@@ -194,14 +194,7 @@ public class OrderDetailActivity extends BaseViewActivity {
        /***/
        int status = OrderUtils.getOrderStatus(order);
         String orderStatusStr = OrderUtils.getOrderStatusStr(status);
-        /**
-        * 双数不乱码
-        * 单数最后一个字乱码
-        * questions*/
-        try{
-            orderStatusStr = new String(orderStatusStr.getBytes("GB2312"));
-        }catch(Exception e){
-        }
+
         /*
         * 订单状态
         * */

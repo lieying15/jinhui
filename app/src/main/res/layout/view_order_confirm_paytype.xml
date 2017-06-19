@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="美家钻支付"
+            android:text="金惠币支付"
             android:layout_marginLeft="10dp"
             android:textSize="@dimen/y28"
             android:textColor="@color/text_nomal"/>

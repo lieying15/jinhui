@@ -4,6 +4,10 @@
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_btn_colored_material.xml",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
@@ -12,12 +16,20 @@
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_edit_text_material.xml",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_btn_colored_material.xml",
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",

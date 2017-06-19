@@ -41,17 +41,17 @@ public class OrderUtils {
 
     public static  String  getOrderStatusStr(int states){
         switch (states){
-            case Constants.ORDER_TYPE_WAIT_PAY :return "等待付款";
-            case Constants.ORDER_TYPE_COMPLETE : return  "已完成了";
-            case Constants.ORDER_TYPE_WAIT_SENDOUT : return  "等待发货";
-            case Constants.ORDER_TYPE_WAIT_GAIN : return  "等待收货";
+            case Constants.ORDER_TYPE_WAIT_PAY :return Constants.ORDER_TEXT_WAIT_PAY;
+            case Constants.ORDER_TYPE_COMPLETE : return  Constants.ORDER_TEXT_COMPLETE;
+            case Constants.ORDER_TYPE_WAIT_SENDOUT : return  Constants.ORDER_TEXT_WAIT_SENDOUT;
+            case Constants.ORDER_TYPE_WAIT_GAIN : return  Constants.ORDER_TEXT_WAIT_GAIN;
            /**"已取消"
             *  String.valueOf(R.string.cannal)
             * */
-            case Constants.ORDER_TYPE_CANCEL : return "已取消";
-            case Constants.ORDER_TYPE_WAIT_COMMENT : return  "等待评价";
-            case Constants.ORDER_TYPE_HAS_COMMENT : return  "完成";
-            default: return  "等待付款";
+            case Constants.ORDER_TYPE_CANCEL : return Constants.ORDER_TEXT_CANCEL;
+            case Constants.ORDER_TYPE_WAIT_COMMENT : return  Constants.ORDER_TEXT_WAIT_COMMENT;
+            case Constants.ORDER_TYPE_HAS_COMMENT : return  Constants.ORDER_TEXT_HAS_COMMENT;
+            default: return  Constants.ORDER_TEXT_WAIT_PAY;
         }
     }
 

@@ -1,31 +1,23 @@
 [
     {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_spinner.xml",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_spinner.xml"
-    },
-    {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_track.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_track.xml",
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_default.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_default.xml"
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_thumb.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_thumb.xml"
-    },
-    {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_edittext.xml",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_edittext.xml"
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_thumb.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_thumb.xml"
     },
     {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_seek_thumb.xml",
@@ -34,18 +26,6 @@
     {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_btn_checkable.xml",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
-    },
-    {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_edittext.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_edittext.xml"
-    },
-    {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_track.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_seek_thumb.xml",
@@ -70,5 +50,61 @@
     {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_spinner.xml",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_edittext.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_spinner.xml",
+        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_default.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_default.xml"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_default.xml",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_default.xml"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_thumb.xml",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_btn_checkable.xml",
+        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_edittext.xml",
+        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_spinner.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_edittext.xml",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_track.xml",
+        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_btn_checkable.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_seek_thumb.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_seek_thumb.xml"
     }
 ]

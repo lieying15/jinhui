@@ -164,7 +164,7 @@
                         android:textSize="@dimen/y28"
                         android:textColor="@color/text_nomal"
                         android:gravity="right"
-                        android:text="美家钻："/>
+                        android:text="金惠币："/>
                     <TextView
                         android:id="@+id/order_detail_mjz_tv"
                         android:layout_width="wrap_content"

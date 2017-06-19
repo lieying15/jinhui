@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\QMDownload\jhmall\ucrop\src\main\assets"/><source path="E:\QMDownload\jhmall\ucrop\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="E:\QMDownload\jhmall\ucrop\src\release\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\MyDownloads\jinhui\ucrop\src\main\assets"/><source path="E:\MyDownloads\jinhui\ucrop\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="E:\MyDownloads\jinhui\ucrop\src\release\assets"/></dataSet></merger>

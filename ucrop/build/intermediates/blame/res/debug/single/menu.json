@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\menu\\ucrop_menu_low_version.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\menu\\ucrop_menu_low_version.xml"
+    },
+    {
         "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\debug\\menu\\ucrop_menu_low_version.xml",
         "source": "E:\\QMDownload\\jhmall\\ucrop\\src\\main\\res\\menu\\ucrop_menu_low_version.xml"
     },
@@ -14,5 +18,9 @@
     {
         "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\debug\\menu\\ucrop_menu_low_version.xml",
         "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\src\\main\\res\\menu\\ucrop_menu_low_version.xml"
+    },
+    {
+        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\menu\\ucrop_menu_activity.xml",
+        "source": "E:\\MyDownloads\\jinhui\\ucrop\\src\\main\\res\\menu\\ucrop_menu_activity.xml"
     }
 ]

@@ -80,6 +80,19 @@ public class Constants {
 	public static final int ORDER_TYPE_CANCEL = 8;
 	public static final int ORDER_TYPE_UNCOMPLETE = 9;
 
+
+	public static final String ORDER_TEXT_ALL = "全部订单"; // 0:全部订单 1:待付款，2：待发货 3：待收货 5:待评价 6:已评价 7:已完成 8:已取消 9:未完成
+	public static final String ORDER_TEXT_WAIT_PAY = "待付款";
+	public static final String ORDER_TEXT_WAIT_SENDOUT = "待发货";
+	public static final String ORDER_TEXT_WAIT_GAIN = "待收货";
+	public static final String ORDER_TEXT_WAIT_COMMENT = "待评价";
+	public static final String ORDER_TEXT_HAS_COMMENT = "已评价";
+	public static final String ORDER_TEXT_COMPLETE = "已完成";
+	public static final String ORDER_TEXT_CANCEL = "已取消";
+	public static final String ORDER_TEXT_UNCOMPLETE = "未完成";
+
+
+
 	//冰箱功能  0节能 1 自动 2假日 3锁定   预定义 0:未设置 1:速冷 2:速冻 3:智能 4:锁定
 	public static final String ICEBOX_FUNCTION_NONE = "0";
 	public static final String ICEBOX_FUNCTION_COLD = "1";

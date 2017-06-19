@@ -233,7 +233,7 @@
       <string name="top_up_change_icebox">"天小美温馨提示：鉴于部分银行卡有支付金额限制，请您充 \n"
                     "值前先确保充值金额在银行限额之内，以便顺利充值。\n"</string>
 
-    <string name="mjz_top_up">美家钻充值</string>
+    <string name="mjz_top_up">金惠币充值</string>
     <string name="disagree">您还没有同意预存协议</string>
     <string name="mjz_top_up_money_input">请输入充值金额"</string>
 
@@ -284,14 +284,14 @@
     <string name="mail">包邮 </string>
     <string name="freight">运费：￥ </string>
 
-    <string name="shop_no_mjz">此商品不支持美家钻 </string>
-    <string name="shop_no_mjz1">商品不支持美家钻 </string>
+    <string name="shop_no_mjz">此商品不支持金惠币 </string>
+    <string name="shop_no_mjz1">商品不支持金惠币 </string>
     <string name="one_yes">单件可用</string>
-    <string name="ch_mjz">美家钻</string>
-    <string name="ch_mjz_sy">美家钻(剩余</string>
+    <string name="ch_mjz">金惠币</string>
+    <string name="ch_mjz_sy">金惠币(剩余</string>
 
     <string name="shop_information_wrong">商品信息有误</string>
-    <string name="choose">该商品已设置为美家钻全额支付，若需更换支付方式，请先关闭美家钻支付设置开关</string>
+    <string name="choose">该商品已设置为金惠币全额支付，若需更换支付方式，请先关闭金惠币支付设置开关</string>
 
     <string name="zero">￥ 0.0</string>
     <string name="money">￥ </string>
@@ -349,7 +349,7 @@
     <string name="bind_ice">绑定智能冰箱</string>
 
 
-    <string name="use_mjz">可用美家钻</string>
+    <string name="use_mjz">金惠币  可抵 ¥</string>
     <string name="Customer_service">客服将为您提供服务</string>
     <string name="store">店铺:</string>
     <string name="send">配送:由</string>
@@ -434,8 +434,8 @@
     <string name="none_record">沒有交易记录</string>
     <string name="balance_top_up">余额充值</string>
     <string name="balance_consumer">余额消费</string>
-    <string name="mjz_Obtain">美家钻获取</string>
-    <string name="mjz_consumer">美家钻消费</string>
+    <string name="mjz_Obtain">金惠币获取</string>
+    <string name="mjz_consumer">金惠币消费</string>
     <string name="all_transaction">全部交易</string>
     <string name="plus">+</string>
     <string name="alls">全部</string>
@@ -565,18 +565,18 @@
     "如收货方不能及时收货，免费为收货方留仓2天，\n"
     "超过两天收费标准为25元／天／件。\n"
     </string>
-    <string name="shop_mjz_pay">该商品已设置为美家钻全额支付，若需更换支付方式，请先关闭美家钻支付设置开关</string>
+    <string name="shop_mjz_pay">该商品已设置为金惠币全额支付，若需更换支付方式，请先关闭金惠币支付设置开关</string>
 
     <string name="me_know">我知道了</string>
-    <string name="pay_choose_way">运费不支持美家钻支付，请再选择一种支付方式</string>
-    <string name="another_pays_way">美家钻不足，请选择另一种支付方式</string>
-    <string name="mjz_no_pay_another_pays_way">不支持美家钻支付，请选择另一种支付方式</string>
+    <string name="pay_choose_way">运费不支持金惠币支付，请再选择一种支付方式</string>
+    <string name="another_pays_way">金惠币不足，请选择另一种支付方式</string>
+    <string name="mjz_no_pay_another_pays_way">不支持金惠币支付，请选择另一种支付方式</string>
 
     <string name="need_pays">还需支付</string>
     <string name="qian">元，请到订单中支付</string>
     <string name="pays_password">支付密码</string>
 
-    <string name="mjmw_price">美家价 ￥</string>
+    <string name="mjmw_price">金惠价 ￥</string>
     <string name="sheng">立省 ￥</string>
     <string name="group_price">组合价格 ￥</string>
 
@@ -633,7 +633,7 @@
 
     <string name="exchage_success">换购成功</string>
     <string name="exchage_success_content">
-        "1、本次换购行为消耗4099美家钻，获得价值5000元水卡，剩余3900美家钻可在商城消费。"
+        "1、本次换购行为消耗4099金惠币，获得价值5000元水卡，剩余3900金惠币可在商城消费。"
         "\n2、水卡发放及后续使用问题归水卡所属公司负责，如有疑问请与属地水卡公司联系。"
         "\n3、冰箱兑换券已发放在\"我的—优惠券\"中。"
     </string>
@@ -645,11 +645,11 @@
 
     <string name="water_exchang"> 水卡换购券</string>
 
-    <string name="mjz_exchange_watercard">4099美家钻换购价值5000元水卡</string>
+    <string name="mjz_exchange_watercard">4099金惠币换购价值5000元水卡</string>
 
 
     <!---->
-    <string name="mjz_pay">美家钻支付</string>
+    <string name="mjz_pay">金惠币支付</string>
     <string name="zfb_pay">支付宝支付</string>
 
     <!--物流-->
@@ -672,20 +672,20 @@
 1、本协议内容包括协议正文及所有每家美物已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，任何每家美物及其关联公司提供的服务均受本协议约束。\n
 2、请您在使用每家美物服务之前务必认真阅读全部协议内容，如您对协议有任何疑问，可向每家美物咨询。一旦您使用每家美物服务，则默认您已阅读并同意本协议内容，且接受本协议对您的约束。届时您不应以未阅读本协议的内容或者未获得每家美物对您问询问题的解答等为理由，主张本协议无效，或要求撤销本协议。\n
 3、您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止充值活动或停止使用每家美物服务。\n
-4、一次性在每家美物商城充值6900元人民币，充值金额将等值兑换为商城专用货币美家钻，即6900元人民币=6900美家钻。同时您可免费获赠每家美物•美的智能双开门冰箱一台（指定机型BCD-533TH1）。\n
+4、一次性在每家美物商城充值6900元人民币，充值金额将等值兑换为商城专用货币金惠币，即6900元人民币=6900金惠币。同时您可免费获赠每家美物•美的智能双开门冰箱一台（指定机型BCD-533TH1）。\n
 5、一个帐号只能参与一次充值兑换冰箱活动。\n
 6、充值金额不再参加折扣、成长值及其它商城优惠。\n
-7、您在每家美物商城充值的美家钻，仅限用于每家美物商城商品选购。充值金额不可退、不可取出且不可转让赠予。\n
+7、您在每家美物商城充值的金惠币，仅限用于每家美物商城商品选购。充值金额不可退、不可取出且不可转让赠予。\n
 8、每家美物有权根据需要不时地制订、修改本协议及/或各类规则，并以网站公示的方式进行公告，不再单独通知您。变更后的协议和规则一经在网站公布后，立即自动生效。如您不同意相关变更，应当立即停止使用每家美物服务。您继续使用每家美物服务的，即默认您接受经修订的协议和规则。\n
 </string>
     <string name="sz">
 1、本协议内容包括协议正文及所有每家美物已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，任何每家美物及其关联公司提供的服务均受本协议约束。\n
 2、请您在使用每家美物服务之前务必认真阅读全部协议内容，如您对协议有任何疑问，可向每家美物咨询。一旦您使用每家美物服务，则默认您已阅读并同意本协议内容，且接受本协议对您的约束。届时您不应以未阅读本协议的内容或者未获得每家美物对您问询问题的解答等为理由，主张本协议无效，或要求撤销本协议。\n
 3、您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止充值活动或停止使用每家美物服务。\n
-4、一次性在每家美物商城充值6999元人民币，充值金额将等值兑换为商城专用货币美家钻，即6999元人民币=6999美家钻。同时您可免费获赠每家美物•美的智能双开门冰箱一台（指定机型BCD-533TH1）。\n
+4、一次性在每家美物商城充值6999元人民币，充值金额将等值兑换为商城专用货币金惠币，即6999元人民币=6999金惠币。同时您可免费获赠每家美物•美的智能双开门冰箱一台（指定机型BCD-533TH1）。\n
 5、一个帐号只能参与一次充值兑换冰箱活动。 \n
 6、充值金额不再参加折扣、成长值及其它商城优惠。\n
-7、您在每家美物商城充值的美家钻，仅限用于每家美物商城商品选购。充值金额不可退、不可取出且不可转让赠予。\n
+7、您在每家美物商城充值的金惠币，仅限用于每家美物商城商品选购。充值金额不可退、不可取出且不可转让赠予。\n
 8、每家美物有权根据需要不时地制订、修改本协议及/或各类规则，并以网站公示的方式进行公告，不再单独通知您。变更后的协议和规则一经在网站公布后，立即自动生效。如您不同意相关变更，应当立即停止使用每家美物服务。您继续使用每家美物服务的，即默认您接受经修订的协议和规则。\n
 
     </string>
@@ -694,7 +694,7 @@
 1、本协议内容包括协议正文及所有每家美物已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，任何每家美物及其关联公司提供的服务均受本协议约束。\n
 2、请您在使用每家美物服务之前务必认真阅读全部协议内容，如您对协议有任何疑问，可向每家美物咨询。一旦您使用每家美物服务，则默认您已阅读并同意本协议内容，且接受本协议对您的约束。届时您不应以未阅读本协议的内容或者未获得每家美物对您问询问题的解答等为理由，主张本协议无效，或要求撤销本协议。\n
 3、您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止充值活动或停止使用每家美物服务。\n
-4、您在每家美物商城充值的美家钻，仅限用于每家美物商城商品选购。\n
+4、您在每家美物商城充值的金惠币，仅限用于每家美物商城商品选购。\n
 5、充值金额不可退、不可取出且不可转让赠予。\n
 6、每家美物有权根据需要不时地制订、修改本协议及/或各类规则，并以网站公示的方式进行公告，不再单独通知您。变更后的协议和规则一经在网站公布后，立即自动生效。如您不同意相关变更，应当立即停止使用每家美物服务。您继续使用每家美物服务的，即默认您接受经修订的协议和规则。\n
 </string>
@@ -703,7 +703,7 @@
     <string name="updating">正在更新</string>
     <string name="updata">立即更新</string>
 
-    <string name="mjbzq">美家钻  专区</string>
+    <string name="mjbzq">金惠币  专区</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

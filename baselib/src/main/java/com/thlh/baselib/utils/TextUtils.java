@@ -60,16 +60,16 @@ public class TextUtils {
     }
 
     public static SpannableString showMjz(Context context,String mjz,int textx,int texty) {
-        SpannableString spannableString = new SpannableString("可用美家钻"+ mjz);
+        SpannableString spannableString = new SpannableString("金惠币 可抵¥"+ mjz);
         Drawable drawable = context.getResources().getDrawable(R.drawable.icon_mjz);
         drawable.setBounds(0, 0, textx, texty);
         ImageSpan imageSpan = new ImageSpan(drawable);
-        spannableString.setSpan(imageSpan, 2, 5, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        spannableString.setSpan(imageSpan, 3,4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         return spannableString;
     }
 
     public static SpannableString showSimpleMjz(Context context,String mjz) {
-        SpannableString spannableString = new SpannableString("美家钻"+ mjz);
+        SpannableString spannableString = new SpannableString("金惠币"+ mjz);
         Drawable drawable = context.getResources().getDrawable(R.drawable.icon_mjz);
         drawable.setBounds(0, 0, (int)context.getResources().getDimension(R.dimen.icon_mjz_x), (int)context.getResources().getDimension(R.dimen.icon_mjz_y));
         ImageSpan imageSpan = new ImageSpan(drawable);

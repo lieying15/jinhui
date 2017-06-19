@@ -84,7 +84,7 @@
         android:layout_alignLeft="@+id/item_goods_base_name_tv"
         android:layout_below="@+id/item_goods_base_price_tv"
         android:text=""
-        android:textColor="@color/app_theme"
+        android:textColor="@color/yellowdark"
         android:textSize="@dimen/y22"
         android:paddingLeft="@dimen/x5"
         android:paddingRight="@dimen/x5"

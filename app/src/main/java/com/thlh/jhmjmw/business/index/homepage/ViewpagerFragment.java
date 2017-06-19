@@ -50,7 +50,6 @@ public class ViewpagerFragment extends BaseFragment {
     private int current_page = 1;
     private boolean flag;
     private String  catid;
-    private String  is_mjb;
     private Context context;
     private List<Goods> goodsList = new ArrayList<>();
 
@@ -102,16 +101,14 @@ public class ViewpagerFragment extends BaseFragment {
             public void loadMore() {
                 if (flag){
                     current_page ++;
-                    L.e("shouye" + is_mjb + "======="+ catid + "=========="+ flag);
-                    loadHomePageData(true,current_page,is_mjb);
+                    loadHomePageData(true,current_page);
 
                 }else{
                     if (current_page >= total_page){
                         Tos.show(getResources().getString(R.string.all_shops));
                     }else {
                         current_page++;
-                        L.e("feishouye" + is_mjb + "======="+ catid + "=========="+ flag);
-                        loadSearchData(catid,current_page,is_mjb);
+                        loadSearchData(catid,current_page);
                     }
                 }
             }
@@ -128,8 +125,7 @@ public class ViewpagerFragment extends BaseFragment {
     protected void initData() {
         if (flag){
             current_page = 1;
-            L.e("shouye" + is_mjb + "======="+ catid + "=========="+ flag);
-            loadHomePageData(true,current_page,is_mjb); loadHomePageData(true,current_page,is_mjb);
+            loadHomePageData(true,current_page); loadHomePageData(true,current_page);
         }
     }
 
@@ -141,12 +137,10 @@ public class ViewpagerFragment extends BaseFragment {
     public void loadGoodsData(){
         if (flag){
             current_page = 1;
-            L.e("shouye" + is_mjb + "======="+ catid + "=========="+ flag);
-            loadHomePageData(true,current_page,is_mjb);
+            loadHomePageData(true,current_page);
         }else {
             current_page = 1;
-            L.e("feishouye" + is_mjb + "======="+ catid + "=========="+ flag);
-            loadSearchData(catid,current_page,is_mjb);
+            loadSearchData(catid,current_page);
         }
     }
 
@@ -201,7 +195,7 @@ public class ViewpagerFragment extends BaseFragment {
      * @param current_page
      *
      */
-    public void loadHomePageData(final boolean needBar, int current_page, String is_mjb) {
+    public void loadHomePageData(final boolean needBar, int current_page) {
         L.e(TAG + " loadHomePageData");
         homePageDateObserver = new BaseObserver<HomepageResponse>() {
             @Override
@@ -217,12 +211,12 @@ public class ViewpagerFragment extends BaseFragment {
         };
 
         NetworkManager.getGoodsDataApi()
-                .getHomepageDate(current_page, Constants.PageDataCount,Integer.parseInt(is_mjb))
+                .getHomepageDate(current_page, Constants.PageDataCount)
                 .compose(RxUtils.androidSchedulers(this,needBar))
                 .subscribe(homePageDateObserver);
     }
 
-    public void loadSearchData(String catid, int current_page, String is_mjb) {
+    public void loadSearchData(String catid, int current_page) {
         L.e(TAG + " loadSearchData  catid:" + catid +" current_page：" +current_page );
         searchOserver   = new BaseObserver<SearchResponse>() {
             @Override
@@ -239,22 +233,14 @@ public class ViewpagerFragment extends BaseFragment {
         };
 
         NetworkManager.getSearchApi()
-                .getSearch(catid ,current_page , Constants.PageDataCount,is_mjb)
+                .getSearch(catid ,current_page , Constants.PageDataCount)
                 .compose(RxUtils.androidSchedulers(this))
                 .subscribe(searchOserver);
     }
 
-    public String getIs_mjb(){
-        return is_mjb;
-    }
-
-    public void setIs_mjb(String is_mjb){
-        goodsList.clear();
-        this.is_mjb = is_mjb;
-    }
 
     public String getCatid(){
-        return is_mjb;
+        return catid;
     }
 
     public void setCatid(String catid){
