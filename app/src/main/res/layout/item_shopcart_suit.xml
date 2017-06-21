@@ -112,7 +112,7 @@
                 android:paddingLeft="@dimen/x5"
                 android:paddingRight="@dimen/x5"
                 android:visibility="gone"
-                android:background="@drawable/shap_radius_white_stroke_theme_r20"/>
+                android:background="@drawable/shap_radius_yellow_stroke_theme_r20"/>
             <include layout="@layout/view_addandsub"/>
         </LinearLayout>
     </LinearLayout>

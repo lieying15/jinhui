@@ -31,8 +31,6 @@ public class WalletActivity extends BaseViewActivity {
     RippleLinearLayout recordRipll;
 
 
-
-
     public static void activityStart(Activity context) {
         Intent intent = new Intent();
         intent.setClass(context, WalletActivity.class);
@@ -59,7 +57,7 @@ public class WalletActivity extends BaseViewActivity {
         recordRipll.setLLRippleCompleteListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleRelativeLayout) {
-                MjzActivity.activityStart(WalletActivity.this);
+                DealRecordActivity.activityStart(WalletActivity.this);
             }
         });
     }

@@ -46,6 +46,29 @@
         android:textColor="@color/app_theme"
         android:textSize="@dimen/y28" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/paymjb_goods_price_tv"
+        android:layout_below="@+id/paymjb_goods_name_tv"
+        android:layout_alignParentRight="true"
+        android:gravity="end"
+        android:layout_marginRight="6dp">
+        <ImageView
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/x30"
+            android:src="@drawable/icon_mjz"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付"
+            android:textColor="@color/yellowdark"
+            android:textSize="@dimen/text_size_small_xx"
+            android:paddingBottom="4dp"/>
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/paymjb_goods_mjbprice_tv"
         android:layout_width="wrap_content"
@@ -54,7 +77,7 @@
         android:layout_below="@+id/paymjb_goods_price_tv"
         android:layout_marginLeft="@dimen/x10"
         android:text=""
-        android:background="@drawable/shap_radius_white_stroke_theme_r20"
+        android:background="@drawable/shap_radius_yellow_stroke_theme_r20"
         android:textColor="@color/app_theme"
         android:textSize="@dimen/y22"
         android:paddingLeft="@dimen/x5"

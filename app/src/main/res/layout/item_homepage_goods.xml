@@ -86,7 +86,7 @@
             android:textSize="@dimen/y22"
             android:paddingLeft="@dimen/x5"
             android:paddingRight="@dimen/x5"
-            android:background="@drawable/shap_radius_white_stroke_theme_r20"/>
+            android:background="@drawable/shap_radius_yellow_stroke_theme_r20"/>
     </LinearLayout>
     <ImageView
         android:id="@+id/item_homgpage_goods_back_iv"

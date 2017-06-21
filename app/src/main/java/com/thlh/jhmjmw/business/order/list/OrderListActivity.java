@@ -150,6 +150,7 @@ public class OrderListActivity extends BaseViewActivity implements View.OnClickL
                         tapUnCompleteLayout.setVisibility(View.GONE);
                         tapCompleteLayout.setVisibility(View.GONE);
                         tabLine.setVisibility(View.GONE);
+
                         break;
                 }
             }

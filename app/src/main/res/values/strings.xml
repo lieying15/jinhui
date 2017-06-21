@@ -331,7 +331,7 @@
     <string name="wait_send">等待发货</string>
     <string name="wait_goods">等待收货</string>
     <string name="look">查看物流</string>
-    <string name="zhen_pay">实付款</string>
+    <string name="zhen_pay">实付款:</string>
     <string name="true_goods">确认收货</string>
     <string name="wait_evaluation">等待评价</string>
 
@@ -435,6 +435,7 @@
     <string name="balance_top_up">余额充值</string>
     <string name="balance_consumer">余额消费</string>
     <string name="mjz_Obtain">金惠币获取</string>
+    <string name="mjz_recharge">充值</string>
     <string name="mjz_consumer">金惠币消费</string>
     <string name="all_transaction">全部交易</string>
     <string name="plus">+</string>
@@ -651,6 +652,9 @@
     <!---->
     <string name="mjz_pay">金惠币支付</string>
     <string name="zfb_pay">支付宝支付</string>
+    <string name="zfb_recharge">支付宝充值</string>
+    <string name="wx_recharge">微信充值</string>
+    <string name="card_exchange">实体卡兑换</string>
 
     <!--物流-->
     <string name="coupon_message">优惠券信息</string>

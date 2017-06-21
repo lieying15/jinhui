@@ -125,7 +125,8 @@ public class ViewpagerFragment extends BaseFragment {
     protected void initData() {
         if (flag){
             current_page = 1;
-            loadHomePageData(true,current_page); loadHomePageData(true,current_page);
+            goodsList.clear();
+            loadHomePageData(true,current_page);
         }
     }
 
@@ -137,9 +138,11 @@ public class ViewpagerFragment extends BaseFragment {
     public void loadGoodsData(){
         if (flag){
             current_page = 1;
+            goodsList.clear();
             loadHomePageData(true,current_page);
         }else {
             current_page = 1;
+            goodsList.clear();
             loadSearchData(catid,current_page);
         }
     }
@@ -262,5 +265,9 @@ public class ViewpagerFragment extends BaseFragment {
         goodsAdapter.notifyDataSetChanged();
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        goodsList.clear();
+    }
 }

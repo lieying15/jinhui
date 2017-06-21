@@ -53,7 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="36dp"
             android:layout_weight="1"
-            android:background="@drawable/selector_radius_white_stoke_theme_r20"
+            android:background="@drawable/selector_radius_yellow_stoke_theme_r20"
             android:text="取消"
             android:textColor="@drawable/selector_color_text_normal_theme"
             android:textSize="@dimen/text_size_small_x"

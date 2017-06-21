@@ -1,7 +1,6 @@
 package com.thlh.jhmjmw.business.user.wallet;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.TextView;
 
 import com.thlh.baselib.model.DealRecord;
@@ -45,7 +44,7 @@ public class DealRecordAdapter extends EasyRecyclerViewAdapter {
             /*加*/
             priceTv.setText("+"+dealRecord.getAmount());
             describeTv.setText(stringBuilder.toString());
-            remarkTv.setVisibility(View.GONE);
+//            remarkTv.setVisibility(View.GONE);
         }
         if(dealRecord.getType().equals("E")){
             stringBuilder.append(context.getResources().getString(R.string.mjz_consumer));
@@ -53,11 +52,22 @@ public class DealRecordAdapter extends EasyRecyclerViewAdapter {
             /*减*/
             priceTv.setText("-"+dealRecord.getAmount());
             describeTv.setText(stringBuilder.toString());
-            remarkTv.setText(context.getResources().getString(R.string.order_num) + dealRecord.getRemark());
+//            remarkTv.setText(context.getResources().getString(R.string.order_num) + dealRecord.getRemark());
+        }
+        String recharge_from = dealRecord.getRecharge_from();
+        if (recharge_from.equals("3")){
+            describeTv.setText(context.getResources().getText(R.string.zfb_recharge));
+        }else if (recharge_from.equals("4")){
+            describeTv.setText(context.getResources().getText(R.string.wx_recharge));
+        }else if (recharge_from.equals("5")){
+            describeTv.setText(context.getResources().getText(R.string.card_exchange));
+        }else{
+            describeTv.setText("");
         }
 
+        remarkTv.setText(dealRecord.getRemark());
+
         String time = TimeUtils.stringToDateString(dealRecord.getInputtime());
-        time = time.replace(" ","\n");
         timeTv.setText(time);
     }
 

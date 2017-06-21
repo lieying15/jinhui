@@ -189,6 +189,9 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
 
         pricelistTotalTv.setText(getResources().getString(R.string.money)+order.getGoods_amount());
         pricelistExpressTv.setText(getResources().getString(R.string.money)+ order.getExpress_fee());
+
+        updateUseMjb();
+
         double tempShouldPay = shouldpay - useMjb;
         if(tempShouldPay == 0 && useMjb>0){
             shouldpayTv.setText(TextUtils.showPrice(useMjb) + getResources().getString(R.string.ch_mjz));
@@ -207,7 +210,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             public void onComplete(RippleRelativeLayout rippleRelativeLayout) {
                 if (judgePayCondition()) {
                     itemidAndNumAndMjb = getItemidAndNumAndMjb();
-                    int user_ispaypass = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString());//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
+                    int user_ispaypass = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString()) ;//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
                     if(user_ispaypass == 1 && useMjb >0){
                         PayPasswordActivity.activityStart(PayOrderActivity.this,Constants.PAYPW_TYPE_ORDERCONFIRM_PAY,orderid,paytype,itemidAndNumAndMjb);
                         finish();
@@ -588,9 +591,9 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
 
     private void updateUseMjb(){
         if(useMjb>0){
-            pricelistMjbTv.setText("-"+useMjb );
+            pricelistMjbTv.setText("- " + getResources().getString(R.string.money)+useMjb );
         }else {
-            pricelistMjbTv.setText("0");
+            pricelistMjbTv.setText("- "+ getResources().getString(R.string.money) +"0");
         }
         double userMjb = Double.parseDouble(user_mjb);
         useMjb = useMjb >userMjb?userMjb:useMjb;

@@ -267,7 +267,7 @@
                         android:layout_marginBottom="5dp"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
-                        android:background="@drawable/shap_radius_white_stroke_theme_r20"
+                        android:background="@drawable/shap_radius_yellow_stroke_theme_r20"
                         android:text="优惠套装"/>
                     <TextView
                         android:id="@+id/goodsdetail_promotion_coupon_tv"

@@ -165,7 +165,7 @@
             android:id="@+id/recharge_input_et"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:hint="请输入其他充值金额"
+            android:hint="请输入金惠币充值金额"
             android:inputType="numberDecimal"
             android:textColor="@color/text_nomal"
             android:textColorHint="@color/text_tips"

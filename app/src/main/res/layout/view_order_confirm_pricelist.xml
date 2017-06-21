@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="美家钻"
+            android:text="金惠币"
             android:textSize="@dimen/y28"
             android:textColor="@color/text_tips"/>
         <TextView
@@ -62,7 +62,7 @@
             android:gravity="right"
             android:layout_marginRight="@dimen/x15"
             android:textSize="@dimen/text_size_small_x"
-            android:textColor="@color/wine_light"/>
+            android:textColor="@color/blue"/>
     </LinearLayout>
 
 

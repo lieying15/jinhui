@@ -1,74 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tl="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows = "true"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/app_mainback"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <com.thlh.jhmjmw.view.HeaderNormal
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:title="交易记录"/>
+        custom:title="交易记录" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/normal_item_height"
-        android:background="@color/app_mainback">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="3dp"
+        android:background="@drawable/selector_radius_white_stoke_theme_r20">
+
         <LinearLayout
-            android:id="@+id/deal_record_type_ll"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_item_height"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/deal_record_type_ll"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_weight="1"
+                android:background="@drawable/shap_radius_gray_stroke_theme_r20"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/deal_record_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="全部交易"
+                    android:textColor="@color/app_theme"
+                    android:textSize="@dimen/text_size_small_xx" />
+
+                <ImageView
+                    android:id="@+id/deal_record_type_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/icon_arrow_down_gray" />
+            </LinearLayout>
+
+            <View style="@style/divide_line_vertical_white" />
+
             <TextView
-                android:id="@+id/deal_record_type_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="交易金额"
                 android:textColor="@color/text_nomal"
-                android:textSize="@dimen/text_size_small_xx"
-                android:text="全部交易"/>
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginLeft="2dp"
-                android:src="@drawable/icon_arrow_down_black"/>
+                android:textSize="@dimen/text_size_small_xx" />
+
+            <View style="@style/divide_line_vertical_white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="备注"
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/text_size_small_xx" />
         </LinearLayout>
-        <View style="@style/divide_line_vertical_white"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+        <LinearLayout
+            android:id="@+id/deal_record_typeselect_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_item_height"
+            android:background="@drawable/shap_radius_gray_background"
             android:gravity="center"
-            android:textColor="@color/text_nomal"
-            android:textSize="@dimen/text_size_small_xx"
-            android:text="交易金额"/>
-        <View style="@style/divide_line_vertical_white"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/text_nomal"
-            android:textSize="@dimen/text_size_small_xx"
-            android:text="备注"/>
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/deal_record_recharge_tv"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y60"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20"
+                android:text="充值"
+                android:textColor="@color/text_nomal"
+                android:background="@drawable/shap_radius_gray_stroke_theme_r20"
+                android:textSize="@dimen/text_size_small_xx"/>
+
+            <TextView
+                android:id="@+id/deal_record_consumption_tv"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y60"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="金惠币消费"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20"
+                android:textColor="@color/text_nomal"
+                android:background="@drawable/shap_radius_gray_stroke_theme_r20"
+                android:textSize="@dimen/text_size_small_xx" />
+
+        </LinearLayout>
     </LinearLayout>
+
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/deal_record_cl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView
             android:id="@+id/deal_record_ptpr_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
         <com.thlh.jhmjmw.view.NoInfoView
             android:id="@+id/deal_record_noinfoview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>

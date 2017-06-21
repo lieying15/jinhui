@@ -58,7 +58,7 @@ public class OrderCommentAdapter extends EasyRecyclerViewAdapter {
                 actionRightTv.setVisibility(View.GONE);
                 commentRankView.setVisibility(View.VISIBLE);
                 actionLeftTv.setTextColor(context.getResources().getColor(R.color.wine_light));
-                actionLeftTv.setBackgroundResource(R.drawable.selector_radius_white_stoke_theme_r20);
+                actionLeftTv.setBackgroundResource(R.drawable.selector_radius_yellow_stoke_theme_r20);
                 commentRankView.setStar(Integer.parseInt(goods.getComment().getRate()));
                 if(goods.getComment().getPic() !=null && goods.getComment().getPic().size()>0){
                     CommentPicsAdapter adapter = new CommentPicsAdapter(context);

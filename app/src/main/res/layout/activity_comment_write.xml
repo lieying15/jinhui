@@ -179,7 +179,7 @@
                 android:paddingTop="@dimen/y5"
                 android:paddingBottom="@dimen/y5"
                 android:gravity="center"
-                android:background="@drawable/shap_radius_white_stroke_theme_r20"
+                android:background="@drawable/shap_radius_yellow_stroke_theme_r20"
                 android:layout_marginTop="@dimen/y15"
                 android:layout_marginBottom="@dimen/y15"
                 android:layout_gravity="center_vertical|right"

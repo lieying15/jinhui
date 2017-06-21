@@ -7,16 +7,13 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.thlh.baselib.base.BaseApplication;
-import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.base.BaseObserver;
+import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.DealRecord;
 import com.thlh.baselib.model.response.DealRecordResponse;
 import com.thlh.baselib.utils.S;
@@ -59,6 +56,14 @@ public class DealRecordActivity extends BaseViewActivity {
     CoordinatorLayout recordCl;
     @BindView(R.id.deal_record_noinfoview)
     NoInfoView recordNoinfoview;
+    @BindView(R.id.deal_record_recharge_tv)
+    TextView dealRecordRechargeTv;
+    @BindView(R.id.deal_record_consumption_tv)
+    TextView dealRecordConsumptionTv;
+    @BindView(R.id.deal_record_typeselect_ll)
+    LinearLayout dealRecordTypeselectLl;
+    @BindView(R.id.deal_record_type_iv)
+    ImageView dealRecordTypeIv;
 
     private String paraFrom;
     private String paraType;
@@ -69,9 +74,6 @@ public class DealRecordActivity extends BaseViewActivity {
     private DealRecordAdapter dealRecordAdapter;
     private EasyRecyclerView recordRv;
 
-    private View poprootview;
-    private PopupWindow popupWindow;
-    private LinearLayout rechargell,consumell,mjbRechargell,mjbConsumell,allrecordll;
     private BaseObserver<DealRecordResponse> recordObserver;
     private List<DealRecord> recordList = new ArrayList<>();
 
@@ -91,7 +93,6 @@ public class DealRecordActivity extends BaseViewActivity {
     protected void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_dealrecord);
         ButterKnife.bind(this);
-        initPopwindow();
         dealRecordPtprRv.setHasPullUpFriction(false); // 设置没有上拉阻力
         recordRv = dealRecordPtprRv.getRefreshableView();
         dealRecordAdapter = new DealRecordAdapter(this);
@@ -104,7 +105,7 @@ public class DealRecordActivity extends BaseViewActivity {
         );
 
         recordRv.addItemDecoration(dataDecoration);
-        mLayoutManager  = new LinearLayoutManager(this);
+        mLayoutManager = new LinearLayoutManager(this);
         recordRv.setLayoutManager(mLayoutManager);
         recordRv.setAdapter(dealRecordAdapter);
         dealRecordPtprRv.setMode(PullToRefreshBase.Mode.BOTH);
@@ -148,11 +149,11 @@ public class DealRecordActivity extends BaseViewActivity {
         });
 
 
-        recordObserver   = new BaseObserver<DealRecordResponse>() {
+        recordObserver = new BaseObserver<DealRecordResponse>() {
             @Override
             public void onErrorResponse(DealRecordResponse response) {
                 dealRecordPtprRv.onRefreshComplete();
-                new S.Builder( recordCl, response.getErr_msg()).create().show();
+                new S.Builder(recordCl, response.getErr_msg()).create().show();
 //                new S.Builder(DealRecordActivity.this, recordCl, response.getErr_msg()).create().show();
                 isLoadingMore = false;
             }
@@ -163,13 +164,13 @@ public class DealRecordActivity extends BaseViewActivity {
                 total_page = response.getData().getTotal_page();
                 recordList = response.getData().getWallet();
                 if (isLoadingMore) {
-                    dealRecordAdapter.setList(recordList,true);
+                    dealRecordAdapter.setList(recordList, true);
                     isLoadingMore = false;
                 } else {
-                    if(recordList == null || recordList.size() ==0){
+                    if (recordList == null || recordList.size() == 0) {
                         recordNoinfoview.setVisibility(View.VISIBLE);
                         dealRecordPtprRv.setVisibility(View.GONE);
-                    }else {
+                    } else {
                         recordNoinfoview.setVisibility(View.GONE);
                         dealRecordPtprRv.setVisibility(View.VISIBLE);
                         dealRecordAdapter.setList(recordList);
@@ -183,101 +184,59 @@ public class DealRecordActivity extends BaseViewActivity {
 
     @Override
     protected void loadData() {
-        loadRecordData(Constants.RECORD_FROM_ALL,Constants.RECORD_TYPE_All);
+        loadRecordData(Constants.RECORD_FROM_ALL, Constants.RECORD_TYPE_All);
     }
 
-    private void loadRecordData(String paraFrom ,String paraType){
+    private void loadRecordData(String paraFrom, String paraType) {
         subscription = NetworkManager.getWalletApi()
-                .recordIndex(SPUtils.getToken(),current_page, Constants.PageDataCount ,paraFrom,paraType)
+                .recordIndex(SPUtils.getToken(), current_page, Constants.PageDataCount, paraFrom, paraType)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(recordObserver);
     }
 
-    private void initPopwindow(){
-        poprootview = LayoutInflater.from(this).inflate(R.layout.popup_deal_record, null);
-        rechargell = (LinearLayout) poprootview.findViewById(R.id.pop_dealrecord_type_recharge_ll);
-        consumell = (LinearLayout) poprootview.findViewById(R.id.pop_dealrecord_type_consume_ll);
-        mjbRechargell = (LinearLayout) poprootview.findViewById(R.id.pop_dealrecord_type_mjb_recharge_ll);
-        mjbConsumell = (LinearLayout) poprootview.findViewById(R.id.pop_dealrecord_type_mjb_consume_ll);
-        allrecordll = (LinearLayout) poprootview.findViewById(R.id.pop_dealrecord_type_all_ll);
-        rechargell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dealRecordTypeTv.setText(getResources().getString(R.string.balance_top_up));
-                recordList.clear();
-                paraFrom = Constants.RECORD_FROM_BAlANCE ;
-                paraType = Constants.RECORD_TYPE_RECHARGE;
-                loadRecordData(paraFrom,paraType);
-                popupWindow.dismiss();
-            }
-        });
-        consumell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dealRecordTypeTv.setText(getResources().getString(R.string.balance_consumer));
-                recordList.clear();
-                paraFrom =  Constants.RECORD_FROM_BAlANCE ;
-                paraType = Constants.RECORD_TYPE_CONSUME;
-                loadRecordData(paraFrom,paraType);
-                popupWindow.dismiss();
-            }
-        });
-        mjbRechargell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dealRecordTypeTv.setText(getResources().getString(R.string.mjz_Obtain));
-                recordList.clear();
-                paraFrom =  Constants.RECORD_FROM_MJB ;
-                paraType = Constants.RECORD_TYPE_RECHARGE;
-                loadRecordData(paraFrom,paraType);
-                popupWindow.dismiss();
-            }
-        });
-        mjbConsumell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dealRecordTypeTv.setText(getResources().getString(R.string.mjz_consumer));
-                recordList.clear();
-                paraFrom = Constants.RECORD_FROM_MJB ;
-                paraType = Constants.RECORD_TYPE_CONSUME;
-                loadRecordData(paraFrom,paraType);
-                popupWindow.dismiss();
-            }
-        });
-        allrecordll.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dealRecordTypeTv.setText(getResources().getString(R.string.all_transaction));
-                        recordList.clear();
-                        paraFrom = Constants.RECORD_FROM_ALL ;
-                        paraType = Constants.RECORD_TYPE_All;
-                        loadRecordData(paraFrom,paraType);
-                        popupWindow.dismiss();
-                    }
-                });
-        popupWindow = new PopupWindow(poprootview,  BaseApplication.width/3, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        popupWindow.setContentView(poprootview);
-        popupWindow.setOutsideTouchable(true);
-        popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_null));
-        popupWindow.setAnimationStyle(R.style.popwin_anim_left_style);
-    }
-
-
-
-    @OnClick({R.id.deal_record_type_ll})
+    @OnClick({R.id.deal_record_type_tv, R.id.deal_record_type_ll, R.id.deal_record_recharge_tv, R.id.deal_record_consumption_tv})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.deal_record_type_ll:
-                popupWindow.showAsDropDown(dealRecordTypeLl, 0,0);
-                break;
+            case R.id.deal_record_type_tv:
 
+                break;
+            case R.id.deal_record_type_ll:
+                dealRecordTypeselectLl.setVisibility(View.VISIBLE);
+                dealRecordTypeIv.setImageResource(R.drawable.icon_arrow_up_gray);
+                break;
+            case R.id.deal_record_recharge_tv:
+                dealRecordTypeTv.setText(getResources().getString(R.string.mjz_recharge));
+                recordList.clear();
+                paraFrom = Constants.RECORD_FROM_MJB;
+                paraType = Constants.RECORD_TYPE_RECHARGE;
+                dealRecordTypeselectLl.setVisibility(View.GONE);
+                dealRecordTypeIv.setImageResource(R.drawable.icon_arrow_down_gray);
+                loadRecordData(paraFrom, paraType);
+                break;
+            case R.id.deal_record_consumption_tv:
+                dealRecordTypeTv.setText(getResources().getString(R.string.mjz_consumer));
+                recordList.clear();
+                paraFrom = Constants.RECORD_FROM_MJB;
+                paraType = Constants.RECORD_TYPE_CONSUME;
+                dealRecordTypeselectLl.setVisibility(View.GONE);
+                dealRecordTypeIv.setImageResource(R.drawable.icon_arrow_down_gray);
+                loadRecordData(paraFrom, paraType);
+                break;
         }
     }
-
 
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.activity_slide_left_in, R.anim.activity_slide_right_out);
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+
 }

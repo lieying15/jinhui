@@ -5,6 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -186,6 +189,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 break;
             case Constants.ORDER_TYPE_HAS_COMMENT :
                 statesTv.setText(context.getResources().getString(R.string.shopcart_total_finish));
+                mjzTv.setVisibility(View.GONE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.GONE);
                 actionRightTv.setText(context.getResources().getString(R.string.again_buy));
@@ -201,6 +205,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 break;
             case  Constants.ORDER_TYPE_CANCEL:
                 statesTv.setText(context.getResources().getString(R.string.cannal));
+                mjzTv.setVisibility(View.GONE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.GONE);
                 actionRightTv.setText(context.getResources().getString(R.string.again_buy));
@@ -213,7 +218,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                         }
                     }
                 });
-                priceTitleTv.setText(context.getResources().getString(R.string.total_price));
+                priceTitleTv.setText(context.getResources().getString(R.string.zhen_pay));
 //                priceTitleTv.setTextColor(context.getResources().getColor(R.color.text_tips));
                 break;
             case Constants.ORDER_TYPE_COMPLETE :
@@ -269,19 +274,17 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
             }
         });
 
-//        Spannable finalpriceSpan = new SpannableString("￥" + finalprice);
-//        finalpriceSpan.setSpan(new AbsoluteSizeSpan(DisplayUtil.sp2px(context,13)), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-//
-
-
         priceTv.setText(OrderUtils.getListTotalPrice(order,context));
-        goodsNumTv.setText(context.getResources().getString(R.string.gong) +        goodsOrders.size() + context.getResources().getString(R.string.shops));
+        SpannableStringBuilder builder = new SpannableStringBuilder(context.getResources().getString(R.string.gong) +  goodsOrders.size() + context.getResources().getString(R.string.shops));
+        //ForegroundColorSpan 为文字前景色，BackgroundColorSpan为文字背景色
+        ForegroundColorSpan redSpan = new ForegroundColorSpan(context.getResources().getColor(R.color.app_theme));
+        builder.setSpan(redSpan, 1,2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        goodsNumTv.setText(builder);
 
         /**
          * 1,如果不支持金惠币显示   金惠币可抵 零元
          * 2，如果自己的金惠币不足，显示自己金惠币的数量
          * 3，如果自己金惠币大于需要抵消的。直接显示需要抵消的
-         * if ()
          *
          */
         String user_mjb = (String) SPUtils.get("user_mjb", "0");

@@ -20,6 +20,7 @@
     <color name="btn_press">#840101</color>
 
     <color name="gray_shallow">#cdcdcd</color>
+    <color name="gray_light">#d1d4db</color>
     <color name="gray">#777777</color>
     <color name="pink">#f08caa</color>
     <color name="pink_shallow">#e76e7c</color>

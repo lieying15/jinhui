@@ -250,7 +250,7 @@
                         android:layout_marginBottom="@dimen/y15"
                         android:layout_marginRight="@dimen/goodsdetail_margin_side"
                         android:layout_marginTop="@dimen/y15"
-                        android:background="@drawable/shap_radius_white_stroke_theme_r20"
+                        android:background="@drawable/shap_radius_yellow_stroke_theme_r20"
                         android:gravity="center"
                         android:paddingBottom="@dimen/y5"
                         android:paddingLeft="@dimen/x30"
