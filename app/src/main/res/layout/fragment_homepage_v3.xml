@@ -53,7 +53,7 @@
 
                         <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
                             android:id="@+id/homepage_tabimg_rv"
-                            android:layout_width="@dimen/x750"
+                            android:layout_width="match_parent"
                             android:layout_height="@dimen/y300"
                             android:background="@color/white" />
 

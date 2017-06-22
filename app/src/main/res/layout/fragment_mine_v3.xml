@@ -325,15 +325,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
                 android:layout_marginTop="@dimen/y20"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_collect_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -355,9 +358,10 @@
 
                 <com.thlh.viewlib.ripple.RippleRelativeLayout
                     android:id="@+id/mine_coupon_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:orientation="vertical"
                     ripple:ripColor="@color/mine_rip">
@@ -382,7 +386,7 @@
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/y23"
+                        android:textSize="@dimen/y13"
                         android:visibility="invisible"
                         mv:mv_backgroundColor="@color/app_theme"
                         mv:mv_isRadiusHalfHeight="true"
@@ -401,9 +405,10 @@
 
                 <com.thlh.viewlib.ripple.RippleRelativeLayout
                     android:id="@+id/mine_changecard_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:orientation="vertical"
                     ripple:ripColor="@color/mine_rip">
@@ -447,8 +452,9 @@
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_footmark_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -474,15 +480,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
                 android:layout_marginTop="@dimen/y20"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_address_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -504,9 +513,10 @@
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_device_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -529,9 +539,10 @@
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_help_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -553,8 +564,9 @@
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_setting_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -579,15 +591,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
                 android:layout_marginTop="@dimen/y20"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_service_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -609,9 +624,10 @@
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_safe_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -633,9 +649,10 @@
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_wechat_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
                     android:layout_marginRight="@dimen/x20"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -657,8 +674,9 @@
 
                 <com.thlh.viewlib.ripple.RippleLinearLayout
                     android:id="@+id/mine_more_ripll"
-                    android:layout_width="@dimen/x160"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/y160"
+                    android:layout_weight="1"
                     android:background="@drawable/shap_radius_white"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"

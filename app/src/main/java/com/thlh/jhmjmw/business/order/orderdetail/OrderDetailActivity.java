@@ -204,7 +204,7 @@ public class OrderDetailActivity extends BaseViewActivity {
            //支付方式
             paytypeTv.setText(tempPaytype);
 
-            if(tempPaytype.equals("美家钻支付")){
+            if(tempPaytype.equals("金惠币支付")){
                 paytypeTv.setTextColor(getResources().getColor(R.color.green));
             }
         } catch (Exception e) {
@@ -225,7 +225,7 @@ public class OrderDetailActivity extends BaseViewActivity {
 
         /*
         * 备注内容
-        * */
+        */
         orderOfferRemarks.setText(order.getNote());
 
         switch (status) {
