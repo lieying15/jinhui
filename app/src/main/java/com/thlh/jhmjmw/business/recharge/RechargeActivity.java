@@ -465,9 +465,9 @@ public class RechargeActivity extends BaseActivity {
             case R.id.top_up_6999_rb:
                 selectnum = SELECTNUMBER;
                 if (agency_id == 10 || agency_id == 11 ){
-                    selectMonney = "6900";
+                    selectMonney = "4599";
                 }else {
-                    selectMonney = "6999";
+                    selectMonney = "4599";
                 }
                 topUp6999Rb.setSelected(true);
                 topUp7999Rb.setSelected(false);
@@ -483,7 +483,7 @@ public class RechargeActivity extends BaseActivity {
              */
             case R.id.top_up_7999_rb:
                 selectnum = SELECTNUMBER;
-                selectMonney = "7999";
+                selectMonney = "4599";
                 topUp6999Rb.setSelected(false);
                 topUp7999Rb.setSelected(true);
                 topUpOtherMoneyRb.setSelected(false);

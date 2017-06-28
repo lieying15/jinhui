@@ -1,14 +1,6 @@
 [
     {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23\\abc_control_background_material.xml",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v23\\abc_control_background_material.xml"
-    },
-    {
         "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23\\abc_control_background_material.xml",
         "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v23\\abc_control_background_material.xml"
-    },
-    {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23\\abc_control_background_material.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-v23\\abc_control_background_material.xml"
     }
 ]

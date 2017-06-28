@@ -27,7 +27,6 @@ import butterknife.ButterKnife;
  */
 public class AlbumTopActivity extends BaseViewActivity {
     public final String TAG = getClass().getSimpleName();
-    
     @BindView(R.id.album_header)
     HeaderNormal albumTopHeader;
     @BindView(R.id.album_rv)
@@ -43,8 +42,8 @@ public class AlbumTopActivity extends BaseViewActivity {
     public static void activityStart(Activity context, int code, int select_type) {
         Intent intent = new Intent();
         intent.setClass(context, AlbumTopActivity.class);
-        intent.putExtra("select_type", select_type);
-        context.startActivityForResult(intent, code);
+        intent.putExtra("select_type",select_type);
+        context.startActivityForResult(intent,code);
     }
 
     @Override
@@ -65,12 +64,12 @@ public class AlbumTopActivity extends BaseViewActivity {
             public void onItemClick(View convertView, int position) {
                 Intent intent = new Intent(AlbumTopActivity.this, AlbumActivity.class);
                 intent.putParcelableArrayListExtra("albumbucket", albumbucketList.get(position).getAlbumItems());
-                intent.putExtra("select_type", select_type);
+                intent.putExtra("select_type",select_type);
                 startActivityForResult(intent, REQUEST_CODE_ALBUMGRID);
             }
         });
         albumbucketAdapter.setList(albumbucketList);
-        albumTopRv.setLayoutManager(new GridLayoutManager(this, 3));
+        albumTopRv.setLayoutManager(new GridLayoutManager(this,3));
         albumTopRv.setAdapter(albumbucketAdapter);
     }
 
@@ -85,10 +84,4 @@ public class AlbumTopActivity extends BaseViewActivity {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

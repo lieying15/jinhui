@@ -4,23 +4,7 @@
         "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml"
     },
     {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\ucrop_vector_loader.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\ucrop_vector_loader.xml"
-    },
-    {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\ucrop_vector_loader.xml",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\ucrop_vector_loader.xml"
-    },
-    {
         "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\ucrop_vector_loader.xml",
         "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\ucrop_vector_loader.xml"
-    },
-    {
-        "merged": "E:\\QMDownload\\jhmall\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml",
-        "source": "E:\\QMDownload\\jhmall\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml"
-    },
-    {
-        "merged": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml",
-        "source": "E:\\Workspace\\git-android-mall-v3\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml"
     }
 ]

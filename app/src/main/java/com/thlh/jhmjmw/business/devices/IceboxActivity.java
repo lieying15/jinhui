@@ -14,8 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.thlh.baselib.base.BaseActivity;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.business.other.BaseViewActivity;
+import com.thlh.jhmjmw.fragment.IceboxScreenFragment;
 import com.thlh.jhmjmw.other.L;
 import com.yalantis.ucrop.UCrop;
 
@@ -30,11 +31,13 @@ import butterknife.OnClick;
 /**
  * Created by HQ on 2015/12/17.
  */
-public class IceboxActivity extends BaseActivity {
+public class IceboxActivity extends BaseViewActivity {
     private static final String TAG = "IceboxActivity";
     public static final int ICOBOX_TYPE_SETTING = 0;
     public static final int ICOBOX_TYPE_SCREEN = 1;
     public int CHECK_STATUS = 1;
+
+
 
     @BindView(R.id.icebox_viewpager)
     ViewPager iceboxViewpager;
@@ -50,9 +53,6 @@ public class IceboxActivity extends BaseActivity {
     TextView iconIceboxScreenTv;
     @BindView(R.id.icon_icebox_screen_ll)
     LinearLayout iconIceboxScreenLl;
-    @BindView(R.id.icon_icebox_bottom_ll)
-    LinearLayout bottomLl;
-
 
     private List<Fragment> fragmentList;
     private IceboxScreenFragment screenFrgment;
@@ -78,19 +78,21 @@ public class IceboxActivity extends BaseActivity {
         settingFrgment = new IceboxSettingFragment();
         fragmentList.add(settingFrgment);
         fragmentList.add(screenFrgment);
+
     }
 
-
     @Override
-    protected void initBaseViews(Bundle savedInstanceState) {
+    protected void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_icebox);
         ButterKnife.bind(this);
+
         MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList);
         iceboxViewpager.setAdapter(myFragmentPagerAdapter);
         iceboxViewpager.setCurrentItem(ICOBOX_TYPE_SCREEN);
         iceboxViewpager.addOnPageChangeListener(new MyPagerChangeListener());
         iceboxViewpager.setOffscreenPageLimit(2);
         changeTabView(ICOBOX_TYPE_SCREEN);
+
     }
 
     @OnClick({R.id.icon_icebox_temperature_ll, R.id.icon_icebox_screen_ll})
@@ -157,16 +159,14 @@ public class IceboxActivity extends BaseActivity {
     private void changeTabView(int position) {
         switch (position) {
             case ICOBOX_TYPE_SETTING:
-                bottomLl.setBackgroundResource(R.drawable.shap_radius_white);
                 iconIceboxScreenTv.setTextColor(getResources().getColor(R.color.text_nomal));
-                iconIceboxTemperatureTv.setTextColor(getResources().getColor(R.color.wine_light));
+                iconIceboxTemperatureTv.setTextColor(getResources().getColor(R.color.app_theme));
                 iconIceboxScreenIv.setImageResource(R.drawable.icon_icebox_screen);
                 iconIceboxTemperatureIv.setImageResource(R.drawable.icon_icebox_temperature_select);
                 break;
 
             case ICOBOX_TYPE_SCREEN:
-                bottomLl.setBackgroundResource(R.drawable.shap_radius_half_bottom_white);
-                iconIceboxScreenTv.setTextColor(getResources().getColor(R.color.wine_light));
+                iconIceboxScreenTv.setTextColor(getResources().getColor(R.color.app_theme));
                 iconIceboxTemperatureTv.setTextColor(getResources().getColor(R.color.text_nomal));
                 iconIceboxScreenIv.setImageResource(R.drawable.icon_icebox_screen_select);
                 iconIceboxTemperatureIv.setImageResource(R.drawable.icon_icebox_temperature);
@@ -203,8 +203,5 @@ public class IceboxActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void loadData() {
 
-    }
 }

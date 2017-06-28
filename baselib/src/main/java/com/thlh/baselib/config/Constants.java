@@ -37,11 +37,11 @@ public class Constants {
 
 
 	//北京及天津的充值送冰箱价格
-	public static final int ICEBOX_PRICE = 6900;
+	public static final int ICEBOX_PRICE = 4599;
 	//其他城市充值送冰箱价格----6999
-	public static final int RECHARGE_SENDICEBOX_PRICE = 6999;
+	public static final int RECHARGE_SENDICEBOX_PRICE = 4599;
 	//深圳代理商充值价格----7999
-	public static final int RECHARGE_SENDICEBOX_PRICE_SZ = 7999;
+	public static final int RECHARGE_SENDICEBOX_PRICE_SZ = 4599;
 
 	//登录类型
 	public  static final int LOGIN_TYPE_NORMAL = 0;

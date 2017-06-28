@@ -261,6 +261,7 @@ public class HomePageFragment extends BaseFragment {
                             //展示图片渐变动画
                             tabTopTextLl.startAnimation(aa);
                             tabTopTextLl.setVisibility(View.GONE);//由折叠变为中间状态时隐藏播放按钮
+
                         }
                         state = CollapsingToolbarLayoutState.INTERNEDIATE;//修改状态标记为中间
                         gotoTopView.hide();

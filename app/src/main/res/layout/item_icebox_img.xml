@@ -2,18 +2,19 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_icebox_img_rl"
-    android:layout_width="@dimen/x240"
-    android:layout_height="@dimen/y240"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/comment_img_size"
     android:gravity="center">
     <ImageView
         android:id="@+id/item_icebox_img_iv"
-        android:layout_width="@dimen/x240"
-        android:layout_height="@dimen/y240"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
     <ImageView
         android:id="@+id/item_icebox_img_delete_iv"
-        android:layout_width="@dimen/x240"
-        android:layout_height="@dimen/y240"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_alignParentRight="true"
         android:scaleType="center"
         android:visibility="invisible"
         android:src="@drawable/icon_delete_circle_winelight"

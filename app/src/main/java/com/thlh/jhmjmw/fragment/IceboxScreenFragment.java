@@ -1,10 +1,12 @@
-package com.thlh.jhmjmw.business.devices;
+package com.thlh.jhmjmw.fragment;
+
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,11 +19,16 @@ import com.thlh.baselib.base.BaseResponse;
 import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.IceboxPhoto;
 import com.thlh.baselib.model.response.AlbumResponse;
+import com.thlh.baselib.utils.DisplayUtil;
+import com.thlh.baselib.utils.EventBusUtils;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.baselib.utils.SystemUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.ablum.AlbumTopActivity;
+import com.thlh.jhmjmw.business.ablum.FirstEvent;
+import com.thlh.jhmjmw.business.devices.IceboxActivity;
+import com.thlh.jhmjmw.business.devices.IceboxPhotoAdapter;
 import com.thlh.jhmjmw.business.other.PhotoPagerActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.L;
@@ -29,10 +36,13 @@ import com.thlh.jhmjmw.view.PtorFooterLayout;
 import com.thlh.jhmjmw.view.PtorHeaderLayout;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
-import com.thlh.viewlib.easyrecyclerview.widget.decorator.GridSpacingItemDecoration;
+import com.thlh.viewlib.easyrecyclerview.widget.decorator.EasyDividerItemDecoration;
 import com.thlh.viewlib.pulltorefresh.PullToRefreshBase;
 import com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView;
 import com.yalantis.ucrop.UCrop;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -48,8 +58,6 @@ import okhttp3.RequestBody;
 public class IceboxScreenFragment extends BaseFragment {
     private static final String TAG = "IceboxScreenFragment";
     private final int ACTIVITY_CODE_ALBUM = 0;
-
-
     private String PATH_CACHE_IMAGE = SystemUtils.getDiskCacheDir() + "icebox.png";
     private final int SCREEN_SAVER_TYPE_CLOSE = 0;
     private final int SCREEN_SAVER_TYPE_PHOTO = 1;
@@ -109,39 +117,42 @@ public class IceboxScreenFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+
+        EventBusUtils.register(this);
         screenPtprRv.setHasPullUpFriction(false); // 设置没有上拉阻力
         screenimgRv = screenPtprRv.getRefreshableView();
-
-        photoAdapter = new IceboxPhotoAdapter(getActivity(),deleteStates);
+        photoAdapter = new IceboxPhotoAdapter(getActivity());
 
 
         photoAdapter.setOnItemLongClickListener(new EasyRecyclerViewHolder.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(View convertView, int position) {
-//                photoAdapter.setCancelVisible(true);
-                deleteStates.set(position,!deleteStates.get(position));
+                photoAdapter.setCancelVisible(true);
                 photoAdapter.notifyDataSetChanged();
-
                 return false;
             }
         });
+        photoAdapter.setCancelListener(new IceboxPhotoAdapter.OnClickListener() {
+            @Override
+            public void onClickCancel(int position) {
+                String photoid = ((IceboxPhoto)photoAdapter.getItem(position)).getId();
+                postDeletaPhoto(photoid);
+                photoAdapter.setCancelVisible(false);
+                photoAdapter.notifyDataSetChanged();
+            }
+        });
 
-//        photoAdapter.setDeleteListener(new IceboxPhotoAdapter.OnClickListener() {
-//            @Override
-//            public void onClickDelete(int position) {
-//                String photoid = ((IceboxPhoto) photoAdapter.getItem(position)).getId();
-//                postDeletaPhoto(photoid);
-//                deleteStates.set(position,false);
-////                photoAdapter.setCancelVisible(false);
-//                photoAdapter.notifyDataSetChanged();
-//            }
-//        });
-
+        EasyDividerItemDecoration dataDecoration = new EasyDividerItemDecoration(
+                getActivity(),
+                EasyDividerItemDecoration.VERTICAL_LIST,
+                R.drawable.divider_wide_mainback
+        );
+        screenimgRv.addItemDecoration(dataDecoration);
         mLayoutManager = new GridLayoutManager(getActivity(), 3);
         screenimgRv.setLayoutManager(mLayoutManager);
+        int marging = DisplayUtil.dp2px(getActivity(),10);
+        screenimgRv.setPadding(marging, marging, 10, 15);
         screenimgRv.setAdapter(photoAdapter);
-        int decorationSpace = (int)getActivity().getResources().getDimension(R.dimen.x2);
-        screenimgRv.addItemDecoration(new GridSpacingItemDecoration(3,decorationSpace,false));
 
         screenPtprRv.setMode(PullToRefreshBase.Mode.BOTH);
         screenPtprRv.setHeaderLayout(new PtorHeaderLayout(getActivity()));
@@ -150,7 +161,6 @@ public class IceboxScreenFragment extends BaseFragment {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<EasyRecyclerView> refreshView) {
                 current_page = 1;
-                deleteStates.clear();
                 loadData();
             }
 
@@ -389,7 +399,9 @@ public class IceboxScreenFragment extends BaseFragment {
 
     private void startAlbum() {
         Intent intent = new Intent(getActivity(), AlbumTopActivity.class);
+        intent.putExtra("select_type", Constants.ALBUM_SELECT_MUTIPLE);
         startActivityForResult(intent, ACTIVITY_CODE_ALBUM);
+//        AlbumTopActivity.activityStart(getActivity(),ACTIVITY_CODE_ALBUM,Constants.ALBUM_SELECT_MUTIPLE);
     }
 
     public void startPhotoZoom() {
@@ -426,6 +438,15 @@ public class IceboxScreenFragment extends BaseFragment {
         return  isDeleteStatus;
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 1)
+    public void onMessageEventMain(FirstEvent event) {
+        if (event.getMsg().equals("FirstEvent")){
+            startPhotoZoom();
+        }
+        Log.v(TAG, event.getMsg() + " MAIN id = " + Thread.currentThread().getId());
+
+    }
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
@@ -443,7 +464,10 @@ public class IceboxScreenFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBusUtils.unregister(this);//解除订阅
 
-
-
+    }
 }
