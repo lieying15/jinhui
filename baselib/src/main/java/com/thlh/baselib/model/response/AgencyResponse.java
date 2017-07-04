@@ -31,6 +31,7 @@ public class AgencyResponse extends BaseResponse {
 
         private int recharge_id;
         private String agency_id;
+        private String order_id;
         private String qr_code;
         private int is_ch;
 
@@ -64,6 +65,14 @@ public class AgencyResponse extends BaseResponse {
 
         public void setIs_ch(int is_ch) {
             this.is_ch = is_ch;
+        }
+
+        public String getOrder_id() {
+            return order_id;
+        }
+
+        public void setOrder_id(String order_id) {
+            this.order_id = order_id;
         }
     }
 }

@@ -46,6 +46,7 @@ import com.thlh.baselib.model.StoreNear;
 import com.thlh.baselib.model.response.StoreNearResponse;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
+import com.thlh.baselib.utils.Tos;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.L;
@@ -102,6 +103,7 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
     private LatLng markerll;
     private RouteLine route = null;
     private boolean hasLoadData = false;
+    private boolean daohang = false;
 
     public static void activityStart(Context context) {
         Intent intent = new Intent();
@@ -185,6 +187,7 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
 
             @Override
             public void onNextResponse(StoreNearResponse storeNearResponse) {
+                mLocClient.stop();
                 stores = storeNearResponse.getData().getStoreNear();
                 hasLoadData = true;
                 if (stores == null || stores.size() == 0) {
@@ -206,8 +209,6 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
                 storeBundle.putString("lng", store.getLng());
                 storeBundle.putString("rating", store.getRating());
 
-
-
                 OverlayOptions item = new MarkerOptions().position(geoPoint)
                         .icon(marker).zIndex(9).draggable(true).title(store.getStore_name())
                         .extraInfo(storeBundle);
@@ -216,7 +217,13 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
                 bottomRouteTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        initRoute(markerll);
+                        if (!daohang){
+                            initRoute(markerll);
+                            daohang = true;
+                        }else {
+                            Tos.show(getResources().getString(R.string.daohang));
+                        }
+
                     }
                 });
                 mapMoveToStore();
@@ -279,6 +286,10 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
 
     }
 
+    /**
+     * 导航到小店
+     * @param markerll
+     */
     private void initRoute(LatLng markerll) {
         progressMaterial.show();
         mBaiduMap.hideInfoWindow();
@@ -289,6 +300,9 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
         mSearch.walkingSearch((new WalkingRoutePlanOption()).from(stNode).to(enNode));
     }
 
+    /**
+     * 定位标识添加
+     */
     private void initMarkerWindow() {
         //地图标记点
         mapMarkWindow = LayoutInflater.from(ShopMapActivity.this).inflate(R.layout.view_map_marker, null);
@@ -297,7 +311,10 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
         markerGuideTv = (TextView) mapMarkWindow.findViewById(R.id.map_store_guide_tv);
     }
 
-
+    /**
+     * 在界面显示附近小店
+     * @param store
+     */
     private void showMarkWindow(StoreNear store) {
 //        storeid = marker.getExtraInfo().getString("id");
         String name = store.getStore_name();
@@ -318,7 +335,12 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
         markerGuideTv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                initRoute(markerll);
+                if (!daohang){
+                    initRoute(markerll);
+                    daohang = true;
+                }else {
+                    Tos.show(getResources().getString(R.string.daohang));
+                }
             }
         });
         mInfoWindow = new InfoWindow(mapMarkWindow, llInfo, 0);
@@ -460,13 +482,14 @@ public class ShopMapActivity extends BaseActivity implements OnGetRoutePlanResul
     @Override
     protected void onDestroy() {
         // 退出时销毁定位
-        mLocClient.stop();
+//        mLocClient.stop();
         // 关闭定位图层
         mBaiduMap.setMyLocationEnabled(false);
         mMapView.onDestroy();
         mMapView = null;
         super.onDestroy();
     }
+
 
 
 }

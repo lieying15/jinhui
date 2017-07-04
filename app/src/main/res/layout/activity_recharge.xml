@@ -94,7 +94,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/selector_recharge_mainback_r50_red"
             android:layout_weight="1"
-            android:text="6999元"
+            android:text="4599"
             android:textSize="@dimen/y28"
             android:layout_marginRight="25px"
             android:layout_marginLeft="50px"
@@ -110,13 +110,14 @@
             android:layout_height="match_parent"
             android:background="@drawable/selector_recharge_mainback_r50_red"
             android:layout_weight="1"
-            android:text="7999元"
+            android:text="4599元"
             android:textSize="@dimen/y28"
             android:layout_marginRight="25px"
             android:layout_marginTop="5px"
             android:gravity="center"
             android:button="@null"
-            android:textColor="@color/text_black"/>
+            android:textColor="@color/text_black"
+            android:visibility="gone"/>
 
         <RadioButton
             android:id="@+id/top_up_other_money_rb"

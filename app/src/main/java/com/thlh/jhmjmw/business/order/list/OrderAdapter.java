@@ -87,7 +87,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 * 状态*/
                 statesTv.setText(context.getResources().getString(R.string.wait_pay));
                 priceTitleTv.setText(context.getResources().getString(R.string.need_pay));
-                mjzTv.setVisibility(View.VISIBLE);
+                mjzTv.setVisibility(View.GONE);
                 finalprice = order.getShould_pay();
                 List<OrderPay> tempPaylist = order.getPay();
                 if(null!=tempPaylist && tempPaylist.size()>0){
@@ -129,6 +129,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 statesTv.setText(context.getResources().getString(R.string.wait_send));
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.GONE);
+                mjzTv.setVisibility(View.VISIBLE);
                 actionRightTv.setText(context.getResources().getString(R.string.look));
                 actionRightTv.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -143,7 +144,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setText(context.getResources().getString(R.string.look));
                 actionLeftTv.setVisibility(View.VISIBLE);
-                mjzTv.setVisibility(View.GONE);
+                mjzTv.setVisibility(View.VISIBLE);
                 actionLeftTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -163,6 +164,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 break;
             case Constants.ORDER_TYPE_WAIT_COMMENT :
                 statesTv.setText(context.getResources().getString(R.string.wait_evaluation));
+                mjzTv.setVisibility(View.VISIBLE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 if(order.getIs_comment().equals("0")){
                     actionLeftTv.setVisibility(View.VISIBLE);
@@ -189,7 +191,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 break;
             case Constants.ORDER_TYPE_HAS_COMMENT :
                 statesTv.setText(context.getResources().getString(R.string.shopcart_total_finish));
-                mjzTv.setVisibility(View.GONE);
+                mjzTv.setVisibility(View.VISIBLE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.GONE);
                 actionRightTv.setText(context.getResources().getString(R.string.again_buy));
@@ -218,11 +220,12 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                         }
                     }
                 });
-                priceTitleTv.setText(context.getResources().getString(R.string.zhen_pay));
+                priceTitleTv.setText(context.getResources().getString(R.string.total_price));
 //                priceTitleTv.setTextColor(context.getResources().getColor(R.color.text_tips));
                 break;
             case Constants.ORDER_TYPE_COMPLETE :
                 statesTv.setText(context.getResources().getString(R.string.finish));
+                mjzTv.setVisibility(View.VISIBLE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 if(order.getIs_comment().equals("0")){
                     actionLeftTv.setVisibility(View.VISIBLE);
@@ -291,12 +294,18 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         double jhb = Double.parseDouble(user_mjb);
         if (jhb > 0){
             if (jhb < mjz){
-                mjzTv.setText(TextUtils.showMjz(context,String.valueOf(jhb)));
+                mjzTv.setText(TextUtils.showHadMjz(context,String.valueOf(jhb),
+                        (int)context.getResources().getDimension(R.dimen.icon_mjz_x),
+                        (int)context.getResources().getDimension(R.dimen.icon_mjz_y)));
             }else{
-                mjzTv.setText(TextUtils.showMjz(context,String.valueOf(mjz)));
+                mjzTv.setText(TextUtils.showHadMjz(context,String.valueOf(mjz),
+                        (int)context.getResources().getDimension(R.dimen.icon_mjz_x),
+                        (int)context.getResources().getDimension(R.dimen.icon_mjz_y)));
             }
         }else {
-            mjzTv.setText(TextUtils.showMjz(context,"0"));
+            mjzTv.setText(TextUtils.showHadMjz(context,String.valueOf(0),
+                    (int)context.getResources().getDimension(R.dimen.icon_mjz_x),
+                    (int)context.getResources().getDimension(R.dimen.icon_mjz_y)));
         }
 
     }

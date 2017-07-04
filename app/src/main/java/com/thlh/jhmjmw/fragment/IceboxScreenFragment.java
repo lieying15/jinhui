@@ -63,6 +63,9 @@ public class IceboxScreenFragment extends BaseFragment {
     private final int SCREEN_SAVER_TYPE_PHOTO = 1;
     private final int SCREEN_SAVER_TYPE_CLOCK = 2;
 
+    private static final int REQUECT_CODE_SDCARD = 2;
+    private static final int REQUECT_CODE_CALL_PHONE = 3;
+
     @BindView(R.id.icebox_screen_ptpr_rv)
     PullToRefreshRecyclerView screenPtprRv;
     @BindView(R.id.icebox_screen_action_clock_iv)
@@ -398,10 +401,10 @@ public class IceboxScreenFragment extends BaseFragment {
 
 
     private void startAlbum() {
+
         Intent intent = new Intent(getActivity(), AlbumTopActivity.class);
         intent.putExtra("select_type", Constants.ALBUM_SELECT_MUTIPLE);
         startActivityForResult(intent, ACTIVITY_CODE_ALBUM);
-//        AlbumTopActivity.activityStart(getActivity(),ACTIVITY_CODE_ALBUM,Constants.ALBUM_SELECT_MUTIPLE);
     }
 
     public void startPhotoZoom() {

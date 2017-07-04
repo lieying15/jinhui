@@ -595,7 +595,7 @@ public class RechargeActivity extends BaseActivity {
              * */
             topUp6999Rb.setText(getResources().getString(R.string.othercity));
             topUp6999Rb.setVisibility(View.VISIBLE);
-            topUp7999Rb.setVisibility(View.VISIBLE);
+            topUp7999Rb.setVisibility(View.GONE);
             topUpOtherMoneyRb.setVisibility(View.VISIBLE);
 
         } else {

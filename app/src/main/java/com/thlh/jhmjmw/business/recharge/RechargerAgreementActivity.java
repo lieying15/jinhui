@@ -63,8 +63,8 @@ public class RechargerAgreementActivity extends BaseActivity {
         }
 
         beijingortianjinTv.setText(getResources().getString(R.string.bjtj));
-        shengzhenTv.setText(getResources().getString(R.string.sz));
-        hadRechargeBoxTv.setText(getResources().getString(R.string.hadrecharge));
+        shengzhenTv.setText(getResources().getString(R.string.bjtj));
+        hadRechargeBoxTv.setText(getResources().getString(R.string.bjtj));
     }
 
     @Override
