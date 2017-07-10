@@ -17,7 +17,8 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
  * Created by HQ on 2016/3/30.
  */
 public class SearchRecommendAdapter extends EasyRecyclerViewAdapter {
-;    private Context context;
+    ;
+    private Context context;
 
     public SearchRecommendAdapter(Context context) {
         this.context = context;
@@ -31,8 +32,8 @@ public class SearchRecommendAdapter extends EasyRecyclerViewAdapter {
     }
 
     @Override
-    public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder,final int position) {
-        Goods goods = (Goods)this.getItem(position);
+    public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, final int position) {
+        Goods goods = (Goods) this.getItem(position);
         LinearLayout goodsLL = viewHolder.findViewById(R.id.searchgoods_hotsale_goods_ll);
         ImageView goodsIv = viewHolder.findViewById(R.id.searchgoods_hotsale_goods_iv);
         ImageView tagIv = viewHolder.findViewById(R.id.searchgoods_tag_iv);
@@ -43,34 +44,29 @@ public class SearchRecommendAdapter extends EasyRecyclerViewAdapter {
         goodsLL.setMinimumWidth(R.dimen.x240);
         goodsNameTv.setText(goods.getItem_name());
 
-        if(goods.getItem_id().equals("1")){
-            goodsPriceTv.setText(context.getResources().getString(R.string.ice_voucher));
-            goodsMjzTv.setVisibility(View.GONE);
-        }else {
-            String priceStr = goods.getItem_price();
+        String priceStr = goods.getItem_price();
             /*
             *R.string.money_不可用；
             * ¥不可用
             * place--->购物车--》为您推荐
             * place--->搜索---》热卖推荐
              */
-            goodsPriceTv.setText(context.getResources().getString(R.string.money_)+priceStr);
-            if(goods.getIs_mjb().equals("0")){
-                goodsMjzTv.setVisibility(View.GONE);
-            }else {
-                goodsMjzTv.setVisibility(View.VISIBLE);
-                String mjzStr = goods.getItem_price();
-                if(goods.getIs_mjb().equals("2"))
-                    mjzStr = goods.getMjb_value();
-                goodsMjzTv.setText(TextUtils.showMjz(context,mjzStr));
-            }
+        goodsPriceTv.setText(context.getResources().getString(R.string.money_) + priceStr);
+        if (goods.getIs_mjb().equals("0")) {
+            goodsMjzTv.setVisibility(View.GONE);
+        } else {
+            goodsMjzTv.setVisibility(View.VISIBLE);
+            String mjzStr = goods.getItem_price();
+            if (goods.getIs_mjb().equals("2"))
+                mjzStr = goods.getMjb_value();
+            goodsMjzTv.setText(TextUtils.showMjz(context, mjzStr));
         }
 
 
-        ImageLoader.display(goods.getItem_img_thumb(),goodsIv);
-        if(goods.getIs_limit().equals("1")&&goods.getLimit_icon().equals("1")){
+        ImageLoader.display(goods.getItem_img_thumb(), goodsIv);
+        if (goods.getIs_limit().equals("1") && goods.getLimit_icon().equals("1")) {
             tagIv.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             tagIv.setVisibility(View.GONE);
         }
     }
@@ -79,8 +75,6 @@ public class SearchRecommendAdapter extends EasyRecyclerViewAdapter {
     public int getRecycleViewItemType(int position) {
         return 0;
     }
-
-
 
 
 }

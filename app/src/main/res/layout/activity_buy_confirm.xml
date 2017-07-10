@@ -29,8 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <!--地址-->
             <include layout="@layout/view_order_address"/>
+            <!--商品详情-->
             <include layout="@layout/view_orderconfirm_goodsinfo"/>
+            <!--配送信息与优惠券-->
             <include layout="@layout/view_order_confirm_info"/>
             <!--支付方式-->
             <include layout="@layout/view_order_confirm_paytype"/>

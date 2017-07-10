@@ -59,11 +59,7 @@ public class SupplierGoodsAdapter extends EasyRecyclerViewAdapter {
         }else {
             tagIv.setVisibility(View.GONE);
         }
-        if(goods.getItem_id().equals("1")){
-            goodsPriceTv.setVisibility(View.GONE);
-            goodsCouponTv.setVisibility(View.VISIBLE);
-            setCartListener = false;
-        }else {
+
             goodsPriceTv.setVisibility(View.VISIBLE);
             goodsCouponTv.setVisibility(View.GONE);
             /*
@@ -74,7 +70,7 @@ public class SupplierGoodsAdapter extends EasyRecyclerViewAdapter {
             * */
             //String dd= String.valueOf(R.string.money);
             goodsPriceTv.setText(context.getResources().getString(R.string.money)+goods.getItem_price());
-        }
+
         
         if(setCartListener){
             goodsCartIv.setOnClickListener(new View.OnClickListener() {

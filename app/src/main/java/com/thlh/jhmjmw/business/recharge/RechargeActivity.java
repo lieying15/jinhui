@@ -13,21 +13,14 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.thlh.baselib.base.BaseActivity;
 import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.config.Constants;
-import com.thlh.baselib.model.response.AgencyResponse;
 import com.thlh.baselib.model.response.RechargeBalanceResponse;
 import com.thlh.baselib.model.response.RechargeMjbResponse;
 import com.thlh.baselib.model.response.WalletResponse;
@@ -58,8 +51,6 @@ import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import rx.Observer;
 
-import static com.thlh.baselib.config.Constants.ICEBOX_PRICE;
-import static com.thlh.baselib.config.Constants.RECHARGE_SENDICEBOX_PRICE;
 import static com.thlh.baselib.utils.SPUtils.get;
 
 
@@ -68,8 +59,6 @@ import static com.thlh.baselib.utils.SPUtils.get;
  */
 public class RechargeActivity extends BaseActivity {
     private static final int ACTIVITY_CODE_SCANNIN = 3;
-
-
 
     private final String TAG = "RechargeActivity";
     @BindView(R.id.recharge_header)
@@ -82,14 +71,6 @@ public class RechargeActivity extends BaseActivity {
     ImageView rechargeAlipySelectIv;
     @BindView(R.id.recharge_alipay_ll)
     LinearLayout rechargeAlipayLl;
-    @BindView(R.id.top_up_6999_rb)
-    RadioButton topUp6999Rb;
-    @BindView(R.id.top_up_7999_rb)
-    RadioButton topUp7999Rb;
-    @BindView(R.id.top_up_other_money_rb)
-    RadioButton topUpOtherMoneyRb;
-    @BindView(R.id.recharge_number_select_rg)
-    RadioGroup rechargeNumberSelectRg;
     @BindView(R.id.recharge_input_et)
     EditText rechargeInputEt;
     @BindView(R.id.money_mjz)
@@ -127,26 +108,12 @@ public class RechargeActivity extends BaseActivity {
     private boolean hadRechargeBox = false;
     private boolean agreeRechargeProtocol = false;
 
-    /**
-     * 代理商的id ---agency_id
-     * ====10 or 11---北京 or 天津
-     * ====37 -----深圳代理商
-     * ==== 其他代理商
-     */
-//    ExpressSupplier ex = new ExpressSupplier();
-    //代理商的id==13--北京，天津
-    private int agency_id;
-    //未绑定
     private static int is_ch = 0;
     private static final int SELECTNUMBER = 1;
     private static final int INPUTNUMBER = 2;
     private int selectnum = 0;
     private String selectMonney = "0";
 
-    //定位
-    private LocationClient mLocClient;
-    private MyLocationListenner myListener = new MyLocationListenner();
-    private BaseObserver<AgencyResponse> agencyobserver;
 
     public static void activityStart(Activity context, String pay_purpose) {
         Intent intent = new Intent();
@@ -194,8 +161,6 @@ public class RechargeActivity extends BaseActivity {
         dialogCoupon = new DialogCoupon.Builder(this);
         dialogResult = new DialogNormal.Builder(this);
         dialogHint = new DialogNormal.Builder(this);
-        agency_id = Integer.valueOf(SPUtils.get("user_agency_id","0").toString());
-        initLocation();
 
         rechargeProtocolCb.setChecked(agreeRechargeProtocol);
         rechargeProtocolCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -220,20 +185,11 @@ public class RechargeActivity extends BaseActivity {
         rechargeHeader.setTitle(getResources().getString(R.string.mjz_top_up));
         rechargeHintTv.setVisibility(View.VISIBLE);
 
-        topUp6999Rb.setVisibility(View.GONE);
-        topUp7999Rb.setVisibility(View.GONE);
-        topUpOtherMoneyRb.setVisibility(View.GONE);
-        //同意协议
-        if (hadRechargeBox) {
-            selectnum = INPUTNUMBER;
-            rechargeHintTv.setText(getResources().getString(R.string.top_up_change_icebox));
-            rechargeNumberSelectRg.setVisibility(View.GONE);
-            moneyMjz.setVisibility(View.VISIBLE);
 
-        } else {
-            rechargeNumberSelectRg.setVisibility(View.VISIBLE);
-            rechargeHintTv.setText(getResources().getString(R.string.top_up));
-        }
+        selectnum = INPUTNUMBER;
+        rechargeHintTv.setText(getResources().getString(R.string.top_up_change_icebox));
+        moneyMjz.setVisibility(View.VISIBLE);
+
 
         rechargeMjbObserver = new BaseObserver<RechargeMjbResponse>() {
             @Override
@@ -387,8 +343,7 @@ public class RechargeActivity extends BaseActivity {
     }
 
     @OnClick({R.id.recharge_wechat_ll, R.id.recharge_alipay_ll,
-            R.id.recharge_rechargenormal_ll, R.id.recharge_protocol_ll
-            ,R.id.top_up_6999_rb, R.id.top_up_7999_rb, R.id.top_up_other_money_rb})
+            R.id.recharge_rechargenormal_ll, R.id.recharge_protocol_ll})
 
     public void onClick(View view) {
         switch (view.getId()) {
@@ -422,33 +377,9 @@ public class RechargeActivity extends BaseActivity {
                 if (selectnum == INPUTNUMBER){
                     selectMonney = rechargeInputEt.getText().toString().trim();
                 }
-                L.e("selectMonney================" + selectMonney);
 
                 if (jugeRechargeCondition()) {
-
-                    if (hadRechargeBox) {
-                        postRechange(selectMonney);
-                    } else if (agency_id == 10 || agency_id == 11) {
-                        if (Double.parseDouble(selectMonney) >= ICEBOX_PRICE) {
-                            if (SPUtils.get("user_storeid", "").toString().equals("")) {
-                                showHintBindDialog();
-                            } else {
-                                postRechange(selectMonney);
-                            }
-                        } else {
-                            showRechargeHintDialog();
-                        }
-                    }else {
-                        if (Double.parseDouble(selectMonney) >= RECHARGE_SENDICEBOX_PRICE) {
-                            if (SPUtils.get("user_storeid", "").toString().equals("")) {
-                                showHintBindDialog();
-                            } else {
-                                postRechange(selectMonney);
-                            }
-                        } else {
-                            showRechargeHintDialog();
-                        }
-                    }
+                    postRechange(selectMonney);
                 }
                 break;
 
@@ -458,61 +389,8 @@ public class RechargeActivity extends BaseActivity {
             case R.id.recharge_protocol_ll:
                 //ProtocolRechargeActivity.activityStart(this);
                 break;
-
-            /**
-             * 充值6900  /   6999
-             */
-            case R.id.top_up_6999_rb:
-                selectnum = SELECTNUMBER;
-                if (agency_id == 10 || agency_id == 11 ){
-                    selectMonney = "4599";
-                }else {
-                    selectMonney = "4599";
-                }
-                topUp6999Rb.setSelected(true);
-                topUp7999Rb.setSelected(false);
-                topUpOtherMoneyRb.setSelected(false);
-                topUp6999Rb.setTextColor(getResources().getColor(R.color.app_theme));
-                topUp7999Rb.setTextColor(getResources().getColor(R.color.text_black));
-                topUpOtherMoneyRb.setTextColor(getResources().getColor(R.color.text_black));
-                moneyMjz.setVisibility(View.GONE);
-
-                break;
-            /**
-             * 充值7999
-             */
-            case R.id.top_up_7999_rb:
-                selectnum = SELECTNUMBER;
-                selectMonney = "4599";
-                topUp6999Rb.setSelected(false);
-                topUp7999Rb.setSelected(true);
-                topUpOtherMoneyRb.setSelected(false);
-                topUp6999Rb.setTextColor(getResources().getColor(R.color.text_black));
-                topUp7999Rb.setTextColor(getResources().getColor(R.color.app_theme));
-                topUpOtherMoneyRb.setTextColor(getResources().getColor(R.color.text_black));
-                moneyMjz.setVisibility(View.GONE);
-
-
-                break;
-            /**
-             * 充值其他金额
-             */
-            case R.id.top_up_other_money_rb:
-                selectnum = INPUTNUMBER;
-                topUp6999Rb.setSelected(false);
-                topUp7999Rb.setSelected(false);
-                topUpOtherMoneyRb.setSelected(true);
-                topUp6999Rb.setTextColor(getResources().getColor(R.color.text_black));
-                topUp7999Rb.setTextColor(getResources().getColor(R.color.text_black));
-                topUpOtherMoneyRb.setTextColor(getResources().getColor(R.color.app_theme));
-                moneyMjz.setVisibility(View.VISIBLE);
-
-
-                break;
-
         }
     }
-
 
     public boolean payMJZ() {
         /**同意协议*/
@@ -563,49 +441,8 @@ public class RechargeActivity extends BaseActivity {
                     return false;
                 }
         }
-
-
         return true;
     }
-
-    /**
-     * 判断支付金额按钮的显示
-     * @param agency_id
-     */
-    public void judgeButtoonVissible(int agency_id ){
-        if (agency_id == 10 || agency_id == 11) {
-            /**
-             * 扫描二维码 ==10 or 11
-             * 进入北京、天津代理商
-             * 6900
-             * */
-            //北京天津代理商
-            topUp6999Rb.setVisibility(View.VISIBLE);
-            topUp6999Rb.setText(getResources().getString(R.string.beijingtianjin));
-            topUp7999Rb.setVisibility(View.GONE);
-            //深圳消失
-            topUpOtherMoneyRb.setVisibility(View.VISIBLE);
-
-        } else if (agency_id == 37) {
-            /**
-             * 扫描二维码 _id== 37
-             * 进入深圳代理商
-             * 6999
-             * 7999
-             * */
-            topUp6999Rb.setText(getResources().getString(R.string.othercity));
-            topUp6999Rb.setVisibility(View.VISIBLE);
-            topUp7999Rb.setVisibility(View.GONE);
-            topUpOtherMoneyRb.setVisibility(View.VISIBLE);
-
-        } else {
-            topUp6999Rb.setText(getResources().getString(R.string.othercity));
-            topUp6999Rb.setVisibility(View.VISIBLE);
-            topUp7999Rb.setVisibility(View.GONE);
-            topUpOtherMoneyRb.setVisibility(View.VISIBLE);
-        }
-    }
-
 
     /**
      * 开始微信支付，预下单
@@ -700,7 +537,7 @@ public class RechargeActivity extends BaseActivity {
     }
 
 
-    private void showRechargeHintDialog() {
+    /*private void showRechargeHintDialog() {
         final NormalDialogFragment rechargeHintDialog = new NormalDialogFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
@@ -731,7 +568,7 @@ public class RechargeActivity extends BaseActivity {
             }
         });
         rechargeHintDialog.show(ft, "rechargeHintDialog");
-    }
+    }*/
 
     private void showHintBindDialog() {
         final NormalDialogFragment bingdShopDialog = new NormalDialogFragment();
@@ -813,71 +650,6 @@ public class RechargeActivity extends BaseActivity {
 
         rechargeResultDialog.show(ft, "rechargeResultDialog");
     }
-
-    protected void loadAgency(double lat,double lng) {
-        agencyobserver = new BaseObserver<AgencyResponse>() {
-            @Override
-            public void onErrorResponse(AgencyResponse baseResponse) {
-
-            }
-
-            @Override
-            public void onNextResponse(AgencyResponse scanResponse) {
-                SPUtils.put("user_agency_id",scanResponse.getData().getAgency_id());
-                agency_id = Integer.parseInt(scanResponse.getData().getAgency_id());
-
-                L.e("agency_id============="+ agency_id);
-                int recharge_id = scanResponse.getData().getRecharge_id();
-                if (recharge_id > 0){
-                    hadRechargeBox = true;
-                    SPUtils.put("user_hadchange_icebox", hadRechargeBox);
-                    selectnum = INPUTNUMBER;
-                    rechargeHintTv.setText(getResources().getString(R.string.top_up_change_icebox));
-                    rechargeNumberSelectRg.setVisibility(View.GONE);
-                    moneyMjz.setVisibility(View.VISIBLE);
-                }else {
-                    judgeButtoonVissible(agency_id);
-                }
-            }
-        };
-
-        NetworkManager.getUserDataApi()
-                .getAgency(SPUtils.getToken(),lat,lng)
-                .compose(RxUtils.androidSchedulers(this))
-                .subscribe(agencyobserver);
-    }
-
-
-    private void initLocation(){
-        // 定位初始化
-        mLocClient = new LocationClient(this);
-        mLocClient.registerLocationListener(myListener);
-        LocationClientOption option = new LocationClientOption();
-        option.setOpenGps(true); // 打开gps
-        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);//设置定位模式
-        option.setCoorType("bd09ll"); // 设置坐标类型
-        option.setScanSpan(3000);
-        option.setAddrType("all");
-        mLocClient.setLocOption(option);
-        mLocClient.start();
-    }
-
-    /**
-     * 定位SDK监听函数
-     */
-    public class MyLocationListenner implements BDLocationListener {
-        @Override
-        public void onReceiveLocation(BDLocation location) {
-            if (location == null ) {
-                return;
-            }
-            L.i(TAG + " 定位  " + location.getAddrStr()+ "  etLatitude "  +location.getLatitude() +"  getLongitude "  +location.getLongitude() +"  getProvince "  + location.getProvince() +"  getCity " + location.getCity()+"  getDistrict "  +  location.getDistrict() );
-
-            loadAgency(location.getLatitude(),location.getLongitude());
-            mLocClient.stop();
-        }
-    }
-
 
     public void finish() {
         super.finish();

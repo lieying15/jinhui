@@ -27,7 +27,7 @@ public abstract class BaseGoodsLIstAdapter extends EasyRecyclerViewAdapter {
         this.context = context;
     }
 
-    public BaseGoodsLIstAdapter(Context context,boolean showCart) {
+    public BaseGoodsLIstAdapter(Context context, boolean showCart) {
         this.context = context;
         this.showCart = showCart;
     }
@@ -75,20 +75,16 @@ public abstract class BaseGoodsLIstAdapter extends EasyRecyclerViewAdapter {
         * */
         basePriceTv.setText(context.getResources().getString(R.string.money_) + TextUtils.showPrice(priceStr));
 
-        if (goods.getItem_id().equals("1")) {
-            basePriceTv.setText(context.getResources().getString(R.string.ice_voucher));
+
+        String ismjb = goods.getIs_mjb();
+        if (ismjb.equals("0")) {
             baseMjzTv.setVisibility(View.GONE);
-        }else {
-            String ismjb = goods.getIs_mjb();
-            if(ismjb.equals("0")){
-                baseMjzTv.setVisibility(View.GONE);
-            }else {
-                baseMjzTv.setVisibility(View.VISIBLE);
-                String mjzStr = priceStr;
-                if(ismjb.equals("2"))
-                    mjzStr = goods.getMjb_value();
-                baseMjzTv.setText(TextUtils.showMjz(context,mjzStr));
-            }
+        } else {
+            baseMjzTv.setVisibility(View.VISIBLE);
+            String mjzStr = priceStr;
+            if (ismjb.equals("2"))
+                mjzStr = goods.getMjb_value();
+            baseMjzTv.setText(TextUtils.showMjz(context, mjzStr));
         }
 
         if (goods.getIs_limit().equals("1") && goods.getLimit_icon().equals("1")) {
@@ -118,13 +114,13 @@ public abstract class BaseGoodsLIstAdapter extends EasyRecyclerViewAdapter {
             baseStatusTv.setText(context.getResources().getString(R.string.gone));
         }
 
-        if(showCart){
+        if (showCart) {
             basecartFl.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             basecartFl.setVisibility(View.GONE);
         }
 
-        onViewHolder(viewHolder,position);
+        onViewHolder(viewHolder, position);
 
     }
 

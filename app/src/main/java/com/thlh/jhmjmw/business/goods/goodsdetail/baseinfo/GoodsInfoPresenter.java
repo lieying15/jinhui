@@ -121,7 +121,7 @@ public class GoodsInfoPresenter implements GoodsInfoContract.Presenter {
                 //商品为冰箱
                 if (goodsDetail.getItem_id().equals("1")) {
                     mInfoView.showGoodsIsIceBox();
-                    canbuy = false;
+                    canbuy = true;
                 }
 
                 //显示商品属性

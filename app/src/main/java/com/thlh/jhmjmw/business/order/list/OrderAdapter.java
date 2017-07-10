@@ -87,7 +87,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 * 状态*/
                 statesTv.setText(context.getResources().getString(R.string.wait_pay));
                 priceTitleTv.setText(context.getResources().getString(R.string.need_pay));
-                mjzTv.setVisibility(View.GONE);
+                mjzTv.setVisibility(View.VISIBLE);
                 finalprice = order.getShould_pay();
                 List<OrderPay> tempPaylist = order.getPay();
                 if(null!=tempPaylist && tempPaylist.size()>0){
@@ -292,6 +292,12 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
          */
         String user_mjb = (String) SPUtils.get("user_mjb", "0");
         double jhb = Double.parseDouble(user_mjb);
+
+        if (order.getIs_pay().equals("0")){
+
+        }else if (order.getIs_pay().equals("2")){
+
+        }
         if (jhb > 0){
             if (jhb < mjz){
                 mjzTv.setText(TextUtils.showHadMjz(context,String.valueOf(jhb),

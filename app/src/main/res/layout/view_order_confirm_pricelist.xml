@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="￥ 0.0"
+            android:text=""
             android:layout_marginLeft="10dp"
             android:gravity="right"
             android:layout_marginRight="@dimen/x15"

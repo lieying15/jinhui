@@ -40,6 +40,24 @@ public class DialogUtils {
     public static void showNormal(RxAppCompatActivity activity,String contentStr) {
         showNormal(activity,DialogUtils.TYPE_NORMAL_SUCCESS,contentStr);
     }
+    public static  void showCuxiao(RxAppCompatActivity activity,CharSequence contentChar) {
+        final NormalDialogFragment expressDialog = new NormalDialogFragment();
+        FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        expressDialog.setContentStr(contentChar);
+        expressDialog.setTitleIvRes(R.drawable.icon_dialog_warning);
+        expressDialog.setTitleStr("金惠币促销规则");
+        expressDialog.setFinalBtnStr("我知道了");
+        expressDialog.setContentGravity(Gravity.LEFT);
+        expressDialog.setFinalBtnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expressDialog.dismiss();
+            }
+        });
+        expressDialog.show(ft, "expressDialog");
+    }
+
 
     public static  void showExprnse(RxAppCompatActivity activity,CharSequence contentChar) {
         final NormalDialogFragment expressDialog = new NormalDialogFragment();

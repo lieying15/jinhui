@@ -1,103 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <!-- 配送信息-->
     <LinearLayout
         android:id="@+id/order_confirm_info_freight_ll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y80"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/x15"
-        android:paddingRight="@dimen/x15"
-        android:background="@drawable/shap_radius_white">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="配送信息"
-            android:textSize="@dimen/y28"/>
-        <ImageView
-            android:id="@+id/order_confirm_info_freight_hint_iv"
-            android:layout_width="@dimen/icon_pxsize_x"
-            android:layout_height="@dimen/icon_pxsize_y"
-            android:background="@drawable/icon_question"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
+        android:paddingRight="@dimen/x15">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="运费："
-            android:gravity="right"
-            android:textColor="@color/text_tips"
+            android:text="配送信息"
+            android:textSize="@dimen/y28" />
+
+        <ImageView
+            android:id="@+id/order_confirm_info_freight_hint_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/icon_question" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:textSize="@dimen/y28"
-            android:id="@+id/textView2" />
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="运费："
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y28" />
 
         <TextView
             android:id="@+id/order_confirm_info_freight_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="￥0.0"
-            android:gravity="right"
-            android:textColor="@color/wine_light"
             android:layout_marginRight="10dp"
-            android:textSize="@dimen/y28"/>
+            android:gravity="right"
+            android:text=""
+            android:textColor="@color/wine_light"
+            android:textSize="@dimen/y28" />
+
         <ImageView
             android:id="@+id/order_confirm_info_freight_iv"
             android:layout_width="@dimen/icon_pxsize_x"
             android:layout_height="@dimen/icon_pxsize_y"
-            android:visibility="visible"
-            android:src="@drawable/icon_right_arrow_gray"/>
-    </LinearLayout>
-
-    <!-- 优惠券-->
-    <LinearLayout
-        android:id="@+id/order_confirm_info_coupon_ll"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y80"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="@drawable/shap_radius_white"
-        android:layout_marginTop="@dimen/y10"
-        android:paddingLeft="@dimen/x15"
-        android:paddingRight="@dimen/x15">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/order_confirm_info_coupon"
-            android:textSize="@dimen/y28"/>
-        <TextView
-            android:id="@+id/order_confirm_info_coupon_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="0 张可用"
-            android:gravity="right"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/text_nomal"
-            android:textSize="@dimen/y28" />
-        <ImageView
-            android:layout_width="@dimen/icon_pxsize_x"
-            android:layout_height="@dimen/icon_pxsize_y"
             android:src="@drawable/icon_right_arrow_gray"
-            android:visibility="invisible"/>
+            android:visibility="visible" />
     </LinearLayout>
-
-    <!-- 配送方式-->
+    <!--促销-->
     <LinearLayout
-        android:id="@+id/order_confirm_info_deliverytype_ll"
+        android:id="@+id/order_confirm_info_cuxiao_ll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y80"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="@drawable/shap_radius_white"
         android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/x15"
         android:paddingRight="@dimen/x15"
         android:visibility="gone">
@@ -105,29 +73,103 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="促销"
+            android:textSize="@dimen/y28" />
+
+        <TextView
+            android:id="@+id/textView_cuxiao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="购买冰箱赠送1500金惠币"
+            android:textColor="@color/app_theme"
+            android:textSize="@dimen/y28" />
+
+        <ImageView
+            android:id="@+id/order_confirm_info_cuxiao_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_question"
+            android:visibility="visible" />
+    </LinearLayout>
+    <!-- 优惠券-->
+    <LinearLayout
+        android:id="@+id/order_confirm_info_coupon_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/x15"
+        android:paddingRight="@dimen/x15">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_confirm_info_coupon"
+            android:textSize="@dimen/y28" />
+
+        <TextView
+            android:id="@+id/order_confirm_info_coupon_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="0 张可用"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/y28" />
+
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_right_arrow_gray"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <!-- 配送方式-->
+    <LinearLayout
+        android:id="@+id/order_confirm_info_deliverytype_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/x15"
+        android:paddingRight="@dimen/x15"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:text="配送方式:"
-            android:textSize="@dimen/text_size_small_xx"
-            android:layout_marginRight="20dp"/>
+            android:textSize="@dimen/text_size_small_xx" />
+
         <ImageView
             android:id="@+id/order_confirm_info_deliverytype_userget_iv"
             android:layout_width="@dimen/icon_pxsize_x"
             android:layout_height="@dimen/icon_pxsize_y"
             android:layout_marginRight="5dp"
-            android:src="@drawable/icon_check_select_black"/>
+            android:src="@drawable/icon_check_select_black" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:text="用户自取"
             android:textColor="@color/text_nomal"
-            android:textSize="@dimen/text_size_small_xx"
-            android:layout_marginRight="20dp"/>
+            android:textSize="@dimen/text_size_small_xx" />
 
         <ImageView
             android:id="@+id/order_confirm_info_deliverytype_shopsend_iv"
             android:layout_width="@dimen/icon_pxsize_x"
             android:layout_height="@dimen/icon_pxsize_y"
             android:layout_marginRight="5dp"
-            android:src="@drawable/icon_check_black"/>
+            android:src="@drawable/icon_check_black" />
 
         <TextView
             android:layout_width="wrap_content"

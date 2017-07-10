@@ -62,7 +62,7 @@ public class HomePageGoodsAdapter extends RecyclerView.Adapter<HomePageGoodsAdap
 
         holder.topRl.setMinimumWidth((int)context.getResources().getDimension(R.dimen.x360));
         holder.topRl.setMinimumHeight((int)context.getResources().getDimension(R.dimen.y460));
-
+        String priceStr = goods.getItem_price();
 
         ImageLoader.display(goods.getItem_img_thumb(), holder.goodsIv);
         holder.goodsNameTv.setText(goods.getItem_name());
@@ -73,10 +73,11 @@ public class HomePageGoodsAdapter extends RecyclerView.Adapter<HomePageGoodsAdap
         if(goods.getItem_id().equals("1")){
             holder.goodsPriceTv.setVisibility(View.VISIBLE);
             holder.goodsMjzTv.setVisibility(View.GONE);
-            holder.goodsPriceTv.setText(context.getResources().getString(R.string.ice_exchage));
+//            holder.goodsPriceTv.setText(context.getResources().getString(R.string.ice_exchage));
+            holder.goodsPriceTv.setText(context.getResources().getString(R.string.money_) + TextUtils.showPrice(priceStr));
         }else {
 
-            String priceStr = goods.getItem_price();
+
             holder.goodsPriceTv.setText(context.getResources().getString(R.string.money_)+priceStr);
             if(goods.getIs_mjb().equals("0")){
                 holder.goodsMjzTv.setVisibility(View.GONE);

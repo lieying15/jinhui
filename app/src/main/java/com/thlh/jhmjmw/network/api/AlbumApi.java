@@ -37,6 +37,4 @@ public interface AlbumApi {
     Observable<BaseResponse> deletePhoto(@Header(Constants.API_HEADER) String header, @Field("id") String id);
 
 
-
-
 }

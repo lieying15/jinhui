@@ -26,6 +26,7 @@ import com.thlh.baselib.db.DbManager;
 import com.thlh.baselib.model.ActionResponse;
 import com.thlh.baselib.model.Address;
 import com.thlh.baselib.model.Cartgoods;
+import com.thlh.baselib.model.Goods;
 import com.thlh.baselib.utils.ActivityUtils;
 import com.thlh.baselib.utils.DialogUtils;
 import com.thlh.baselib.utils.SPUtils;
@@ -59,7 +60,7 @@ import butterknife.OnClick;
 /**
  * 订单确认界面
  */
-public class BuyConfirmActivity extends BaseActivity implements View.OnClickListener ,BuyConfirmContract.View {
+public class BuyConfirmActivity extends BaseActivity implements View.OnClickListener, BuyConfirmContract.View {
     private final String TAG = "BuyConfirmActivity";
     private final int ACTIVITY_CODE_ADDR = 1;
     @BindView(R.id.order_confirm_topll)
@@ -145,6 +146,12 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     * */
     @BindView(R.id.order_offer_beizhu)
     EditText orderOfferRemarks;
+    @BindView(R.id.textView_cuxiao)
+    TextView textViewCuxiao;
+    @BindView(R.id.order_confirm_info_cuxiao_iv)
+    ImageView orderConfirmInfoCuxiaoIv;
+    @BindView(R.id.order_confirm_info_cuxiao_ll)
+    LinearLayout orderConfirmInfoCuxiaoLl;
 
     private double totalprice;
     private double expressfree;
@@ -169,7 +176,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     /*
     *
     * 备注内容*/
-    private String note ="0";
+    private String note = "0";
 
 
     //微信取消判断
@@ -179,20 +186,20 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
 
     private BuyConfirmContract.Presenter mPresenter;
 
-    public static void activityStart(Context context,boolean isBuyImmediately) {
+    public static void activityStart(Context context, boolean isBuyImmediately) {
         Intent intent = new Intent();
         intent.setClass(context, BuyConfirmActivity.class);
-        intent.putExtra("isBuyImmediately",isBuyImmediately);
+        intent.putExtra("isBuyImmediately", isBuyImmediately);
         context.startActivity(intent);
     }
 
     @Override
     protected void initVariables() {
         weChatPayRequest = new PayReq();
-        isBuyImmediately = getIntent().getBooleanExtra("isBuyImmediately",false);
+        isBuyImmediately = getIntent().getBooleanExtra("isBuyImmediately", false);
         msgApi = WXAPIFactory.createWXAPI(this, Constants.WECHAT_APP_ID);
         msgApi.registerApp(Constants.WECHAT_APP_ID);
-        mPresenter = new BuyConfirmPresenter(getApplicationContext(),this,isBuyImmediately);
+        mPresenter = new BuyConfirmPresenter(getApplicationContext(), this, isBuyImmediately);
         cartgoods = mPresenter.getAllSelectCartGoods();
         selectAddress = mPresenter.getDefaultAddress();
 
@@ -221,9 +228,15 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         ButterKnife.bind(this);
         progressMaterial = ProgressMaterial.create(this, false, null);
         buyConfirmImgAdapter = new BuyConfirmImgAdapter(this);
-        buyConfirmImgAdapter.setList(mPresenter.getAdapterCartData(cartgoods));
+        List<Goods> adapterCartData = mPresenter.getAdapterCartData(cartgoods);
+        buyConfirmImgAdapter.setList(adapterCartData);
+        for (Goods good:adapterCartData) {
+            if (good.getItem_id().equals("1")){
+                orderConfirmInfoCuxiaoLl.setVisibility(View.VISIBLE);
+            }
+        }
 
-        orderConfirmGoodsRv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        orderConfirmGoodsRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         orderConfirmGoodsRv.setNestedScrollingEnabled(false);
         orderConfirmGoodsRv.setAdapter(buyConfirmImgAdapter);
         orderConfirmGoodsRv.addItemDecoration(new HorizontaltemDecoration((int) getResources().getDimension(R.dimen.x10)));
@@ -242,11 +255,12 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
 //            * 去支付*/
             R.id.order_confirm_bottom_gopay_tv,
             R.id.order_confirm_info_freight_tv, R.id.order_confirm_info_freight_iv,
-            R.id.order_confirm_info_freight_hint_iv})
+            R.id.order_confirm_info_freight_hint_iv,
+            R.id.order_confirm_info_cuxiao_iv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.order_confirm_paytype_mjmwcurrency_ll:
-                SelectPayMjbActivity.activityStart(BuyConfirmActivity.this,isBuyImmediately);
+                SelectPayMjbActivity.activityStart(BuyConfirmActivity.this, isBuyImmediately);
                 break;
             case R.id.order_confirm_paytype_zhifubao_ll:
                 changePayType(Constants.PAY_TYPE_ALIPAY);
@@ -272,7 +286,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
             case R.id.order_confirm_bottom_gopay_tv:
 
     /*                 * 备注内容*/
-                note=orderOfferRemarks.getText().toString().trim();
+                note = orderOfferRemarks.getText().toString().trim();
                 //单双问题——乱码
                /* try{
                     note=new String(note.getBytes("utf-8"));
@@ -293,16 +307,19 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                 }
                 break;
             case R.id.order_confirm_goods_ll:
-                BuyConfirmListActivity.activityStart(this,isBuyImmediately);
+                BuyConfirmListActivity.activityStart(this, isBuyImmediately);
                 break;
             case R.id.order_confirm_info_freight_iv:
             case R.id.order_confirm_info_freight_tv: //配送信息
-                BuyExpressActivity.activityStart(this, itemIdAndNum,isBuyImmediately);
+                BuyExpressActivity.activityStart(this, itemIdAndNum, isBuyImmediately);
                 break;
             case R.id.order_confirm_info_freight_hint_iv:
                 showExprnseDialog();
                 break;
             case R.id.order_offer_beizhu:
+                break;
+            case R.id.order_confirm_info_cuxiao_iv:
+                showCuxiaoDialog();
                 break;
         }
     }
@@ -348,7 +365,9 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     }
 
 
-    //更新显示价格 购物车中
+    /**
+     * 更新显示价格 购物车中
+     */
     @Override
     public void updatePriceTv() {
         useMjb = DbManager.getInstance().getUseMjbPrice(isBuyImmediately);
@@ -392,6 +411,9 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         }
     }
 
+    /**
+     * 获取商品清单数据
+     */
     @Override
     public void updateNumTv() {
         goodsnum = DbManager.getInstance().getCartGoodsNum(isBuyImmediately);
@@ -405,7 +427,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         if (SPUtils.getIsLogin()) {
             mPresenter.loadWallet();
         }
-        if(judgeCondition()){
+        if (judgeCondition()) {
             mPresenter.loadExpressFree(selectAddress.getId(), itemIdAndNum);
         }
     }
@@ -463,7 +485,9 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         showErrorDialog(hintContent);
     }
 
-
+    /**
+     * 更新收货地址
+     */
     @Override
     public void updateAddressView() {
         selectAddress = mPresenter.getDefaultAddress();
@@ -475,12 +499,12 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
             orderConfirmNameTv.setText(getResources().getString(R.string.input_goods_address));
             orderConfirmAddrTv.setText("");
         } else {
-            orderConfirmNameTv.setText(getResources().getString(R.string.name)+ selectAddress.getName());
-            orderConfirmPhoneTv.setText(getResources().getString(R.string.phone)+ selectAddress.getPhone());
+            orderConfirmNameTv.setText(getResources().getString(R.string.name) + selectAddress.getName());
+            orderConfirmPhoneTv.setText(getResources().getString(R.string.phone) + selectAddress.getPhone());
             if (province.equals(city)) {
                 orderConfirmAddrTv.setText(getResources().getString(R.string.address) + province + district + selectAddress.getAddress());
             } else {
-                orderConfirmAddrTv.setText(getResources().getString(R.string.address)+ province + city + district + selectAddress.getAddress());
+                orderConfirmAddrTv.setText(getResources().getString(R.string.address) + province + city + district + selectAddress.getAddress());
             }
         }
     }
@@ -505,7 +529,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     @Override
     public void updateExpressFree(double expressfree) {
         this.expressfree = expressfree;
-        if (expressfree == 0) {
+        if (expressfree <= 0.0d) {
             orderConfirmInfoFreightTv.setText(getResources().getString(R.string.mail));
             orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.mail));
         } else {
@@ -535,7 +559,11 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     }
 
     private void showExprnseDialog() {
-        DialogUtils.showExprnse(this,getString(R.string.mjmw_bz));
+        DialogUtils.showExprnse(this, getString(R.string.mjmw_bz));
+    }
+
+    private void showCuxiaoDialog() {
+        DialogUtils.showCuxiao(this, getString(R.string.mjmw_icebox_cuxiao));
     }
 
 
@@ -549,7 +577,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if(isBuyImmediately)
+            if (isBuyImmediately)
                 mPresenter.ClearBuyImmediatelyGoods();
             finish();
             return false;
@@ -558,11 +586,19 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         }
     }
 
-    private boolean judgeCondition(){
-        if(selectAddress.getId()==null || selectAddress.getId().equals(""))
+    private boolean judgeCondition() {
+        if (selectAddress.getId() == null || selectAddress.getId().equals("")) {
             return false;
-        return true;
+        } else {
+            return true;
+        }
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }
