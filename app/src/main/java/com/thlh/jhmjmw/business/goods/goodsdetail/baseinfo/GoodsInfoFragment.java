@@ -188,17 +188,30 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         activity.setAddCartListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleView) {
-                activity.showAddCartDialog();
-                mPresenter.addShopCart();
-                activity.updateCartTv();
+                int isch = Integer.valueOf(SPUtils.get("user_isch",0).toString());
+                if(isch>0){
+//                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
+                    activity.showAddCartDialog();
+                    mPresenter.addShopCart();
+                    activity.updateCartTv();
+                }else {
+                    RechargeQRActivity.activityStart(getActivity());
+                }
             }
         });
         activity.setBuytListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleRelativeLayout) {
                 if (SPUtils.getIsLogin()){
-                    mPresenter.buyImmediately();
-                    BuyConfirmActivity.activityStart(getActivity(),true);
+                    int isch = Integer.valueOf(SPUtils.get("user_isch",0).toString());
+                    if(isch>0){
+//                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
+                        mPresenter.buyImmediately();
+                        BuyConfirmActivity.activityStart(getActivity(),true);
+                    }else {
+                        RechargeQRActivity.activityStart(getActivity());
+                    }
+
                 }else {
                     LoginActivity.activityStart(getActivity());
                 }

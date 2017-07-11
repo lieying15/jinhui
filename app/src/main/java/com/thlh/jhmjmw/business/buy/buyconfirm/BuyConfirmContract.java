@@ -6,6 +6,7 @@ import com.thlh.baselib.base.BaseView;
 import com.thlh.baselib.model.Address;
 import com.thlh.baselib.model.Cartgoods;
 import com.thlh.baselib.model.Goods;
+import com.thlh.baselib.model.response.ExpressfreeResponse;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 public interface BuyConfirmContract {
 
     interface View extends BaseView {
-        void updateExpressFree(double free);
+        void updateExpressFree(double free, ExpressfreeResponse.DataBean data);
 
         void showHintDialog(String msg);
 

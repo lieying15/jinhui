@@ -6,7 +6,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 
 import com.thlh.baselib.config.Constants;
-import com.thlh.baselib.utils.EventBusUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.other.BaseViewActivity;
@@ -96,7 +95,7 @@ public class AlbumActivity extends BaseViewActivity {
         }
         SPUtils.saveStringList("photo_url",urllist);
 
-        EventBusUtils.post(new FirstEvent("FirstEvent"));
+//        EventBusUtils.post(new FirstEvent("FirstEvent"));
         setResult(Activity.RESULT_OK);
         finish();
     }

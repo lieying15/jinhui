@@ -20,10 +20,6 @@ import com.thlh.baselib.utils.BaseLog;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.meta.SubscriberInfo;
-import org.greenrobot.eventbus.meta.SubscriberInfoIndex;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -95,12 +91,12 @@ public class BaseApplication extends MultiDexApplication {
 		JPushInterface.setDebugMode(true);
 		JPushInterface.init(this);
 		// 启用EventBus3.0加速功能
-		EventBus.builder().addIndex(new SubscriberInfoIndex() {
-			@Override
-			public SubscriberInfo getSubscriberInfo(Class<?> subscriberClass) {
-				return null;
-			}
-		}).installDefaultEventBus();
+//		EventBus.builder().addIndex(new SubscriberInfoIndex() {
+//			@Override
+//			public SubscriberInfo getSubscriberInfo(Class<?> subscriberClass) {
+//				return null;
+//			}
+//		}).installDefaultEventBus();
 	}
 
 	@Override

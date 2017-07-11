@@ -26,7 +26,9 @@ import com.thlh.baselib.db.DbManager;
 import com.thlh.baselib.model.ActionResponse;
 import com.thlh.baselib.model.Address;
 import com.thlh.baselib.model.Cartgoods;
+import com.thlh.baselib.model.ExpressSupplier;
 import com.thlh.baselib.model.Goods;
+import com.thlh.baselib.model.response.ExpressfreeResponse;
 import com.thlh.baselib.utils.ActivityUtils;
 import com.thlh.baselib.utils.DialogUtils;
 import com.thlh.baselib.utils.SPUtils;
@@ -527,19 +529,37 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    public void updateExpressFree(double expressfree) {
+    public void updateExpressFree(double expressfree, ExpressfreeResponse.DataBean data) {
         this.expressfree = expressfree;
-        if (expressfree <= 0.0d) {
-            orderConfirmInfoFreightTv.setText(getResources().getString(R.string.mail));
-            orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.mail));
-        } else {
-            orderConfirmInfoFreightTv.setText(getResources().getString(R.string.money) + expressfree);
-            orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.money) + expressfree);
-            paywechat = true;
-            payalipay = false;
-            orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
-            orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
+        List<ExpressSupplier> suppliers = data.getSupplier();
+        for (ExpressSupplier supplier:suppliers) {
+            if (supplier.getSupplier_id().equals("48")){
+                if (expressfree <= 0.0d) {
+                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.mail) + "+" + getResources().getString(R.string.goods_pay));
+                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.mail)+ "+" + getResources().getString(R.string.goods_pay));
+                } else {
+                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.money) + expressfree + "+" + getResources().getString(R.string.goods_pay));
+                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.money) + expressfree + "+" + getResources().getString(R.string.goods_pay));
+                    paywechat = true;
+                    payalipay = false;
+                    orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
+                    orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
+                }
+            }else{
+                if (expressfree <= 0.0d) {
+                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.mail));
+                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.mail));
+                } else {
+                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.money) + expressfree);
+                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.money) + expressfree);
+                    paywechat = true;
+                    payalipay = false;
+                    orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
+                    orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
+                }
+            }
         }
+
         updatePriceTv();
     }
 

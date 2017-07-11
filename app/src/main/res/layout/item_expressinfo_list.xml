@@ -1,71 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_contact_swipe_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:background="@drawable/shap_radius_white">
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y80"
-        android:background="@drawable/shap_radius_half_top_white"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/x20"
-        android:paddingRight="@dimen/x20"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         android:gravity="center_vertical">
-        <TextView
-            android:id="@+id/express_name_tv"
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/express_goods_ll"
+            android:layout_width="@dimen/x160"
+            android:layout_height="@dimen/y160"
+            android:background="@drawable/shap_radius_white_stroke_mainback_r20"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/y2"
+            android:paddingLeft="@dimen/x2"
+            android:paddingRight="@dimen/x2"
+            android:paddingTop="@dimen/y2">
+
+            <ImageView
+                android:id="@+id/express_goods_iv"
+                android:layout_width="@dimen/x156"
+                android:layout_height="@dimen/y156" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/express_infos_ll"
+            android:layout_toRightOf="@+id/express_goods_ll"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:maxLines="1"
-            android:text=""
-            android:textColor="@color/text_nomal"
-            android:textSize="@dimen/y28" />
-        <TextView
-            android:id="@+id/express_free_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:text=""
-            android:textColor="@color/text_nomal"
-            android:textSize="@dimen/y28" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:minWidth="@dimen/x400"
+            android:background="@drawable/shap_radius_half_top_white"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+
+            <TextView
+                android:id="@+id/express_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/y25" />
+
+            <TextView
+                android:id="@+id/express_info_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y2"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text=""
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/y25" />
+
+            <TextView
+                android:id="@+id/express_free_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="@color/text_nomal"
+                android:textSize="@dimen/y25" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_toRightOf="@+id/express_infos_ll"
+            android:layout_width="@dimen/x120"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/express_goods_num_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="共 2 件"
+                android:textSize="@dimen/text_size_little" />
+
+            <TextView
+                android:id="@+id/express_goods_details_tv"
+                android:layout_width="@dimen/x100"
+                android:layout_height="@dimen/x40"
+                android:layout_below="@+id/express_goods_num_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shap_radius_white_stroke_mainback_r20"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="收起"
+                android:textSize="@dimen/text_size_little"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
     <View
-        style="@style/divide_line_horizontal_match_mianback"/>
-    <LinearLayout
+        android:id="@+id/view"
+        style="@style/divide_line_horizontal_match_mianback"
+        android:visibility="gone"/>
+
+    <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@+id/express_goods_rv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y180"
-        android:gravity="center_horizontal"
-        android:background="@color/white">
-        <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
-            android:id="@+id/express_goods_rv"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/y180"
-            android:paddingLeft="@dimen/x10"
-            android:paddingRight="@dimen/x10"
-            android:paddingTop="@dimen/y10"
-            android:paddingBottom="@dimen/y10" />
-    </LinearLayout>
+        android:layout_gravity="center"
+        android:paddingBottom="@dimen/y10"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:paddingTop="@dimen/y10"
+        android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/express_info_tv"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/y60"
-            android:maxLines="1"
-            android:paddingLeft="@dimen/x20"
-            android:text=""
-            android:gravity="center_vertical"
-            android:background="@color/white"
-            android:textColor="@color/text_nomal"
-            android:layout_marginTop="@dimen/y2"
-            android:textSize="@dimen/y28" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y10"
-        android:background="@drawable/shap_radius_half_bottom_white"/>
 </LinearLayout>

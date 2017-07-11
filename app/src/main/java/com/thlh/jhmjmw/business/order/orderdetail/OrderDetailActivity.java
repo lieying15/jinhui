@@ -21,6 +21,7 @@ import com.thlh.baselib.db.DbManager;
 import com.thlh.baselib.model.Goods;
 import com.thlh.baselib.model.GoodsOrder;
 import com.thlh.baselib.model.Order;
+import com.thlh.baselib.model.OrderItem;
 import com.thlh.baselib.utils.GoodsChangeUtils;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
@@ -156,11 +157,26 @@ public class OrderDetailActivity extends BaseViewActivity {
         orderDetailAddressArrowIv.setVisibility(View.GONE);
         orderDetailDateTv.setText(getResources().getString(R.string.order_time) + TimeUtils.stringToDateString(order.getOrder_time()));
         orderDetailPriceTv.setText(getResources().getString(R.string.money) + order.getGoods_amount());
-        if(order.getSupplier_id().equals("1")){
-            orderDetailFreightTv.setText(getResources().getString(R.string.goods_receive));
+
+        String yunfei = null;
+        if (!order.getExpress_fee().equals("0.00")){
+            yunfei=getResources().getString(R.string.money) + order.getExpress_fee();
         }else {
-            orderDetailFreightTv.setText(getResources().getString(R.string.money) + order.getExpress_fee());
+            yunfei=getResources().getString(R.string.mail);
         }
+
+        for (OrderItem item:order.getOrder_items()) {
+            if (item.getSupplier_id().equals("1")){
+                yunfei =yunfei.concat("+" + getResources().getString(R.string.goods_receive));
+            }
+
+            if (item.getSupplier_id().equals("48")){
+//                yunfei += "+" + getResources().getString(R.string.goods_pay);
+                yunfei =yunfei.concat("+" + getResources().getString(R.string.goods_pay));
+            }
+        }
+
+        orderDetailFreightTv.setText(yunfei);
 
         double spendmjz = OrderUtils.getDetailSpendMjz(order);
         if(spendmjz == 0 ){
@@ -170,7 +186,6 @@ public class OrderDetailActivity extends BaseViewActivity {
         }
 
         totalPriceTv.setText(OrderUtils.getDetailTotalPrice(order,this,spendmjz));
-
 
         EasyDividerItemDecoration dataDecoration = new EasyDividerItemDecoration(
                 this,

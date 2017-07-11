@@ -1,4 +1,4 @@
-package com.thlh.jhmjmw.fragment;
+package com.thlh.jhmjmw.business.devices;
 
 
 import android.app.Activity;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -20,15 +19,11 @@ import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.IceboxPhoto;
 import com.thlh.baselib.model.response.AlbumResponse;
 import com.thlh.baselib.utils.DisplayUtil;
-import com.thlh.baselib.utils.EventBusUtils;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.baselib.utils.SystemUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.ablum.AlbumTopActivity;
-import com.thlh.jhmjmw.business.ablum.FirstEvent;
-import com.thlh.jhmjmw.business.devices.IceboxActivity;
-import com.thlh.jhmjmw.business.devices.IceboxPhotoAdapter;
 import com.thlh.jhmjmw.business.other.PhotoPagerActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.L;
@@ -40,9 +35,6 @@ import com.thlh.viewlib.easyrecyclerview.widget.decorator.EasyDividerItemDecorat
 import com.thlh.viewlib.pulltorefresh.PullToRefreshBase;
 import com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView;
 import com.yalantis.ucrop.UCrop;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -121,7 +113,7 @@ public class IceboxScreenFragment extends BaseFragment {
     @Override
     protected void initView() {
 
-        EventBusUtils.register(this);
+//        EventBusUtils.register(this);
         screenPtprRv.setHasPullUpFriction(false); // 设置没有上拉阻力
         screenimgRv = screenPtprRv.getRefreshableView();
         photoAdapter = new IceboxPhotoAdapter(getActivity());
@@ -441,14 +433,14 @@ public class IceboxScreenFragment extends BaseFragment {
         return  isDeleteStatus;
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN, priority = 1)
-    public void onMessageEventMain(FirstEvent event) {
-        if (event.getMsg().equals("FirstEvent")){
-            startPhotoZoom();
-        }
-        Log.v(TAG, event.getMsg() + " MAIN id = " + Thread.currentThread().getId());
-
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN, priority = 1)
+//    public void onMessageEventMain(FirstEvent event) {
+//        if (event.getMsg().equals("FirstEvent")){
+//            startPhotoZoom();
+//        }
+//        Log.v(TAG, event.getMsg() + " MAIN id = " + Thread.currentThread().getId());
+//
+//    }
 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -470,7 +462,7 @@ public class IceboxScreenFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        EventBusUtils.unregister(this);//解除订阅
+//        EventBusUtils.unregister(this);//解除订阅
 
     }
 }

@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.other.BaseViewActivity;
-import com.thlh.jhmjmw.fragment.IceboxScreenFragment;
 import com.thlh.jhmjmw.other.L;
 import com.yalantis.ucrop.UCrop;
 
@@ -176,6 +175,7 @@ public class IceboxActivity extends BaseViewActivity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode,resultCode,data);
         if (resultCode == Activity.RESULT_OK) {
             L.i(TAG, "onActivityResult-->RESULT_OK");
             switch (requestCode) {

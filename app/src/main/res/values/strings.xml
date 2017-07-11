@@ -275,13 +275,16 @@
 
 
     <string name="one">件/套 ×</string>
-    <string name="ones">件</string>
+    <string name="ones">&#160;件</string>
     <string name="shops">件商品</string>
-    <string name="you">由 </string>
-    <string name="gong">共 </string>
+    <string name="you">配送：由 </string>
+    <string name="gong">共&#160;</string>
     <string name="distribution">进行配送</string>
+    <string name="shouqi">收起</string>
+    <string name="chakan">查看</string>
 
     <string name="mail">包邮 </string>
+    <string name="goods_pay">运费到付</string>
     <string name="freight">运费：￥ </string>
 
     <string name="shop_no_mjz">此商品不支持金惠币 </string>
@@ -358,8 +361,8 @@
 
     <string name="use_mjz">金惠币  可抵 ¥</string>
     <string name="Customer_service">客服将为您提供服务</string>
-    <string name="store">店铺:</string>
-    <string name="send">配送:由</string>
+    <string name="store">店铺：</string>
+    <string name="send">配送：由</string>
 
     <string name="all_evaluation">全部评价</string>
     <string name="good_evaluation">好评</string>
@@ -673,7 +676,7 @@
     <string name="goods_arrive_info">到货后物流公司收取</string>
 
     <!---->
-    <string name="yunfei_money">运费:</string>
+    <string name="yunfei_money">运费：</string>
 
     <!--模板界面-->
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>

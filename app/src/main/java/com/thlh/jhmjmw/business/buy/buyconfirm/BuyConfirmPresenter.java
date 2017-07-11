@@ -71,7 +71,8 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
             @Override
             public void onNextResponse(ExpressfreeResponse expressfreeResponse) {
                 expressfree = expressfreeResponse.getData().getTotal();
-                mView.updateExpressFree(expressfree);
+                ExpressfreeResponse.DataBean data = expressfreeResponse.getData();
+                mView.updateExpressFree(expressfree,data);
                 mView.updatePriceTv();
             }
         };

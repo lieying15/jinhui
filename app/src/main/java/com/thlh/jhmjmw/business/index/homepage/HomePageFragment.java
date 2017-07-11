@@ -196,7 +196,7 @@ public class HomePageFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
+        homepageSwiperl.setEnabled(false);
         viewpagerFragment0 = new ViewpagerFragment(getContext());
         viewpagerFragment1 = new ViewpagerFragment(getContext());
         viewpagerFragment2 = new ViewpagerFragment(getContext());
