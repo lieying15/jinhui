@@ -107,21 +107,26 @@ public class TraceFragment extends BaseFragment {
         if(isNull && order != null){
             ImageLoader.displayRoundImg(order.getOrder_items().get(0).getItem().get(0).getItem_img_thumb(),traceImageIv);
 
-            express_fee = order.getOrder_items().get(0).getExpress_fee();
-            /**0*/
-            orderTraceExpreeTv.setText(getResources().getString(R.string.money_)+express_fee);
-            /**运费为0---包邮*/
-            if(express_fee.equals("0.00")){
-                orderTraceExpreeTv.setText(getResources().getString(R.string.mail));
-            }
-            //
+
+            String supplier_id = order.getSupplier_id();
             item_id = order.getOrder_items().get(0).getItem().get(0).getItem_id();
-            /**冰箱运费
-             * 到货后物流公司收取
-             * */
-            if (item_id.equals("1")){
-                /**运费*/
-                orderTraceExpreeTv.setText(expressFree);
+//            express_fee = order.getOrder_items().get(0).getExpress_fee();
+            express_fee = order.getExpress_fee();
+            if (supplier_id.equals("1")){
+                /**冰箱运费
+                 * 到货后物流公司收取
+                 * */
+                if (item_id.equals("1")){
+                    /**运费*/
+                    orderTraceExpreeTv.setText(expressFree);
+                }
+            }else if (supplier_id.equals("48")){
+                orderTraceExpreeTv.setText(getResources().getString(R.string.expressfree_pay));
+            }else {
+                if (this.express_fee.equals("0.00")){
+                    orderTraceExpreeTv.setText(getResources().getString(R.string.mail));
+                }
+                orderTraceExpreeTv.setText(getResources().getString(R.string.money_)+ this.express_fee);
             }
 //            traceGoodsnumTv.setText(getResources().getString(R.string.gong)+getGoodsNum(order.getOrder_items().get(0).getItem())  + getResources().getString(R.string.ones));
         }else {
@@ -129,7 +134,7 @@ public class TraceFragment extends BaseFragment {
 
             /**运费为0---包邮*/
 
-                orderTraceExpreeTv.setText(getResources().getString(R.string.mail));
+            orderTraceExpreeTv.setText(getResources().getString(R.string.mail));
 
         }
 

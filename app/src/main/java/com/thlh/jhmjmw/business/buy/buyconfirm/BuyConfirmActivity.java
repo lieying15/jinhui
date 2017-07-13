@@ -532,34 +532,57 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     public void updateExpressFree(double expressfree, ExpressfreeResponse.DataBean data) {
         this.expressfree = expressfree;
         List<ExpressSupplier> suppliers = data.getSupplier();
-        for (ExpressSupplier supplier:suppliers) {
-            if (supplier.getSupplier_id().equals("48")){
-                if (expressfree <= 0.0d) {
-                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.mail) + "+" + getResources().getString(R.string.goods_pay));
-                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.mail)+ "+" + getResources().getString(R.string.goods_pay));
-                } else {
-                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.money) + expressfree + "+" + getResources().getString(R.string.goods_pay));
-                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.money) + expressfree + "+" + getResources().getString(R.string.goods_pay));
-                    paywechat = true;
-                    payalipay = false;
-                    orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
-                    orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
-                }
-            }else{
-                if (expressfree <= 0.0d) {
-                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.mail));
-                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.mail));
-                } else {
-                    orderConfirmInfoFreightTv.setText(getResources().getString(R.string.money) + expressfree);
-                    orderConfirmPricelistExpressTv.setText(getResources().getString(R.string.money) + expressfree);
-                    paywechat = true;
-                    payalipay = false;
-                    orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
-                    orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
-                }
-            }
+        String free = null;
+        if (! (data.getTotal() == 0.00)){
+            free = getResources().getString(R.string.money) +  data.getTotal();
         }
+        for (ExpressSupplier supplier : suppliers) {
+            if (supplier.getSupplier_id().equals("1")) {
+                if (supplier.getItem().get(0).getItem_id() == 1) {
+                    if (free != null) {
+                        if (!free.contains(getResources().getString(R.string.mail))) {
+                            free = free + "+" + getResources().getString(R.string.mail);
+                        }
+                    } else {
+                        free = getResources().getString(R.string.mail);
+                    }
+                }
+            }else if (supplier.getSupplier_id().equals("48")) {
+                if (free != null) {
+                    if (!free.contains(getResources().getString(R.string.expressfree_pay))) {
+                        free = free + "+" + getResources().getString(R.string.expressfree_pay);
+                    }
+                } else {
+                    free = getResources().getString(R.string.expressfree_pay);
+                }
 
+            }else if (supplier.getExpress_fee() <= 0.00d) {
+                if (free != null) {
+                    if (!free.contains(getResources().getString(R.string.mail))) {
+                        free = free + "+" + getResources().getString(R.string.mail);
+                    }
+                } else {
+                    free = getResources().getString(R.string.mail);
+                }
+
+            } else {
+                if (free != null) {
+                    if (!free.contains(getResources().getString(R.string.money))) {
+                        free = free + "+" + getResources().getString(R.string.money) + supplier.getExpress_fee();
+                    }
+                } else {
+                    free = getResources().getString(R.string.money) + supplier.getExpress_fee();
+                }
+
+                paywechat = true;
+                payalipay = false;
+                orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
+                orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
+            }
+
+        }
+        orderConfirmInfoFreightTv.setText(free);
+        orderConfirmPricelistExpressTv.setText(free);
         updatePriceTv();
     }
 

@@ -159,23 +159,59 @@ public class OrderDetailActivity extends BaseViewActivity {
         orderDetailPriceTv.setText(getResources().getString(R.string.money) + order.getGoods_amount());
 
         String yunfei = null;
-        if (!order.getExpress_fee().equals("0.00")){
-            yunfei=getResources().getString(R.string.money) + order.getExpress_fee();
-        }else {
-            yunfei=getResources().getString(R.string.mail);
+
+        if (! (order.getExpress_fee().equals("0.00"))){
+            yunfei = getResources().getString(R.string.money) + order.getExpress_fee();
         }
 
-        for (OrderItem item:order.getOrder_items()) {
-            if (item.getSupplier_id().equals("1")){
-                yunfei =yunfei.concat("+" + getResources().getString(R.string.goods_receive));
-            }
-
-            if (item.getSupplier_id().equals("48")){
-//                yunfei += "+" + getResources().getString(R.string.goods_pay);
-                yunfei =yunfei.concat("+" + getResources().getString(R.string.goods_pay));
+        for (OrderItem item : order.getOrder_items()) {
+            if (yunfei!= null){
+                if (!yunfei.contains(getResources().getString(R.string.mail))
+                        && !yunfei.contains(getResources().getString(R.string.expressfree_pay))) {
+                    if (item.getSupplier_id().equals("1")) {
+                        yunfei = yunfei.concat("+" + getResources().getString(R.string.mail));
+                    } else if (item.getSupplier_id().equals("48")) {
+                        yunfei = yunfei.concat("+" + getResources().getString(R.string.expressfree_pay));
+                    } else if (!yunfei.contains(getResources().getString(R.string.mail))) {
+                        if (item.getExpress_fee().equals("0.00")) {
+                            yunfei = yunfei.concat("+" + getResources().getString(R.string.mail));
+                        }
+                    }
+                } else if (yunfei.contains(getResources().getString(R.string.mail))
+                        && !yunfei.contains(getResources().getString(R.string.expressfree_pay))) {
+                    if (item.getSupplier_id().equals("48")) {
+                        yunfei = yunfei.concat("+" + getResources().getString(R.string.expressfree_pay));
+                    } else if (!yunfei.contains(getResources().getString(R.string.mail))) {
+                        if (item.getExpress_fee().equals("0.00")) {
+                            yunfei = yunfei.concat("+" + getResources().getString(R.string.mail));
+                        }
+                    }
+                } else if (!yunfei.contains(getResources().getString(R.string.mail))
+                        && yunfei.contains(getResources().getString(R.string.expressfree_pay))) {
+                    if (item.getSupplier_id().equals("1")) {
+                        yunfei = yunfei.concat("+" + getResources().getString(R.string.goods_receive));
+                    } else if (!yunfei.contains(getResources().getString(R.string.mail))) {
+                        if (item.getExpress_fee().equals("0.00")) {
+                            yunfei = yunfei.concat("+" + getResources().getString(R.string.mail));
+                        }
+                    }
+                } else if (!yunfei.contains(getResources().getString(R.string.mail))) {
+                    if (!item.getExpress_fee().equals("0.00")) {
+                        yunfei = getResources().getString(R.string.money) + item.getExpress_fee();
+                    } else {
+                        yunfei = getResources().getString(R.string.mail);
+                    }
+                }
+            }else {
+                if (item.getSupplier_id().equals("1")) {
+                    yunfei = getResources().getString(R.string.mail);
+                } else if (item.getSupplier_id().equals("48")) {
+                    yunfei = getResources().getString(R.string.expressfree_pay);
+                } else{
+                    yunfei = getResources().getString(R.string.mail);
+                }
             }
         }
-
         orderDetailFreightTv.setText(yunfei);
 
         double spendmjz = OrderUtils.getDetailSpendMjz(order);

@@ -12,6 +12,7 @@ import com.thlh.baselib.function.fileload.FileResponseBody;
 import com.thlh.baselib.utils.AppUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.baselib.utils.Tos;
+import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.view.DialogDownload;
 import com.thlh.jhmjmw.view.DialogNormal;
 
@@ -60,10 +61,8 @@ public class UpdateManager {
         int currentCode = AppUtils.getVersionCode(mContext);
         L.e("UpdateManager  updataCode" +mVersionCode + " currentCode" +currentCode + " mUrl" + mUrl);
         if(mVersionCode > currentCode ){
-            String s1 = "更新提示";
-            String s2 = "立即更新";
 
-            dialog.setTitle((s1)).setSubTitle(mContent).setRightBtnStr((s2))
+            dialog.setTitle((mContext.getResources().getString(R.string.updatatitle))).setSubTitle(mContent).setRightBtnStr((mContext.getResources().getString(R.string.updata)))
                     .setRightClickListener(new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -82,8 +81,7 @@ public class UpdateManager {
     }
 
     public void showDownloadDialog() {
-        String s1 = "正在更新";
-        downloadDialog.setTitle((s1)) .create().show();
+        downloadDialog.setTitle((mContext.getResources().getString(R.string.updating))) .create().show();
     }
 
 

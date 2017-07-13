@@ -284,7 +284,8 @@
     <string name="chakan">查看</string>
 
     <string name="mail">包邮 </string>
-    <string name="goods_pay">运费到付</string>
+    <string name="goods_pay">货到付款</string>
+    <string name="expressfree_pay">运费到付</string>
     <string name="freight">运费：￥ </string>
 
     <string name="shop_no_mjz">此商品不支持金惠币 </string>

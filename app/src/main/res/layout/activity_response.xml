@@ -65,7 +65,7 @@
             android:layout_height="@dimen/y100"
             android:layout_marginLeft="@dimen/x25"
             android:layout_marginRight="@dimen/x25"
-            android:text="返回首页"
+            android:text="返回"
             android:textSize="@dimen/y28"
             android:textColor="@color/wine_light"
             android:gravity="center"

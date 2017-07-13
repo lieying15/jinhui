@@ -77,9 +77,18 @@ public class BuyExpressListAdapter extends EasyRecyclerViewAdapter {
 
         double total_price = expressSupplier.getExpress_fee();
 
-        if (expressSupplier.getSupplier_id().equals("48")){
+        if (expressSupplier.getSupplier_id().equals("1")){
+            if (expressSupplier.getItem().get(0).getItem_id() == 1){
+                SpannableStringBuilder builder = new SpannableStringBuilder(context.getResources().getString(R.string.yunfei_money)
+                        + context.getResources().getString(R.string.mail));
+                builder.setSpan(redSpan,3, builder.length(),SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(graySpan,0,3,SPAN_EXCLUSIVE_EXCLUSIVE);
+                freeTv.setText(builder);
+            }
+
+        }else if (expressSupplier.getSupplier_id().equals("48")){
             SpannableStringBuilder builder = new SpannableStringBuilder(context.getResources().getString(R.string.yunfei_money)
-                    + context.getResources().getString(R.string.goods_pay));
+                    + context.getResources().getString(R.string.expressfree_pay));
             builder.setSpan(redSpan,3, builder.length(),SPAN_EXCLUSIVE_EXCLUSIVE);
             builder.setSpan(graySpan,0,3,SPAN_EXCLUSIVE_EXCLUSIVE);
             freeTv.setText(builder);
@@ -97,7 +106,6 @@ public class BuyExpressListAdapter extends EasyRecyclerViewAdapter {
                 freeTv.setText(builder);
             }
         }
-
 
         imgAdapter = new BuyExpressImgAdapter();
         expressRv.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));

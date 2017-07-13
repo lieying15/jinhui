@@ -20,7 +20,7 @@ public class OrderDetailItemAdapter extends EasyRecyclerViewAdapter {
     private OnClickEvent listener;
     private boolean showReturn;
 
-    public OrderDetailItemAdapter(Context context,boolean showReturn) {
+    public OrderDetailItemAdapter(Context context, boolean showReturn) {
         this.context = context;
         this.showReturn = showReturn;
     }
@@ -34,7 +34,7 @@ public class OrderDetailItemAdapter extends EasyRecyclerViewAdapter {
 
     @Override
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, int position) {
-        GoodsOrder goods = (GoodsOrder)this.getItem(position);
+        GoodsOrder goods = (GoodsOrder) this.getItem(position);
 
 //        Goods goods = (Goods) this.getItem(position);
 
@@ -61,20 +61,15 @@ public class OrderDetailItemAdapter extends EasyRecyclerViewAdapter {
         * */
         basePriceTv.setText(context.getResources().getString(R.string.money_) + TextUtils.showPrice(priceStr));
 
-        if (goods.getItem_id().equals("1")) {
-            basePriceTv.setText(context.getResources().getString(R.string.ice_voucher));
+        String ismjb = goods.getIs_mjb();
+        if (ismjb.equals("0")) {
             baseMjzTv.setVisibility(View.GONE);
-        }else {
-            String ismjb = goods.getIs_mjb();
-            if(ismjb.equals("0")){
-                baseMjzTv.setVisibility(View.GONE);
-            }else {
-                baseMjzTv.setVisibility(View.VISIBLE);
-                String mjzStr = priceStr;
-                if(ismjb.equals("2"))
-                    mjzStr = goods.getMjb_value();
-                baseMjzTv.setText(TextUtils.showMjz(context,mjzStr));
-            }
+        } else {
+            baseMjzTv.setVisibility(View.VISIBLE);
+            String mjzStr = priceStr;
+            if (ismjb.equals("2"))
+                mjzStr = goods.getMjb_value();
+            baseMjzTv.setText(TextUtils.showMjz(context, mjzStr));
         }
 
         if (goods.getIs_limit().equals("1") && goods.getLimit_icon().equals("1")) {
@@ -101,8 +96,8 @@ public class OrderDetailItemAdapter extends EasyRecyclerViewAdapter {
 //            baseStatusTv.setText("已抢光");
 //        }
 
-        TextView goodsNumTv  = (TextView) viewHolder.findViewById(R.id.order_goods_num_tv);
-        goodsNumTv.setText(context.getResources().getString(R.string.multiplys)+ goods.getItem_num());
+        TextView goodsNumTv = (TextView) viewHolder.findViewById(R.id.order_goods_num_tv);
+        goodsNumTv.setText(context.getResources().getString(R.string.multiplys) + goods.getItem_num());
     }
 
     @Override
@@ -114,7 +109,6 @@ public class OrderDetailItemAdapter extends EasyRecyclerViewAdapter {
     public void setOnClickEvent(OnClickEvent listener) {
         this.listener = listener;
     }
-
 
 
     public interface OnClickEvent {

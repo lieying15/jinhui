@@ -21,7 +21,7 @@
         android:layout_width="@dimen/x144"
         android:layout_height="@dimen/y144"
         android:layout_marginTop="@dimen/y100"
-        android:src="@drawable/img_logo"
+        android:src="@drawable/logo"
         android:layout_gravity="center"/>
 
     <!--账户名-->
