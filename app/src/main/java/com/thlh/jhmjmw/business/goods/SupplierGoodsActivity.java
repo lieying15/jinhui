@@ -18,8 +18,8 @@ import com.thlh.baselib.model.response.GoodsListResponse;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.jhmjmw.R;
-import com.thlh.jhmjmw.business.goods.suit.GoodsSuitDetailActivity;
 import com.thlh.jhmjmw.business.goods.goodsdetail.GoodsDetailV3Activity;
+import com.thlh.jhmjmw.business.goods.suit.GoodsSuitDetailActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.HeaderNormal;
@@ -27,7 +27,6 @@ import com.thlh.jhmjmw.view.PtorFooterLayout;
 import com.thlh.jhmjmw.view.PtorHeaderLayout;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
-import com.thlh.viewlib.easyrecyclerview.widget.decorator.EasyDividerItemDecoration;
 import com.thlh.viewlib.pulltorefresh.PullToRefreshBase;
 import com.thlh.viewlib.pulltorefresh.PullToRefreshRecyclerView;
 import com.thlh.viewlib.sweetdialog.SweetAlertDialog;
@@ -54,7 +53,7 @@ public class SupplierGoodsActivity extends BaseActivity {
 
     private EasyRecyclerView supplierGoodsRv;
     private SupplierGoodsAdapter shopGridAdapter;
-    private EasyDividerItemDecoration dataDecoration;
+//    private EasyDividerItemDecoration dataDecoration;
     private BaseObserver<GoodsListResponse> goodsrObserver;
 
     private GridLayoutManager mLayoutManager;
@@ -71,7 +70,7 @@ public class SupplierGoodsActivity extends BaseActivity {
         context.startActivity(intent);
         context.overridePendingTransition(R.anim.activity_slide_right_in, R.anim.activity_slide_left_out);
     }
-    
+
 
     @Override
     protected void initVariables() {
@@ -127,13 +126,13 @@ public class SupplierGoodsActivity extends BaseActivity {
                 }
             }
         });
-        
-        dataDecoration = new EasyDividerItemDecoration(
-                this,
-                EasyDividerItemDecoration.VERTICAL_LIST,
-                R.drawable.shop_desk_bottom
-        );
-        dataDecoration.bottomDivider = true;
+
+//        dataDecoration = new EasyDividerItemDecoration(
+//                this,
+//                EasyDividerItemDecoration.VERTICAL_LIST,
+//                R.drawable.divider_mainback
+//        );
+//        dataDecoration.bottomDivider = true;
         mLayoutManager = new GridLayoutManager(this,3);
         supplierGoodsRv.setLayoutManager(mLayoutManager);
         shopGridAdapter = new SupplierGoodsAdapter(this);
@@ -170,7 +169,7 @@ public class SupplierGoodsActivity extends BaseActivity {
                 collectDialog.setTitleText(getResources().getString(R.string.add_car)).show();
             }
         });
-        supplierGoodsRv.addItemDecoration(dataDecoration);
+//        supplierGoodsRv.addItemDecoration(dataDecoration);
         supplierGoodsRv.setAdapter(shopGridAdapter);
         supplierGoodsRv.setNestedScrollingEnabled(false);
 

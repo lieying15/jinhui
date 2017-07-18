@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="5dp"
-    android:paddingRight="10dp">
+    android:paddingRight="5dp"
+    android:paddingLeft="3dp"
+    android:background="@drawable/shap_radius_white_stroke_mainback_r5">
 
     <ImageView
         android:id="@+id/shop_goods_grid_iv"
@@ -14,7 +16,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true" />
-
 
     <TextView
         android:layout_marginTop="2dp"
@@ -33,29 +34,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/shop_goods_grid_name_tv"
-        android:layout_toLeftOf="@+id/shop_goods_shopcart_iv"
         android:text=""
         android:textColor="@color/app_theme"
         android:textSize="@dimen/text_size_small_xx" />
+
+    <TextView
+        android:id="@+id/shop_goods_grid_mjz_tv"
+        android:layout_marginTop="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shop_goods_grid_price_tv"
+        android:text=""
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:textColor="@color/yellowdark"
+        android:background="@drawable/shap_radius_white_stroke_theme_r10"
+        android:textSize="@dimen/text_size_little_xx" />
     <TextView
         android:id="@+id/shop_goods_grid_coupon_tv"
         android:layout_marginTop="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/shop_goods_grid_name_tv"
-        android:layout_toLeftOf="@+id/shop_goods_shopcart_iv"
         android:text="仅限冰箱兑换券使用"
         android:textColor="@color/app_theme"
         android:textSize="@dimen/text_size_small_xx"
         android:visibility="gone"/>
-    <ImageView
-        android:id="@+id/shop_goods_shopcart_iv"
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
-        android:layout_alignBottom="@+id/shop_goods_grid_price_tv"
-        android:src="@drawable/icon_shopcart_wine"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp" />
+
     <ImageView
         android:id="@+id/shop_goods_tag_iv"
         android:layout_width="@dimen/homgpage_todaygoods_tagsize"
