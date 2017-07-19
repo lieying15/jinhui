@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/shap_radius_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/dialog_base_title_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_check_select_pink"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/app_mainback"/>
+
+    <TextView
+        android:id="@+id/dialog_base_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:text="提示"
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/text_size_small" />
+
+    <TextView
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="3dp"
+        android:gravity="left"
+        android:text="恭喜您成功绑定属于您的专属小店"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_xx" />
+
+    <TextView
+        android:id="@+id/dialog_base_address_tv"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="3dp"
+        android:gravity="left"
+        android:text="小店地址："
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_xx" />
+
+    <TextView
+        android:id="@+id/dialog_base_phone_tv"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:gravity="left"
+        android:text="小店电话："
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_xx" />
+
+    <TextView
+        android:id="@+id/dialog_base_bottom_tv"
+        android:layout_width="300dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:background="@drawable/selector_stoke_mainback_r50"
+        android:text="确认"
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/text_size_small_x" />
+
+</LinearLayout>

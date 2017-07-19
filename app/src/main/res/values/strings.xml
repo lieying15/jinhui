@@ -721,6 +721,11 @@
     <string name="mjbzq">金惠币  专区</string>
     <string name="daohang">导航已开启</string>
 
+    <string name="store_address">小店地址：</string>
+    <string name="store_phone">小店电话：</string>
+    <string name="store_building">我的小店建设中</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

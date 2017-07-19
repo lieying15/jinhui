@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shap_radius_white_r50"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:layout_width="@dimen/x50"
+        android:layout_height="@dimen/x50"
+        android:src="@drawable/store_building"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/app_mainback"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="25dp"
+        android:text="@string/store_building"
+        android:textColor="@color/text_nomal"
+        android:textSize="@dimen/text_size_small_xx" />
+
+
+    <TextView
+        android:id="@+id/dialog_build_bottom_tv"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:background="@drawable/selector_stoke_mainback_r50"
+        android:text="返回"
+        android:textColor="@color/app_theme"
+        android:textSize="@dimen/text_size_small_x" />
+
+</LinearLayout>
