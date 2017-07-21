@@ -1,10 +1,10 @@
 [
     {
-        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml",
-        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\bundles\\debug\\res\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml"
+        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-anydpi-v21\\ucrop_vector_loader.xml",
+        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\bundles\\debug\\res\\drawable-anydpi-v21\\ucrop_vector_loader.xml"
     },
     {
-        "merged": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-anydpi-v21\\ucrop_vector_loader.xml",
-        "source": "E:\\MyDownloads\\jinhui\\ucrop\\build\\intermediates\\bundles\\debug\\res\\drawable-anydpi-v21\\ucrop_vector_loader.xml"
+        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml",
+        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\bundles\\debug\\res\\drawable-anydpi-v21\\ucrop_vector_ic_crop.xml"
     }
 ]

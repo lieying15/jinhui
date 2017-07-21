@@ -33,8 +33,12 @@
             <include layout="@layout/view_order_address"/>
             <!--商品详情-->
             <include layout="@layout/view_orderconfirm_goodsinfo"/>
-            <!--配送信息与优惠券-->
+            <!--配送信息-->
             <include layout="@layout/view_order_confirm_info"/>
+            <!--配送方式与时间-->
+            <include layout="@layout/view_order_confirm_function"/>
+            <!--优惠券-->
+            <include layout="@layout/view_order_confirm_coupon"/>
             <!--支付方式-->
             <include layout="@layout/view_order_confirm_paytype"/>
             <!--备注-->

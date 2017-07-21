@@ -52,6 +52,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
     private double expressfree;
     private boolean isBuyImmediately;
     private Context context;
+    private String coupon = null;
 
     public BuyConfirmPresenter(Context context,BuyConfirmContract.View mView, boolean isBuyImmediately) {
         this.context=context;
@@ -108,7 +109,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
     }
 
     @Override
-    public void postGenerateOrder(Activity activity,String addressid,String itemIdAndNumAndMjb,String paytype,double useMjb,String note) {
+    public void postGenerateOrder(Activity activity, String addressid, String getPack, String time, String itemIdAndNumAndMjb, String paytype, double useMjb, String note) {
         // 生成订单号的返回信息
         generateOrderObserver = new BaseObserver<OrderGenerateResponse>() {
             @Override
@@ -151,7 +152,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
 
         L.e(TAG + " 生成订单 Address.Id() " + addressid + " itemIdAndNumAndMjb " + itemIdAndNumAndMjb +" paytype：" + paytype+ "note"+note);
         NetworkManager.getOrderApi()
-                .generateOrderV2(SPUtils.getToken(), addressid, itemIdAndNumAndMjb, "0", paytype, "10:00 - 17:00", tostore,  note)
+                .generateOrderV2(SPUtils.getToken(), addressid, itemIdAndNumAndMjb, getPack, paytype, time , tostore, coupon, note)
                 .compose(RxUtils.androidSchedulers(mView,false))
                 .subscribe(generateOrderObserver);
     }
@@ -199,7 +200,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
     }
 
     @Override
-    public boolean judgePayCondition(List<Cartgoods> cartgoods,String addressId,String paytype,double useMjb,String user_mjb,String note) {
+    public boolean judgePayCondition(List<Cartgoods> cartgoods, String addressId,String paytype, double useMjb, String user_mjb, String note) {
         if (addressId.equals("")) {
             /*
             *
@@ -207,6 +208,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
             mView.showHintDialog(context.getResources().getString(R.string.please_choose_goods_adress));
             return false;
         }
+
         L.e(TAG + " paytype " + paytype);
         if (paytype.equals("")) {
             mView.showHintDialog(context.getResources().getString(R.string.pay_choose));

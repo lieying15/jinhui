@@ -56,15 +56,15 @@ public class AddrManageActivity extends BaseActivity {
 
     @BindView(R.id.addr_manage_noinfoview)
     NoInfoView addrManageNoinfoView;
-    
+
     private BaseObserver<AddrListResponse> addrListObserver;
     private BaseObserver<BaseResponse> deleteObserver;
     private Address selectAddress = new Address();
-    
+
     private AddrManageAdapter addrManageAdapter;
     private List<Address> addressList = new ArrayList<>();
     private DialogSimple.Builder dialog;
-    
+
     private int start_type = ACTIVITY_CODE_ADDADDE;
     private String select_addrid;
 
@@ -130,7 +130,7 @@ public class AddrManageActivity extends BaseActivity {
                 startActivityForResult(intent, ACTIVITY_CODE_EDITADDR);
             }
         });
-        
+
 
         EasyDividerItemDecoration dataDecoration = new EasyDividerItemDecoration(
                 this,
@@ -361,7 +361,7 @@ public class AddrManageActivity extends BaseActivity {
                 break;
         }
     }
-    
+
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.activity_slide_left_in, R.anim.activity_slide_right_out);

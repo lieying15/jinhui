@@ -26,7 +26,7 @@
         <ImageView
             android:layout_width="@dimen/x140"
             android:layout_height="@dimen/y40"
-            android:src="@drawable/img_logo_text"
+            android:src="@drawable/index_logo"
             android:layout_marginTop="@dimen/y30"/>
     </LinearLayout>
 
@@ -50,7 +50,7 @@
         android:textColor="@color/text_tips"
         android:layout_marginTop="@dimen/y20"
         android:gravity="center_horizontal"
-        android:text="关于我们"
+        android:text=""
         android:visibility="visible"
         android:clickable="true"/>
 

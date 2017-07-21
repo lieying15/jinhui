@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!-- 优惠券-->
+    <LinearLayout
+        android:id="@+id/order_confirm_info_coupon_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shap_radius_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/x15"
+        android:paddingRight="@dimen/x15">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_confirm_info_coupon"
+            android:textSize="@dimen/y28" />
+
+        <TextView
+            android:id="@+id/order_confirm_info_coupon_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="0 张可用"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/y28" />
+
+        <ImageView
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:src="@drawable/icon_right_arrow_gray"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+
+</LinearLayout>

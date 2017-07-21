@@ -48,6 +48,8 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textColor="@color/yellowdark"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:textSize="@dimen/y22"
         android:paddingLeft="@dimen/x5"
         android:paddingRight="@dimen/x5"

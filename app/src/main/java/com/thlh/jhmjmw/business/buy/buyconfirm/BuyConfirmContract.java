@@ -37,27 +37,27 @@ public interface BuyConfirmContract {
 
         void startPasswordPayActivity(String orderid);
 
-        void updateWeChatPayRequest(String prepay_id,String nonce_str);
+        void updateWeChatPayRequest(String prepay_id, String nonce_str);
     }
 
 
     interface Presenter {
 
-        void loadExpressFree(String addressid,String itemIdAndNum);
+        void loadExpressFree(String addressid, String itemIdAndNum);
 
         void loadWallet();
         //
-        void postGenerateOrder(Activity activity,String addressid,String itemIdAndNumAndMjb,String paytype,double useMjb,String note);
+        void postGenerateOrder(Activity activity, String addressid, String getPack, String time, String itemIdAndNumAndMjb, String paytype, double useMjb, String note);
 
-        void postPayOrder(Activity activity,String orderid,String itemIdAndNumAndMjb,String paytype);
+        void postPayOrder(Activity activity, String orderid, String itemIdAndNumAndMjb, String paytype);
 
-        boolean judgePayCondition(List<Cartgoods> cartgoods,String addressId,String paytype,double useMjb,String user_mjb,String note);
+        boolean judgePayCondition(List<Cartgoods> cartgoods, String addressId,String paytype, double useMjb, String user_mjb, String note);
 
         Address getDefaultAddress();
 
         List<Cartgoods> getAllSelectCartGoods();
 
-        String getCartInfoStr(List<Cartgoods> cartgoods ,boolean payMjb);
+        String getCartInfoStr(List<Cartgoods> cartgoods, boolean payMjb);
 
         void startWechatPay(String tempprice, String orderid);
 
@@ -65,7 +65,7 @@ public interface BuyConfirmContract {
 
         List<Goods> getAdapterCartData(List<Cartgoods> cartgoods);
 
-        String getPayType(double useMjb,boolean paywechat,boolean payalipay) ;
+        String getPayType(double useMjb, boolean paywechat, boolean payalipay) ;
 
         void ClearBuyImmediatelyGoods();
     }

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/order_confirm_info_deliverytype_ll"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/y10"
+    android:background="@drawable/shap_radius_white_r20"
+    android:visibility="gone">
+
+    <!-- 配送方式-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:background="@drawable/shap_radius_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/x15"
+        android:paddingRight="@dimen/x15"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="配送方式:"
+            android:textSize="@dimen/text_size_small_xx" />
+        <ImageView
+            android:id="@+id/order_confirm_info_deliverytype_shopsend_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/icon_check_wine_select" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="小店送货"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx" />
+
+        <ImageView
+            android:id="@+id/order_confirm_info_deliverytype_userget_iv"
+            android:layout_width="@dimen/icon_pxsize_x"
+            android:layout_height="@dimen/icon_pxsize_y"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/icon_check_wine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户自取"
+            android:textColor="@color/text_nomal"
+            android:textSize="@dimen/text_size_small_xx" />
+
+
+
+        <LinearLayout
+            android:id="@+id/order_confirm_info_time_select_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/x5"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shap_radius_gray_stroke_theme_r20">
+
+            <TextView
+                android:id="@+id/order_confirm_info_times_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="任何时间"
+                android:padding="3dp"
+                android:textColor="@color/app_theme"
+                android:textSize="@dimen/text_size_small_xx"/>
+
+            <ImageView
+                android:id="@+id/order_confirm_info_times_show_iv"
+                android:layout_width="@dimen/x38"
+                android:layout_height="@dimen/x38"
+                android:background="@drawable/icon_arrow_down_gray"
+                android:layout_marginLeft="@dimen/x10"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/order_confirm_info_times_rg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:background="@drawable/shap_radius_half_bottom_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/x15"
+        android:paddingRight="@dimen/x15"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/order_confirm_info_timeone_rb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="8:00-12:00"
+            android:padding="@dimen/x5"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/radiobutton_textcolor"
+            android:textSize="@dimen/text_size_small_xx"
+            android:gravity="center"
+            android:background="@drawable/radiobutton_background"/>
+
+        <RadioButton
+            android:id="@+id/order_confirm_info_timetwo_rb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="12:00-14:00"
+            android:padding="@dimen/x5"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:textColor="@color/radiobutton_textcolor"
+            android:textSize="@dimen/text_size_small_xx"
+            android:background="@drawable/radiobutton_background"/>
+
+        <RadioButton
+            android:id="@+id/order_confirm_info_timethree_rb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="14:00-16:00"
+            android:padding="@dimen/x5"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:textColor="@color/radiobutton_textcolor"
+            android:textSize="@dimen/text_size_small_xx"
+            android:background="@drawable/radiobutton_background"/>
+
+        <RadioButton
+            android:id="@+id/order_confirm_info_timefour_rb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="16:00-18:00"
+            android:padding="@dimen/x5"
+            android:gravity="center"
+            android:textColor="@color/radiobutton_textcolor"
+            android:textSize="@dimen/text_size_small_xx"
+            android:background="@drawable/radiobutton_background"/>
+
+    </RadioGroup>
+</LinearLayout>

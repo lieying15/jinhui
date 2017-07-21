@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -63,73 +65,87 @@ import butterknife.OnClick;
  * 订单确认界面
  */
 public class BuyConfirmActivity extends BaseActivity implements View.OnClickListener, BuyConfirmContract.View {
+
     private final String TAG = "BuyConfirmActivity";
     private final int ACTIVITY_CODE_ADDR = 1;
-    @BindView(R.id.order_confirm_topll)
-    LinearLayout orderConfirmTopLl;
     @BindView(R.id.order_confirm_header)
     HeaderNormal orderConfirmHeader;
-    @BindView(R.id.order_address_addr_tv)
-    TextView orderConfirmAddrTv;
     @BindView(R.id.order_address_name_tv)
-    TextView orderConfirmNameTv;
+    TextView orderAddressNameTv;
     @BindView(R.id.order_address_phone_tv)
-    TextView orderConfirmPhoneTv;
-    @BindView(R.id.order_confirm_goods_ll)
-    LinearLayout orderConfirmGoodsLl;
-
-    @BindView(R.id.order_confirm_goods_num_tv)
-    TextView orderConfirmGoodsNumTv;
-    @BindView(R.id.order_confirm_goods_total_price_tv)
-    TextView orderConfirmGoodsTotalPriceTv;
-
+    TextView orderAddressPhoneTv;
+    @BindView(R.id.order_address_addr_tv)
+    TextView orderAddressAddrTv;
+    @BindView(R.id.order_address_arrow_iv)
+    ImageView orderAddressArrowIv;
     @BindView(R.id.order_confirm_addr_rl)
     RelativeLayout orderConfirmAddrRl;
     @BindView(R.id.order_confirm_goods_rv)
     EasyRecyclerView orderConfirmGoodsRv;
-    @BindView(R.id.order_confirm_total_price_tv)
-    TextView orderConfirmBottomTotalPriceTv;
-    @BindView(R.id.order_confirm_bottom_selectall_rl)
-    RelativeLayout orderConfirmBottomSelectallRl;
-    @BindView(R.id.order_confirm_bottom_gopay_ll)
-    LinearLayout orderConfirmBottomGopayLl;
-    /*
-    *
-    * 去支付*/
-    @BindView(R.id.order_confirm_bottom_gopay_tv)
-    TextView orderConfirmBottomGopayTv;
+    @BindView(R.id.order_confirm_goods_num_tv)
+    TextView orderConfirmGoodsNumTv;
+    @BindView(R.id.order_confirm_goods_total_price_tv)
+    TextView orderConfirmGoodsTotalPriceTv;
+    @BindView(R.id.order_confirm_goodslist_tv)
+    TextView orderConfirmGoodslistTv;
+    @BindView(R.id.order_confirm_goodslist_arrow_iv)
+    ImageView orderConfirmGoodslistArrowIv;
+    @BindView(R.id.order_confirm_goods_ll)
+    LinearLayout orderConfirmGoodsLl;
     @BindView(R.id.order_confirm_info_freight_hint_iv)
-    ImageView freightHintIv;
+    ImageView orderConfirmInfoFreightHintIv;
+    @BindView(R.id.textView2)
+    TextView textView2;
     @BindView(R.id.order_confirm_info_freight_tv)
     TextView orderConfirmInfoFreightTv;
-    @BindView(R.id.order_confirm_info_freight_iv)
-    ImageView orderConfirmInfoFreightIv;
     @BindView(R.id.order_confirm_info_freight_ll)
     LinearLayout orderConfirmInfoFreightLl;
+    @BindView(R.id.order_confirm_info_deliverytype_shopsend_iv)
+    ImageView orderConfirmInfoDeliverytypeShopsendIv;
+    @BindView(R.id.order_confirm_info_deliverytype_userget_iv)
+    ImageView orderConfirmInfoDeliverytypeUsergetIv;
+    @BindView(R.id.order_confirm_info_times_tv)
+    TextView orderConfirmInfoTimesTv;
+    @BindView(R.id.order_confirm_info_times_show_iv)
+    ImageView orderConfirmInfoTimesShowIv;
+    @BindView(R.id.order_confirm_info_time_select_ll)
+    LinearLayout orderConfirmInfoTimeSelectLl;
+    @BindView(R.id.order_confirm_info_timeone_rb)
+    RadioButton orderConfirmInfoTimeoneRb;
+    @BindView(R.id.order_confirm_info_timetwo_rb)
+    RadioButton orderConfirmInfoTimetwoRb;
+    @BindView(R.id.order_confirm_info_timethree_rb)
+    RadioButton orderConfirmInfoTimethreeRb;
+    @BindView(R.id.order_confirm_info_timefour_rb)
+    RadioButton orderConfirmInfoTimefourRb;
+    @BindView(R.id.order_confirm_info_times_rg)
+    RadioGroup orderConfirmInfoTimesRg;
+    @BindView(R.id.order_confirm_info_deliverytype_ll)
+    LinearLayout orderConfirmInfoDeliverytypeLl;
     @BindView(R.id.order_confirm_info_coupon_tv)
     TextView orderConfirmInfoCouponTv;
     @BindView(R.id.order_confirm_info_coupon_ll)
     LinearLayout orderConfirmInfoCouponLl;
-
-
+    @BindView(R.id.order_confirm_info_freight_iv)
+    ImageView orderConfirmInfoFreightIv;
     @BindView(R.id.order_confirm_paytype_mjmwcurrency_price_tv)
-    TextView mjmwcurrencyPriceTv;
-
-    @BindView(R.id.order_confirm_paytype_mjmwcurrency_ll)
-    LinearLayout paytypeMjbLl;
-    @BindView(R.id.order_confirm_paytype_zhifubao_ll)
-    LinearLayout paytypeAliLl;
-    @BindView(R.id.order_confirm_paytype_weixin_ll)
-    LinearLayout paytypeWechatLl;
+    TextView orderConfirmPaytypeMjmwcurrencyPriceTv;
     @BindView(R.id.order_confirm_paytype_mjmwcurrency_iv)
     ImageView orderConfirmPaytypeMjmwcurrencyIv;
+    @BindView(R.id.order_confirm_paytype_mjmwcurrency_ll)
+    LinearLayout orderConfirmPaytypeMjmwcurrencyLl;
     @BindView(R.id.order_confirm_paytype_weixin_iv)
     ImageView orderConfirmPaytypeWeixinIv;
+    @BindView(R.id.order_confirm_paytype_weixin_ll)
+    LinearLayout orderConfirmPaytypeWeixinLl;
     @BindView(R.id.order_confirm_paytype_zhifubao_iv)
     ImageView orderConfirmPaytypeZhifubaoIv;
-
-    @BindView(R.id.order_confirm_total_price_title)
-    TextView orderConfirmBottomTotalPriceTitle;
+    @BindView(R.id.order_confirm_paytype_zhifubao_ll)
+    LinearLayout orderConfirmPaytypeZhifubaoLl;
+    @BindView(R.id.order_offer_beizhu)
+    EditText orderOfferBeizhu;
+    @BindView(R.id.textView3)
+    TextView textView3;
     @BindView(R.id.order_confirm_pricelist_total_tv)
     TextView orderConfirmPricelistTotalTv;
     @BindView(R.id.order_confirm_pricelist_total_ll)
@@ -138,22 +154,39 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     TextView orderConfirmPricelistMjbTv;
     @BindView(R.id.order_confirm_pricelist_mjb_ll)
     LinearLayout orderConfirmPricelistMjbLl;
-
+    @BindView(R.id.order_confirm_pricelist_balacne_tv)
+    TextView orderConfirmPricelistBalacneTv;
+    @BindView(R.id.order_confirm_pricelist_balacne_ll)
+    LinearLayout orderConfirmPricelistBalacneLl;
     @BindView(R.id.order_confirm_pricelist_express_tv)
     TextView orderConfirmPricelistExpressTv;
     @BindView(R.id.order_confirm_pricelist_express_ll)
     LinearLayout orderConfirmPricelistExpressLl;
-    /*
-    * 备注
-    * */
-    @BindView(R.id.order_offer_beizhu)
-    EditText orderOfferRemarks;
+    @BindView(R.id.order_confirm_pricelist_shouldpay_tv)
+    TextView orderConfirmPricelistShouldpayTv;
+    @BindView(R.id.order_confirm_pricelist_shouldpay_ll)
+    LinearLayout orderConfirmPricelistShouldpayLl;
+    @BindView(R.id.order_confirm_pricelist_shouldpay_rl)
+    RelativeLayout orderConfirmPricelistShouldpayRl;
+    @BindView(R.id.order_confirm_topll)
+    LinearLayout orderConfirmTopll;
+    @BindView(R.id.order_confirm_total_price_title)
+    TextView orderConfirmTotalPriceTitle;
+    @BindView(R.id.order_confirm_total_price_tv)
+    TextView orderConfirmTotalPriceTv;
+    @BindView(R.id.order_confirm_bottom_selectall_rl)
+    RelativeLayout orderConfirmBottomSelectallRl;
+    @BindView(R.id.order_confirm_bottom_gopay_tv)
+    TextView orderConfirmBottomGopayTv;
+    @BindView(R.id.order_confirm_bottom_gopay_ll)
+    LinearLayout orderConfirmBottomGopayLl;
     @BindView(R.id.textView_cuxiao)
     TextView textViewCuxiao;
     @BindView(R.id.order_confirm_info_cuxiao_iv)
     ImageView orderConfirmInfoCuxiaoIv;
     @BindView(R.id.order_confirm_info_cuxiao_ll)
     LinearLayout orderConfirmInfoCuxiaoLl;
+
 
     private double totalprice;
     private double expressfree;
@@ -187,6 +220,10 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     private boolean isBuyImmediately;
 
     private BuyConfirmContract.Presenter mPresenter;
+    private boolean flag = false;
+    private String getPack;
+    private String time;
+    private boolean containIceBox = false;
 
     public static void activityStart(Context context, boolean isBuyImmediately) {
         Intent intent = new Intent();
@@ -232,12 +269,12 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         buyConfirmImgAdapter = new BuyConfirmImgAdapter(this);
         List<Goods> adapterCartData = mPresenter.getAdapterCartData(cartgoods);
         buyConfirmImgAdapter.setList(adapterCartData);
-        for (Goods good:adapterCartData) {
-            if (good.getItem_id().equals("1")){
+        for (Goods good : adapterCartData) {
+            if (good.getItem_id().equals("1")) {
                 orderConfirmInfoCuxiaoLl.setVisibility(View.VISIBLE);
+                containIceBox = true;
             }
         }
-
         orderConfirmGoodsRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         orderConfirmGoodsRv.setNestedScrollingEnabled(false);
         orderConfirmGoodsRv.setAdapter(buyConfirmImgAdapter);
@@ -253,12 +290,18 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
             /*
             * 备注*/
             R.id.order_offer_beizhu,
+            R.id.order_confirm_info_time_select_ll,
+            R.id.order_confirm_info_timeone_rb,
+            R.id.order_confirm_info_timetwo_rb,
+            R.id.order_confirm_info_timethree_rb,
+            R.id.order_confirm_info_timefour_rb,
+            R.id.order_confirm_info_deliverytype_userget_iv,
+            R.id.order_confirm_info_deliverytype_shopsend_iv,
 //            /*
 //            * 去支付*/
             R.id.order_confirm_bottom_gopay_tv,
             R.id.order_confirm_info_freight_tv, R.id.order_confirm_info_freight_iv,
-            R.id.order_confirm_info_freight_hint_iv,
-            R.id.order_confirm_info_cuxiao_iv})
+            R.id.order_confirm_info_freight_hint_iv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.order_confirm_paytype_mjmwcurrency_ll:
@@ -286,22 +329,15 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
             * 去支付*/
             case R.id.order_confirm_bottom_gopay_ll:
             case R.id.order_confirm_bottom_gopay_tv:
-
-    /*                 * 备注内容*/
-                note = orderOfferRemarks.getText().toString().trim();
-                //单双问题——乱码
-               /* try{
-                    note=new String(note.getBytes("utf-8"));
-                }catch(Exception e){
-                }*/
-                //备注的内容
-                orderOfferRemarks.setText(note);
+    /*         * 备注内容*/
+                note = orderOfferBeizhu.getText().toString().trim();
+                orderOfferBeizhu.setText(note);
 
                 if (SPUtils.getIsLogin()) {
                     paytype = mPresenter.getPayType(useMjb, paywechat, payalipay);
                     if (mPresenter.judgePayCondition(cartgoods, selectAddress.getId(), paytype, useMjb, user_mjb, note)) {
 
-                        mPresenter.postGenerateOrder(this, selectAddress.getId(), itemIdAndNumAndMjb, paytype, useMjb, note);
+                        mPresenter.postGenerateOrder(this, selectAddress.getId(),getPack,time, itemIdAndNumAndMjb, paytype, useMjb, note);
                     }
 
                 } else {
@@ -320,8 +356,46 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.order_offer_beizhu:
                 break;
-            case R.id.order_confirm_info_cuxiao_iv:
-                showCuxiaoDialog();
+            case R.id.order_confirm_info_time_select_ll:
+                if (flag) {
+                    orderConfirmInfoTimesRg.setVisibility(View.GONE);
+                    orderConfirmInfoTimesShowIv.setBackgroundResource(R.drawable.icon_arrow_down_gray);
+                    flag = false;
+                } else {
+                    orderConfirmInfoTimesRg.setVisibility(View.VISIBLE);
+                    orderConfirmInfoTimesShowIv.setBackgroundResource(R.drawable.icon_arrow_up_gray);
+                    flag = true;
+                }
+                break;
+            case R.id.order_confirm_info_timeone_rb:
+                time = "8";
+                orderConfirmInfoTimesTv.setText("8:00-12:00");
+                break;
+            case R.id.order_confirm_info_timetwo_rb:
+                time = "12";
+                orderConfirmInfoTimesTv.setText("12:00-14:00");
+                break;
+            case R.id.order_confirm_info_timethree_rb:
+                time = "14";
+                orderConfirmInfoTimesTv.setText("14:00-16:00");
+                break;
+            case R.id.order_confirm_info_timefour_rb:
+                time = "16";
+                orderConfirmInfoTimesTv.setText("16:00-18:00");
+                break;
+            case R.id.order_confirm_info_deliverytype_userget_iv:
+                orderConfirmInfoDeliverytypeShopsendIv.setImageResource(R.drawable.icon_check_wine);
+                orderConfirmInfoDeliverytypeUsergetIv.setImageResource(R.drawable.icon_check_wine_select);
+                orderConfirmInfoTimesRg.setVisibility(View.GONE);
+                orderConfirmInfoTimeSelectLl.setVisibility(View.GONE);
+                getPack = "0"; //0 用户自提
+                break;
+            case R.id.order_confirm_info_deliverytype_shopsend_iv:
+                orderConfirmInfoDeliverytypeShopsendIv.setImageResource(R.drawable.icon_check_wine_select);
+                orderConfirmInfoDeliverytypeUsergetIv.setImageResource(R.drawable.icon_check_wine);
+                orderConfirmInfoTimesRg.setVisibility(View.VISIBLE);
+                orderConfirmInfoTimeSelectLl.setVisibility(View.VISIBLE);
+                getPack = "1"; //1 小店配送
                 break;
         }
     }
@@ -376,7 +450,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         double userMjb = Double.parseDouble(user_mjb);
         useMjb = useMjb > userMjb ? userMjb : useMjb; //最大取用户现在美家钻
         if (hasMjbPayGoods) {
-            mjmwcurrencyPriceTv.setText(getResources().getString(R.string.use) + TextUtils.showPrice(useMjb));
+            orderConfirmPaytypeMjmwcurrencyPriceTv.setText(getResources().getString(R.string.use) + TextUtils.showPrice(useMjb));
             if (useMjb == 0) {
                 paywechat = false;
                 changePayType(Constants.PAY_TYPE_WECHAT);
@@ -385,7 +459,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                 orderConfirmPricelistMjbTv.setText("- " + TextUtils.showPrice(useMjb));
             }
         } else {
-            mjmwcurrencyPriceTv.setText(getResources().getString(R.string.shop_no_mjz1));
+            orderConfirmPaytypeMjmwcurrencyPriceTv.setText(getResources().getString(R.string.shop_no_mjz1));
         }
         totalprice = DbManager.getInstance().getCartGoodsPrice(isBuyImmediately);//商品总价
 
@@ -399,16 +473,16 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
 
         double temptotalprice = expressfree + totalprice - useMjb;
         if (temptotalprice == 0 && useMjb > 0) {
-            orderConfirmBottomTotalPriceTv.setText(TextUtils.showPrice(useMjb) + getResources().getString(R.string.ch_mjz));
+            orderConfirmTotalPriceTv.setText(TextUtils.showPrice(useMjb) + getResources().getString(R.string.ch_mjz));
             payalipay = false;
             paywechat = false;
             orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine);
             orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
         } else {
             if (temptotalprice > 0) {
-                orderConfirmBottomTotalPriceTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(temptotalprice));
+                orderConfirmTotalPriceTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(temptotalprice));
             } else {
-                orderConfirmBottomTotalPriceTv.setText(getResources().getString(R.string.zero));
+                orderConfirmTotalPriceTv.setText(getResources().getString(R.string.zero));
             }
         }
     }
@@ -476,7 +550,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         payPwHintDialog.setFinalBtnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.postGenerateOrder(BuyConfirmActivity.this, selectAddress.getId(), itemIdAndNumAndMjb, paytype, useMjb, note);
+                mPresenter.postGenerateOrder(BuyConfirmActivity.this, selectAddress.getId(), getPack, time, itemIdAndNumAndMjb, paytype, useMjb, note);
             }
         });
         payPwHintDialog.show(ft, "payPwHintDialog");
@@ -492,23 +566,35 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
      */
     @Override
     public void updateAddressView() {
+
         selectAddress = mPresenter.getDefaultAddress();
         String province = selectAddress.getProvince();
         String city = selectAddress.getCity();
         String district = selectAddress.getDistrict();
         L.e(TAG + " 地址数据 id " + selectAddress.getId() + " Address " + selectAddress.getAddress());
         if (selectAddress.getId().equals("")) {
-            orderConfirmNameTv.setText(getResources().getString(R.string.input_goods_address));
-            orderConfirmAddrTv.setText("");
+            orderAddressNameTv.setText(getResources().getString(R.string.input_goods_address));
+            orderAddressPhoneTv.setText("");
         } else {
-            orderConfirmNameTv.setText(getResources().getString(R.string.name) + selectAddress.getName());
-            orderConfirmPhoneTv.setText(getResources().getString(R.string.phone) + selectAddress.getPhone());
+            orderAddressNameTv.setText(getResources().getString(R.string.name) + selectAddress.getName());
+            orderAddressPhoneTv.setText(getResources().getString(R.string.phone) + selectAddress.getPhone());
             if (province.equals(city)) {
-                orderConfirmAddrTv.setText(getResources().getString(R.string.address) + province + district + selectAddress.getAddress());
+                orderAddressAddrTv.setText(getResources().getString(R.string.address) + province + district + selectAddress.getAddress());
             } else {
-                orderConfirmAddrTv.setText(getResources().getString(R.string.address) + province + city + district + selectAddress.getAddress());
+                orderAddressAddrTv.setText(getResources().getString(R.string.address) + province + city + district + selectAddress.getAddress());
             }
         }
+
+        if (selectAddress.getId().equals("0")) { //小店地址
+            orderConfirmInfoDeliverytypeLl.setVisibility(View.VISIBLE);
+            orderConfirmInfoDeliverytypeShopsendIv.setImageResource(R.drawable.icon_check_wine_select);
+            orderConfirmInfoDeliverytypeUsergetIv.setImageResource(R.drawable.icon_check_wine);
+            getPack = "1"; //1 小店配送
+            time = "0";
+        } else {
+            orderConfirmInfoDeliverytypeLl.setVisibility(View.GONE);
+        }
+
     }
 
 
@@ -533,8 +619,8 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         this.expressfree = expressfree;
         List<ExpressSupplier> suppliers = data.getSupplier();
         String free = null;
-        if (! (data.getTotal() == 0.00)){
-            free = getResources().getString(R.string.money) +  data.getTotal();
+        if (!(data.getTotal() == 0.00)) {
+            free = getResources().getString(R.string.money) + data.getTotal();
         }
         for (ExpressSupplier supplier : suppliers) {
             if (supplier.getSupplier_id().equals("1")) {
@@ -547,7 +633,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                         free = getResources().getString(R.string.mail);
                     }
                 }
-            }else if (supplier.getSupplier_id().equals("48")) {
+            } else if (supplier.getSupplier_id().equals("48")) {
                 if (free != null) {
                     if (!free.contains(getResources().getString(R.string.expressfree_pay))) {
                         free = free + "+" + getResources().getString(R.string.expressfree_pay);
@@ -556,7 +642,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                     free = getResources().getString(R.string.expressfree_pay);
                 }
 
-            }else if (supplier.getExpress_fee() <= 0.00d) {
+            } else if (supplier.getExpress_fee() <= 0.00d) {
                 if (free != null) {
                     if (!free.contains(getResources().getString(R.string.mail))) {
                         free = free + "+" + getResources().getString(R.string.mail);
@@ -605,11 +691,6 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         DialogUtils.showExprnse(this, getString(R.string.mjmw_bz));
     }
 
-    private void showCuxiaoDialog() {
-        DialogUtils.showCuxiao(this, getString(R.string.mjmw_icebox_cuxiao));
-    }
-
-
     @Override
     public void finish() {
         super.finish();
@@ -636,7 +717,6 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
             return true;
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

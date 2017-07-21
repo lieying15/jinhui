@@ -216,11 +216,11 @@ public class HomePageFragment extends BaseFragment {
         list.add(viewpagerFragment7);
         list.add(viewpagerFragment8);
 
-        adapter = new FragAdapter(getActivity().getSupportFragmentManager(),list);
+        adapter = new FragAdapter(getActivity().getSupportFragmentManager(), list);
         homepageViewpageRv.setAdapter(adapter);
         homepageViewpageRv.setOffscreenPageLimit(9);
         homepageViewpageRv.setCurrentItem(0);
-        ((ViewpagerFragment)list.get(0)).setIsHome(true);
+        ((ViewpagerFragment) list.get(0)).setIsHome(true);
 
         animatCart = new AnimatCartUtils(getActivity(), ((IndexActivity) getActivity()).getBottomTabView().getTabShopcartIv());
         homepageHeader.setActivityContext(getActivity());
@@ -395,20 +395,20 @@ public class HomePageFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int position) {
-                if (position > 0){
-                    updateTopTab(position-1);
-                    ((ViewpagerFragment)list.get(position)).setIsHome(false);
-                    ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
-                    ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
-                    ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
-                }else {
-                    ((ViewpagerFragment)list.get(position)).setIsHome(true);
-                    ((ViewpagerFragment)list.get(position)).clearGoodsList();
+                if (position > 0) {
+                    updateTopTab(position - 1);
+                    ((ViewpagerFragment) list.get(position)).setIsHome(false);
+                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
+                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
+                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
+                } else {
+                    ((ViewpagerFragment) list.get(position)).setIsHome(true);
+                    ((ViewpagerFragment) list.get(position)).clearGoodsList();
                     for (int i = 0; i < selectStates.size(); i++) {
                         selectStates.setValueAt(i, false);
                     }
-                    ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
-                    ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
+                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
+                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
                     tabAdapter.setSelectStates(selectStates);
                     tabTextAdapter.setSelectStates(selectStates);
                 }
@@ -464,9 +464,9 @@ public class HomePageFragment extends BaseFragment {
         selectStates.setValueAt(position, true);
         tabAdapter.setSelectStates(selectStates);
         tabTextAdapter.setSelectStates(selectStates);
-        homepageViewpageRv.setCurrentItem(position+1);
+        homepageViewpageRv.setCurrentItem(position + 1);
         catid = categoryTopList.get(position).getCatid();
-        ((ViewpagerFragment)list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
+        ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
     }
 
     public void gotoTop() {
@@ -537,25 +537,22 @@ public class HomePageFragment extends BaseFragment {
         todaygoodsNameTv.setText(goods.getItem_name());
 
         todaygoodsDescribeTv.setText(goods.getItem_subtitle());
-        if (goods.getItem_id().equals("1")) {
-            todaygoodsPriceTv.setText(getResources().getString(R.string.ice_voucher_use));
+
+        String priceStr = goods.getItem_price();
+        todaygoodsPriceTv.setText(getResources().getString(R.string.money_) + priceStr);
+        if (goods.getIs_mjb().equals("0")) {
+            todaygoodsMjzTv.setVisibility(View.GONE);
         } else {
-            String priceStr = goods.getItem_price();
-            todaygoodsPriceTv.setText(getResources().getString(R.string.money_) + priceStr);
-            if (goods.getIs_mjb().equals("0")) {
-                todaygoodsMjzTv.setVisibility(View.GONE);
-            } else {
-                todaygoodsMjzTv.setVisibility(View.VISIBLE);
-                String mjzStr = goods.getItem_price();
-                if (goods.getIs_mjb().equals("2"))
-                    mjzStr = goods.getMjb_value();
-                SpannableString spannableString = new SpannableString(getString(R.string.use_mjz) + mjzStr);
-                Drawable drawable = getResources().getDrawable(R.drawable.icon_mjz);
-                drawable.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_mjz_x), (int) getResources().getDimension(R.dimen.icon_mjz_y));
-                ImageSpan imageSpan = new ImageSpan(drawable);
-                spannableString.setSpan(imageSpan, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                todaygoodsMjzTv.setText(spannableString);
-            }
+            todaygoodsMjzTv.setVisibility(View.VISIBLE);
+            String mjzStr = goods.getItem_price();
+            if (goods.getIs_mjb().equals("2"))
+                mjzStr = goods.getMjb_value();
+            SpannableString spannableString = new SpannableString(getString(R.string.use_mjz) + mjzStr);
+            Drawable drawable = getResources().getDrawable(R.drawable.icon_mjz);
+            drawable.setBounds(0, 0, (int) getResources().getDimension(R.dimen.icon_mjz_x), (int) getResources().getDimension(R.dimen.icon_mjz_y));
+            ImageSpan imageSpan = new ImageSpan(drawable);
+            spannableString.setSpan(imageSpan, 3, 4, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            todaygoodsMjzTv.setText(spannableString);
         }
     }
 
@@ -622,6 +619,7 @@ public class HomePageFragment extends BaseFragment {
 
     /**
      * 主页数据请求 包括  ：轮播图 今日特供，首页的商品
+     *
      * @param needBar
      */
 
@@ -638,26 +636,27 @@ public class HomePageFragment extends BaseFragment {
                 bannerListData.clear();
                 bannerListData.addAll(homepageBaseResponse.getData().getTitle());
                 updateBanner(bannerListData);
-                if (homepageBaseResponse.getData().getToday().size() > 0 ) {
+                if (homepageBaseResponse.getData().getToday().size() > 0) {
                     showTodayGoods(homepageBaseResponse.getData().getToday().get(0));
-                }else {
+                } else {
                     hideTodayGoods();
                 }
             }
         };
 
         NetworkManager.getGoodsDataApi()
-                .getHomepageDate(current_page , Constants.PageDataCount)
-                .compose(RxUtils.androidSchedulers(this,needBar))
+                .getHomepageDate(current_page, Constants.PageDataCount)
+                .compose(RxUtils.androidSchedulers(this, needBar))
                 .subscribe(homePageDateObserver);
     }
 
     /**
      * 请求分类
+     *
      * @param needBar
      */
-    public void loadCategoryData(final  boolean needBar) {
-        categoryObserver  = new BaseObserver<CategoryTopResponse>() {
+    public void loadCategoryData(final boolean needBar) {
+        categoryObserver = new BaseObserver<CategoryTopResponse>() {
             @Override
             public void onErrorResponse(CategoryTopResponse categoryTopResponse) {
             }
@@ -671,7 +670,7 @@ public class HomePageFragment extends BaseFragment {
         };
         NetworkManager.getGoodsDataApi()
                 .getCategoryTop()
-                .compose(RxUtils.androidSchedulers(this,needBar))
+                .compose(RxUtils.androidSchedulers(this, needBar))
                 .subscribe(categoryObserver);
     }
 
@@ -686,7 +685,7 @@ public class HomePageFragment extends BaseFragment {
 
 
     public boolean hasBannerDate() {
-        if(bannerListData != null && bannerListData.size() > 0) {
+        if (bannerListData != null && bannerListData.size() > 0) {
             return true;
         } else {
             return false;

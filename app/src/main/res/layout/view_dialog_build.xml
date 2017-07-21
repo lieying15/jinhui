@@ -5,12 +5,11 @@
     android:background="@drawable/shap_radius_white_r50"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
     <ImageView
-        android:layout_width="@dimen/x50"
-        android:layout_height="@dimen/x50"
+        android:layout_width="@dimen/x60"
+        android:layout_height="@dimen/x60"
         android:src="@drawable/store_building"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"/>

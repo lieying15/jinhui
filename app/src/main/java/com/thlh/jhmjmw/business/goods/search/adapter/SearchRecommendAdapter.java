@@ -45,12 +45,7 @@ public class SearchRecommendAdapter extends EasyRecyclerViewAdapter {
         goodsNameTv.setText(goods.getItem_name());
 
         String priceStr = goods.getItem_price();
-            /*
-            *R.string.money_不可用；
-            * ¥不可用
-            * place--->购物车--》为您推荐
-            * place--->搜索---》热卖推荐
-             */
+
         goodsPriceTv.setText(context.getResources().getString(R.string.money_) + priceStr);
         if (goods.getIs_mjb().equals("0")) {
             goodsMjzTv.setVisibility(View.GONE);
