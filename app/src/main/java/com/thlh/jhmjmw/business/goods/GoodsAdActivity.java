@@ -73,7 +73,7 @@ public class GoodsAdActivity extends BaseActivity {
 
         @Override
         public int getCount() {
-            return 6;
+            return 8;
         }
 
         @Override

@@ -51,10 +51,9 @@
         <meta-data
             android:name="com.thlh.baselib.base.BaseGlideMoudle"
             android:value="GlideModule" />
-        <!-- <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="3C5Wk6aBh1dFuRW6KL1jSxGL0ItpphjG" /> -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="nyOpdjTocE8udyWM6fk2Go48H6XZ6egf" />
+            android:value="FzxpTO6fdnLfHeTXWCrT8VkKjHXLa8BT" />
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="${UMENG_APPKEY}" />
@@ -468,7 +467,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="5f9ce11fb6b11541805323ea" />
+            android:value="de51cfbd61833dc579a0642b" />
 
         <receiver
             android:name="com.thlh.jhmjmw.receiver.JPushReceiver"

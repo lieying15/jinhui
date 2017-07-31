@@ -35,10 +35,12 @@ public class IndexAdFragment extends BaseFragment {
 
     private int[] mImge_bj = {
             R.drawable.icebox_ad01, R.drawable.icebox_ad021, R.drawable.icebox_ad03,
-            R.drawable.icebox_ad04, R.drawable.icebox_ad05, R.drawable.icebox_ad06};
+            R.drawable.icebox_ad04, R.drawable.icebox_ad05, R.drawable.icebox_ad06
+    ,R.drawable.icebox_ad021,R.drawable.icebox_ad08};
     private int[] mImge = {
             R.drawable.icebox_ad01, R.drawable.icebox_ad02, R.drawable.icebox_ad03,
-            R.drawable.icebox_ad04, R.drawable.icebox_ad05, R.drawable.icebox_ad06};
+            R.drawable.icebox_ad04, R.drawable.icebox_ad05, R.drawable.icebox_ad06
+            ,R.drawable.icebox_ad021,R.drawable.icebox_ad08};
 
     public static IndexAdFragment newInstance(int sectionNumber, String goods_id) {
         IndexAdFragment fragment = new IndexAdFragment();
@@ -69,9 +71,9 @@ public class IndexAdFragment extends BaseFragment {
             goodsAdBackIv.setImageResource(mImge[select_num]);
         }
 
-        if (select_num == 5) {
-            goodsAdTodetailTv.setVisibility(View.VISIBLE);
-            goodsAdTorechargeTv.setVisibility(View.VISIBLE);
+        if (select_num == 7) {
+            goodsAdTodetailTv.setVisibility(View.GONE);
+            goodsAdTorechargeTv.setVisibility(View.GONE);
             goodsAdArrowIv.setVisibility(View.GONE);
         } else {
             goodsAdTodetailTv.setVisibility(View.GONE);

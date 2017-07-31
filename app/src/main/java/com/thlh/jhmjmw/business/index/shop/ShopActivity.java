@@ -71,16 +71,19 @@ public class ShopActivity extends BaseViewActivity {
 
         builder = new BaseDialog.Builder(this);
         builder1 = new StoreBuildDialog.Builder(this);
-        if (is_bind == 1){
-            showBuildStore();
-        }else {
-            shopUnbindStoreLl.setVisibility(View.VISIBLE);
-        }
 
         observer = new BaseObserver<StoreStateResponse>() {
             @Override
             public void onNextResponse(StoreStateResponse storeStateResponse) {
                 id = storeStateResponse.getData().getStore().getId();
+                is_bind = storeStateResponse.getData().getIs_bind();
+                SPUtils.put("is_bind_store", is_bind);
+                if (is_bind == 1){
+                    showBuildStore();
+                }else {
+                    shopUnbindStoreLl.setVisibility(View.VISIBLE);
+                }
+
             }
 
             @Override

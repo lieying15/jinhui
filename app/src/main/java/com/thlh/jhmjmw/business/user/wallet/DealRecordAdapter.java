@@ -56,9 +56,9 @@ public class DealRecordAdapter extends EasyRecyclerViewAdapter {
         }
         String recharge_from = dealRecord.getRecharge_from();
         if (recharge_from.equals("3")){
-            describeTv.setText(context.getResources().getText(R.string.zfb_recharge));
-        }else if (recharge_from.equals("4")){
             describeTv.setText(context.getResources().getText(R.string.wx_recharge));
+        }else if (recharge_from.equals("4")){
+            describeTv.setText(context.getResources().getText(R.string.zfb_recharge));
         }else if (recharge_from.equals("5")){
             describeTv.setText(context.getResources().getText(R.string.card_exchange));
         }else{
