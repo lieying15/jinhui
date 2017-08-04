@@ -224,6 +224,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     private String getPack;
     private String time;
     private boolean containIceBox = false;
+    private double temptotalprice;
 
     public static void activityStart(Context context, boolean isBuyImmediately) {
         Intent intent = new Intent();
@@ -335,8 +336,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
 
                 if (SPUtils.getIsLogin()) {
                     paytype = mPresenter.getPayType(useMjb, paywechat, payalipay);
-                    if (mPresenter.judgePayCondition(cartgoods, selectAddress.getId(), paytype, useMjb, user_mjb, note)) {
-
+                    if (mPresenter.judgePayCondition(cartgoods, selectAddress.getId(), paytype, useMjb, user_mjb,temptotalprice,note)) {
                         mPresenter.postGenerateOrder(this, selectAddress.getId(),getPack,time, itemIdAndNumAndMjb, paytype, useMjb, note);
                     }
 
@@ -436,7 +436,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                 orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine);
                 break;
             default:
-                ;
+                break;
         }
     }
 
@@ -471,7 +471,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
             orderConfirmPricelistTotalTv.setText(getResources().getString(R.string.zero));
         }
 
-        double temptotalprice = expressfree + totalprice - useMjb;
+        temptotalprice = expressfree + totalprice - useMjb;
         if (temptotalprice == 0 && useMjb > 0) {
             orderConfirmTotalPriceTv.setText(TextUtils.showPrice(useMjb) + getResources().getString(R.string.ch_mjz));
             payalipay = false;
@@ -481,6 +481,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         } else {
             if (temptotalprice > 0) {
                 orderConfirmTotalPriceTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(temptotalprice));
+                changePayType(Constants.PAY_TYPE_WECHAT);
             } else {
                 orderConfirmTotalPriceTv.setText(getResources().getString(R.string.zero));
             }

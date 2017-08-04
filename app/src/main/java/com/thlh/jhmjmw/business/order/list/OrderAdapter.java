@@ -278,6 +278,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         });
 
         priceTv.setText(OrderUtils.getListTotalPrice(order,context));
+        L.e("shouldpay===" + order.getShould_pay()  +"=====" + OrderUtils.getListTotalPrice(order,context));
         SpannableStringBuilder builder = new SpannableStringBuilder(context.getResources().getString(R.string.gong) +  goodsOrders.size() + context.getResources().getString(R.string.shops));
         //ForegroundColorSpan 为文字前景色，BackgroundColorSpan为文字背景色
         ForegroundColorSpan redSpan = new ForegroundColorSpan(context.getResources().getColor(R.color.app_theme));

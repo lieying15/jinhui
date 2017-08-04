@@ -16,7 +16,7 @@ public class ImageLoader {
 
     public static void display(String path, ImageView view){
         Glide.with(BaseApplication.getInstance())
-                .load(Deployment.IMAGE_PATH +path)
+                .load(path)
                 .placeholder(R.drawable.img_loading)//加载中显示的图片
 //                .placeholder(R.drawable.load2)//加载中显示的图片
                 .error(R.drawable.img_empty)//加载失败时显示的图片
@@ -26,7 +26,7 @@ public class ImageLoader {
     //显示优先级的
     public static void display(String path, ImageView view,Priority priority){
         Glide.with(BaseApplication.getInstance())
-                .load(Deployment.IMAGE_PATH +path)
+                .load(path)
                 .placeholder(R.drawable.img_loading)//加载中显示的图片
 //                .placeholder(R.drawable.load2)//加载中显示的图片
                 .error(R.drawable.img_empty)//加载失败时显示的图片
@@ -45,7 +45,7 @@ public class ImageLoader {
     public static void displayRoundImg(String path, ImageView view){
         int radius = (int) BaseApplication.getInstance().getBaseContext().getResources().getDimension(com.thlh.jhmjmw.R.dimen.x10);
         Glide.with(BaseApplication.getInstance())
-                .load(Deployment.IMAGE_PATH +path)
+                .load(path)
                 .placeholder(R.drawable.img_loading)//加载中显示的图片
 //                .error(defautlt)//加载失败时显示的图片
                 .transform(new GlideRoundTransform(BaseApplication.getInstance().getBaseContext(),radius))
@@ -54,7 +54,7 @@ public class ImageLoader {
 
     public static void display(String path, ImageView view, int defautlt, BitmapTransformation bitmapTransformation){
         Glide.with(BaseApplication.getInstance())
-                .load(Deployment.IMAGE_PATH +path)
+                .load(path)
                 .placeholder(defautlt)//加载中显示的图片
                 .error(defautlt)//加载失败时显示的图片
                 .transform(bitmapTransformation)

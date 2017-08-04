@@ -146,7 +146,12 @@ public class PayPasswordActivity extends BaseActivity {
             @Override
             public void onErrorResponse(OrderPayResponse payResponse) {
                 progressMaterial.dismiss();
-                showPWErrorDialog(payResponse.getErr_msg());
+                L.e("cuowu====" + payResponse.getData().getErr_num() );
+                if (payResponse.getData().getErr_num() == 4){
+                    showPWErrorDialog(getResources().getString(R.string.paypass_ero));
+                }else {
+                    showPWErrorDialog(payResponse.getErr_msg());
+                }
             }
 
             @Override
@@ -189,6 +194,7 @@ public class PayPasswordActivity extends BaseActivity {
             public void onError(Throwable e) {
                 L.e(TAG + "  WeChatPayResponse onError" + e.toString());
                 progressMaterial.dismiss();
+                finish();
             }
 
             @Override

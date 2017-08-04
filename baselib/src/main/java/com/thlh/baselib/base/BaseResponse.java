@@ -7,7 +7,6 @@ public class BaseResponse{
     private int err_code;
     private String err_msg;
 
-
     public int getErr_code() {
         return err_code;
     }

@@ -51,7 +51,7 @@ public interface BuyConfirmContract {
 
         void postPayOrder(Activity activity, String orderid, String itemIdAndNumAndMjb, String paytype);
 
-        boolean judgePayCondition(List<Cartgoods> cartgoods, String addressId,String paytype, double useMjb, String user_mjb, String note);
+        boolean judgePayCondition(List<Cartgoods> cartgoods, String addressId, String paytype, double useMjb, String user_mjb, double temptotalprice, String note);
 
         Address getDefaultAddress();
 

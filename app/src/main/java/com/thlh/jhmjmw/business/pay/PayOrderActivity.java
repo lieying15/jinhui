@@ -153,7 +153,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         if(isPay.equals("0")){
             shouldpay = order.getShould_pay();
             goodsOrderList = getCartGoodsFormOrder(order);
-            useMjb = getMjbPrice(goodsOrderList); //可用的每家币
+            useMjb = Double.parseDouble(order.getPay_by_mjb()); //可用的每家币
             for (GoodsOrder goodsOrder : goodsOrderList){ //能用每家币支付的商品加入数组
                 if(!goodsOrder.getIs_mjb().equals("0")){
                     useMjbItemId.add(goodsOrder.getItem_id());
@@ -192,7 +192,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
 
         updateUseMjb();
 
-        double tempShouldPay = shouldpay - useMjb;
+        double tempShouldPay = shouldpay;
         if(tempShouldPay == 0 && useMjb>0){
             shouldpayTv.setText(TextUtils.showPrice(useMjb) + getResources().getString(R.string.ch_mjz));
         }
@@ -576,7 +576,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         return  goodsOrderList;
     }
 
-    private double getMjbPrice(ArrayList<GoodsOrder> goodsOrderList){
+   /* private double getMjbPrice(ArrayList<GoodsOrder> goodsOrderList){
         double tempMjb = 0;
         for(GoodsOrder goodsOrder :goodsOrderList){
             if(goodsOrder.getIs_mjb().equals("1")){
@@ -587,11 +587,12 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             }
         }
         return   tempMjb ;
-    }
+    }*/
 
     private void updateUseMjb(){
+        useMjb = Double.parseDouble(order.getPay_by_mjb());//可用的每家币
         if(useMjb>0){
-            pricelistMjbTv.setText("- " + getResources().getString(R.string.money)+useMjb );
+            pricelistMjbTv.setText("- " + getResources().getString(R.string.money)+ order.getPay_by_mjb() );
         }else {
             pricelistMjbTv.setText("- "+ getResources().getString(R.string.money) +"0");
         }

@@ -9,9 +9,9 @@ public class Constants {
 	public static final String ALI_NOTIFY_URL = "Notify/alipay";
 	public static final String ALI_CLOSETIME = "60m";  //超时关闭时间
 	//微信支付参数
-	public static final String WECHAT_APP_ID = "wxa1a34eeee13e9a53";
+	public static final String WECHAT_APP_ID = "wx9fea5d86e2148924";
 	public static final String WECHAT_MCH_ID = "1370241002";
-	public static final String WECHAT_API_KEY ="E71D2BC53942E47BBF1CB87AD78ACECB";
+	public static final String WECHAT_API_KEY ="7d0254d9252dc6778f342d5f69bf9b97";
 	public static final String WECHAT_NOTIFY_URL = "Notify/wechat";
 
 	//支付目的 1下单 2钱包充值 3美家币充值

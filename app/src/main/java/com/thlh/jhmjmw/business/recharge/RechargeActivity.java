@@ -599,7 +599,7 @@ public class RechargeActivity extends BaseActivity {
         String pay_purpose = (String) SPUtils.get("pay_purpose", "2").toString();  // 1下单支付 2钱包充值 3美家钻充值
         L.e(TAG + " showRechargeResultDialog is_coupon:" + is_coupon + " hadRechargeBox " + hadRechargeBox + " pay_purpose" + pay_purpose + " amount " + amount);
 
-        if (is_coupon == 0 && !hadRechargeBox && pay_purpose.equals("3") && amount >= Constants.RECHARGE_SENDICEBOX_PRICE) {
+        if (amount >= Constants.RECHARGE_SENDICEBOX_PRICE&& !hadRechargeBox && pay_purpose.equals("3") && is_coupon == 0 ) {
             /**充值成功后隐藏*/
 //            rechargeIceboxll.setVisibility(View.GONE);
 
@@ -643,7 +643,6 @@ public class RechargeActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 rechargeResultDialog.dismiss();
-                setResult(Activity.RESULT_OK);
                 finish();
             }
         });

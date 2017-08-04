@@ -46,12 +46,15 @@
     <LinearLayout
         android:id="@+id/order_confirm_pricelist_mjb_ll"
         style="@style/order_confirm_price_ll">
+
         <TextView
+            android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="金惠币"
-            android:textSize="@dimen/y28"
-            android:textColor="@color/text_tips"/>
+            android:textColor="@color/text_tips"
+            android:textSize="@dimen/y28" />
+
         <TextView
             android:id="@+id/order_confirm_pricelist_mjb_tv"
             android:layout_width="wrap_content"

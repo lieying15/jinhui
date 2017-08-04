@@ -312,6 +312,7 @@
 
     <string name="pay_password">为了您的账户安全，您可前往“我的-账户安全”设置支付密码</string>
     <string name="set_password">设置密码</string>
+    <string name="paypass_ero">抱歉，您输入的密码错误，您仅剩1次机会。为保障您的账户安全，若再次出现错误，您账户内的金惠币将冻结。</string>
 
     <string name="input_goods_address">请输入收货地址</string>
 

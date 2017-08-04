@@ -185,7 +185,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
                         return;
                     }
                     if (paytype.contains(Constants.PAY_TYPE_ALIPAY)) {
-                        L.i(TAG + " 调用支付宝支付 totalprice " + totalprice + " pay_no" + pay_no);
+                        L.i(TAG + " 调用支付宝支付 totalprice " + tempprice + " pay_no" + pay_no);
                         startAliPay(activity,tempprice, pay_no);
                         return;
                     }
@@ -200,7 +200,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
     }
 
     @Override
-    public boolean judgePayCondition(List<Cartgoods> cartgoods, String addressId,String paytype, double useMjb, String user_mjb, String note) {
+    public boolean judgePayCondition(List<Cartgoods> cartgoods, String addressId, String paytype, double useMjb, String user_mjb, double temptotalprice, String note) {
         if (addressId.equals("")) {
             /*
             *
@@ -219,13 +219,14 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
             return false;
         }
 
-        double temptotalprice = expressfree + totalprice - useMjb;
+        L.e("BuyConfirm==temptotalprice====" + temptotalprice  + "===totalprice==="  + totalprice);
         if (temptotalprice > 0 && paytype.equals(Constants.PAY_TYPE_MJB)) {
             mView.showHintDialog(context.getResources().getString(R.string.pay_choose));
             return false;
         }
 
         double tempmjb = Double.parseDouble(user_mjb);
+        L.e("BuyConfirm==tempmjb====" + tempmjb); //用户的金惠币
         if (totalprice > tempmjb && paytype.equals(Constants.PAY_TYPE_MJB)) {
             mView.showHintDialog(context.getResources().getString(R.string.another_pays_way));
             return false;

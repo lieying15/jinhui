@@ -25,6 +25,10 @@ public class OrderPayResponse extends BaseResponse {
     }
 
     public static class DataBean {
+
+
+
+        private int err_num;
         private String order_id;
         private String third;
         private String pay_no;
@@ -60,6 +64,14 @@ public class OrderPayResponse extends BaseResponse {
 
         public void setAmount(double amount) {
             this.amount = amount;
+        }
+
+        public int getErr_num() {
+            return err_num;
+        }
+
+        public void setErr_num(int err_num) {
+            this.err_num = err_num;
         }
     }
 }
