@@ -17,6 +17,8 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
  * 商城精选页适配
  */
 public class ChoicenessAdapter extends EasyRecyclerViewAdapter {
+    private String url;
+
     @Override
     public int[] getItemLayouts() {
         return new int[]{
@@ -34,12 +36,17 @@ public class ChoicenessAdapter extends EasyRecyclerViewAdapter {
         TextView subTitleTv = viewHolder.findViewById(R.id.item_choiceness_subtitle_tv);
         titleTv.setText(choiceness.getTitle());
         subTitleTv.setText(choiceness.getSubtile());
+        if (choiceness.getPic().contains("http")){
+            url = choiceness.getPic();
+        }else {
+            url =Deployment.IMAGE_PATH + choiceness.getPic();
+        }
+            Glide.with(BaseApplication.getInstance())
+                    .load(url)
+                    .error(com.thlh.baselib.R.drawable.img_empty)//加载失败时显示的图片
+                    .transform(new GlideRoundTransform(BaseApplication.getInstance().getBaseContext(), 5))
+                    .into(choiceIv);
 
-        Glide.with(BaseApplication.getInstance())
-                .load(Deployment.IMAGE_PATH + choiceness.getPic())
-                .error(com.thlh.baselib.R.drawable.img_empty)//加载失败时显示的图片
-                .transform(new GlideRoundTransform(BaseApplication.getInstance().getBaseContext(),5))
-                .into(choiceIv);
     }
 
     @Override

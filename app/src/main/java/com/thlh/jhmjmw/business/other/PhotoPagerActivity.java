@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.thlh.baselib.base.BaseActivity;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.photo.PhotoView;
 
@@ -36,6 +37,7 @@ public class PhotoPagerActivity extends BaseActivity {
     private TextView tv_photonum;
     private List<String> mPhotosListData = new ArrayList<String>();
     private int initPosition;
+    private String url;
 
     public static void activityStart(Context context, ArrayList<String> imagesUrl, int position) {
         Intent intent = new Intent(context, PhotoPagerActivity.class);
@@ -78,7 +80,13 @@ public class PhotoPagerActivity extends BaseActivity {
                         finish();
                     }
                 });
-                ImageLoader.display(mPhotosListData.get(position),view);
+
+                if (mPhotosListData.get(position).contains("http")){
+                    url = mPhotosListData.get(position);
+                }else {
+                    url = Deployment.IMAGE_PATH + mPhotosListData.get(position);
+                }
+                ImageLoader.display(url,view);
                 container.addView(view);
                 return view;
             }

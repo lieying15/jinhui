@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.thlh.baselib.model.Cartgoods;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -30,8 +31,7 @@ public class ShopcartItemAdapter extends EasyRecyclerViewAdapter {
     private List<Cartgoods> cartgoods;
     private Activity context;
     private Map<String,String> itemStatusMap;
-
-
+    private String url;
 
 
     public ShopcartItemAdapter(Activity context, List<Cartgoods> cartgoods, List<Boolean> goodsCheckStates,Map<String,String> itemStatusMap){
@@ -67,7 +67,13 @@ public class ShopcartItemAdapter extends EasyRecyclerViewAdapter {
         FrameLayout shopcartSubFl = viewHolder.findViewById(R.id.shopcart_sub_fl);
         FrameLayout shopcartAddFl = viewHolder.findViewById(R.id.shopcart_add_fl);
         TextView shopcartNumTv = viewHolder.findViewById(R.id.shopcart_num_tv);
-        ImageLoader.displayRoundImg(cartgoods.getGoodsdb().getItem_img_thumb(),shopcartIv);
+
+        if (cartgoods.getGoodsdb().getItem_img_thumb().contains("http")){
+            url = cartgoods.getGoodsdb().getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + cartgoods.getGoodsdb().getItem_img_thumb();
+        }
+        ImageLoader.displayRoundImg(url,shopcartIv);
 
         shopcartNameTv.setText(cartgoods.getGoodsdb().getItem_name());
         String ismjb = cartgoods.getGoodsdb().getIs_mjb();

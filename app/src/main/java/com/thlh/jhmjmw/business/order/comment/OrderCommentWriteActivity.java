@@ -117,6 +117,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
     private String isshowname;
     private int  rank;
     private String commentFlag;
+    private String url;
 
 
     public static void activityStart(Activity context,GoodsComment goodsComment,int code) {
@@ -141,7 +142,13 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
                 showSaveDialog();
             }
         });
-        ImageLoader.displayRoundImg(goodsComment.getItem_img_thumb(),commentWriteGoodsIv);
+
+        if (goodsComment.getItem_img_thumb().contains("http")){
+            url = goodsComment.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goodsComment.getItem_img_thumb();
+        }
+        ImageLoader.displayRoundImg(url,commentWriteGoodsIv);
         commentWriteGoodsNameTv.setText(goodsComment.getItem_name());
         commentWriteNumTv.setText(getResources().getString(R.string.multiplys)+goodsComment.getItem_num());
         commentPriceTv.setText(getResources().getString(R.string.money)+ goodsComment.getPrice()  );
@@ -333,7 +340,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 
         return  true;
     }
-    
+
     private void postAddComment(String flag) {
         if(judgeCommentInfo()){
             progressMaterial.show();

@@ -17,7 +17,7 @@ import com.thlh.baselib.utils.AppUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.index.IndexActivity;
-import com.thlh.jhmjmw.business.other.AboatUsActivity;
+import com.thlh.jhmjmw.business.other.AboutUsActivity;
 import com.thlh.jhmjmw.business.other.BaseViewActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.L;
@@ -50,8 +50,8 @@ public class SettingActivity extends BaseViewActivity implements View.OnClickLis
     TextView settingVersionTv;
     @BindView(R.id.setting_update_tv)
     TextView settingUpdateTv;
-    @BindView(R.id.setting_aboatus_tv)
-    TextView settingAboatUsTv;
+    @BindView(R.id.setting_aboutus_tv)
+    TextView settingAboutUsTv;
     @BindView(R.id.setting_chmemeber_tv)
     TextView chmemberTv;
 
@@ -137,7 +137,7 @@ public class SettingActivity extends BaseViewActivity implements View.OnClickLis
                 setResult(Activity.RESULT_OK);
                 ActivityUtils.popAllActivityUntilSpecify(IndexActivity.class);
                 clearUserInfo();
-//                finish();
+                finish();
             }
 
             @Override
@@ -229,14 +229,14 @@ public class SettingActivity extends BaseViewActivity implements View.OnClickLis
     }
 
 
-    @OnClick({R.id.setting_update_tv})
+    @OnClick({R.id.setting_update_tv,R.id.setting_aboutus_tv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.setting_update_tv:
                 loadVersion();
                 break;
-            case R.id.setting_aboatus_tv:
-                AboatUsActivity.activityStart(SettingActivity.this);
+            case R.id.setting_aboutus_tv:
+                AboutUsActivity.activityStart(SettingActivity.this);
                 break;
         }
     }

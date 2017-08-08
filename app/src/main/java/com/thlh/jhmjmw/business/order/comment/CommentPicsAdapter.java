@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -16,6 +17,8 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 public class CommentPicsAdapter extends EasyRecyclerViewAdapter {
     private Context context;
     private int showCount = 5;
+    private String url;
+
     public CommentPicsAdapter(Context context) {
         this.context = context;
     }
@@ -40,7 +43,12 @@ public class CommentPicsAdapter extends EasyRecyclerViewAdapter {
         ViewGroup.LayoutParams layoutParams = goodsIv.getLayoutParams();
 
         String goodspath = (String)this.getItem(position);
-        ImageLoader.display(goodspath,goodsIv);
+        if (goodspath.contains("http")){
+            url = goodspath;
+        }else {
+            url = Deployment.IMAGE_PATH + goodspath;
+        }
+        ImageLoader.display(url,goodsIv);
     }
 
     @Override

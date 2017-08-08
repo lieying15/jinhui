@@ -9,10 +9,10 @@
     <ImageView
         android:layout_width="45dp"
         android:layout_height="30dp"
-        android:src="@drawable/hompage_logo1"/>
-    <ImageView
+        android:src="@drawable/logo"/>
+<!--    <ImageView
         android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/hompage_logo2"/>
+        android:src="@drawable/hompage_logo2"/>-->
 </LinearLayout>

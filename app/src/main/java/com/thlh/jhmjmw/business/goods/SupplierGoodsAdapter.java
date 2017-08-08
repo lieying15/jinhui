@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.thlh.baselib.model.Goods;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -20,6 +21,8 @@ public class SupplierGoodsAdapter extends EasyRecyclerViewAdapter {
     private OnClickListener listener;
 
     private Context context;
+    private String url;
+
     public SupplierGoodsAdapter(Context context) {
         this.context = context;
     }
@@ -44,7 +47,12 @@ public class SupplierGoodsAdapter extends EasyRecyclerViewAdapter {
 
         boolean setCartListener = true;
         goodsNameTv.setText(goods.getItem_name());
-        ImageLoader.display(goods.getItem_img_thumb(),goodsIv);
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.display(url,goodsIv);
 
 
         if(goods.getIs_limit().equals("1")&&goods.getLimit_icon().equals("1")){

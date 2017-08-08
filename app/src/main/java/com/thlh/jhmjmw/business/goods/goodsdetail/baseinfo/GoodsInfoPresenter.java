@@ -1,8 +1,8 @@
 package com.thlh.jhmjmw.business.goods.goodsdetail.baseinfo;
 
+import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.db.DbManager;
-import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.model.GoodsBundling;
 import com.thlh.baselib.model.GoodsDetail;
 import com.thlh.baselib.model.GoodsDetailProperty;
@@ -12,7 +12,6 @@ import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.network.NetworkManager;
-import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.L;
 
 import java.util.ArrayList;
@@ -145,7 +144,20 @@ public class GoodsInfoPresenter implements GoodsInfoContract.Presenter {
                 }
 
                 String goodsCotent = goodsDetail.getContent();
-                String tempgoodsCotent = goodsCotent.replaceAll("/BmUploadFile/ueditor/", Deployment.IMAGE_PATH + "/BmUploadFile/ueditor/");
+//                String tempgoodsCotent = goodsCotent.replaceAll("/BmUploadFile/ueditor/", Deployment.IMAGE_PATH + "/BmUploadFile/ueditor/");
+                String tempgoodsCotent = "";
+                String[] array = goodsCotent.split("/BmUploadFile/ueditor/");
+                for (int i =0;i<array.length-1;i++){
+                    if ("src=".equals(array[i].substring(array[i].length()-5,array[i].length()-1))){
+                        tempgoodsCotent += array[i]+"http://v2.mjmw365.com/BmUploadFile/ueditor/";
+                    }else {
+                        tempgoodsCotent += array[i]+"/BmUploadFile/ueditor/";
+                    }
+                }
+                tempgoodsCotent+=array[array.length-1];
+
+
+//                String tempgoodsCotent = goodsCotent.replaceAll("/BmUploadFile/ueditor/", Deployment.IMAGE_PATH + "/BmUploadFile/ueditor/");
                 L.i(TAG + " tempgoodsCotent:" + tempgoodsCotent);
                 tempgoodsCotent = tempgoodsCotent.replace("<p><br/></p>", "");
 

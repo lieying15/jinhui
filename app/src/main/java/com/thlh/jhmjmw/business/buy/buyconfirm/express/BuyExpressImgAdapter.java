@@ -4,6 +4,7 @@ import android.widget.ImageView;
 
 import com.thlh.baselib.model.ExpressItem;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -13,6 +14,8 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
  */
 public class BuyExpressImgAdapter extends EasyRecyclerViewAdapter {
 
+
+    private String url;
 
     @Override
     public int[] getItemLayouts() {
@@ -25,7 +28,13 @@ public class BuyExpressImgAdapter extends EasyRecyclerViewAdapter {
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, final int position) {
         ExpressItem goods = (ExpressItem)this.getItem(position);
         ImageView orderConfirmGoodsIv = (ImageView) viewHolder.findViewById(R.id.order_confirm_goods_iv);
-        ImageLoader.displayRoundImg(goods.getItem_img_thumb(),orderConfirmGoodsIv);
+
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.displayRoundImg(url,orderConfirmGoodsIv);
     }
 
     @Override

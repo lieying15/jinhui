@@ -270,7 +270,7 @@
             android:name="com.thlh.jhmjmw.business.index.shop.ShopMapActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.other.AboatUsActivity"
+            android:name="com.thlh.jhmjmw.business.other.AboutUsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.thlh.jhmjmw.business.order.orderdetail.OrderDetailActivity"

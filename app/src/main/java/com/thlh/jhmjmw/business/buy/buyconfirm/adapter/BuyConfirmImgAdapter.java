@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.thlh.baselib.model.Goods;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -14,6 +15,7 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
  */
 public class BuyConfirmImgAdapter extends EasyRecyclerViewAdapter {
     private Context context;
+    private String url;
 
     public BuyConfirmImgAdapter(Context context){
         this.context = context;
@@ -30,7 +32,12 @@ public class BuyConfirmImgAdapter extends EasyRecyclerViewAdapter {
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, final int position) {
         Goods goods = (Goods)this.getItem(position);
         ImageView orderConfirmGoodsIv = (ImageView) viewHolder.findViewById(R.id.order_confirm_goods_iv);
-        ImageLoader.displayRoundImg(goods.getItem_img_thumb(),orderConfirmGoodsIv);
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.displayRoundImg(url,orderConfirmGoodsIv);
 
     }
 

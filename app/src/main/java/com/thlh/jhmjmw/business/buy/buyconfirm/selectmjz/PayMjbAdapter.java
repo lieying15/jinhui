@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.thlh.baselib.model.Cartgoods;
 import com.thlh.baselib.model.GoodsDb;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -21,6 +22,8 @@ public class PayMjbAdapter extends EasyRecyclerViewAdapter {
     private OnClickListener listener;
 
     private Context context;
+    private String url;
+
     public PayMjbAdapter(Context context){
         this.context=context;
     }
@@ -41,8 +44,12 @@ public class PayMjbAdapter extends EasyRecyclerViewAdapter {
         ToggleButton payTbn = viewHolder.findViewById(R.id.paymjb_goods_tbn);
         TextView priceTv = viewHolder.findViewById(R.id.paymjb_goods_price_tv);
         TextView mjbPrice = viewHolder.findViewById(R.id.paymjb_goods_mjbprice_tv);
-
-        ImageLoader.display(goods.getItem_img_thumb(),goodsIv);
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.display(url,goodsIv);
         goodsName.setText(goods.getItem_name());
         String priceStr = cartgoods.getGoodsdb().getItem_price();
         /*

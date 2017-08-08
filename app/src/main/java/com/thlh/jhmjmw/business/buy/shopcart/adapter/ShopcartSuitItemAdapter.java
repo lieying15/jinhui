@@ -6,8 +6,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thlh.baselib.model.GoodsBundlingItem;
-import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
+import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 
@@ -19,6 +20,8 @@ public class ShopcartSuitItemAdapter extends EasyRecyclerViewAdapter {
     private Context context;
     private int  num;
     private String itemStatus = "normal";
+    private String url;
+
     public ShopcartSuitItemAdapter(Context context,int num){
         this.context = context;
         this.num = num;
@@ -64,7 +67,12 @@ public class ShopcartSuitItemAdapter extends EasyRecyclerViewAdapter {
                 shopcartStatusTv.setText("");
                 break;
         }
-        ImageLoader.displayRoundImg(cartgoods.getItem_img_thumb(),shopcartIv);
+        if (cartgoods.getItem_img_thumb().contains("http")){
+            url = cartgoods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + cartgoods.getItem_img_thumb();
+        }
+        ImageLoader.displayRoundImg(url,shopcartIv);
         shopcartNameTv.setText(cartgoods.getItem_name());
 //        shopcartPriceTv.setText(cartgoods.getItem_price());
         shopcartNumTv.setText( cartgoods.getItem_num()+context.getResources().getString(R.string.one) + num);

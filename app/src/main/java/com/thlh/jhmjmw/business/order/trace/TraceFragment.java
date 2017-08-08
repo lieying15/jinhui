@@ -18,6 +18,7 @@ import com.thlh.baselib.model.OrderPack;
 import com.thlh.baselib.model.TrackData;
 import com.thlh.baselib.utils.TimeUtils;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
 
@@ -69,6 +70,8 @@ public class TraceFragment extends BaseFragment {
     private int is_fridge;
     private String express_fee;
     private String item_id;
+    private String url;
+    private String imageurl;
 
     @Override
     protected void initVariables() {
@@ -105,7 +108,13 @@ public class TraceFragment extends BaseFragment {
         traceGoodsnumTv.setText(getResources().getString(R.string.gong)+ getGoodsNum(orderGoodsList)  + getResources().getString(R.string.ones));
         //
         if(isNull && order != null){
-            ImageLoader.displayRoundImg(order.getOrder_items().get(0).getItem().get(0).getItem_img_thumb(),traceImageIv);
+
+            if (order.getOrder_items().get(0).getItem().get(0).getItem_img_thumb().contains("http")){
+                imageurl = order.getOrder_items().get(0).getItem().get(0).getItem_img_thumb();
+            }else {
+                imageurl = Deployment.IMAGE_PATH + order.getOrder_items().get(0).getItem().get(0).getItem_img_thumb();
+            }
+            ImageLoader.displayRoundImg(imageurl,traceImageIv);
 
 
             String supplier_id = order.getSupplier_id();
@@ -130,7 +139,13 @@ public class TraceFragment extends BaseFragment {
             }
 //            traceGoodsnumTv.setText(getResources().getString(R.string.gong)+getGoodsNum(order.getOrder_items().get(0).getItem())  + getResources().getString(R.string.ones));
         }else {
-            ImageLoader.display(orderGoodsList.get(0).getItem_img_thumb(),traceImageIv);
+
+            if (orderGoodsList.get(0).getItem_img_thumb().contains("http")){
+                url = orderGoodsList.get(0).getItem_img_thumb();
+            }else {
+                url = Deployment.IMAGE_PATH + orderGoodsList.get(0).getItem_img_thumb();
+            }
+            ImageLoader.display(url,traceImageIv);
 
             /**运费为0---包邮*/
 

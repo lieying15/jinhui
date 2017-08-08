@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.thlh.baselib.model.GoodsComment;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.other.PhotoPagerActivity;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.view.PoiRedStar;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
@@ -16,12 +17,13 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import java.util.ArrayList;
 
 /**
- * 评价中心 
+ * 评价中心
  */
 public class OrderCommentAdapter extends EasyRecyclerViewAdapter {
     private OnClickEvent listener;
     private Activity context;
     private int type;
+    private String url;
 
     public OrderCommentAdapter(Activity context, int type) {
         this.type = type;
@@ -82,7 +84,12 @@ public class OrderCommentAdapter extends EasyRecyclerViewAdapter {
         * */
         priceTv.setText(context.getResources().getString(R.string.money)+ goods.getPrice());
         numTv.setText(context.getResources().getString(R.string.multiply)+ goods.getItem_num());
-        ImageLoader.displayRoundImg(goods.getItem_img_thumb(),goodsIv);
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.displayRoundImg(url,goodsIv);
         actionRightTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -10,6 +10,7 @@ import com.thlh.baselib.model.GoodsDb;
 import com.thlh.baselib.model.Seengood;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -26,6 +27,7 @@ public class FootprintAdapter extends EasyRecyclerViewAdapter {
     private List<Seengood> goodsList ;
     private Context context;
     private List<SwipeItemLayout> mOpenedSil = new ArrayList<>();
+    private String url;
 
     public FootprintAdapter(Context context, List<Seengood> goodsList){
         this.context = context;
@@ -59,7 +61,13 @@ public class FootprintAdapter extends EasyRecyclerViewAdapter {
         baseMjzTv.setVisibility(View.GONE);
 
         baseNameTv.setText(goods.getItem_name());
-        ImageLoader.displayRoundImg(goods.getItem_img_thumb(), baseIv);
+
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.displayRoundImg(url, baseIv);
         String priceStr = goods.getItem_price();
         /*
         * R.string.money_--->不可用

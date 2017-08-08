@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows = "true">
 
     <android.support.v4.view.DirectionalViewPager
@@ -11,4 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/goods_ad_back_ll"
+        android:layout_width="@dimen/x70"
+        android:layout_height="@dimen/x70"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/x20">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:src="@drawable/icon_arrow_left_gray"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>

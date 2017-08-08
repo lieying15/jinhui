@@ -50,6 +50,7 @@ import com.thlh.jhmjmw.business.goods.goodsdetail.GoodsDetailV3Activity;
 import com.thlh.jhmjmw.business.goods.suit.GoodsSuitDetailActivity;
 import com.thlh.jhmjmw.business.index.IndexActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.GestureSwipeRefreshLayout;
@@ -159,6 +160,7 @@ public class HomePageFragment extends BaseFragment {
     private ViewpagerFragment viewpagerFragment6;
     private ViewpagerFragment viewpagerFragment7;
     private ViewpagerFragment viewpagerFragment8;
+    private String url;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -533,7 +535,13 @@ public class HomePageFragment extends BaseFragment {
     public void showTodayGoods(Goods goods) {
         todaygoodsToprl.setVisibility(View.VISIBLE);
         todayGoods = goods;
-        ImageLoader.display(goods.getItem_img_thumb(), todaygoodsIv);
+
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.display(url, todaygoodsIv);
         todaygoodsNameTv.setText(goods.getItem_name());
 
         todaygoodsDescribeTv.setText(goods.getItem_subtitle());

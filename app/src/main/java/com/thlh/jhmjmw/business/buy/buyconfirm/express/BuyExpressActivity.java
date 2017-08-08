@@ -32,7 +32,7 @@ import butterknife.ButterKnife;
 
 public class BuyExpressActivity extends BaseActivity {
     private final String TAG = "BuyExpressActivity";
-    
+
     @BindView(R.id.order_express_header)
     HeaderNormal orderExpressHeader;
     @BindView(R.id.order_express_list_rv)
@@ -76,7 +76,6 @@ public class BuyExpressActivity extends BaseActivity {
         orderExpressListRv.setLayoutManager(new LinearLayoutManager(this));
         orderExpressListRv.setAdapter(listAdapter);
         orderExpressListRv.addItemDecoration(new VerticalltemDecoration((int) getResources().getDimension(R.dimen.x10)));
-        progressMaterial.show();
 
         getExpressfreeObserver = new BaseObserver<ExpressfreeResponse>() {
             @Override

@@ -42,7 +42,7 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/setting_aboatus_tv"
+        android:id="@+id/setting_aboutus_tv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -50,7 +50,7 @@
         android:textColor="@color/text_tips"
         android:layout_marginTop="@dimen/y20"
         android:gravity="center_horizontal"
-        android:text=""
+        android:text="关于我们"
         android:visibility="visible"
         android:clickable="true"/>
 

@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 
 /**
- * 用户订单评价界面
+ * 用户订单    评价中心
  */
 public class OrderCommentActivity extends BaseViewActivity {
     private static final String TAG = "OrderCommentActivity";
@@ -42,7 +42,8 @@ public class OrderCommentActivity extends BaseViewActivity {
     private int cotent_type;
 
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
-    private String[] mSegmentTLTitles = {getResources().getString(R.string.shop_to_evaluation), getResources().getString(R.string.shop_have_evaluation)};
+//    private String[] mSegmentTLTitles = { ,};
+    private List<String> mSegmentTLTitles  = new ArrayList<>();
     private int[] mIconUnselectIds = {R.drawable.bg_null, R.drawable.bg_null};
     private int[] mIconSelectIds = {R.drawable.bg_null, R.drawable.bg_null};
 
@@ -54,25 +55,16 @@ public class OrderCommentActivity extends BaseViewActivity {
     }
 
     @Override
-    protected void initVariables() {
-        waitFragment = new OrderCommentFragment();
-        completeFragment = new OrderCommentFragment();
-        List<Fragment> fragments = new ArrayList<Fragment>();
-        fragments.add(waitFragment);
-        fragments.add(completeFragment);
-    }
-
-    @Override
     protected void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_comment);
         ButterKnife.bind(this);
 
-
         PagerAdapter PagerAdapter = new PagerAdapter(getSupportFragmentManager());
         commentVp.setAdapter(PagerAdapter);
-
-        for (int i = 0; i < mSegmentTLTitles.length; i++) {
-            mTabEntities.add(new TabEntity(mSegmentTLTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
+        mSegmentTLTitles.add(getResources().getString(R.string.shop_to_evaluation));
+        mSegmentTLTitles.add(getResources().getString(R.string.shop_have_evaluation));
+        for (int i = 0; i < mSegmentTLTitles.size(); i++) {
+            mTabEntities.add(new TabEntity(mSegmentTLTitles.get(i), mIconSelectIds[i], mIconUnselectIds[i]));
         }
 
         commentTablayout.setTabData(mTabEntities);
@@ -84,6 +76,7 @@ public class OrderCommentActivity extends BaseViewActivity {
 
             @Override
             public void onTabReselect(int position) {
+
             }
         });
         commentVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -105,6 +98,14 @@ public class OrderCommentActivity extends BaseViewActivity {
         commentVp.setCurrentItem(cotent_type);
     }
 
+    @Override
+    protected void initVariables() {
+        waitFragment = new OrderCommentFragment();
+        completeFragment = new OrderCommentFragment();
+        List<Fragment> fragments = new ArrayList<Fragment>();
+        fragments.add(waitFragment);
+        fragments.add(completeFragment);
+    }
 
     @Override
     protected void loadData() {

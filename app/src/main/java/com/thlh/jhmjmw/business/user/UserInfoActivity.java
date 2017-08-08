@@ -27,6 +27,7 @@ import com.thlh.baselib.utils.SystemUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.ablum.AlbumTopActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.DialogAvatar;
@@ -81,6 +82,7 @@ public class UserInfoActivity extends BaseActivity {
 
     private boolean isEditeName = false;
     private String newNickname;
+    private String url;
 
     public static void activityStart(Activity context) {
         Intent intent = new Intent();
@@ -116,8 +118,14 @@ public class UserInfoActivity extends BaseActivity {
                 }
             });
         }
+        String user_avatar = SPUtils.get("user_avatar", "").toString();
 
-        ImageLoader.display( (String)SPUtils.get("user_avatar", "").toString(),userinfoAvatarIv,R.drawable.img_mine_avatar,new GlideCircleTransform(this));
+        if (user_avatar.contains("http")){
+            url = user_avatar;
+        }else {
+            url = Deployment.IMAGE_PATH + user_avatar;
+        }
+        ImageLoader.display( url,userinfoAvatarIv,R.drawable.img_mine_avatar,new GlideCircleTransform(this));
 
         String nickname = (String)SPUtils.get("user_nickname","").toString();
         userinfoNameTv.setText(nickname);

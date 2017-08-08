@@ -5,4 +5,8 @@
         <item>即将过期</item>
         <item>已使用</item>
     </array>
+    <string-array name="group" >
+        <item>待评价</item>
+        <item>已评价</item>
+        </string-array>
 </resources>

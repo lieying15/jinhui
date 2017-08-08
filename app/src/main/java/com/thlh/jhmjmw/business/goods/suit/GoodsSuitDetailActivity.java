@@ -131,6 +131,7 @@ public class GoodsSuitDetailActivity extends BaseActivity {
     private GsonBuilder builder;
     private DialogNormal.Builder prepareDialog;
     private boolean isPrepare = false;
+    private String url;
 
 
     public static void activityStart(Activity context, String itemid, int bundingPosition) {
@@ -179,8 +180,12 @@ public class GoodsSuitDetailActivity extends BaseActivity {
             public void onNextResponse(GoodsDetailResponse goodsDetailResponse) {
                 L.i(TAG + "load goodsdetail:  onNextResponse");
                 goodsDetail = goodsDetailResponse.getData().getItem();
-
-                ImageLoader.display(goodsDetailResponse.getData().getItem().getItem_img_thumb(), goodsdetailGoodsIv, Priority.HIGH);
+                if (goodsDetailResponse.getData().getItem().getItem_img_thumb().contains("http")){
+                    url = goodsDetailResponse.getData().getItem().getItem_img_thumb();
+                }else {
+                    url = Deployment.IMAGE_PATH + goodsDetailResponse.getData().getItem().getItem_img_thumb();
+                }
+                ImageLoader.display(url, goodsdetailGoodsIv, Priority.HIGH);
                 if (goodsDetail.getStorage() == 0) {
                     L.e(TAG + "库存为 0 ");
                     goodsdetailGoodsBackIv.setVisibility(View.VISIBLE);

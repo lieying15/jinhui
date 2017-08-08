@@ -21,8 +21,8 @@
         android:layout_marginLeft="@dimen/x10"
         android:layout_marginRight="@dimen/x10"
         android:layout_marginTop="@dimen/y10"
-        android:layout_marginBottom="@dimen/y10"
->
+        android:layout_marginBottom="@dimen/y10">
+
         <com.thlh.viewlib.tablayout.CommonTabLayout
             android:id="@+id/comment_tablayout"
             android:layout_width="match_parent"

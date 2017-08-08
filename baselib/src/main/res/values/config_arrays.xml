@@ -4,8 +4,8 @@
     <!--登录服务器的地址-->
     <string-array name="base_url">
         <!--<item>http://192.168.1.6/Api/</item>-->
-        <item>http://jh.mjmw365.com/Api/</item>
         <item>http://j2.mjmw365.com/Api/</item>
+        <item>http://jh.mjmw365.com/Api/</item>
         <!--<item>http://v2.mjmw365.com/Api/</item>-->
     </string-array>
 
@@ -13,8 +13,8 @@
 
     <string-array name="image_path">
         <!--<item>http://192.168.1.6</item>-->
-        <item>http://jh.mjmw365.com</item>
         <item>http://j2.mjmw365.com</item>
+        <item>http://jh.mjmw365.com</item>
         <!--<item>http://v2.mjmw365.com</item>-->
     </string-array>
 

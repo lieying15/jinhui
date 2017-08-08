@@ -4,8 +4,9 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.thlh.baselib.model.GoodsBundlingItem;
-import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
+import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 
@@ -16,6 +17,7 @@ public class GoodsSuitGridItemAdapter extends EasyRecyclerViewAdapter {
 
 
     private Context context;
+    private String url;
 
     public GoodsSuitGridItemAdapter(Context context) {
         this.context = context;
@@ -38,7 +40,13 @@ public class GoodsSuitGridItemAdapter extends EasyRecyclerViewAdapter {
 //        Glide.with(context)
 //                .load(Deployment.IMAGE_PATH + goodsitem.getItem_img_thumb())
 //                .into( goodsIv);
-        ImageLoader.display(goodsitem.getItem_img_thumb(),goodsIv);
+
+        if (goodsitem.getItem_img_thumb().contains("http")){
+            url = goodsitem.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goodsitem.getItem_img_thumb();
+        }
+        ImageLoader.display(url,goodsIv);
 
 
     }

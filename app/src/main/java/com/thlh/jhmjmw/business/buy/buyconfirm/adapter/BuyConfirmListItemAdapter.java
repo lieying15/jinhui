@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.thlh.baselib.model.Cartgoods;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -24,6 +25,7 @@ public class BuyConfirmListItemAdapter extends EasyRecyclerViewAdapter {
 
     private List<SwipeItemLayout> mOpenedSil = new ArrayList<>();
     private Activity context;
+    private String url;
 
     public BuyConfirmListItemAdapter(Activity context){
         this.context = context;
@@ -46,7 +48,13 @@ public class BuyConfirmListItemAdapter extends EasyRecyclerViewAdapter {
         TextView shopcartPriceTv = viewHolder.findViewById(R.id.shopcart_price_tv);
         TextView shopcartMjzTv = viewHolder.findViewById(R.id.shopcart_mjz_tv);
         TextView shopcartNumTv = viewHolder.findViewById(R.id.shopcart_num_tv);
-        ImageLoader.display(cartgoods.getGoodsdb().getItem_img_thumb(),shopcartIv);
+
+        if (cartgoods.getGoodsdb().getItem_img_thumb().contains("http")){
+            url = cartgoods.getGoodsdb().getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + cartgoods.getGoodsdb().getItem_img_thumb();
+        }
+        ImageLoader.display(url,shopcartIv);
 
         swipeRoot.setSwipeAble(false);
         shopcartNameTv.setText(cartgoods.getGoodsdb().getItem_name());

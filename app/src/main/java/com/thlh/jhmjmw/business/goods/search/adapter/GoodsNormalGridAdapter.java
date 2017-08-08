@@ -6,8 +6,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thlh.baselib.model.Goods;
-import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
+import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 
@@ -17,6 +18,8 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 public class GoodsNormalGridAdapter extends EasyRecyclerViewAdapter {
     private Context context;
     private OnClickListener listener;
+    private String url;
+
     public GoodsNormalGridAdapter(Context context) {
         this.context = context;
     }
@@ -41,7 +44,13 @@ public class GoodsNormalGridAdapter extends EasyRecyclerViewAdapter {
         TextView goodsCouponTv = viewHolder.findViewById(R.id.normal_goods_grid_coupon_tv);
 
         goodsNameTv.setText(goods.getItem_name());
-        ImageLoader.display(goods.getItem_img_thumb(),goodsIv);
+
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.display(url,goodsIv);
 
 
         if(goods.getStorage()==0 || goods.getIs_prepare().equals("1")) {

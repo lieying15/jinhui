@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.thlh.baselib.base.BaseApplication;
 import com.thlh.baselib.model.GoodsBundlingItem;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -16,6 +17,8 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
  */
 public class GoodsSuitContentAdapter extends EasyRecyclerViewAdapter {
 
+
+    private String url;
 
     @Override
     public int[] getItemLayouts() {
@@ -31,8 +34,12 @@ public class GoodsSuitContentAdapter extends EasyRecyclerViewAdapter {
         LinearLayout choicLL = viewHolder.findViewById(R.id.item_choiceness_topll);
         choicLL.setMinimumWidth(BaseApplication.width);
         choiceIv.setMinimumHeight(BaseApplication.width *2/5);
-
-        ImageLoader.display(bundlingItem.getItem_img(),choiceIv);
+        if (bundlingItem.getItem_img().contains("http")){
+            url = bundlingItem.getItem_img();
+        }else {
+            url = Deployment.IMAGE_PATH + bundlingItem.getItem_img();
+        }
+        ImageLoader.display(url,choiceIv);
         TextView titleTv = viewHolder.findViewById(R.id.item_choiceness_title_tv);
         titleTv.setText(bundlingItem.getItem_name());
     }

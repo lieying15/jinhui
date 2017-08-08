@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.thlh.baselib.model.Goods;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 
@@ -33,6 +34,7 @@ public class HomePageGoodsAdapter extends RecyclerView.Adapter<HomePageGoodsAdap
 
     List<Goods> goodsList = new ArrayList<>();
     private EasyRecyclerViewHolder.OnItemClickListener onItemClickListener;
+    private String url;
 
     public HomePageGoodsAdapter(Context context, List<Goods> goodsList){
         this.context = context;
@@ -63,8 +65,12 @@ public class HomePageGoodsAdapter extends RecyclerView.Adapter<HomePageGoodsAdap
         holder.topRl.setMinimumWidth((int)context.getResources().getDimension(R.dimen.x360));
         holder.topRl.setMinimumHeight((int)context.getResources().getDimension(R.dimen.y460));
         String priceStr = goods.getItem_price();
-
-        ImageLoader.display(goods.getItem_img_thumb(), holder.goodsIv);
+        if (goods.getItem_img_thumb().contains("http")){
+            url = goods.getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + goods.getItem_img_thumb();
+        }
+        ImageLoader.display(url, holder.goodsIv);
         holder.goodsNameTv.setText(goods.getItem_name());
         holder.goodsStatusTv.setVisibility(View.GONE);
         holder.goodsBackIv.setVisibility(View.GONE);

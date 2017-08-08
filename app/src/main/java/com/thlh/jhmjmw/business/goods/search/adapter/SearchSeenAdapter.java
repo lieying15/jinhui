@@ -10,6 +10,7 @@ import com.thlh.baselib.model.GoodsDb;
 import com.thlh.baselib.model.Seengood;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -19,6 +20,7 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
  */
 public class SearchSeenAdapter extends EasyRecyclerViewAdapter {
 ;    private Context context;
+    private String url;
 
     public SearchSeenAdapter(Context context) {
         this.context = context;
@@ -68,8 +70,13 @@ public class SearchSeenAdapter extends EasyRecyclerViewAdapter {
                 goodsMjzTv.setText(TextUtils.showMjz(context,mjzStr));
             }
         }
-        
-        ImageLoader.display(seengood.getGoodsdb().getItem_img_thumb(),goodsIv);
+
+        if (seengood.getGoodsdb().getItem_img_thumb().contains("http")){
+            url = seengood.getGoodsdb().getItem_img_thumb();
+        }else {
+            url = Deployment.IMAGE_PATH + seengood.getGoodsdb().getItem_img_thumb();
+        }
+        ImageLoader.display(url,goodsIv);
         if(seengood.getGoodsdb().getIs_limit().equals("1")&&seengood.getGoodsdb().getLimit_icon().equals("1")){
             tagIv.setVisibility(View.VISIBLE);
         }else {

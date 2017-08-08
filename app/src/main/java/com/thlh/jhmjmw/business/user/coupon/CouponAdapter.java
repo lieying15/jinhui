@@ -10,6 +10,7 @@ import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.Coupon;
 import com.thlh.baselib.utils.GlideRoundTransform;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -21,6 +22,8 @@ public class CouponAdapter extends EasyRecyclerViewAdapter {
     private OnClickListener listener;
     private Context context ;
     private String couponFlag ;
+    private String url;
+
     public CouponAdapter(Context context,String couponFlag) {
         this.context = context;
         this.couponFlag = couponFlag;
@@ -62,7 +65,12 @@ public class CouponAdapter extends EasyRecyclerViewAdapter {
                 couponCardV.setCardBackgroundColor(context.getResources().getColor(R.color.gray));
                 break;
         }
-        ImageLoader.display(coupon.getLogo(),couponIv,R.drawable.img_fridge,new GlideRoundTransform(context,5));
+        if (coupon.getLogo().contains("http")){
+            url = coupon.getLogo();
+        }else {
+            url = Deployment.IMAGE_PATH + coupon.getLogo();
+        }
+        ImageLoader.display(url,couponIv,R.drawable.img_fridge,new GlideRoundTransform(context,5));
         //为 1 状态时---已使用
         if(coupon.getIs_used().equals(Constants.COUPON_USED)){
             actionTv.setVisibility(View.INVISIBLE);

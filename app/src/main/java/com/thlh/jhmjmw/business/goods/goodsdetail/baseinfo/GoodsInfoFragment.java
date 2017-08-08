@@ -47,6 +47,7 @@ import com.thlh.jhmjmw.business.goods.goodsdetail.baseinfo.adapter.GoodsProperty
 import com.thlh.jhmjmw.business.goods.suit.GoodsSuitActivity;
 import com.thlh.jhmjmw.business.goods.suit.GoodsSuitDetailActivity;
 import com.thlh.jhmjmw.business.recharge.RechargeQRActivity;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.SlideDetailsLayout;
@@ -116,7 +117,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
     LinearLayout goodsdetailIspackLl;
     @BindView(R.id.goodsdetail_ispart_ll)
     LinearLayout goodsdetailIspartLl;
-    
+
     @BindView(R.id.goodsdetail_scroll)
     ScrollView goodsdetailScroll;
     @BindView(R.id.goodsdetail_slidelayout)
@@ -303,10 +304,11 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         videoplayFl.setVisibility(View.GONE);
         plVideoViewRl.setVisibility(View.GONE);
         goodsdetailGoodsIv.setVisibility(View.VISIBLE);
-        if (imgUrl.equals("")) {
-            ImageLoader.display(imgThumbUrl, goodsdetailGoodsIv, Priority.HIGH);
-        } else {
+
+        if (imgUrl.equals("") && imgUrl.contains("http")  ) {
             ImageLoader.display(imgUrl, goodsdetailGoodsIv, Priority.HIGH);
+        } else {
+            ImageLoader.display(Deployment.IMAGE_PATH +imgUrl, goodsdetailGoodsIv, Priority.HIGH);
         }
     }
 

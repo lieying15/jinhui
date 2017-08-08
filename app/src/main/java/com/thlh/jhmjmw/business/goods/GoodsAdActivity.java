@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.DirectionalViewPager;
+import android.widget.LinearLayout;
 
 import com.thlh.baselib.base.BaseActivity;
 import com.thlh.jhmjmw.R;
@@ -16,6 +17,7 @@ import com.thlh.jhmjmw.other.L;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 商品广告页
@@ -25,6 +27,8 @@ public class GoodsAdActivity extends BaseActivity {
 
     @BindView(R.id.goods_ad_dvp)
     DirectionalViewPager goodsAdDvp;
+    @BindView(R.id.goods_ad_back_ll)
+    LinearLayout goodsAdBackLl;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private String goods_id;
@@ -58,6 +62,18 @@ public class GoodsAdActivity extends BaseActivity {
     @Override
     protected void loadData() {
 
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.goods_ad_back_ll)
+    public void onClick() {
+        finish();
     }
 
 

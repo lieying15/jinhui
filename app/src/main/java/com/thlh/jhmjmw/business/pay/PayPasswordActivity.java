@@ -84,14 +84,14 @@ public class PayPasswordActivity extends BaseActivity {
     private String paytype;
     private String orderid;
     private String paypw;
-    private String itemIdAndNumAndMjb ;
+    private String itemIdAndNumAndMjb;
     private BaseObserver<OrderPayResponse> payObserver;
     private DialogNormal.Builder dialogPay;
 
     private BaseObserver<WalletResponse> walletObserver;
     private Observer<WeChatPayResponse> weChatObserver;
 
-    public static void activityStart(Context context, int inputtype, String orderid,String paytype,String itemIdAndNumAndMjb) {
+    public static void activityStart(Context context, int inputtype, String orderid, String paytype, String itemIdAndNumAndMjb) {
         Intent intent = new Intent();
         intent.putExtra("inputtype", inputtype); //进入界面区分
         intent.putExtra("paytype", paytype);
@@ -140,17 +140,22 @@ public class PayPasswordActivity extends BaseActivity {
         paypwInputEt.setFocusable(true);
         paypwInputEt.setFocusableInTouchMode(true);
         paypwInputEt.requestFocus();
-        ((InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(paypwInputEt, 0);
+        ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(paypwInputEt, 0);
 
         payObserver = new BaseObserver<OrderPayResponse>() {
             @Override
             public void onErrorResponse(OrderPayResponse payResponse) {
                 progressMaterial.dismiss();
-                L.e("cuowu====" + payResponse.getData().getErr_num() );
-                if (payResponse.getData().getErr_num() == 4){
-                    showPWErrorDialog(getResources().getString(R.string.paypass_ero));
-                }else {
+                OrderPayResponse.DataBean data = payResponse.getData();
+                if (data == null) {
                     showPWErrorDialog(payResponse.getErr_msg());
+                } else {
+                    if (!String.valueOf(payResponse.getData().getErr_num()).equals("")
+                            && payResponse.getData().getErr_num() == 4) {
+                        showPWErrorDialog(getResources().getString(R.string.paypass_ero));
+                    } else {
+                        showPWErrorDialog(payResponse.getErr_msg());
+                    }
                 }
             }
 
@@ -169,12 +174,12 @@ public class PayPasswordActivity extends BaseActivity {
                     showPaySuccessDialog();
                     return;
                 } else {
-                    if ( paytype.indexOf(Constants.PAY_TYPE_WECHAT)> -1) {
+                    if (paytype.indexOf(Constants.PAY_TYPE_WECHAT) > -1) {
                         L.i(TAG + " 调用微信支付 tempprice" + tempprice + " pay_no" + pay_no);
                         startWechatPay(tempprice, pay_no);
                         return;
                     }
-                    if ( paytype.indexOf(Constants.PAY_TYPE_ALIPAY)>-1) {
+                    if (paytype.indexOf(Constants.PAY_TYPE_ALIPAY) > -1) {
                         L.i(TAG + " 调用支付宝支付 tempprice " + tempprice + " pay_no" + pay_no);
                         startAliPay(tempprice, pay_no);
                         return;
@@ -239,9 +244,9 @@ public class PayPasswordActivity extends BaseActivity {
     }
 
     private void payOrder() {
-        L.e( "payOrder参数 orderid:"+orderid +" paytype:"+paytype + " paypw:"+paypw +" itemIdAndNumAndMjb:"+itemIdAndNumAndMjb);
+        L.e("payOrder参数 orderid:" + orderid + " paytype:" + paytype + " paypw:" + paypw + " itemIdAndNumAndMjb:" + itemIdAndNumAndMjb);
         Subscription subscription = NetworkManager.getOrderApi()
-                .payOrderV2(SPUtils.getToken(), orderid, paytype ,paypw,itemIdAndNumAndMjb)
+                .payOrderV2(SPUtils.getToken(), orderid, paytype, paypw, itemIdAndNumAndMjb)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(payObserver);
@@ -259,7 +264,7 @@ public class PayPasswordActivity extends BaseActivity {
 
     @OnClick(R.id.paypw_forget_ll)
     public void onClick() {
-        PhoneVerifyCodeActivity.activityStart(PayPasswordActivity.this,Constants.PHONECODE_TYPE_RESET);
+        PhoneVerifyCodeActivity.activityStart(PayPasswordActivity.this, Constants.PHONECODE_TYPE_RESET);
     }
 
     private void showPaySuccessDialog() {

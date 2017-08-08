@@ -214,14 +214,15 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
             mView.showHintDialog(context.getResources().getString(R.string.pay_choose));
             return false;
         }
-        if (expressfree > 0 && paytype.equals(Constants.PAY_TYPE_MJB)) {
-            mView.showHintDialog(context.getResources().getString(R.string.pay_choose_way));
-            return false;
-        }
 
         L.e("BuyConfirm==temptotalprice====" + temptotalprice  + "===totalprice==="  + totalprice);
         if (temptotalprice > 0 && paytype.equals(Constants.PAY_TYPE_MJB)) {
             mView.showHintDialog(context.getResources().getString(R.string.pay_choose));
+            return false;
+        }
+
+        if (expressfree > 0 && paytype.equals(Constants.PAY_TYPE_MJB)) {
+            mView.showHintDialog(context.getResources().getString(R.string.pay_choose_way));
             return false;
         }
 

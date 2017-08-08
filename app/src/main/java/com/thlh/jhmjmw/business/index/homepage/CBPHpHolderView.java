@@ -11,6 +11,7 @@ import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.goods.GoodsAdActivity;
 import com.thlh.jhmjmw.business.goods.goodsdetail.GoodsDetailV3Activity;
 import com.thlh.jhmjmw.business.goods.search.SearchResultActivity;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.viewlib.convenientbanner.CBPageAdapter;
@@ -22,6 +23,7 @@ import com.thlh.viewlib.convenientbanner.CBPageAdapter;
 public class CBPHpHolderView implements CBPageAdapter.Holder<HomepageTitleAD> {
     private ImageView imageView;
     private Context context;
+    private String url;
 
     public CBPHpHolderView(Context context) {
         this.context = context;
@@ -44,7 +46,12 @@ public class CBPHpHolderView implements CBPageAdapter.Holder<HomepageTitleAD> {
 //                .load(Deployment.IMAGE_PATH + data.getPic())
 //                .priority(Priority.HIGH)
 //                .into(imageView);
-        ImageLoader.display(  data.getPic(),imageView,Priority.HIGH);
+        if ( data.getPic().contains("http")){
+            url =  data.getPic();
+        }else {
+            url = Deployment.IMAGE_PATH +  data.getPic();
+        }
+        ImageLoader.display(  url,imageView,Priority.HIGH);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

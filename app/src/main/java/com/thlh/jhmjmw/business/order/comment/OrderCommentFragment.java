@@ -116,6 +116,7 @@ public class OrderCommentFragment extends BaseFragment {
         commentAdapter.setOnClickEvent(new OrderCommentAdapter.OnClickEvent() {
             @Override
             public void onComment(View view, int position) {
+                L.e("pinjia");
                 GoodsComment goodsComment = commentAdapter.getItem(position);
                 OrderCommentWriteActivity.activityStart(getActivity(),goodsComment,ACTIVITY_CODE_WRITECOMMENT);
             }

@@ -15,8 +15,8 @@ import butterknife.ButterKnife;
 /**
  * 关于我们
  */
-public class AboatUsActivity extends BaseViewActivity implements View.OnClickListener {
-    private final String TAG = "AboatUsActivity";
+public class AboutUsActivity extends BaseViewActivity implements View.OnClickListener {
+    private final String TAG = "AboutUsActivity";
 
     @BindView(R.id.aboutus_header)
     HeaderNormal aboutusHeader;
@@ -30,7 +30,7 @@ public class AboatUsActivity extends BaseViewActivity implements View.OnClickLis
 
     public static void activityStart(Context context) {
         Intent intent = new Intent();
-        intent.setClass(context, AboatUsActivity.class);
+        intent.setClass(context, AboutUsActivity.class);
         context.startActivity(intent);
     }
 

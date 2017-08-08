@@ -15,9 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.thlh.baselib.utils.DisplayUtil;
+import com.thlh.jhmjmw.business.other.AboutUsActivity;
 import com.thlh.jhmjmw.other.ShareUtils;
 import com.thlh.jhmjmw.R;
-import com.thlh.jhmjmw.business.other.AboatUsActivity;
 import com.thlh.jhmjmw.business.user.info.InfoManageActivity;
 import com.thlh.jhmjmw.business.goods.search.SearchActivity;
 import com.thlh.jhmjmw.business.index.IndexActivity;
@@ -132,7 +132,7 @@ public class HeaderGoodsDetail extends RelativeLayout {
                 @Override
                 public void onClick(View v) {
                     if(activitycontext !=null){
-                        AboatUsActivity.activityStart(activitycontext);
+                        AboutUsActivity.activityStart(activitycontext);
                     }
                 }
             });

@@ -34,6 +34,7 @@ import com.thlh.jhmjmw.business.user.footprint.FootPrintActivity;
 import com.thlh.jhmjmw.business.user.help.HelpActivity;
 import com.thlh.jhmjmw.business.user.wallet.MjzActivity;
 import com.thlh.jhmjmw.business.user.wallet.WalletActivity;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.BottomTabViewV3;
@@ -128,6 +129,7 @@ public class MineFragment extends BaseFragment implements RippleLinearLayout.OnR
 
     private DialogPhone.Builder phoneDialog;
     public MineContract.Presenter mPresenter;
+    private String url;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -360,7 +362,12 @@ public class MineFragment extends BaseFragment implements RippleLinearLayout.OnR
     @Override
     public void updateMineAvatarIv() {
         String path = (String) SPUtils.get("user_avatar", "");
-        ImageLoader.display(path, mineAvatarIv, R.drawable.img_mine_avatar, new GlideCircleTransform(getActivity()));
+        if (path.contains("http")){
+            url = path;
+        }else {
+            url = Deployment.IMAGE_PATH + path;
+        }
+        ImageLoader.display(url, mineAvatarIv, R.drawable.img_mine_avatar, new GlideCircleTransform(getActivity()));
     }
 
     @Override

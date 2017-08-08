@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.thlh.baselib.model.response.Pic;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -15,6 +16,8 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 public class GoodsCommentPhotoAdapter extends EasyRecyclerViewAdapter {
     private Context context;
     private int showCount = 5;
+    private String url;
+
     public GoodsCommentPhotoAdapter(Context context) {
         this.context = context;
     }
@@ -35,7 +38,12 @@ public class GoodsCommentPhotoAdapter extends EasyRecyclerViewAdapter {
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, final int position) {
         ImageView goodsIv = viewHolder.findViewById(R.id.goods_pic_iv);
         Pic goodspath = (Pic)this.getItem(position);
-        ImageLoader.display(goodspath.getUrl(),goodsIv);
+        if (goodspath.getUrl().contains("http")){
+            url = goodspath.getUrl();
+        }else {
+            url = Deployment.IMAGE_PATH + goodspath.getUrl();
+        }
+        ImageLoader.display(url,goodsIv);
     }
 
     @Override

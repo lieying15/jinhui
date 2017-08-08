@@ -65,7 +65,6 @@ import butterknife.OnClick;
  * 订单确认界面
  */
 public class BuyConfirmActivity extends BaseActivity implements View.OnClickListener, BuyConfirmContract.View {
-
     private final String TAG = "BuyConfirmActivity";
     private final int ACTIVITY_CODE_ADDR = 1;
     @BindView(R.id.order_confirm_header)
@@ -180,6 +179,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     TextView orderConfirmBottomGopayTv;
     @BindView(R.id.order_confirm_bottom_gopay_ll)
     LinearLayout orderConfirmBottomGopayLl;
+
     @BindView(R.id.textView_cuxiao)
     TextView textViewCuxiao;
     @BindView(R.id.order_confirm_info_cuxiao_iv)
@@ -207,7 +207,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
     private String itemIdAndNum, itemIdAndNumAndMjb;
     private String user_mjb = "0";
     private int inner_member = 0;
-    private double useMjb = 0;//使用的美家钻
+    private double useMjb = 0.00d;//使用的美家钻
     /*
     *
     * 备注内容*/
@@ -309,9 +309,11 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                 SelectPayMjbActivity.activityStart(BuyConfirmActivity.this, isBuyImmediately);
                 break;
             case R.id.order_confirm_paytype_zhifubao_ll:
+                L.e("xuanzhe zhifubao");
                 changePayType(Constants.PAY_TYPE_ALIPAY);
                 break;
             case R.id.order_confirm_paytype_weixin_ll:
+                L.e("xuanze weixin");
                 changePayType(Constants.PAY_TYPE_WECHAT);
                 break;
             case R.id.order_confirm_addr_rl:
@@ -336,7 +338,8 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
 
                 if (SPUtils.getIsLogin()) {
                     paytype = mPresenter.getPayType(useMjb, paywechat, payalipay);
-                    if (mPresenter.judgePayCondition(cartgoods, selectAddress.getId(), paytype, useMjb, user_mjb,temptotalprice,note)) {
+                    if (mPresenter.judgePayCondition(cartgoods, selectAddress.getId(), paytype, useMjb, user_mjb,temptotalprice, note)) {
+
                         mPresenter.postGenerateOrder(this, selectAddress.getId(),getPack,time, itemIdAndNumAndMjb, paytype, useMjb, note);
                     }
 
@@ -449,10 +452,12 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         useMjb = DbManager.getInstance().getUseMjbPrice(isBuyImmediately);
         double userMjb = Double.parseDouble(user_mjb);
         useMjb = useMjb > userMjb ? userMjb : useMjb; //最大取用户现在美家钻
+        L.e("jiage"+hasMjbPayGoods + "==========" + useMjb +"=========="+ userMjb);
         if (hasMjbPayGoods) {
             orderConfirmPaytypeMjmwcurrencyPriceTv.setText(getResources().getString(R.string.use) + TextUtils.showPrice(useMjb));
-            if (useMjb == 0) {
+            if (useMjb == 0.00d) {
                 paywechat = false;
+                L.e("xuanze weixin");
                 changePayType(Constants.PAY_TYPE_WECHAT);
                 orderConfirmPricelistMjbTv.setText("-0.00");
             } else {
@@ -461,6 +466,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         } else {
             orderConfirmPaytypeMjmwcurrencyPriceTv.setText(getResources().getString(R.string.shop_no_mjz1));
         }
+
         totalprice = DbManager.getInstance().getCartGoodsPrice(isBuyImmediately);//商品总价
 
         if (totalprice > 0) {
@@ -472,7 +478,8 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         }
 
         temptotalprice = expressfree + totalprice - useMjb;
-        if (temptotalprice == 0 && useMjb > 0) {
+        L.e("shagnpinshegnyujiage====" + temptotalprice);
+        if (temptotalprice == 0.00d && useMjb > 0.00d) {
             orderConfirmTotalPriceTv.setText(TextUtils.showPrice(useMjb) + getResources().getString(R.string.ch_mjz));
             payalipay = false;
             paywechat = false;
@@ -481,7 +488,6 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         } else {
             if (temptotalprice > 0) {
                 orderConfirmTotalPriceTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(temptotalprice));
-                changePayType(Constants.PAY_TYPE_WECHAT);
             } else {
                 orderConfirmTotalPriceTv.setText(getResources().getString(R.string.zero));
             }
@@ -551,7 +557,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         payPwHintDialog.setFinalBtnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.postGenerateOrder(BuyConfirmActivity.this, selectAddress.getId(), getPack, time, itemIdAndNumAndMjb, paytype, useMjb, note);
+                mPresenter.postGenerateOrder(BuyConfirmActivity.this, selectAddress.getId(),getPack,time,itemIdAndNumAndMjb, paytype, useMjb, note);
             }
         });
         payPwHintDialog.show(ft, "payPwHintDialog");
@@ -672,6 +678,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         orderConfirmPricelistExpressTv.setText(free);
         updatePriceTv();
     }
+
 
 
     @Override
