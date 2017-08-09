@@ -84,7 +84,7 @@
                         android:text="订单跟踪"/>
                 </LinearLayout>
             </LinearLayout>
-            
+
             <include layout="@layout/view_order_address"/>
 
             <com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView
@@ -170,8 +170,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/y28"
-                        android:textColor="@color/wine_light"
-                        android:text="0.0"/>
+                        android:textColor="@color/blue_press"
+                        android:text="0.0" />
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"

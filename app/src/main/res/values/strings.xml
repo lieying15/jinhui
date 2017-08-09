@@ -606,6 +606,7 @@
     <string name="wechat_pay_fail">微信支付失败</string>
     <string name="zfb_pay_fail">支付宝支付失败</string>
     <string name="choose_pay_goods">请选中要结算的商品</string>
+    <string name="choose_delete_goods">请选中要删除的商品</string>
     <string name="hava_shelves_shop">有已下架商品</string>
     <string name="shop_no_cun">商品无库存</string>
     <!---->

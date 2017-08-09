@@ -221,7 +221,7 @@ public class OrderDetailActivity extends BaseViewActivity {
             mjzTv.setText(" - "+TextUtils.showPrice(spendmjz));
         }
 
-        totalPriceTv.setText(OrderUtils.getDetailTotalPrice(order,this,spendmjz));
+        totalPriceTv.setText(getResources().getString(R.string.money) + OrderUtils.getDetailTotalPrice(order,this,spendmjz));
 
         EasyDividerItemDecoration dataDecoration = new EasyDividerItemDecoration(
                 this,

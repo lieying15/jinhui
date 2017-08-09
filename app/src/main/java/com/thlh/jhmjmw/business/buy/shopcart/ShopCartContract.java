@@ -67,6 +67,8 @@ public interface ShopCartContract {
 
         boolean judgeCartCondition();
 
+        boolean judgeCartConditionDelete();
+
         boolean isSelectAll();
 
         boolean isSelectOne();

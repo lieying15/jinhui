@@ -77,7 +77,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
 
 
     private String itemid;
-    private boolean isEditState =false ;
+    private boolean isEditState = false ;
     private boolean hasInit;
 
     //静态内部类方法创建单例
@@ -106,7 +106,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initView() {
-
+        cartSupplierList = mPresenter.initCartData();
         deleteDialog = new NormalDialogFragment();
         shopcartHeader.setRightText(getResources().getString(R.string.shopcart_total_editor));
         shopcartHeader.setRightListener(new View.OnClickListener() {
@@ -131,7 +131,6 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
             shopcartHeader.setLeftVisible(View.INVISIBLE);
             shopcartHeader.setLeftListener(null);
         }
-        //乱码
         shopcartNoInfoView.setTitle(getResources().getString(R.string.shopcart_total_noshop));
         shopcartNoInfoView.setTitleIv(R.drawable.img_dialog_cart);
         shopcartNoInfoView.setNextactionStr(getResources().getString(R.string.shopcart_total_golook));
@@ -216,7 +215,9 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.shopcart_bottom_delete_tv:
                 //删除选中商品
-                showDeleteDialog(0,0,true);
+                if (mPresenter.judgeCartConditionDelete()) {
+                    showDeleteDialog(0, 0, true);
+                }
                 break;
         }
     }
@@ -276,11 +277,22 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
             public void onClick(View v) {
                 if(isdeleteall){
                     mPresenter.cartDeleteAllSelect();
+                    cartSupplierList = mPresenter.initCartData();
+                    shopcartAdapter.setList(cartSupplierList);
+                    shopcartAdapter.notifyDataSetChanged();
                 }else {
                     mPresenter.cartDelete(position,itemposition);
-                    if (shopcartAdapter.itemAdapter != null)
+                    if (shopcartAdapter.itemAdapter != null) {
                         shopcartAdapter.itemAdapter.closeOpenedSwipeItemLayoutWithAnim();
+                    }
+                    cartSupplierList = mPresenter.initCartData();
+                    shopcartAdapter.setList(cartSupplierList);
+                    shopcartAdapter.notifyDataSetChanged();
                 }
+                bottomPriceLl.setVisibility(View.VISIBLE);
+                bottomDeleteLl.setVisibility(View.GONE);
+                isEditState = false;
+                shopcartHeader.setRightText(getResources().getString(R.string.shopcart_total_editor));
                 shopcartAdapter.notifyDataSetChanged();
                 shopcartAdapter.setList(cartSupplierList);
                 updateSelectIcon();
@@ -299,7 +311,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void updateSelectIcon() {
-        L.e(TAG + " updateSelectIcon");
+        L.e(TAG + " updateSel;ectIcon");
         if(isEditState){
             if(mPresenter.isSelectOne()){
                 shopcartBottomSelectallIv.setImageResource(R.drawable.icon_check_wine_select);
