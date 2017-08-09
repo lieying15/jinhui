@@ -70,7 +70,7 @@ public class OrderUtils {
             return new SpannableString(TextUtils.showPrice(order.getShould_pay()) );
         }
 
-        if(isPay.equals("1")){ //已付款
+        if(isPay.equals("1")){ //已付
             List<OrderPay> orderPayList =  order.getPay();
             if(orderPayList!=null&& orderPayList.size()>0){
                 for (int i = 0; i <orderPayList.size() ; i++) {
@@ -101,10 +101,10 @@ public class OrderUtils {
         }
         boolean isMjz =false;
         if(payprice >0 &&paymjz>0){
-            finalPrice = "¥ "+ TextUtils.showPrice(payprice) +TextUtils.showSimpleMjz(context,TextUtils.showPrice(paymjz));
+            finalPrice = TextUtils.showPrice(payprice) +TextUtils.showSimpleMjz(context,TextUtils.showPrice(paymjz));
         }else {
             if(payprice>0){
-                finalPrice = "¥ "+TextUtils.showPrice(payprice+order.getShould_pay());
+                finalPrice = TextUtils.showPrice(payprice+order.getShould_pay());
             }
             if(paymjz>0){
                 isMjz = true;
@@ -159,10 +159,10 @@ public class OrderUtils {
         }
         boolean isMjz =false;
         if(payprice >0 &&paymjz>0){
-            finalPrice = "¥ "+ TextUtils.showPrice(payprice) +TextUtils.showSimpleMjz(context,TextUtils.showPrice(paymjz));
+            finalPrice =  TextUtils.showPrice(payprice) +TextUtils.showSimpleMjz(context,TextUtils.showPrice(paymjz));
         }else {
             if(payprice>0){
-                finalPrice = "¥ "+TextUtils.showPrice(payprice+order.getShould_pay());
+                finalPrice = TextUtils.showPrice(payprice+order.getShould_pay());
             }
             if(paymjz>0){
                 isMjz = true;

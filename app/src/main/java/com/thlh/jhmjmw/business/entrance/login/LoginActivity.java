@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         if(loginFragment.getLoginBackIv()!= null){
-            loginFragment.getLoginBackIv().setVisibility(View.GONE);
+            loginFragment.getLoginBackIv().setVisibility(View.VISIBLE);
         }
     }
 

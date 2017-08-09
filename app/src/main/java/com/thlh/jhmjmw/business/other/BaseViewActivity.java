@@ -36,6 +36,8 @@ public  abstract class BaseViewActivity extends BaseActivity {
 	protected void initBaseViews(Bundle savedInstanceState) {
 		progressMaterial  = ProgressMaterial.create(this, true, null);
 		initViews(savedInstanceState);
+
+
 	}
 
 	@Override

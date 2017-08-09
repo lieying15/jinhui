@@ -40,7 +40,7 @@ public class OrderTraceAdapter extends EasyRecyclerViewAdapter {
         String[] strs = trackData.getTime().split(" ");
         dateTv.setText(strs[0]);
         timeTv.setText(strs[1]);
-        contentTv.setText(trackData.getContext());
+//        contentTv.setText(trackData.getContext());
         ViewGroup.LayoutParams para;
         para = pointIv.getLayoutParams();
         if (position ==0){
@@ -48,13 +48,14 @@ public class OrderTraceAdapter extends EasyRecyclerViewAdapter {
             para.height = (int) context.getResources().getDimension(R.dimen.x40);
             para.width =(int) context.getResources().getDimension(R.dimen.y40);
             pointIv.setLayoutParams(para);
-
             dateTv.setTextColor(context.getResources().getColor(R.color.wine_light));
             timeTv.setTextColor(context.getResources().getColor(R.color.wine_light));
 //            topline.setVisibility(View.GONE);
+            contentTv.setText(context.getResources().getString(R.string.pay_success_wait_goods));
             contentTv.setTextColor(context.getResources().getColor(R.color.white));
             contentTv.setBackgroundResource(R.drawable.order_trace_info_winlight);
         }else {
+            contentTv.setText(trackData.getContext());
             pointIv.setImageResource(R.drawable.shap_radius_gray_shallow);
             para.width = (int) context.getResources().getDimension(R.dimen.x16);
             para.height = (int) context.getResources().getDimension(R.dimen.y16);

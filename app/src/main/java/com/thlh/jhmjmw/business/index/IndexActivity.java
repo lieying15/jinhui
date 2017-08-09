@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -174,8 +175,8 @@ public class IndexActivity extends BaseActivity {
         setContentView(R.layout.activity_index);
         ButterKnife.bind(this);
         L.e(TAG + " initViews");
+        hideBottomUIMenu();
         setDefaultFragment();
-
         homepageBtab.setChangeeFragmentListener( new BottomTabViewV3.ChangeFragmentListener() {
             @Override
             public void changeFragment(int position) {
@@ -700,6 +701,23 @@ public class IndexActivity extends BaseActivity {
         super.onNewIntent(intent);
     }
 
+    /**
+     * 隐藏虚拟按键，并且全屏
+     */
+    protected void hideBottomUIMenu() {
+        //隐藏虚拟按键，并且全屏
+        if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
+            View v = this.getWindow().getDecorView();
+            v.setSystemUiVisibility(View.GONE);
+        } else if (Build.VERSION.SDK_INT >= 19) {
+            //for new api versions.
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+//                    | View.SYSTEM_UI_FLAG_FULLSCREEN;  //取消全屏
+            decorView.setSystemUiVisibility(uiOptions);
+        }
+    }
 
     // 双击退出
     private void exit() {

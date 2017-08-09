@@ -19,7 +19,6 @@ import com.thlh.baselib.model.ActionResponse;
 import com.thlh.baselib.model.GoodsOrder;
 import com.thlh.baselib.model.Order;
 import com.thlh.baselib.model.OrderItem;
-import com.thlh.baselib.model.OrderPay;
 import com.thlh.baselib.model.response.OrderPayResponse;
 import com.thlh.baselib.model.response.WalletResponse;
 import com.thlh.baselib.model.response.WeChatPayResponse;
@@ -111,20 +110,22 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
     private String paytype = "";
     private boolean paywechat = false;
     private boolean payalipay = false;
-    private double useMjb =0;//使用的美家钻
+    private double useMjb = 0;//使用的美家钻
     private Order order;
     private String orderid;
-    private double shouldpay;
     private double expressfree;
     private String isPay;
     private List<OrderItem> orderItemList;
-    private String  user_mjb;
+    private String user_mjb;
     private String itemidAndNumAndMjb;
     private DialogNormal.Builder dialogHint;
 
 
     private ArrayList<GoodsOrder> goodsOrderList = new ArrayList<>();
-    private ArrayList<String > useMjbItemId = new ArrayList<>(); //需要每家钻支付的商品id数组
+    private ArrayList<String> useMjbItemId = new ArrayList<>(); //需要每家钻支付的商品id数组
+    private double amount;
+    private double express_fee;
+    private double tempShouldPay;
 
     public static void activityStart(Activity context, int code, Order order) {
         Intent intent = new Intent();
@@ -144,37 +145,23 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         order = getIntent().getParcelableExtra("Order");
         orderid = order.getOrder_id();
         orderItemList = order.getOrder_items();
-        if(order.getExpress_fee()==null||order.getExpress_fee().equals("")){
+        if (order.getExpress_fee() == null || order.getExpress_fee().equals("")) {
             expressfree = 0;
-        }else {
+        } else {
             expressfree = Double.parseDouble(order.getExpress_fee());
         }
         isPay = order.getIs_pay(); //0 未支付 1已支付 2部分支付
-        if(isPay.equals("0")){
-            shouldpay = order.getShould_pay();
+        if (isPay.equals("0")) {
             goodsOrderList = getCartGoodsFormOrder(order);
             useMjb = Double.parseDouble(order.getPay_by_mjb()); //可用的每家币
-            for (GoodsOrder goodsOrder : goodsOrderList){ //能用每家币支付的商品加入数组
-                if(!goodsOrder.getIs_mjb().equals("0")){
+            for (GoodsOrder goodsOrder : goodsOrderList) { //能用每家币支付的商品加入数组
+                if (!goodsOrder.getIs_mjb().equals("0")) {
                     useMjbItemId.add(goodsOrder.getItem_id());
                 }
             }
         }
-        if(isPay.equals("2")){
-            List<OrderPay> orderPayList =  order.getPay();
-            if(orderPayList ==null||orderPayList.size()==0){
-                shouldpay=0;
-            }else {
-                for (int i = 0; i <orderPayList.size() ; i++) {
-                    if(!orderPayList.get(i).getPayment_method_id().equals("1")){
-                        if(orderPayList.get(i).getSum()!=null && !orderPayList.get(i).getSum().equals("")){
-                            shouldpay  = Double.parseDouble(orderPayList.get(i).getSum());
-                        }else {
-                            shouldpay  = 0;
-                        }
-                    }
-                }
-            }
+        if (isPay.equals("2")) {
+
         }
     }
 
@@ -186,19 +173,20 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         progressMaterial = ProgressMaterial.create(this, false, null);//不能取消
         dialogPayResult = new DialogNormal.Builder(this);
         dialogHint = new DialogNormal.Builder(this);
-
-        pricelistTotalTv.setText(getResources().getString(R.string.money)+order.getGoods_amount());
-        pricelistExpressTv.setText(getResources().getString(R.string.money)+ order.getExpress_fee());
-
+        amount = Double.parseDouble(order.getGoods_amount());
+        express_fee = Double.parseDouble(order.getExpress_fee());
+        pricelistTotalTv.setText(getResources().getString(R.string.money) + amount);
+        pricelistExpressTv.setText(getResources().getString(R.string.money) + express_fee);
+        useMjb = Double.parseDouble(order.getPay_by_mjb());//可用的每家币
         updateUseMjb();
-
-        double tempShouldPay = shouldpay;
-        if(tempShouldPay == 0 && useMjb>0){
+        useMjb = useMjb < Double.parseDouble(user_mjb) ? useMjb : Double.parseDouble(user_mjb);
+        tempShouldPay = amount + express_fee - useMjb;
+        if (tempShouldPay == 0 && useMjb > 0) {
             shouldpayTv.setText(TextUtils.showPrice(useMjb) + getResources().getString(R.string.ch_mjz));
         }
 
-        if(useMjb ==0 ){
-            shouldpayTv.setText(getResources().getString(R.string.money)+ TextUtils.showPrice(shouldpay));
+        if (useMjb == 0) {
+            shouldpayTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(tempShouldPay));
         }
 
         if (isPay.equals("2")) { //部分支付后不能再选每家币。
@@ -210,11 +198,11 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             public void onComplete(RippleRelativeLayout rippleRelativeLayout) {
                 if (judgePayCondition()) {
                     itemidAndNumAndMjb = getItemidAndNumAndMjb();
-                    int user_ispaypass = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString()) ;//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
-                    if(user_ispaypass == 1 && useMjb >0){
-                        PayPasswordActivity.activityStart(PayOrderActivity.this,Constants.PAYPW_TYPE_ORDERCONFIRM_PAY,orderid,paytype,itemidAndNumAndMjb);
+                    int user_ispaypass = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString());//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
+                    if (user_ispaypass == 1 && useMjb > 0) {
+                        PayPasswordActivity.activityStart(PayOrderActivity.this, Constants.PAYPW_TYPE_ORDERCONFIRM_PAY, orderid, paytype, itemidAndNumAndMjb);
                         finish();
-                    }else {
+                    } else {
                         postOrderPay(orderid);
                     }
                 }
@@ -238,14 +226,14 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
 
             @Override
             public void onNextResponse(OrderPayResponse payResponse) {
-                SPUtils.put("order_need_update","1");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
+                SPUtils.put("order_need_update", "1");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
                 //保存支付订单号
                 String pay_no = payResponse.getData().getPay_no();
                 SPUtils.put("pay_no", pay_no);
                 String tempprice = Double.toString(payResponse.getData().getAmount());
                 SPUtils.put("pay_price", tempprice);
                 L.i(TAG + " 支付订单后 orderid " + pay_no + "amont " + tempprice);
-                shouldpayTv.setText(TextUtils.showPrice(shouldpay));
+                shouldpayTv.setText(TextUtils.showPrice(tempShouldPay));
                 //保存支付参数
                 SPUtils.setPayParam(tempprice, paytype, Constants.PAY_PURPOSE_ORDER, pay_no);
                 if (payResponse.getData().getAmount() == 0) {
@@ -302,14 +290,14 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             }
         };
 
-}
+    }
 
 
-    @OnClick({R.id.order_confirm_paytype_mjmwcurrency_ll,  R.id.order_confirm_paytype_zhifubao_ll, R.id.order_confirm_paytype_weixin_ll})
+    @OnClick({R.id.order_confirm_paytype_mjmwcurrency_ll, R.id.order_confirm_paytype_zhifubao_ll, R.id.order_confirm_paytype_weixin_ll})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.order_confirm_paytype_mjmwcurrency_ll:
-                SelectPayMjbActivity.activityStart(PayOrderActivity.this,Constants.MJBSELECT_TYPE_ORDER_PAY,goodsOrderList,useMjbItemId);
+                SelectPayMjbActivity.activityStart(PayOrderActivity.this, Constants.MJBSELECT_TYPE_ORDER_PAY, goodsOrderList, useMjbItemId);
                 break;
             case R.id.order_confirm_paytype_zhifubao_ll:
                 changePayType(Constants.PAY_TYPE_ALIPAY);
@@ -321,8 +309,8 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
     }
 
     private void changePayType(String type) {
-        double temptotalprice = shouldpay - useMjb;
-        if(temptotalprice ==0 && useMjb>0){
+        double temptotalprice = tempShouldPay;
+        if (temptotalprice == 0 && useMjb > 0) {
 //            new S.Builder(paySnakeCl, "你不需支付现金").create().show();
             dialogHint.setTitle("")
                     .setCancelOutside(false)
@@ -368,7 +356,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
 
     private String getPayType() {
         StringBuilder paytypeStr = new StringBuilder();
-        if(useMjb>0){
+        if (useMjb > 0) {
             paytypeStr.append(Constants.PAY_TYPE_MJB);
         }
         if (paywechat) {
@@ -396,7 +384,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
     private void postOrderPay(String orderid) {
         L.e(TAG + " 下订单 orderid " + orderid + "paytype " + paytype);
         NetworkManager.getOrderApi()
-                .payOrderV2(SPUtils.getToken(), orderid, paytype,itemidAndNumAndMjb)
+                .payOrderV2(SPUtils.getToken(), orderid, paytype, itemidAndNumAndMjb)
                 .compose(RxUtils.androidSchedulers(this))
                 .subscribe(payOrderObserver);
     }
@@ -412,9 +400,9 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         for (int i = 0; i < orderItemList.size(); i++) {
             for (int n = 0; n < orderItemList.get(i).getItem().size(); n++) {
                 String itemid = orderItemList.get(i).getItem().get(n).getItem_id();
-                if(useMjbItemId.contains(itemid)){
-                    itemidStr.append(itemid + "|" + orderItemList.get(i).getItem().get(n).getItem_num() + "|1" );
-                }else {
+                if (useMjbItemId.contains(itemid)) {
+                    itemidStr.append(itemid + "|" + orderItemList.get(i).getItem().get(n).getItem_num() + "|1");
+                } else {
                     itemidStr.append(itemid + "|" + orderItemList.get(i).getItem().get(n).getItem_num() + "|0");
                 }
                 selectCounttemp++;
@@ -463,7 +451,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                         break;
 
                     case "4000":
-                        showErrorDialog( getResources().getString(R.string.order_pay_fail));
+                        showErrorDialog(getResources().getString(R.string.order_pay_fail));
                         break;
 
                     case "6001":
@@ -471,11 +459,11 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                         break;
 
                     case "6002":
-                        showErrorDialog( getResources().getString(R.string.net_wrong));
+                        showErrorDialog(getResources().getString(R.string.net_wrong));
                         break;
 
                     default:
-                        showErrorDialog( getResources().getString(R.string.order_pay_wrong));
+                        showErrorDialog(getResources().getString(R.string.order_pay_wrong));
                         break;
                 }
             }
@@ -500,11 +488,17 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         paytype = getPayType();
         L.e(TAG + " paytype " + paytype);
         if (paytype.equals("") || paytype.equals(" ")) {
-            showWaringDialog( getResources().getString(R.string.pay_choose));
+            showWaringDialog(getResources().getString(R.string.pay_choose));
             return false;
         }
+        if (tempShouldPay > 0 && paytype.equals("1")) {
+            showWaringDialog(getResources().getString(R.string.pay_choose));
+            return false;
+        }
+
         if (expressfree > 0 && paytype.equals(Constants.PAY_TYPE_MJB)) {
-            dialogHint.setTitle("")
+            showWaringDialog(getResources().getString(R.string.pay_choose_way));
+            /*dialogHint.setTitle("")
                     .setCancelOutside(false)
                     .setSubTitle(getResources().getString(R.string.pay_choose_way))
                     .setRightBtnStr(getResources().getString(R.string.back))
@@ -512,13 +506,13 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                         }
-                    }).create().show();
+                    }).create().show();*/
             return false;
         }
 
         double tempmjb = Double.parseDouble(user_mjb);
-        if (shouldpay > tempmjb && paytype.equals(Constants.PAY_TYPE_MJB)) {
-            showWaringDialog( getResources().getString(R.string.another_pays_way));
+        if (tempShouldPay > tempmjb && paytype.equals(Constants.PAY_TYPE_MJB)) {
+            showWaringDialog(getResources().getString(R.string.another_pays_way));
             return false;
         }
         boolean canPayMjbIndependent = true;
@@ -573,7 +567,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                 goodsOrderList.add(goodsOrder);
             }
         }
-        return  goodsOrderList;
+        return goodsOrderList;
     }
 
    /* private double getMjbPrice(ArrayList<GoodsOrder> goodsOrderList){
@@ -589,29 +583,41 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         return   tempMjb ;
     }*/
 
-    private void updateUseMjb(){
-        useMjb = Double.parseDouble(order.getPay_by_mjb());//可用的每家币
-        if(useMjb>0){
-            pricelistMjbTv.setText("- " + getResources().getString(R.string.money)+ order.getPay_by_mjb() );
-        }else {
-            pricelistMjbTv.setText("- "+ getResources().getString(R.string.money) +"0");
+    private void updateUseMjb() {
+
+        if (useMjb > 0) {
+            pricelistMjbTv.setText("- " + getResources().getString(R.string.money) + order.getPay_by_mjb());
+        } else {
+            pricelistMjbTv.setText("- " + getResources().getString(R.string.money) + "0");
         }
         double userMjb = Double.parseDouble(user_mjb);
-        useMjb = useMjb >userMjb?userMjb:useMjb;
-        mjmwcurrencyPriceTv.setText(getResources().getString(R.string.use)+useMjb +getResources().getString(R.string.ch_mjz));
-        double tempShouldPay = shouldpay - useMjb;
-        shouldpayTv.setText(getResources().getString(R.string.money)+TextUtils.showPrice(tempShouldPay));
-        double temptotalprice = shouldpay - useMjb;
-        if(temptotalprice ==0 && useMjb>0){
+        useMjb = useMjb > userMjb ? userMjb : useMjb;
+        mjmwcurrencyPriceTv.setText(getResources().getString(R.string.use) + useMjb + getResources().getString(R.string.ch_mjz));
+        shouldpayTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(tempShouldPay));
+        double temptotalprice = tempShouldPay;
+        if (temptotalprice == 0 && useMjb > 0) {
             paywechat = false;
             payalipay = false;
             orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
             orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine);
+        } else if (temptotalprice > 0) {
+
+            if (payalipay) {
+                orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine);
+                orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine_select);
+            } else {
+                paywechat = true;
+                orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
+                orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
+            }
+
         }
-        if(useMjb == 0){
+
+        if (useMjb == 0) {
             paywechat = false;
             changePayType(Constants.PAY_TYPE_WECHAT);
         }
+
     }
 
     @Override
@@ -621,7 +627,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             L.e("onActivityResult -> RESULT_OK");
             switch (requestCode) {
                 case Constants.MJBSELECT_TYPE_ORDER_PAY:
-                    useMjb = data.getDoubleExtra("useMjb",0);
+                    useMjb = data.getDoubleExtra("useMjb", 0);
                     useMjbItemId = data.getStringArrayListExtra("useMjbItemId");
                     updateUseMjb();
                     break;

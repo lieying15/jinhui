@@ -488,6 +488,16 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
         } else {
             if (temptotalprice > 0) {
                 orderConfirmTotalPriceTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(temptotalprice));
+
+                if (payalipay){
+                    orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine);
+                    orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine_select);
+                }else {
+                    paywechat = true;
+                    orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
+                    orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
+                }
+
             } else {
                 orderConfirmTotalPriceTv.setText(getResources().getString(R.string.zero));
             }
@@ -667,10 +677,6 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
                     free = getResources().getString(R.string.money) + supplier.getExpress_fee();
                 }
 
-                paywechat = true;
-                payalipay = false;
-                orderConfirmPaytypeWeixinIv.setImageResource(R.drawable.icon_check_wine_select);
-                orderConfirmPaytypeZhifubaoIv.setImageResource(R.drawable.icon_check_wine);
             }
 
         }

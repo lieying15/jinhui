@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.thlh.baselib.utils.ActivityUtils;
@@ -59,6 +60,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 		ActivityUtils.addActivity(this);
 		setImmersionStatus(); //顶部框的处理。
 		try {
+//			hideBottomUIMenu();
 			initVariables();
 			initBaseViews(savedInstanceState);
 			loadData();
@@ -259,6 +261,24 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 	public void hideLoadindBar() {
 		getProgressMaterial().hide();
 
+	}
+
+	/**
+	 * 隐藏虚拟按键，并且全屏
+	 */
+	protected void hideBottomUIMenu() {
+		//隐藏虚拟按键，并且全屏
+		if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
+			View v = this.getWindow().getDecorView();
+			v.setSystemUiVisibility(View.GONE);
+		} else if (Build.VERSION.SDK_INT >= 19) {
+			//for new api versions.
+			View decorView = getWindow().getDecorView();
+			int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+//                    | View.SYSTEM_UI_FLAG_FULLSCREEN;  //取消全屏
+			decorView.setSystemUiVisibility(uiOptions);
+		}
 	}
 
     @Override

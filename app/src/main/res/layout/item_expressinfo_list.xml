@@ -37,7 +37,7 @@
             android:layout_toRightOf="@+id/express_goods_ll"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:minWidth="@dimen/x400"
+            android:minWidth="@dimen/x350"
             android:background="@drawable/shap_radius_half_top_white"
             android:gravity="center_vertical"
             android:orientation="vertical"

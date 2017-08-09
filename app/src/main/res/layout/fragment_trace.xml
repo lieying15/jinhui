@@ -61,6 +61,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_tips"
+                    android:maxWidth="200dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="店铺："
                     android:layout_marginTop="@dimen/y20"
                     android:textSize="@dimen/y28"/>
@@ -71,7 +74,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_tips"
+                    android:maxWidth="200dp"
                     android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="配送:"
                     android:layout_below="@+id/order_trace_company_name_tv"
                     android:layout_marginTop="@dimen/y10"
@@ -105,13 +110,34 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignBottom="@+id/order_trace_no_tv"
                     android:textSize="@dimen/y28"/>
-            </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/goods_details_tv"
+                    android:layout_width="@dimen/x100"
+                    android:layout_height="@dimen/x40"
+                    android:layout_below="@+id/trace_goodsnum_tv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/shap_radius_white_stroke_mainback_r20"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="收起"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/text_size_little"
+                    android:visibility="gone"/>
+            </RelativeLayout>
 
         </RelativeLayout>
 
-
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/goods_iv_rv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:layout_marginBottom="@dimen/y10"
+        android:visibility="gone">
+    </android.support.v7.widget.RecyclerView>
 
     <LinearLayout
         android:layout_width="match_parent"

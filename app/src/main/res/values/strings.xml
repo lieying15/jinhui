@@ -442,7 +442,7 @@
     <string name="once_exchange">立即兑换</string>
 
     <string name="order_commit_wait_pay">订单已提交，等待付款</string>
-    <string name="pay_success_wait_goods">付款成功，等待发货</string>
+    <string name="pay_success_wait_goods">订单付款成功</string>
 
     <string name="none_record">沒有交易记录</string>
     <string name="balance_top_up">余额充值</string>
