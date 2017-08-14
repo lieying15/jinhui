@@ -7,6 +7,7 @@ import com.thlh.baselib.base.BaseResponse;
 import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.response.ExpressfreeResponse;
 import com.thlh.baselib.model.response.GoodListResponse;
+import com.thlh.baselib.model.response.OrderDetailsResponse;
 import com.thlh.baselib.model.response.OrderGenerateResponse;
 import com.thlh.baselib.model.response.OrderHintGenerateResponse;
 import com.thlh.baselib.model.response.OrderPayResponse;
@@ -80,9 +81,13 @@ public interface OrderApi {
     @POST("index") //订单列表
     Observable<OrderResponse> index(@Header(Constants.API_HEADER) String header,@Field("type") String type,@Field("page") int page,@Field("count") int count);
 
-
+    @FormUrlEncoded
     @POST("index") //订单列表
     Observable<OrderResponse> index(@Header(Constants.API_HEADER) String header);
+
+    @FormUrlEncoded
+    @POST("get_by_id") //订单详情
+    Observable<OrderDetailsResponse> getOrderDetails(@Header(Constants.API_HEADER) String header,@Field("id") String id);
 
 
     @FormUrlEncoded

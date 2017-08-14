@@ -175,7 +175,7 @@ public class IndexActivity extends BaseActivity {
         setContentView(R.layout.activity_index);
         ButterKnife.bind(this);
         L.e(TAG + " initViews");
-        hideBottomUIMenu();
+//        hideBottomUIMenu();
         setDefaultFragment();
         homepageBtab.setChangeeFragmentListener( new BottomTabViewV3.ChangeFragmentListener() {
             @Override
@@ -187,7 +187,6 @@ public class IndexActivity extends BaseActivity {
         shopcartNumTv = homepageBtab.getTabShopcartNumTv();
         shopcartTv = homepageBtab.getTabShopcartTv();
         updateShopCartTab();
-
         bindResultDialog = new DialogNormal.Builder(this);
         bindinfoNormal = new DialogNormal.Builder(this);
         geticeboxoinfobserver = new BaseObserver<GetIceBoxInfoResponse>() {

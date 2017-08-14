@@ -8,13 +8,12 @@
     app:bga_sil_bottomMode="pullOut"
     app:bga_sil_springDistance="20dp"
     app:bga_sil_swipeDirection="left"
-    android:background="@drawable/shap_radius_white">
+    android:background="@color/app_mainback">
 
     <LinearLayout
         android:id="@+id/item_delete_ll"
         android:layout_width="50dp"
         android:layout_height="@dimen/y180"
-        android:background="@color/app_mainback"
         android:gravity="center">
         <ImageView
             android:layout_width="@dimen/icon_pxsize_x"
@@ -25,10 +24,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/y180"
-        android:background="@color/white"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:background="@drawable/shap_radius_white">
         <FrameLayout
             android:id="@+id/shopcart_item_cbfl"
             android:layout_width="@dimen/x70"

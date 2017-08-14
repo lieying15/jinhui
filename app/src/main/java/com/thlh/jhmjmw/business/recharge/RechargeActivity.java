@@ -85,6 +85,8 @@ public class RechargeActivity extends BaseActivity {
     LinearLayout rechargeProtocolLl;
     @BindView(R.id.recharge_hint_tv)
     TextView rechargeHintTv;
+    @BindView(R.id.call_phone_tv)
+    TextView callPhoneTv;
 
 
     private boolean need_updata;
@@ -189,7 +191,6 @@ public class RechargeActivity extends BaseActivity {
         selectnum = INPUTNUMBER;
         rechargeHintTv.setText(getResources().getString(R.string.top_up_change_icebox));
         moneyMjz.setVisibility(View.VISIBLE);
-
 
         rechargeMjbObserver = new BaseObserver<RechargeMjbResponse>() {
             @Override
@@ -343,7 +344,7 @@ public class RechargeActivity extends BaseActivity {
     }
 
     @OnClick({R.id.recharge_wechat_ll, R.id.recharge_alipay_ll,
-            R.id.recharge_rechargenormal_ll, R.id.recharge_protocol_ll})
+            R.id.recharge_rechargenormal_ll, R.id.recharge_protocol_ll,R.id.call_phone_tv})
 
     public void onClick(View view) {
         switch (view.getId()) {
@@ -389,6 +390,11 @@ public class RechargeActivity extends BaseActivity {
             case R.id.recharge_protocol_ll:
                 //ProtocolRechargeActivity.activityStart(this);
                 break;
+             case R.id.call_phone_tv:
+                 showServiceDialog();
+                break;
+
+
         }
     }
 
@@ -629,6 +635,10 @@ public class RechargeActivity extends BaseActivity {
 
             showRechargeNormalResultDialog();
         }
+    }
+
+    public void showServiceDialog() {
+        DialogUtils.showPhone(this, getResources().getString(R.string.call_return));
     }
 
     private void showRechargeNormalResultDialog() {

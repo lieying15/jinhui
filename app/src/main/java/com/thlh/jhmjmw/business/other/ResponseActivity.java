@@ -8,17 +8,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thlh.baselib.base.BaseActivity;
+import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.ActionResponse;
+import com.thlh.baselib.model.Order;
+import com.thlh.baselib.model.response.OrderDetailsResponse;
 import com.thlh.baselib.utils.ActivityUtils;
+import com.thlh.baselib.utils.SPUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.index.IndexActivity;
+import com.thlh.jhmjmw.business.order.orderdetail.OrderDetailActivity;
+import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.HeaderNormal;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * 处理各种请求的回调页
@@ -37,6 +46,8 @@ public class ResponseActivity extends BaseActivity {
     TextView responseBackTv;
     private ActionResponse actionResponse = new ActionResponse();
     private String backType = Constants.RESPONSE_BACK_TYPE_HOME;
+    private String orderid;
+    private BaseObserver<OrderDetailsResponse> orderObserver;
 
 
     public static void activityStart(Activity context, ActionResponse actionResponse) {
@@ -45,11 +56,18 @@ public class ResponseActivity extends BaseActivity {
         intent.putExtra("response", actionResponse);
         context.startActivity(intent);
     }
+    public static void activityStart(Activity context, ActionResponse actionResponse,String orderid) {
+        Intent intent = new Intent();
+        intent.setClass(context, ResponseActivity.class);
+        intent.putExtra("response", actionResponse);
+        intent.putExtra("orderid", orderid);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void initVariables() {
         actionResponse = getIntent().getParcelableExtra("response");
-
+        orderid = getIntent().getStringExtra("orderid");
     }
 
     @Override
@@ -97,6 +115,20 @@ public class ResponseActivity extends BaseActivity {
             backType = tempBackType;
         }
 
+        orderObserver = new BaseObserver<OrderDetailsResponse>() {
+            @Override
+            public void onNextResponse(OrderDetailsResponse orderDetailsResponse) {
+                Order data = orderDetailsResponse.getData();
+                OrderDetailActivity.activityStart(ResponseActivity.this,data);
+                finish();
+            }
+
+            @Override
+            public void onErrorResponse(OrderDetailsResponse orderDetailsResponse) {
+
+            }
+        };
+
     }
 
     @Override
@@ -110,9 +142,21 @@ public class ResponseActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.response_back_tv:
+                if (orderid != null ){
+
+                }
                 backAction();
                 break;
         }
+    }
+
+    private void loadOrderDetails(String orderid) {
+        Subscription subscription = NetworkManager.getOrderApi()
+                .getOrderDetails(SPUtils.getToken(),orderid)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(orderObserver);
+        subscriptionList.add(subscription);
     }
 
 

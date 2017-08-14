@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.thlh.baselib.utils.ActivityUtils;
 import com.thlh.baselib.utils.BaseLog;
@@ -56,11 +55,10 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 		tempUserInfoSP = BaseApplication.getInstance().getTempUserInfoSharedPreferences();
 
 		progressMaterial  = ProgressMaterial.create(this, true, null);
-
+		hideNavigationBar();
 		ActivityUtils.addActivity(this);
 		setImmersionStatus(); //顶部框的处理。
 		try {
-//			hideBottomUIMenu();
 			initVariables();
 			initBaseViews(savedInstanceState);
 			loadData();
@@ -75,7 +73,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 			// 透明状态栏
 //			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 			// 透明导航栏
-			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 		}
 	}
 
@@ -264,9 +262,28 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 	}
 
 	/**
-	 * 隐藏虚拟按键，并且全屏
+	 * 隐藏虚拟按键，
 	 */
-	protected void hideBottomUIMenu() {
+	private void hideNavigationBar() {
+		int systemUiVisibility = getWindow().getDecorView().getSystemUiVisibility();
+
+		// Navigation bar hiding:  Backwards compatible to ICS.
+		if (Build.VERSION.SDK_INT >= 14) {
+			systemUiVisibility ^= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+		}
+
+		// 全屏展示
+        /*if (Build.VERSION.SDK_INT >= 16) {
+            systemUiVisibility ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
+        }*/
+
+		if (Build.VERSION.SDK_INT >= 18) {
+			systemUiVisibility ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+		}
+
+		getWindow().getDecorView().setSystemUiVisibility(systemUiVisibility);
+	}
+	/*protected void hideBottomUIMenu() {
 		//隐藏虚拟按键，并且全屏
 		if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
 			View v = this.getWindow().getDecorView();
@@ -275,11 +292,11 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 			//for new api versions.
 			View decorView = getWindow().getDecorView();
 			int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-//                    | View.SYSTEM_UI_FLAG_FULLSCREEN;  //取消全屏
+					| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN;  //取消全屏
 			decorView.setSystemUiVisibility(uiOptions);
 		}
-	}
+	}*/
 
     @Override
     public void finish() {

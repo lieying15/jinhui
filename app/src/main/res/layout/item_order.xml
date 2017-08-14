@@ -136,7 +136,7 @@
             android:text=""
             android:gravity="center"
             android:textSize="@dimen/y28"
-            android:background="@drawable/selector_radius_white_stoke_theme_red_r20"
+            android:background="@drawable/selector_radius_white_stoke_theme_apptheme_r20"
             android:textColor="@color/app_theme"
             android:paddingTop="@dimen/y5"
             android:paddingBottom="@dimen/y5" />

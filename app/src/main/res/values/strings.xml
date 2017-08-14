@@ -230,8 +230,8 @@
                     "2、支付宝支付，并绑定了中国邮政银行储蓄卡。\n"
                     "如给您带来不便，还请谅解，谢谢！"</string>
 
-      <string name="top_up_change_icebox">"天小美温馨提示：鉴于部分银行卡有支付金额限制，请您充 \n"
-                    "值前先确保充值金额在银行限额之内，以便顺利充值。\n"</string>
+      <string name="top_up_change_icebox">"天小美温馨提示：鉴于部分银行卡有支付金额限制，请您充值前先确保充值金额在银行限额之内，以便顺利充值。\n" </string>
+
 
     <string name="mjz_top_up">金惠币充值</string>
     <string name="disagree">您还没有同意预存协议</string>
@@ -312,8 +312,11 @@
 
     <string name="pay_password">为了您的账户安全，您可前往“我的-账户安全”设置支付密码</string>
     <string name="set_password">设置密码</string>
-    <string name="paypass_ero">抱歉，您输入的密码错误，您仅剩1次机会。为保障您的账户安全，若再次出现错误，您账户内的金惠币将冻结。</string>
+    <string name="paypass_last">抱歉，您输入的密码错误，您仅剩1次机会。为保障您的账户安全，若再次出现错误，您账户内的金惠币将冻结。</string>
+    <string name="paypass_ero">抱歉，您输入的密码错误，您今日密码输入错误已达5次，为保障您的账户安全，您账户内的金惠币已冻结。您可致电每家美物客服 4001-688-521 进行解冻。</string>
 
+    <string name="pay_num">\n 还剩余</string>
+    <string name="pay_text">次机会</string>
     <string name="input_goods_address">请输入收货地址</string>
 
     <string name="name">姓名：</string>
@@ -728,6 +731,7 @@
     <string name="store_building">我的小店建设中</string>
     <string name="about_our">每家美物由天汇联合（北京）科技发展有限公司创建，通过强大的大规模集约采购优势、丰富的电子商务管理服务经验和最先进的互 联网技术为用户提供最新最优质的商品。主要经营技术开发；技术推广；技术服务；技术转让；技术咨询；基础软件服务；应用软件服务；计算机系统服务；设计、制作、代理、发布广告；组织文化艺术交流活动；会议服务；承办展览展会互动；企业策划；销售食品、日用品、服务、家用电器、厨房用具、针纺织品、工艺品、文化用品、体育用品、计算机、软件及辅助设备、通讯设备、电子产品、汽车（不含九及以下乘用车）等。</string>
 
+    <string name="photo_num_show">最多可添加5张图片</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

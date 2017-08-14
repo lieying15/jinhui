@@ -20,6 +20,8 @@ import com.thlh.baselib.base.BaseActivity;
 import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.ActionResponse;
+import com.thlh.baselib.model.Order;
+import com.thlh.baselib.model.response.OrderDetailsResponse;
 import com.thlh.baselib.model.response.OrderPayResponse;
 import com.thlh.baselib.model.response.WalletResponse;
 import com.thlh.baselib.model.response.WeChatPayResponse;
@@ -30,15 +32,18 @@ import com.thlh.baselib.utils.SPUtils;
 import com.thlh.baselib.view.NormalDialogFragment;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.order.list.OrderListActivity;
+import com.thlh.jhmjmw.business.order.orderdetail.OrderDetailActivity;
 import com.thlh.jhmjmw.business.other.ResponseActivity;
 import com.thlh.jhmjmw.business.user.PhoneVerifyCodeActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.AliPay;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.other.WeChatUtils;
+import com.thlh.jhmjmw.view.BaseImgDialog;
 import com.thlh.jhmjmw.view.DialogNormal;
 import com.thlh.jhmjmw.view.HeaderNormal;
 import com.thlh.viewlib.ripple.RippleRelativeLayout;
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import java.util.Map;
 
@@ -79,6 +84,7 @@ public class PayPasswordActivity extends BaseActivity {
     //微信取消判断
     private boolean isStartWechat = false;
     //    微信支付 end
+    private int eronum = 5;
 
     private int inputtype;
     private String paytype;
@@ -90,6 +96,7 @@ public class PayPasswordActivity extends BaseActivity {
 
     private BaseObserver<WalletResponse> walletObserver;
     private Observer<WeChatPayResponse> weChatObserver;
+    private BaseObserver<OrderDetailsResponse> orderObserver;
 
     public static void activityStart(Context context, int inputtype, String orderid, String paytype, String itemIdAndNumAndMjb) {
         Intent intent = new Intent();
@@ -148,13 +155,24 @@ public class PayPasswordActivity extends BaseActivity {
                 progressMaterial.dismiss();
                 OrderPayResponse.DataBean data = payResponse.getData();
                 if (data == null) {
-                    showPWErrorDialog(payResponse.getErr_msg());
-                } else {
-                    if (!String.valueOf(payResponse.getData().getErr_num()).equals("")
-                            && payResponse.getData().getErr_num() == 4) {
+                    if (payResponse.getErr_code() == 503009) {
                         showPWErrorDialog(getResources().getString(R.string.paypass_ero));
                     } else {
                         showPWErrorDialog(payResponse.getErr_msg());
+                    }
+
+                } else {
+                    if (!String.valueOf(payResponse.getData().getErr_num()).equals("")
+                            && payResponse.getData().getErr_num() == 5) {
+                        showPWErrorDialog(getResources().getString(R.string.paypass_ero));
+                    }
+                    if (!String.valueOf(payResponse.getData().getErr_num()).equals("")
+                            && payResponse.getData().getErr_num() == 4) {
+                        showPWErrorDialog(getResources().getString(R.string.paypass_last));
+                    } else {
+                        int err_num = eronum - payResponse.getData().getErr_num();
+                        showPWErrorDialog(payResponse.getErr_msg() + getResources().getString(R.string.pay_num) +
+                                err_num + getResources().getString(R.string.pay_text));
                     }
                 }
             }
@@ -193,13 +211,14 @@ public class PayPasswordActivity extends BaseActivity {
         weChatObserver = new Observer<WeChatPayResponse>() {
             @Override
             public void onCompleted() {
+                loadOrderDetails(orderid);
             }
 
             @Override
             public void onError(Throwable e) {
                 L.e(TAG + "  WeChatPayResponse onError" + e.toString());
                 progressMaterial.dismiss();
-                finish();
+                loadOrderDetails(orderid);
             }
 
             @Override
@@ -211,6 +230,7 @@ public class PayPasswordActivity extends BaseActivity {
                 msgApi.registerApp(Constants.WECHAT_APP_ID);
                 msgApi.sendReq(weChatPayRequest);
                 isStartWechat = true;
+                loadOrderDetails(orderid);
             }
         };
 
@@ -228,6 +248,29 @@ public class PayPasswordActivity extends BaseActivity {
                 SPUtils.put("user_mjb", walletResponse.getData().getMjb() + "");
             }
         };
+
+        orderObserver = new BaseObserver<OrderDetailsResponse>() {
+            @Override
+            public void onNextResponse(OrderDetailsResponse orderDetailsResponse) {
+                Order data = orderDetailsResponse.getData();
+                OrderDetailActivity.activityStart(PayPasswordActivity.this, data);
+                finish();
+            }
+
+            @Override
+            public void onErrorResponse(OrderDetailsResponse orderDetailsResponse) {
+                showWaringDialog(orderDetailsResponse.getErr_msg());
+            }
+        };
+    }
+
+    private void loadOrderDetails(String orderid) {
+        Subscription subscription = NetworkManager.getOrderApi()
+                .getOrderDetails(SPUtils.getToken(), orderid)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(orderObserver);
+        subscriptionList.add(subscription);
     }
 
     @Override
@@ -272,7 +315,7 @@ public class PayPasswordActivity extends BaseActivity {
         response.setHeadertitle(getResources().getString(R.string.pay_money));
         response.setTitle(getResources().getString(R.string.congratulation));
         response.setContent(getResources().getString(R.string.pay_money_success));
-        ResponseActivity.activityStart(PayPasswordActivity.this, response);
+        ResponseActivity.activityStart(PayPasswordActivity.this, response, orderid);
         finish();
     }
 
@@ -284,7 +327,7 @@ public class PayPasswordActivity extends BaseActivity {
                 .setRightClickListener(new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
+                        loadOrderDetails(orderid);
                     }
                 }).create().show();
     }
@@ -327,16 +370,16 @@ public class PayPasswordActivity extends BaseActivity {
                         showPaySuccessDialog();
                         break;
                     case "4000":
-                        showErrorDialog(getResources().getString(R.string.order_pay_fail));
+                        showNormal(PayPasswordActivity.this, DialogUtils.TYPE_NORMAL_ERROR, getResources().getString(R.string.order_pay_fail));
                         break;
                     case "6001":
-                        showErrorDialog(getResources().getString(R.string.cannal_zfb_pay));
+                        showNormal(PayPasswordActivity.this, DialogUtils.TYPE_NORMAL_ERROR, getResources().getString(R.string.cannal_zfb_pay));
                         break;
                     case "6002":
-                        showErrorDialog(getResources().getString(R.string.net_wrong));
+                        showNormal(PayPasswordActivity.this, DialogUtils.TYPE_NORMAL_ERROR, getResources().getString(R.string.net_wrong));
                         break;
                     default:
-                        showErrorDialog(getResources().getString(R.string.order_pay_wrong));
+                        showNormal(PayPasswordActivity.this, DialogUtils.TYPE_NORMAL_ERROR, getResources().getString(R.string.order_pay_wrong));
                         break;
                 }
             }
@@ -344,6 +387,9 @@ public class PayPasswordActivity extends BaseActivity {
             @Override
             public void onPayFailed(Exception e) {
                 progressMaterial.dismiss();
+                /**
+                 * 从去支付界面进来有问题。
+                 */
                 showErrorDialog(getResources().getString(R.string.pay_fail));
             }
         });
@@ -388,6 +434,36 @@ public class PayPasswordActivity extends BaseActivity {
         });
         normalFrgDialog.show(ft, "errorPwDialog");
     }
+
+    public void showNormal(RxAppCompatActivity activity, int type, String contentStr) {
+        final NormalDialogFragment normalFrgDialog = new NormalDialogFragment();
+        FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        normalFrgDialog.setContentStr(contentStr);
+        normalFrgDialog.setContentType(type);
+        normalFrgDialog.setFinalBtnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                normalFrgDialog.dismiss();
+                loadOrderDetails(orderid);
+            }
+        });
+        normalFrgDialog.show(ft, "normalFrgDialog");
+    }
+
+    public void showErrorDialog(String msg) {
+        BaseImgDialog.Builder builder = new BaseImgDialog.Builder(this);
+        builder.setTitle(msg)
+                .setLeftBtnStr(getResources().getString(R.string.back))
+                .setTitleIvRes(R.drawable.i_recharge_fail)
+                .setLeftClickListener(new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        loadOrderDetails(orderid);
+                    }
+                }).create().show();
+    }
+
 
 }
 

@@ -26,7 +26,7 @@ public class BaseDialog extends Dialog {
         private String title ="",address = "",phone= "",leftStr  = "";
         private boolean canceloutside = true;
         private boolean cancelable = true;
-
+        private int titleIvRes;
 
         private TextView title_tv ,addressTv,phoneTv,btnll;
         private OnClickListener leftClickListener;
@@ -58,10 +58,10 @@ public class BaseDialog extends Dialog {
             return this;
         }
 
-        public ImageView getTitleIv() {
-            return titleIv;
+        public Builder setTitleIvRes(int titleIvRes) {
+            this.titleIvRes = titleIvRes;
+            return this;
         }
-
         public Builder setCancelOutside(boolean canceloutside) {
             this.canceloutside = canceloutside;
             return this;
@@ -105,7 +105,9 @@ public class BaseDialog extends Dialog {
             }else {
                 title_tv.setVisibility(View.GONE);
             }
-
+            if (titleIvRes != 0){
+                titleIv.setImageResource(titleIvRes);
+            }
             addressTv.setText(address);
             phoneTv.setText(phone);
 

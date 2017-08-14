@@ -118,7 +118,7 @@
                     android:layout_below="@+id/trace_goodsnum_tv"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/shap_radius_white_stroke_mainback_r20"
+                    android:background="@drawable/shap_radius_apptheme_stroke_theme_r20"
                     android:clickable="true"
                     android:gravity="center"
                     android:text="收起"

@@ -46,7 +46,7 @@
                 android:layout_width="@dimen/x160"
                 android:layout_height="@dimen/y45"
                 android:gravity="center"
-                android:background="@drawable/selector_radius_yellow_stoke_theme_r20"
+                android:background="@drawable/selector_radius_white_stoke_theme_apptheme_r20"
                 android:layout_marginRight="@dimen/x10"
                 android:layout_gravity="center_vertical|right"
                 android:text="评价"

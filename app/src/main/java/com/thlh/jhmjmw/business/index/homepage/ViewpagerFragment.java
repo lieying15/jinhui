@@ -163,13 +163,15 @@ public class ViewpagerFragment extends BaseFragment {
 
     public void addShopCart(Activity activity, Goods goods) {
         // 单品套装
-        if (goods.getIs_part() != null && goods.getIs_part().equals("1")) {
-            if (goods.getIs_bundling()!= null &&  goods.getPart_is_bundling().equals("1")) {
-                GoodsSuitDetailActivity.activityStart(activity, goods.getPart_of_id(), 0);
-            } else {
-                GoodsDetailV3Activity.activityStart(activity, goods.getPart_of_id());
+        if (goods.getIs_part() != null) {
+            if (goods.getIs_part() != null && goods.getIs_part().equals("1")) {
+                if (goods.getIs_bundling() != null && goods.getPart_is_bundling().equals("1")) {
+                    GoodsSuitDetailActivity.activityStart(activity, goods.getPart_of_id(), 0);
+                } else {
+                    GoodsDetailV3Activity.activityStart(activity, goods.getPart_of_id());
+                }
+                return;
             }
-            return;
         }
         // 整箱套装
         if (goods.getIs_pack().equals("1")) {

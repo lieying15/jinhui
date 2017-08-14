@@ -46,6 +46,7 @@ public class Order implements Parcelable {
     public void setNote(String note){
         this.note=note;
     }
+
     private double should_pay;
     private List<OrderItem> order_items;
     private List<OrderPay> pay;

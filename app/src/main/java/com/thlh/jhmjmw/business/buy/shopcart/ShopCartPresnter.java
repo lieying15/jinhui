@@ -225,8 +225,9 @@ public class ShopCartPresnter implements ShopCartContract.Presenter {
 
     @Override
     public List<CartSupplier> initCartData() {
-        cartSupplierList.clear();
+        L.e("cartSupplierList====p==============" +  cartSupplierList.size());
         cartSupplierList = DbManager.getInstance().getCartSupplierList(false,false);
+        L.e("cartSupplierList====ppp==========" +  cartSupplierList.size());
         return cartSupplierList;
     }
 

@@ -21,8 +21,6 @@ import java.util.Iterator;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-;
-
 
 /**
  * 自定义相册界面

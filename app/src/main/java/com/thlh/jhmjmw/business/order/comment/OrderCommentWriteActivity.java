@@ -1,6 +1,7 @@
 package com.thlh.jhmjmw.business.order.comment;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,6 +34,7 @@ import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.jhmjmw.other.L;
+import com.thlh.jhmjmw.view.BaseImgDialog;
 import com.thlh.jhmjmw.view.HeaderNormal;
 import com.thlh.jhmjmw.view.PoiRedStar;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
@@ -118,6 +120,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
     private int  rank;
     private String commentFlag;
     private String url;
+    private BaseImgDialog.Builder builder;
 
 
     public static void activityStart(Activity context,GoodsComment goodsComment,int code) {
@@ -136,6 +139,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
     protected void initBaseViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_comment_write);
         ButterKnife.bind(this);
+        builder = new BaseImgDialog.Builder(this);
         commentWriteHeader.setLeftListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -248,7 +252,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
                 if(picsUrl==null ||picsUrl.size()==0){
                     add_positon = 0;
                 }
-                startAlbum();
+                shouDialog();
                 break;
 
             case R.id.comment_write_submit_tv:
@@ -258,8 +262,20 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
         }
     }
 
+    public void shouDialog(){
+        builder.setTitle(getResources().getString(R.string.photo_num_show))
+                .setLeftBtnStr(getResources().getString(R.string.confirm))
+                .setTitleIvRes(R.drawable.icon_dialog_warning)
+                .setLeftClickListener(new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startAlbum();
+                    }
+                }).create().show();
+    }
+
     private void startAlbum() {
-        AlbumTopActivity.activityStart(OrderCommentWriteActivity.this,ACTIVITY_CODE_ALBUM, Constants.ALBUM_SELECT_SINGLE);
+        AlbumTopActivity.activityStart(OrderCommentWriteActivity.this,ACTIVITY_CODE_ALBUM, Constants.ALBUM_SELECT_MUTIPLE);
     }
 
 //    public void startPhotoZoom(Uri uri) {
@@ -275,10 +291,13 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 //    }
 
     public void startPhotoZoom() {
-//        ArrayList<String> pathlist = SPUtils.getStringList("photo_path");
+        ArrayList<String> pathlist = SPUtils.getStringList("photo_path");
         ArrayList<String> urllist = SPUtils.getStringList("photo_url");
-        if(urllist .size() == 1){
-            L.e(TAG+ " 单图片上传 开始剪裁");
+        L.e("pathlist====" + pathlist.size());
+        L.e("urllist====" + urllist.size());
+        if (urllist.size() == 1) {
+            picsUrl.clear();
+            L.e(TAG + " 单图片上传 开始剪裁");
             Uri cameraURI = Uri.fromFile(new File(PATH_CACHE_IMAGE));
             UCrop uCrop = UCrop.of(Uri.parse(urllist.get(0)), cameraURI);
             UCrop.Options options = new UCrop.Options();
@@ -286,6 +305,15 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
             uCrop.withMaxResultSize(1920, 1920);
             uCrop.withOptions(options);
             uCrop.start(this);
+        } else {
+            picsUrl.clear();
+            int num = pathlist.size() > 5 ? 5 : pathlist.size();
+            for (int i = 0; i < num; i++) {
+                picsUrl.add(Uri.parse(pathlist.get(i)));
+            }
+            commentWriteImgFl.setVisibility(View.VISIBLE);
+            goodsPicsAdapter.setList(picsUrl);
+            goodsPicsAdapter.notifyDataSetChanged();
         }
     }
 
@@ -324,6 +352,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
             }
             commentWriteImgFl.setVisibility(View.VISIBLE);
             goodsPicsAdapter.setList(picsUrl);
+            goodsPicsAdapter.notifyDataSetChanged();
         }
     }
 
@@ -356,7 +385,8 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 
             Map<String,RequestBody> photos = new HashMap<>();
             for (int i = 0; i <picsUrl.size() ; i++) {
-                String path = SystemUtils.getDiskCacheDir() + "commentpic" + i +".png";
+//                String path = SystemUtils.getDiskCacheDir() + "commentpic" + i +".png";
+                String path = picsUrl.get(i).toString();
                 File file = new File(path);
                 RequestBody photo = RequestBody.create(MediaType.parse("image/png"), file);
                 photos.put("pic[]\"; filename=\"pic"+ i +".png", photo);

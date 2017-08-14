@@ -30,40 +30,8 @@
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:text="提示"
-        android:textColor="@color/app_theme"
+        android:textColor="@color/text_nomal"
         android:textSize="@dimen/text_size_small" />
-
-    <TextView
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="3dp"
-        android:gravity="left"
-        android:text="恭喜您成功绑定属于您的专属小店"
-        android:textColor="@color/text_nomal"
-        android:textSize="@dimen/text_size_small_xx" />
-
-    <TextView
-        android:id="@+id/dialog_base_address_tv"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="3dp"
-        android:gravity="left"
-        android:text="小店地址："
-        android:textColor="@color/text_nomal"
-        android:textSize="@dimen/text_size_small_xx" />
-
-    <TextView
-        android:id="@+id/dialog_base_phone_tv"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
-        android:gravity="left"
-        android:text="小店电话："
-        android:textColor="@color/text_nomal"
-        android:textSize="@dimen/text_size_small_xx" />
 
     <TextView
         android:id="@+id/dialog_base_bottom_tv"

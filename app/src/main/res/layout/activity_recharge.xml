@@ -181,13 +181,15 @@
         android:visibility="gone"/>
 
     <TextView
+        android:id="@+id/call_phone_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50px"
         android:textSize="@dimen/y25"
         android:text="客服电话：4001688521"
         android:gravity="center"
-        android:textColor="@color/wine_light"/>
+        android:textColor="@color/wine_light"
+        android:clickable="true"/>
 
 
 </LinearLayout>

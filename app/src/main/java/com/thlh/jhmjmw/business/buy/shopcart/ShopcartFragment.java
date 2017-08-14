@@ -98,15 +98,14 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
     protected void initVariables() {
         mPresenter = new ShopCartPresnter(getActivity(),this);
         itemid = mPresenter.getItemidStr();
-        cartSupplierList = mPresenter.initCartData();
-        cartSupplierCheckList = mPresenter.initCartCheckStates();
+		cartSupplierList = mPresenter.initCartData();        cartSupplierCheckList = mPresenter.initCartCheckStates();
         L.e(TAG + " itemid :" + itemid);
 
     }
 
     @Override
     protected void initView() {
-        cartSupplierList = mPresenter.initCartData();
+
         deleteDialog = new NormalDialogFragment();
         shopcartHeader.setRightText(getResources().getString(R.string.shopcart_total_editor));
         shopcartHeader.setRightListener(new View.OnClickListener() {
@@ -277,24 +276,17 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
             public void onClick(View v) {
                 if(isdeleteall){
                     mPresenter.cartDeleteAllSelect();
-                    cartSupplierList = mPresenter.initCartData();
-                    shopcartAdapter.setList(cartSupplierList);
-                    shopcartAdapter.notifyDataSetChanged();
                 }else {
                     mPresenter.cartDelete(position,itemposition);
                     if (shopcartAdapter.itemAdapter != null) {
                         shopcartAdapter.itemAdapter.closeOpenedSwipeItemLayoutWithAnim();
                     }
-                    cartSupplierList = mPresenter.initCartData();
-                    shopcartAdapter.setList(cartSupplierList);
-                    shopcartAdapter.notifyDataSetChanged();
                 }
                 bottomPriceLl.setVisibility(View.VISIBLE);
                 bottomDeleteLl.setVisibility(View.GONE);
                 isEditState = false;
                 shopcartHeader.setRightText(getResources().getString(R.string.shopcart_total_editor));
-                shopcartAdapter.notifyDataSetChanged();
-                shopcartAdapter.setList(cartSupplierList);
+                updateCartData();
                 updateSelectIcon();
                 updatePriceText();
                 updateNoInfoView(shopcartAdapter.getItemCount());
@@ -348,6 +340,8 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
     public void onStart() {
         super.onStart();
         L.e(TAG + " onStart");
+        updateCartData();
+
 //        itemid = mPresenter.getItemidStr();
 //        cartSupplierList = mPresenter.initCartData();
 //        cartSupplierCheckList = mPresenter.initCartCheckStates();
@@ -367,6 +361,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
         L.e(TAG + " updateCartData");
         itemid = mPresenter.getItemidStr();
         cartSupplierList = mPresenter.initCartData();
+        L.e("cartSupplierList=====shop=========" +  cartSupplierList.size());
         cartSupplierCheckList = mPresenter.initCartCheckStates();
         shopcartAdapter.setList(cartSupplierList);
         updateNoInfoView(shopcartAdapter.getItemCount());

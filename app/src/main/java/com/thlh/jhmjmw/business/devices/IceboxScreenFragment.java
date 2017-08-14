@@ -393,7 +393,6 @@ public class IceboxScreenFragment extends BaseFragment {
 
 
     private void startAlbum() {
-
         Intent intent = new Intent(getActivity(), AlbumTopActivity.class);
         intent.putExtra("select_type", Constants.ALBUM_SELECT_MUTIPLE);
         startActivityForResult(intent, ACTIVITY_CODE_ALBUM);
