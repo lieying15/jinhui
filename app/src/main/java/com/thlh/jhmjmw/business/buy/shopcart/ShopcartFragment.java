@@ -66,6 +66,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
 
     private ShopCartContract.Presenter mPresenter;
     private ShopcartAdapter shopcartAdapter;
+
     private List<CartSupplier> cartSupplierList = new ArrayList<CartSupplier>();
     private List<CartSupplierCheck> cartSupplierCheckList = new ArrayList<>();
     private Map<String, String> itemStatusMap = new HashMap<>();
@@ -98,14 +99,15 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
     protected void initVariables() {
         mPresenter = new ShopCartPresnter(getActivity(),this);
         itemid = mPresenter.getItemidStr();
-		cartSupplierList = mPresenter.initCartData();        cartSupplierCheckList = mPresenter.initCartCheckStates();
+        cartSupplierList.clear();
+		cartSupplierList = mPresenter.initCartData();
+        cartSupplierCheckList = mPresenter.initCartCheckStates();
         L.e(TAG + " itemid :" + itemid);
 
     }
 
     @Override
     protected void initView() {
-
         deleteDialog = new NormalDialogFragment();
         shopcartHeader.setRightText(getResources().getString(R.string.shopcart_total_editor));
         shopcartHeader.setRightListener(new View.OnClickListener() {
@@ -148,7 +150,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
                 mPresenter.cartSelectSupplier(position);
                 updateSelectIcon();
                 updatePriceText();
-                shopcartAdapter.notifyDataSetChanged();
+                updateCartData();
             }
 
             @Override
@@ -156,25 +158,26 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
                 mPresenter.cartSelectGoods(position,itemposition);
                 updateSelectIcon();
                 updatePriceText();
-                shopcartAdapter.notifyDataSetChanged();
+                updateCartData();
             }
 
             @Override
             public void onClickAdd(View view, int position, int itemposition) {
                 mPresenter.cartAdd(position,itemposition);
                 updatePriceText();
-                shopcartAdapter.notifyDataSetChanged();
+                updateCartData();
             }
 
             @Override
             public void onClickSub(View view, int position, int itemposition) {
                 mPresenter.cartSub(position,itemposition);
-                shopcartAdapter.notifyDataSetChanged();
+                updateCartData();
             }
 
             @Override
             public void onClickDelete(View view, int position, int itemposition) {
                 showDeleteDialog(position, itemposition,false);
+                updateCartData();
             }
         });
 
@@ -239,8 +242,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
         String totalprice = DbManager.getInstance().getSelectGoodsPrice(cartSupplierCheckList);
         mjblPriceTv.setVisibility(View.GONE);
         totalPriceTv.setVisibility(View.VISIBLE);
-        /*
-        * */
+
         totalPriceTv.setText(getResources().getString(R.string.money) + totalprice);
         if (cartSupplierList == null || cartSupplierList.size() == 0) {
             shopcartBottomSelectallIv.setImageResource(R.drawable.icon_check_gray);
@@ -287,6 +289,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
                 isEditState = false;
                 shopcartHeader.setRightText(getResources().getString(R.string.shopcart_total_editor));
                 updateCartData();
+                shopcartAdapter.notifyDataSetChanged();
                 updateSelectIcon();
                 updatePriceText();
                 updateNoInfoView(shopcartAdapter.getItemCount());
@@ -340,13 +343,6 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
     public void onStart() {
         super.onStart();
         L.e(TAG + " onStart");
-        updateCartData();
-
-//        itemid = mPresenter.getItemidStr();
-//        cartSupplierList = mPresenter.initCartData();
-//        cartSupplierCheckList = mPresenter.initCartCheckStates();
-//        shopcartAdapter.setList(cartSupplierList);
-//        updateNoInfoView(shopcartAdapter.getItemCount());
         hasInit = true;
     }
 
@@ -360,6 +356,7 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
         //更新购物车数据
         L.e(TAG + " updateCartData");
         itemid = mPresenter.getItemidStr();
+        cartSupplierList.clear();
         cartSupplierList = mPresenter.initCartData();
         L.e("cartSupplierList=====shop=========" +  cartSupplierList.size());
         cartSupplierCheckList = mPresenter.initCartCheckStates();
@@ -381,4 +378,6 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
     public boolean isHasInit() {
         return hasInit;
     }
+
+
 }

@@ -137,11 +137,7 @@ public class ShopcartItemAdapter extends EasyRecyclerViewAdapter {
             @Override
             public void onClick(View v) {
                 if (ShopcartItemAdapter.this.listener != null) {
-//                    boolean select = goodsCheckStates.get(position);
-//                    goodsCheckStates.set(position, !select);
-//                    DbManager.getInstance().setGoodsSelect(cartgoods.getGoodsdb(),!select);
                     ShopcartItemAdapter.this.listener.onClickSelect(position);
-//                    notifyDataSetChanged();
                 }
             }
         });

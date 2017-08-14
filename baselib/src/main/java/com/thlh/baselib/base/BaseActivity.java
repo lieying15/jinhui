@@ -55,7 +55,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 		tempUserInfoSP = BaseApplication.getInstance().getTempUserInfoSharedPreferences();
 
 		progressMaterial  = ProgressMaterial.create(this, true, null);
-		hideNavigationBar();
+//		hideNavigationBar();
 		ActivityUtils.addActivity(this);
 		setImmersionStatus(); //顶部框的处理。
 		try {

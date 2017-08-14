@@ -63,7 +63,7 @@ public class ShopcartAdapter extends EasyRecyclerViewAdapter {
                 return;
             }
 
-            if(cartSupplier.getCartgoods()!=null &&cartSupplier.getCartgoods().size()>0){
+            if(cartSupplier.getCartgoods()!=null && cartSupplier.getCartgoods().size()>0){
                 if(cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name().equals("")){
                     shopcartNameTv.setText(cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getName());
                 }else {
