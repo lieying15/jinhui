@@ -296,6 +296,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
             int num = pathlist.size() > 5 ? 5 : pathlist.size();
             for (int i = 0; i < num; i++) {
                 picsUrl.add(Uri.parse(pathlist.get(i)));
+                L.e("picsUrl===" + pathlist.get(i));
             }
             commentWriteImgFl.setVisibility(View.VISIBLE);
             goodsPicsAdapter.setList(picsUrl);
@@ -371,8 +372,9 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 
             Map<String,RequestBody> photos = new HashMap<>();
             for (int i = 0; i <picsUrl.size() ; i++) {
-//                String path = SystemUtils.getDiskCacheDir() + "commentpic" + i +".png";
+//                String path = SystemUtils.getDiskCacheDir() + "/" + "commentpic" + i +".png";
                 String path = picsUrl.get(i).toString();
+                L.e("path==========" + path);
                 File file = new File(path);
                 RequestBody photo = RequestBody.create(MediaType.parse("image/png"), file);
                 photos.put("pic[]\"; filename=\"pic"+ i +".png", photo);
