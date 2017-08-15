@@ -7,9 +7,11 @@ import android.widget.ImageView;
 
 import com.thlh.baselib.base.BaseApplication;
 import com.thlh.baselib.config.Constants;
-import com.thlh.jhmjmw.other.ImageLoader;
+import com.thlh.baselib.utils.Tos;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.other.AlbumItem;
+import com.thlh.jhmjmw.other.ImageLoader;
+import com.thlh.jhmjmw.other.L;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 
@@ -27,9 +29,18 @@ public class AlbumImageAdapter extends EasyRecyclerViewAdapter {
     private Map<String, String> pathmap = new HashMap<String, String>();
 
     private int select_type;
+    private int selectNum = 0;
+    int num = 0;
+
     public AlbumImageAdapter(Context context,int select_type){
         this.context = context;
         this.select_type = select_type;
+    }
+
+    public AlbumImageAdapter(Context context,int select_type,int selectNum){
+        this.context = context;
+        this.select_type = select_type;
+        this.selectNum = selectNum;
     }
 
 
@@ -65,6 +76,7 @@ public class AlbumImageAdapter extends EasyRecyclerViewAdapter {
             public void onClick(View v) {
                 String path = albumItem.getImagePath();
                 String url = albumItem.getImageId();
+
                 if(select_type == Constants.ALBUM_SELECT_SINGLE ){
                     switch (pathmap.size()){
                         case 0 :
@@ -83,18 +95,43 @@ public class AlbumImageAdapter extends EasyRecyclerViewAdapter {
                             break;
                     }
                 }else {
-                    albumItem.setSelected(!albumItem.isSelected());
-                    if (albumItem.isSelected()) {
-                        albumSelectIv.setVisibility(View.VISIBLE);
-                        albumBackIv.setVisibility(View.VISIBLE);
-                        pathmap.put(path, path);
-                        urlmap.put(url, Constants.LOCAL_IMAGE_PATH + url);
-                    } else if (!albumItem.isSelected()) {
-                        albumSelectIv.setVisibility(View.INVISIBLE);
-                        albumBackIv.setVisibility(View.INVISIBLE);
-                        pathmap.remove(path);
-                        urlmap.remove(url);
+                    if (selectNum <= 0){
+                        albumItem.setSelected(!albumItem.isSelected());
+                        if (albumItem.isSelected()) {
+                            albumSelectIv.setVisibility(View.VISIBLE);
+                            albumBackIv.setVisibility(View.VISIBLE);
+                            pathmap.put(path, path);
+                            urlmap.put(url, Constants.LOCAL_IMAGE_PATH + url);
+                        } else if (!albumItem.isSelected()) {
+                            albumSelectIv.setVisibility(View.INVISIBLE);
+                            albumBackIv.setVisibility(View.INVISIBLE);
+                            pathmap.remove(path);
+                            urlmap.remove(url);
+                        }
+                    }else {
+                        if ((selectNum - num) > 0){
+                            L.e("albumItem======" + num);
+                            albumItem.setSelected(!albumItem.isSelected());
+                            if (albumItem.isSelected()) {
+                                albumSelectIv.setVisibility(View.VISIBLE);
+                                albumBackIv.setVisibility(View.VISIBLE);
+                                pathmap.put(path, path);
+                                urlmap.put(url, Constants.LOCAL_IMAGE_PATH + url);
+                                num ++ ;
+                            } else if (!albumItem.isSelected()) {
+                                albumSelectIv.setVisibility(View.INVISIBLE);
+                                albumBackIv.setVisibility(View.INVISIBLE);
+                                pathmap.remove(path);
+                                urlmap.remove(url);
+                                num -- ;
+                            }
+                        }else {
+                            L.e("albumItem======" + num);
+                            Tos.show(context.getResources().getString(R.string.photo_num_show));
+                        }
+
                     }
+
                 }
                 if(AlbumImageAdapter.this.listener != null){
                     AlbumImageAdapter.this.listener.onSelect(position);
@@ -126,5 +163,6 @@ public class AlbumImageAdapter extends EasyRecyclerViewAdapter {
 
     public interface OnClickEvent {
         void onSelect(int position);
+//        void onSelectNum(int num);
     }
 }

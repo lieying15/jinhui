@@ -1,7 +1,6 @@
 package com.thlh.jhmjmw.business.order.comment;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -236,7 +235,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
     @Override
     protected void loadData() {
         L.e(TAG + " Order_id " +  goodsComment.getOrder_id() + "  Item_id " + goodsComment.getItem_id());
-        NetworkManager.getItemApi()
+        NetworkManager.getItemApi()    //获取保存的数据
                 .getSaveInfo(SPUtils.getToken(),goodsComment.getOrder_id(),goodsComment.getItem_id())
                 .compose(RxUtils.androidSchedulers(this))
                 .subscribe(saveObserver);
@@ -252,7 +251,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
                 if(picsUrl==null ||picsUrl.size()==0){
                     add_positon = 0;
                 }
-                shouDialog();
+                startAlbum();
                 break;
 
             case R.id.comment_write_submit_tv:
@@ -262,20 +261,8 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
         }
     }
 
-    public void shouDialog(){
-        builder.setTitle(getResources().getString(R.string.photo_num_show))
-                .setLeftBtnStr(getResources().getString(R.string.confirm))
-                .setTitleIvRes(R.drawable.icon_dialog_warning)
-                .setLeftClickListener(new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startAlbum();
-                    }
-                }).create().show();
-    }
-
     private void startAlbum() {
-        AlbumTopActivity.activityStart(OrderCommentWriteActivity.this,ACTIVITY_CODE_ALBUM, Constants.ALBUM_SELECT_MUTIPLE);
+        AlbumTopActivity.activityStart(OrderCommentWriteActivity.this,ACTIVITY_CODE_ALBUM, Constants.ALBUM_SELECT_MUTIPLE,5);
     }
 
 //    public void startPhotoZoom(Uri uri) {
@@ -296,7 +283,6 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
         L.e("pathlist====" + pathlist.size());
         L.e("urllist====" + urllist.size());
         if (urllist.size() == 1) {
-            picsUrl.clear();
             L.e(TAG + " 单图片上传 开始剪裁");
             Uri cameraURI = Uri.fromFile(new File(PATH_CACHE_IMAGE));
             UCrop uCrop = UCrop.of(Uri.parse(urllist.get(0)), cameraURI);
@@ -469,6 +455,11 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
         }
     }
 
+    /**
+     * 下载图片
+     * @param url
+     * @param num
+     */
     private void downloadPic( String url, int num ){
         final String path = getExternalFilesDir(null) + File.separator + "saveimg"+ num +".png";
         Subscription subscription = NetworkManager.getDownLoadImgApi()

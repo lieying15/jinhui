@@ -38,6 +38,7 @@ public class AlbumTopActivity extends BaseViewActivity {
 
     private int select_type = 0;
     public int REQUEST_CODE_ALBUMGRID = 0;
+    private int selectNum = 0;
 
     public static void activityStart(Activity context, int code, int select_type) {
         Intent intent = new Intent();
@@ -46,9 +47,18 @@ public class AlbumTopActivity extends BaseViewActivity {
         context.startActivityForResult(intent,code);
     }
 
+    public static void activityStart(Activity context, int code, int select_type,int selectNum) {
+        Intent intent = new Intent();
+        intent.setClass(context, AlbumTopActivity.class);
+        intent.putExtra("select_type",select_type);
+        intent.putExtra("selectNum",selectNum);
+        context.startActivityForResult(intent,code);
+    }
+
     @Override
     protected void initVariables() {
         select_type = getIntent().getIntExtra("select_type", Constants.ALBUM_SELECT_SINGLE);
+        selectNum = getIntent().getIntExtra("selectNum", 0);
         albumhelper = AlbumHelper.getHelper();
         albumhelper.init(getApplicationContext());
         albumbucketList = albumhelper.getImagesBucketList(false);
@@ -62,10 +72,19 @@ public class AlbumTopActivity extends BaseViewActivity {
         albumbucketAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(View convertView, int position) {
-                Intent intent = new Intent(AlbumTopActivity.this, AlbumActivity.class);
-                intent.putParcelableArrayListExtra("albumbucket", albumbucketList.get(position).getAlbumItems());
-                intent.putExtra("select_type",select_type);
-                startActivityForResult(intent, REQUEST_CODE_ALBUMGRID);
+                if (selectNum <= 0){
+                    Intent intent = new Intent(AlbumTopActivity.this, AlbumActivity.class);
+                    intent.putParcelableArrayListExtra("albumbucket", albumbucketList.get(position).getAlbumItems());
+                    intent.putExtra("select_type",select_type);
+                    startActivityForResult(intent, REQUEST_CODE_ALBUMGRID);
+                }else {
+                    Intent intent = new Intent(AlbumTopActivity.this, AlbumActivity.class);
+                    intent.putParcelableArrayListExtra("albumbucket", albumbucketList.get(position).getAlbumItems());
+                    intent.putExtra("select_type",select_type);
+                    intent.putExtra("selectNum",selectNum);
+                    startActivityForResult(intent, REQUEST_CODE_ALBUMGRID);
+                }
+
             }
         });
         albumbucketAdapter.setList(albumbucketList);

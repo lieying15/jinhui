@@ -36,10 +36,13 @@ public class AlbumActivity extends BaseViewActivity {
     private AlbumImageAdapter abumImageAdapter;
 
     private int select_type;
+    private int selectNum = 0;
+
     @Override
     protected void initVariables() {
         albumitems = getIntent().getParcelableArrayListExtra("albumbucket");
         select_type = getIntent().getIntExtra("select_type", Constants.ALBUM_SELECT_SINGLE);
+        selectNum = getIntent().getIntExtra("selectNum", 0);
     }
 
     @Override
@@ -47,7 +50,7 @@ public class AlbumActivity extends BaseViewActivity {
         setContentView(R.layout.activity_album);
         ButterKnife.bind(this);
 
-        abumImageAdapter = new AlbumImageAdapter(AlbumActivity.this,select_type);
+        abumImageAdapter = new AlbumImageAdapter(AlbumActivity.this,select_type,selectNum);
         abumImageAdapter.setOnClickEvent(new AlbumImageAdapter.OnClickEvent() {
             @Override
             public void onSelect(int position) {
