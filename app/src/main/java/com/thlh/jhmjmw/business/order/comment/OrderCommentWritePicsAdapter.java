@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import com.thlh.baselib.base.BaseApplication;
 import com.thlh.baselib.utils.DisplayUtil;
 import com.thlh.jhmjmw.R;
+import com.thlh.jhmjmw.other.ImageLoader;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 
@@ -41,10 +42,16 @@ public class OrderCommentWritePicsAdapter extends EasyRecyclerViewAdapter {
 //            goodsIv.setImageResource(R.drawable.icon_add_upload);
 //            goodsIv.setScaleType(ImageView.ScaleType.CENTER);
 //        }else {
-            Uri goodspath = (Uri)this.getItem(position);
+        Uri goodspath = (Uri)this.getItem(position);
+       /* if (goodspath.toString().contains("http")){
             goodsIv.setScaleType(ImageView.ScaleType.FIT_XY);
-            goodsIv.setImageURI(null);
-            goodsIv.setImageURI(goodspath);
+            ImageLoader.display(goodspath.toString(),goodsIv);
+        }else {*/
+            goodsIv.setScaleType(ImageView.ScaleType.FIT_XY);
+            ImageLoader.display(goodspath.toString(),goodsIv);
+//        }
+
+
 //        }
     }
 

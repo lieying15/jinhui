@@ -252,12 +252,16 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
 
 	@Override
 	public void showLoadingBar() {
-		getProgressMaterial().show();
+		if (getProgressMaterial() != null) {
+			getProgressMaterial().show();
+		}
 	}
 
 	@Override
 	public void hideLoadindBar() {
-		getProgressMaterial().hide();
+		if (getProgressMaterial() != null) {
+			getProgressMaterial().hide();
+		}
 
 	}
 

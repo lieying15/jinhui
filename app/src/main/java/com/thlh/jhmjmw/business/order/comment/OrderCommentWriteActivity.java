@@ -36,7 +36,6 @@ import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.BaseImgDialog;
 import com.thlh.jhmjmw.view.HeaderNormal;
 import com.thlh.jhmjmw.view.PoiRedStar;
-import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
 import com.thlh.viewlib.recyclerview.EasyGridItemDecoration;
 import com.yalantis.ucrop.UCrop;
@@ -160,13 +159,13 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 
 
         goodsPicsAdapter = new OrderCommentWritePicsAdapter(this);
-        goodsPicsAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
+       /* goodsPicsAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(View convertView, int position) {
                     startAlbum();
                     add_positon = position;
             }
-        });
+        });*/
 
         GridLayoutManager inScrollLM = new GridLayoutManager(this, 5);
         commentWriteImgRv.setLayoutManager(inScrollLM);
@@ -178,6 +177,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
         addObserver  = new BaseObserver<BaseResponse>() {
             @Override
             public void onNextResponse(BaseResponse baseResponse) {
+                progressMaterial.dismiss();
                 switch (commentFlag){
                     case WRITE_COMMENT_ADD :
                         SPUtils.put("order_need_update","4");//0无变化，1付款，2确认收货，3取消订单，4评论
@@ -191,6 +191,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 
             @Override
             public void onErrorResponse(BaseResponse baseResponse) {
+                progressMaterial.dismiss();
                 showErrorDialog(baseResponse.getErr_msg());
             }
         };
@@ -198,6 +199,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
         saveObserver  = new BaseObserver<CommentSaveResponse>() {
             @Override
             public void onNextResponse(CommentSaveResponse saveResponse) {
+                progressMaterial.dismiss();
                 if(saveResponse ==null )return;
                 String rate = saveResponse.getData().getComment().getRate();
                 String comment = saveResponse.getData().getComment().getComment();
@@ -227,6 +229,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 
             @Override
             public void onErrorResponse(CommentSaveResponse baseResponse) {
+                progressMaterial.dismiss();
                 showErrorDialog(baseResponse.getErr_msg());
             }
         };
@@ -234,6 +237,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
 
     @Override
     protected void loadData() {
+        progressMaterial.show();
         L.e(TAG + " Order_id " +  goodsComment.getOrder_id() + "  Item_id " + goodsComment.getItem_id());
         NetworkManager.getItemApi()    //获取保存的数据
                 .getSaveInfo(SPUtils.getToken(),goodsComment.getOrder_id(),goodsComment.getItem_id())
@@ -358,6 +362,7 @@ public class OrderCommentWriteActivity extends BaseActivity implements View.OnCl
     }
 
     private void postAddComment(String flag) {
+        progressMaterial.show();
         if(judgeCommentInfo()){
             progressMaterial.show();
             orderid = goodsComment.getOrder_id();
