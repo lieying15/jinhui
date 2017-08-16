@@ -519,12 +519,12 @@
 
     <!--我的帮助-->
 
-    <string name="help_title_one">聚惠美物•美的冰箱的售后服务如何？</string>
+    <string name="help_title_one">每家美物•美的冰箱的售后服务如何？</string>
     <string name="help_title_one_content">该冰箱是天汇联合、TCL智能家居与美的联合研发、由美的生产的。售后服务依照国家标准，享受美的品牌售后服务保障。按照国家三包条例，自购买之日起，整机免费包修一年，主要零部件免费包修三年。主要零部件包括：压缩机、主控板、显控板、温控器、蒸发器、冷凝器、电磁阀、过滤器、毛细管、风扇电机。</string>
     <string name="help_title_two">参与“充值送冰箱活动”，免费送的冰箱能开具发票吗？</string>
-    <string name="help_title_two_content">聚惠美物•美的智能冰箱是商城充值赠送给您的，不是商品购买，因此不能开具发票。此冰箱无需凭借发票享受美的质保和售后服务，请您放心。</string>
+    <string name="help_title_two_content">每家美物•美的智能冰箱是商城充值赠送给您的，不是商品购买，因此不能开具发票。此冰箱无需凭借发票享受美的质保和售后服务，请您放心。</string>
     <string name="help_title_three">冰箱物流费用如何结算</string>
-    <string name="help_title_three_content">物流费用取决于您的实际收货地址，因此请您在填写订单信息时，准确、完整填写您的收货信息，我们会根据您的收货地址提供预估物流费用，您在收货时根据实际发生物流费用直接支付给送货人员即可。</string>
+    <string name="help_title_three_content">物流费用取决与您的实际收货地址，因此请您在填写订单信息时，准确、完整填写您的收货信息，我们会根据您的收货地址提供预估物流费用，您在收货时根据实际发生物流费用直接支付给送货人员即可。</string>
     <string name="help_title_four">物流到货后需要自己搬运吗？</string>
     <string name="help_title_four_content">物流公司提供送货入户服务，楼层为1层的用户不收取入户费用。楼梯住户需提供入户服务时，入户搬运费用=楼层*100元/层。电梯2层以上用户统一收取100元入户搬运费用（以上计费标准为最高计费标准，不同区域会有差异，请以物流人员实际结算报价为准）。</string>
     <string name="help_title_five">冰箱到货后发现损坏如何处理？</string>

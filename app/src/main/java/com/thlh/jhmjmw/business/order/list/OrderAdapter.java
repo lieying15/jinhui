@@ -32,6 +32,7 @@ import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
 import com.thlh.viewlib.easyrecyclerview.widget.decorator.HorizontaltemDecoration;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +42,13 @@ import java.util.List;
  */
 public class OrderAdapter extends EasyRecyclerViewAdapter {
     private Activity context;
-    private DialogPhone.Builder phoneDialog ;
+    private DialogPhone.Builder phoneDialog;
     private OnClickListener listener;
     private int cotent_type;
+    private double sum;
+    private String is_pay;
 
-    public OrderAdapter(Activity context,int cotent_type){
+    public OrderAdapter(Activity context, int cotent_type) {
         this.context = context;
         this.cotent_type = cotent_type;
         phoneDialog = new DialogPhone.Builder(context);
@@ -60,9 +63,10 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
 
     @Override
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, final int position) {
-        final Order order = (Order)this.getItem(position);
+        final Order order = (Order) this.getItem(position);
         final String orderid = order.getOrder_id();
         final double shoudpay = order.getShould_pay();
+        is_pay = order.getIs_pay();
         LinearLayout itmeLl = (LinearLayout) viewHolder.findViewById(R.id.order_item_ll);
         itmeLl.setMinimumWidth(BaseApplication.width);
         TextView storenameTv = (TextView) viewHolder.findViewById(R.id.order_item_storename_tv);
@@ -75,14 +79,14 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         TextView mjzTv = (TextView) viewHolder.findViewById(R.id.order_goods_mjz_tv);
         EasyRecyclerView goodsRv = (EasyRecyclerView) viewHolder.findViewById(R.id.order_item_rv);
 
-        double finalprice = Double.parseDouble(order.getGoods_amount()) + Double.parseDouble(order.getExpress_fee()) ;
+        double finalprice = Double.parseDouble(order.getGoods_amount()) + Double.parseDouble(order.getExpress_fee());
         int tempType = cotent_type;
-        if(cotent_type == Constants.ORDER_TYPE_ALL ||cotent_type == Constants.ORDER_TYPE_UNCOMPLETE){
-            tempType =  OrderUtils.getOrderStatus(order);
+        if (cotent_type == Constants.ORDER_TYPE_ALL || cotent_type == Constants.ORDER_TYPE_UNCOMPLETE) {
+            tempType = OrderUtils.getOrderStatus(order);
         }
 
-        switch (tempType){
-            case Constants.ORDER_TYPE_WAIT_PAY :
+        switch (tempType) {
+            case Constants.ORDER_TYPE_WAIT_PAY:
                 /*
                 * 状态*/
                 statesTv.setText(context.getResources().getString(R.string.wait_pay));
@@ -90,19 +94,27 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 mjzTv.setVisibility(View.VISIBLE);
                 finalprice = order.getShould_pay();
                 List<OrderPay> tempPaylist = order.getPay();
-                if(null!=tempPaylist && tempPaylist.size()>0){
-                    L.e("hahaha tempPaylist.size()"+tempPaylist.size() );
-                    for (int i = 0; i <tempPaylist.size() ; i++) {
-                        int methodid = Integer.parseInt(tempPaylist.get(i).getPayment_method_id());
-                        double sum = Double.parseDouble(tempPaylist.get(i).getSum());
-                        if(methodid>2){
-                            L.e("OrderAdapter Paylist i:"+i +" method_id>2 id:" + methodid +" sum:"+sum);
-                            finalprice = sum;
-                            break;
+                if (null != tempPaylist && tempPaylist.size() > 0) {
+                    L.e("hahaha tempPaylist.size()" + tempPaylist.size());
+                    for (int i = 0; i < tempPaylist.size(); i++) {
+                        String payment_method_id = tempPaylist.get(i).getPayment_method_id();
+                        if (payment_method_id.equals("1")){
+                            sum = Double.parseDouble(tempPaylist.get(i).getSum());
+                            if (is_pay.equals("0")) {
+                                mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(sum),
+                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
+                            }else {
+                                mjzTv.setText(TextUtils.showHadMjz(context, new DecimalFormat("0.00").format(sum),
+                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
+                            }
+                                L.e("sum==================" + sum);
                         }
+
                     }
                 }
-
+               
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.VISIBLE);
 
@@ -125,7 +137,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                     }
                 });
                 break;
-            case Constants.ORDER_TYPE_WAIT_SENDOUT :
+            case Constants.ORDER_TYPE_WAIT_SENDOUT:
                 statesTv.setText(context.getResources().getString(R.string.wait_send));
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.GONE);
@@ -134,12 +146,12 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 actionRightTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        OrderTraceActivity.activityStart(context,order);
+                        OrderTraceActivity.activityStart(context, order);
                     }
                 });
                 priceTitleTv.setText(context.getResources().getString(R.string.zhen_pay));
                 break;
-            case Constants.ORDER_TYPE_WAIT_GAIN :
+            case Constants.ORDER_TYPE_WAIT_GAIN:
                 statesTv.setText(context.getResources().getString(R.string.wait_goods));
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setText(context.getResources().getString(R.string.look));
@@ -148,7 +160,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 actionLeftTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        OrderTraceActivity.activityStart(context,order);
+                        OrderTraceActivity.activityStart(context, order);
                     }
                 });
                 actionRightTv.setText(context.getResources().getString(R.string.true_goods));
@@ -156,17 +168,17 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                     @Override
                     public void onClick(View view) {
                         if (OrderAdapter.this.listener != null) {
-                        OrderAdapter.this.listener.onConfiromGetGoods(orderid);
+                            OrderAdapter.this.listener.onConfiromGetGoods(orderid);
                         }
                     }
                 });
                 priceTitleTv.setText(context.getResources().getString(R.string.zhen_pay));
                 break;
-            case Constants.ORDER_TYPE_WAIT_COMMENT :
+            case Constants.ORDER_TYPE_WAIT_COMMENT:
                 statesTv.setText(context.getResources().getString(R.string.wait_evaluation));
                 mjzTv.setVisibility(View.VISIBLE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
-                if(order.getIs_comment().equals("0")){
+                if (order.getIs_comment().equals("0")) {
                     actionLeftTv.setVisibility(View.VISIBLE);
                     actionLeftTv.setText(context.getResources().getString(R.string.shop_evaluation));
                     actionLeftTv.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +187,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                             OrderCommentActivity.activityStart(context);
                         }
                     });
-                }else {
+                } else {
                     actionLeftTv.setVisibility(View.GONE);
                 }
                 actionRightTv.setText(context.getResources().getString(R.string.again_buy));
@@ -183,13 +195,13 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                     @Override
                     public void onClick(View view) {
                         if (OrderAdapter.this.listener != null) {
-                            OrderAdapter.this.listener.onRebuy(position,order);
+                            OrderAdapter.this.listener.onRebuy(position, order);
                         }
                     }
                 });
                 priceTitleTv.setText(context.getResources().getString(R.string.zhen_pay));
                 break;
-            case Constants.ORDER_TYPE_HAS_COMMENT :
+            case Constants.ORDER_TYPE_HAS_COMMENT:
                 statesTv.setText(context.getResources().getString(R.string.shopcart_total_finish));
                 mjzTv.setVisibility(View.VISIBLE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
@@ -199,13 +211,13 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                     @Override
                     public void onClick(View view) {
                         if (OrderAdapter.this.listener != null) {
-                            OrderAdapter.this.listener.onRebuy(position,order);
+                            OrderAdapter.this.listener.onRebuy(position, order);
                         }
                     }
                 });
                 priceTitleTv.setText(context.getResources().getString(R.string.zhen_pay));
                 break;
-            case  Constants.ORDER_TYPE_CANCEL:
+            case Constants.ORDER_TYPE_CANCEL:
                 statesTv.setText(context.getResources().getString(R.string.cannal));
                 mjzTv.setVisibility(View.GONE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
@@ -215,7 +227,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                     @Override
                     public void onClick(View view) {
                         if (OrderAdapter.this.listener != null) {
-                            OrderAdapter.this.listener.onRebuy(position,order);
+                            OrderAdapter.this.listener.onRebuy(position, order);
 
                         }
                     }
@@ -223,11 +235,11 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 priceTitleTv.setText(context.getResources().getString(R.string.total_price));
 //                priceTitleTv.setTextColor(context.getResources().getColor(R.color.text_tips));
                 break;
-            case Constants.ORDER_TYPE_COMPLETE :
+            case Constants.ORDER_TYPE_COMPLETE:
                 statesTv.setText(context.getResources().getString(R.string.finish));
                 mjzTv.setVisibility(View.VISIBLE);
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
-                if(order.getIs_comment().equals("0")){
+                if (order.getIs_comment().equals("0")) {
                     actionLeftTv.setVisibility(View.VISIBLE);
                     actionLeftTv.setText(context.getResources().getString(R.string.goodsdetail_comment));
                     actionLeftTv.setOnClickListener(new View.OnClickListener() {
@@ -236,7 +248,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                             OrderCommentActivity.activityStart(context);
                         }
                     });
-                }else {
+                } else {
                     actionLeftTv.setVisibility(View.GONE);
                 }
                 actionRightTv.setText(context.getResources().getString(R.string.again_buy));
@@ -244,7 +256,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                     @Override
                     public void onClick(View view) {
                         if (OrderAdapter.this.listener != null) {
-                            OrderAdapter.this.listener.onRebuy(position,order);
+                            OrderAdapter.this.listener.onRebuy(position, order);
                         }
                     }
                 });
@@ -257,8 +269,8 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         List<OrderItem> orderItems = order.getOrder_items();
         List<GoodsOrder> goodsOrders = new ArrayList<>();
         double mjz = 0.0d;
-        for(OrderItem orderItem :orderItems ){
-            for(GoodsOrder goodsOrder : orderItem.getItem() ){
+        for (OrderItem orderItem : orderItems) {
+            for (GoodsOrder goodsOrder : orderItem.getItem()) {
                 goodsOrders.add(goodsOrder);
                 String mjb_value = goodsOrder.getMjb_value();
                 mjz = mjz + Double.parseDouble(mjb_value);
@@ -267,22 +279,21 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         }
 
         orderImgAdapter.setList(goodsOrders);
-        goodsRv.setLayoutManager( new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        goodsRv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         goodsRv.setAdapter(orderImgAdapter);
         goodsRv.addItemDecoration(new HorizontaltemDecoration((int) context.getResources().getDimension(R.dimen.x10)));
         orderImgAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(View convertView, int position) {
-                OrderDetailActivity.activityStart(context,order);
+                OrderDetailActivity.activityStart(context, order);
             }
         });
 
-        priceTv.setText(context.getResources().getString(R.string.money) + OrderUtils.getListTotalPrice(order,context));
-        L.e("shouldpay===" + order.getShould_pay()  +"=====" + OrderUtils.getListTotalPrice(order,context));
-        SpannableStringBuilder builder = new SpannableStringBuilder(context.getResources().getString(R.string.gong) +  goodsOrders.size() + context.getResources().getString(R.string.shops));
-        //ForegroundColorSpan 为文字前景色，BackgroundColorSpan为文字背景色
+
+        L.e("shouldpay===" + order.getShould_pay() + "=====" + OrderUtils.getListTotalPrice(order, context));
+        SpannableStringBuilder builder = new SpannableStringBuilder(context.getResources().getString(R.string.gong) + goodsOrders.size() + context.getResources().getString(R.string.shops));
         ForegroundColorSpan redSpan = new ForegroundColorSpan(context.getResources().getColor(R.color.app_theme));
-        builder.setSpan(redSpan, 1,2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        builder.setSpan(redSpan, 1, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         goodsNumTv.setText(builder);
 
         /**
@@ -294,25 +305,47 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         String user_mjb = (String) SPUtils.get("user_mjb", "0");
         double jhb = Double.parseDouble(user_mjb);
 
-        if (order.getIs_pay().equals("0")){
-
-        }else if (order.getIs_pay().equals("2")){
-
-        }
-        if (jhb > 0){
-            if (jhb < mjz){
-                mjzTv.setText(TextUtils.showHadMjz(context,String.valueOf(jhb),
-                        (int)context.getResources().getDimension(R.dimen.icon_mjz_x),
-                        (int)context.getResources().getDimension(R.dimen.icon_mjz_y)));
-            }else{
-                mjzTv.setText(TextUtils.showHadMjz(context,String.valueOf(mjz),
-                        (int)context.getResources().getDimension(R.dimen.icon_mjz_x),
-                        (int)context.getResources().getDimension(R.dimen.icon_mjz_y)));
+        if (order.getIs_pay().equals("0")) {        //未付款
+            priceTv.setText(context.getResources().getString(R.string.money) + order.getShould_pay());
+            if (jhb > 0) {
+                if (jhb < mjz) {     //mjz=====商品美家钻可支付
+                    mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(jhb),
+                            (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                            (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
+                } else {
+                    mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(mjz),
+                            (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                            (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
+                }
+            } else {
+                mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(0),
+                        (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                        (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
             }
-        }else {
-            mjzTv.setText(TextUtils.showHadMjz(context,String.valueOf(0),
-                    (int)context.getResources().getDimension(R.dimen.icon_mjz_x),
-                    (int)context.getResources().getDimension(R.dimen.icon_mjz_y)));
+
+        } else if (order.getIs_pay().equals("2")) {         //部分支付
+            priceTv.setText(context.getResources().getString(R.string.money) + order.getShould_pay());
+            List<OrderPay> pays = order.getPay();
+            for (int i = 0; i < pays.size(); i++) {
+                OrderPay orderPay = pays.get(i);
+                if (orderPay.getPayment_method_id().equals("1")) {
+                    if (orderPay.getIs_ok().equals("1")) {
+                        mjzTv.setText(TextUtils.showHadMjz(context, new DecimalFormat("0.00").format(sum),
+                                (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                                (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
+                    }
+                }
+            }
+        } else {                            //已支付
+            String goods_amount = order.getGoods_amount();
+            String express_fee = order.getExpress_fee();
+            String pay_by_mjb = order.getPay_by_mjb();
+            double sum = Double.parseDouble(goods_amount) + Double.parseDouble(express_fee) - Double.parseDouble(pay_by_mjb);
+
+            priceTv.setText(context.getResources().getString(R.string.money) + new DecimalFormat("0.00").format(sum));
+            mjzTv.setText(TextUtils.showHadMjz(context, new DecimalFormat("0.00").format(Double.parseDouble(pay_by_mjb)),
+                    (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                    (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
         }
 
     }
@@ -328,13 +361,16 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
 
 
     public interface OnClickListener {
-        void onRebuy(int position,Order order);
-        void onConfiromGetGoods( String  orderid);
-        void gotoPay( Order order);
+        void onRebuy(int position, Order order);
+
+        void onConfiromGetGoods(String orderid);
+
+        void gotoPay(Order order);
+
         void cancel(String orderid);
     }
 
-    public void showPhoneDialog(String suppler_name,String suppler_tel){
+    public void showPhoneDialog(String suppler_name, String suppler_tel) {
         phoneDialog.setTitle(suppler_name + context.getResources().getString(R.string.Customer_service)).setContent(suppler_tel).setButtonListener(new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -349,11 +385,6 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
             }
         }).create().show();
     }
-
-
-
-
-
 
 
     public void setCotent_type(int cotent_type) {

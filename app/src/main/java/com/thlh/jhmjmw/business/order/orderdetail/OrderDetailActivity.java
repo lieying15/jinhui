@@ -22,6 +22,7 @@ import com.thlh.baselib.model.Goods;
 import com.thlh.baselib.model.GoodsOrder;
 import com.thlh.baselib.model.Order;
 import com.thlh.baselib.model.OrderItem;
+import com.thlh.baselib.model.OrderPay;
 import com.thlh.baselib.utils.GoodsChangeUtils;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
@@ -46,6 +47,7 @@ import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
 import com.thlh.viewlib.easyrecyclerview.widget.decorator.EasyDividerItemDecoration;
 import com.thlh.viewlib.sweetdialog.SweetAlertDialog;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import butterknife.BindView;
@@ -214,6 +216,12 @@ public class OrderDetailActivity extends BaseViewActivity {
         }
         orderDetailFreightTv.setText(yunfei);
 
+
+        /**
+         *
+         *
+         *
+         */
         double spendmjz = OrderUtils.getDetailSpendMjz(order);
         if(spendmjz == 0 ){
             mjzTv.setText(TextUtils.showPrice(spendmjz));
@@ -221,7 +229,31 @@ public class OrderDetailActivity extends BaseViewActivity {
             mjzTv.setText(" - "+TextUtils.showPrice(spendmjz));
         }
 
-        totalPriceTv.setText(getResources().getString(R.string.money) + OrderUtils.getDetailTotalPrice(order,this,spendmjz));
+//        String user_mjb = (String) SPUtils.get("user_mjb", "0");
+//        double jhb = Double.parseDouble(user_mjb);
+        String goods_amount = order.getGoods_amount();
+        String express_fee = order.getExpress_fee();
+        String pay_by_mjb = order.getPay_by_mjb();
+        if (order.getIs_pay().equals("1")){                            //已支付
+            double sum = Double.parseDouble(goods_amount) + Double.parseDouble(express_fee) - Double.parseDouble(pay_by_mjb);
+            totalPriceTv.setText(getResources().getString(R.string.money) + new DecimalFormat("0.00").format(sum));
+            mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(Double.parseDouble(pay_by_mjb))));
+        }else  if (order.getIs_pay().equals("0")){
+            totalPriceTv.setText(this.getResources().getString(R.string.money) + order.getShould_pay());
+            mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(0)));
+        } else if (order.getIs_pay().equals("2")) {         //部分支付
+            totalPriceTv.setText(getResources().getString(R.string.money) + order.getShould_pay());
+            List<OrderPay> pays = order.getPay();
+            for (int i = 0; i < pays.size(); i++) {
+                OrderPay orderPay = pays.get(i);
+                if (orderPay.getPayment_method_id().equals("1")) {
+                    if (orderPay.getIs_ok().equals("1")) {
+                        double sum = Double.parseDouble(orderPay.getSum());
+                        mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(sum)));
+                    }
+                }
+            }
+        }
 
         EasyDividerItemDecoration dataDecoration = new EasyDividerItemDecoration(
                 this,

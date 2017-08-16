@@ -101,7 +101,7 @@ public class OrderUtils {
         }
         boolean isMjz =false;
         if(payprice >0 &&paymjz>0){
-            finalPrice = TextUtils.showPrice(payprice) +TextUtils.showSimpleMjz(context,TextUtils.showPrice(paymjz));
+            finalPrice = TextUtils.showPrice(payprice);
         }else {
             if(payprice>0){
                 finalPrice = TextUtils.showPrice(payprice+order.getShould_pay());
@@ -159,7 +159,7 @@ public class OrderUtils {
         }
         boolean isMjz =false;
         if(payprice >0 &&paymjz>0){
-            finalPrice =  TextUtils.showPrice(payprice) +TextUtils.showSimpleMjz(context,TextUtils.showPrice(paymjz));
+            finalPrice =  TextUtils.showPrice(payprice);
         }else {
             if(payprice>0){
                 finalPrice = TextUtils.showPrice(payprice+order.getShould_pay());

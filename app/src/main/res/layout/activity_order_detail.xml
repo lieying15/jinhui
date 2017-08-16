@@ -170,7 +170,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/y28"
-                        android:textColor="@color/blue_press"
+                        android:textColor="@color/blue"
                         android:text="0.0" />
                 </LinearLayout>
                 <View

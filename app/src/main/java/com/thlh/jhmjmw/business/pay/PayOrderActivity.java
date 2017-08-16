@@ -612,6 +612,8 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             }
 
         }
+        tempShouldPay = amount + express_fee - useMjb;
+        shouldpayTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(tempShouldPay));
 
         if (useMjb == 0) {
             paywechat = false;
