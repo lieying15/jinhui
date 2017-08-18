@@ -274,18 +274,20 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         builder.setSpan(redSpan, 1, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         goodsNumTv.setText(builder);
         String pay_by_mjb = order.getPay_by_mjb();
+        L.e("paybymjz============" + TextUtils.showMjz(context, pay_by_mjb));
+        if (Double.parseDouble(pay_by_mjb) >= 0.00d) {
+            mjzTv.setText(TextUtils.showHadMjz(context, pay_by_mjb,
+                    (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
+                    (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
+        }
         if (order.getIs_pay().equals("0")) {        //未付款
             priceTv.setText(context.getResources().getString(R.string.money) + order.getShould_pay());
-            mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(0)));
-
         } else if (order.getIs_pay().equals("2")) {         //部分支付
             priceTv.setText(context.getResources().getString(R.string.money) + order.getShould_pay());
-            mjzTv.setText(TextUtils.showMjz(context, pay_by_mjb));
-        } else {                            //已支付
+        } else  if (order.getIs_pay().equals("1")){                            //已支付
             String goods_amount = order.getGoods_amount();
             String express_fee = order.getExpress_fee();
             double sum = Double.parseDouble(goods_amount) + Double.parseDouble(express_fee) - Double.parseDouble(pay_by_mjb);
-            mjzTv.setText(TextUtils.showMjz(context, pay_by_mjb));
             priceTv.setText(context.getResources().getString(R.string.money) + new DecimalFormat("0.00").format(sum));
         }
 

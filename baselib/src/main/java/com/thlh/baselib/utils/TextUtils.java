@@ -60,7 +60,7 @@ public class TextUtils {
     }
 
     public static SpannableString showMjz(Context context,String mjz,int textx,int texty) {
-        SpannableString spannableString = new SpannableString("金惠币 可抵¥"+ mjz);
+        SpannableString spannableString = new SpannableString("金惠币 可抵"+ mjz);
         Drawable drawable = context.getResources().getDrawable(R.drawable.icon_mjz);
         drawable.setBounds(0, 0, textx, texty);
         ImageSpan imageSpan = new ImageSpan(drawable);
@@ -69,7 +69,7 @@ public class TextUtils {
     }
 
     public static SpannableString showHadMjz(Context context,String mjz,int textx,int texty) {
-        SpannableString spannableString = new SpannableString("金惠币 已抵¥"+ mjz);
+        SpannableString spannableString = new SpannableString("金惠币 已抵 "+ mjz);
         Drawable drawable = context.getResources().getDrawable(R.drawable.icon_mjz);
         drawable.setBounds(0, 0, textx, texty);
         ImageSpan imageSpan = new ImageSpan(drawable);

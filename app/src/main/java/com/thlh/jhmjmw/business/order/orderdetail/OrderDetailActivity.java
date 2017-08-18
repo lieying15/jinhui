@@ -222,13 +222,15 @@ public class OrderDetailActivity extends BaseViewActivity {
         String pay_by_mjb = order.getPay_by_mjb();
         if (order.getIs_pay().equals("1")) {                            //已支付
             double sum = Double.parseDouble(goods_amount) + Double.parseDouble(express_fee) - Double.parseDouble(pay_by_mjb);
+            L.e("sum==============" + sum);
             totalPriceTv.setText(getResources().getString(R.string.money) + new DecimalFormat("0.00").format(sum));
-            mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(Double.parseDouble(pay_by_mjb))));
+            mjzTv.setText(" - " + TextUtils.showPrice(pay_by_mjb));
         } else if (order.getIs_pay().equals("0")) {
             totalPriceTv.setText(this.getResources().getString(R.string.money) + order.getShould_pay());
             mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(0)));
         } else if (order.getIs_pay().equals("2")) {         //部分支付
             totalPriceTv.setText(getResources().getString(R.string.money) + order.getShould_pay());
+            mjzTv.setText(" - " + TextUtils.showPrice(pay_by_mjb));
             List<OrderPay> pays = order.getPay();
             for (int i = 0; i < pays.size(); i++) {
                 OrderPay orderPay = pays.get(i);
