@@ -379,7 +379,7 @@ public class RechargeActivity extends BaseActivity {
                     selectMonney = rechargeInputEt.getText().toString().trim();
                 }
 
-                if (jugeRechargeCondition()) {
+                if (jugeRechargeCondition(selectMonney)) {
                     postRechange(selectMonney);
                 }
                 break;
@@ -419,10 +419,12 @@ public class RechargeActivity extends BaseActivity {
      * 判断充值前的支付方式和支付协议
      * 并且获取支付的金额
      * @return
+     * @param selectMonney
      */
-    private boolean jugeRechargeCondition() {
+    private boolean jugeRechargeCondition(String selectMonney) {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(rechargeInputEt.getWindowToken(), 0);
+
         if (!agreeRechargeProtocol) {
             showWaringDialog(getResources().getString(R.string.disagree));
             return false;
@@ -439,6 +441,10 @@ public class RechargeActivity extends BaseActivity {
                 showWaringDialog(getResources().getString(R.string.no_money_choose_help));
                 return false;
             }
+        }
+
+        if (Double.parseDouble(selectMonney) > 0){
+            showWaringDialog(getResources().getString(R.string.no_money_show));
         }
         switch (pay_purpose) {
             case Constants.PAY_PURPOSE_MJB:

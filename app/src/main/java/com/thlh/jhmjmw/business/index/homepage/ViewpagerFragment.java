@@ -165,7 +165,8 @@ public class ViewpagerFragment extends BaseFragment {
         // 单品套装
         if (goods.getIs_part() != null) {
             if (goods.getIs_part() != null && goods.getIs_part().equals("1")) {
-                if (goods.getIs_bundling() != null && goods.getPart_is_bundling().equals("1")) {
+                if (goods.getIs_bundling() != null && goods.getPart_is_bundling() != null
+                        && goods.getPart_is_bundling().equals("1")) {
                     GoodsSuitDetailActivity.activityStart(activity, goods.getPart_of_id(), 0);
                 } else {
                     GoodsDetailV3Activity.activityStart(activity, goods.getPart_of_id());
@@ -174,7 +175,7 @@ public class ViewpagerFragment extends BaseFragment {
             }
         }
         // 整箱套装
-        if (goods.getIs_pack().equals("1")) {
+        if (goods.getIs_pack() != null && goods.getIs_pack().equals("1")) {
             int packNum = goods.getPack_num() == null ? 0 : Integer.parseInt(goods.getPack_num());
             for (int i = 0; i < packNum; i++) {
                 DbManager.getInstance().insertCart(goods);

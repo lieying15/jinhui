@@ -96,7 +96,6 @@ public class CollectActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 IndexActivity.activityStart(CollectActivity.this, IndexActivity.POSITON_HOMEPAGE);
-
             }
         });
 
@@ -119,28 +118,29 @@ public class CollectActivity extends BaseActivity {
             @Override
             public void onAddCart(int position) {
                 final Goods goods = collectGoodsAdapter.getItem(position);
-                // 单品套装
-                if(goods.getIs_part().equals("1")){
-                    if(goods.getPart_is_bundling().equals("1")){
-                        GoodsSuitDetailActivity.activityStart(CollectActivity.this,goods.getPart_of_id(),0);
-                    }else {
-                        GoodsDetailV3Activity.activityStart(CollectActivity.this,goods.getPart_of_id());
-                    }
-                    return;
-                }
 
-                // 整箱套装
-                if(goods.getIs_pack().equals("1")){
-                    int packNum  = goods.getPack_num()==null?0:Integer.parseInt(goods.getPack_num());
-                    for (int i = 0; i < packNum; i++) {
+                    // 单品套装
+                    if (goods.getIs_part().equals("1")) {
+                        if (goods.getPart_is_bundling().equals("1")) {
+                            GoodsSuitDetailActivity.activityStart(CollectActivity.this, goods.getPart_of_id(), 0);
+                        } else {
+                            GoodsDetailV3Activity.activityStart(CollectActivity.this, goods.getPart_of_id());
+                        }
+                        return;
+                    }
+
+                    // 整箱套装
+                    if (goods.getIs_pack().equals("1")) {
+                        int packNum = goods.getPack_num() == null ? 0 : Integer.parseInt(goods.getPack_num());
+                        for (int i = 0; i < packNum; i++) {
+                            DbManager.getInstance().insertCart(goods);
+                        }
+                    } else {
                         DbManager.getInstance().insertCart(goods);
                     }
-                }else {
-                    DbManager.getInstance().insertCart(goods);
+                    cartDialog = new SweetAlertDialog(CollectActivity.this, SweetAlertDialog.SUCCESS_TYPE);
+                    cartDialog.setTitleText(getResources().getString(R.string.add_car)).show();
                 }
-                cartDialog = new SweetAlertDialog(CollectActivity.this, SweetAlertDialog.SUCCESS_TYPE);
-                cartDialog.setTitleText(getResources().getString(R.string.add_car)).show();
-            }
         });
         
         collectGoodsAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {

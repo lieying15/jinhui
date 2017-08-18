@@ -55,7 +55,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- *  订单详情页
+ * 订单详情页
  */
 public class OrderDetailActivity extends BaseViewActivity {
     private final String TAG = "OrderDetailActivity";
@@ -123,12 +123,12 @@ public class OrderDetailActivity extends BaseViewActivity {
     TextView orderOfferRemarks;
 
 
-    private BaseObserver<BaseResponse> confrimOrderObserver,cancelOrderObserver;
+    private BaseObserver<BaseResponse> confrimOrderObserver, cancelOrderObserver;
 
     private OrderDetailAdapter orderListAdapter;
     private Order order;
     private boolean showReturn = false;
-    private DialogPhone.Builder phoneDialog ;
+    private DialogPhone.Builder phoneDialog;
     private SweetAlertDialog sweetDialog;
 
 
@@ -142,7 +142,7 @@ public class OrderDetailActivity extends BaseViewActivity {
     @Override
     protected void initVariables() {
         order = getIntent().getParcelableExtra("order");
-        L.e("hqt !!! id:"+ order.getOrder_id()+ " getPay_by_mjb:" + order.getPay_by_mjb());
+        L.e("hqt !!! id:" + order.getOrder_id() + " getPay_by_mjb:" + order.getPay_by_mjb());
     }
 
     @Override
@@ -152,9 +152,9 @@ public class OrderDetailActivity extends BaseViewActivity {
         phoneDialog = new DialogPhone.Builder(this);
         sweetDialog = new SweetAlertDialog(OrderDetailActivity.this, SweetAlertDialog.SUCCESS_TYPE);
         //Tofix 订单地址信息，暂时用默认地址代替
-        orderDetailNameTv.setText(getResources().getString(R.string.name)+ order.getName() );
-        orderDetailAddrTv.setText(getResources().getString(R.string.address)+order.getAddress());
-        orderDetailPhoneTv.setText(getResources().getString(R.string.phone)+ order.getTelephone());
+        orderDetailNameTv.setText(getResources().getString(R.string.name) + order.getName());
+        orderDetailAddrTv.setText(getResources().getString(R.string.address) + order.getAddress());
+        orderDetailPhoneTv.setText(getResources().getString(R.string.phone) + order.getTelephone());
         orderDetailNumberTv.setText(getResources().getString(R.string.order_num) + order.getOrder_no());
         orderDetailAddressArrowIv.setVisibility(View.GONE);
         orderDetailDateTv.setText(getResources().getString(R.string.order_time) + TimeUtils.stringToDateString(order.getOrder_time()));
@@ -162,12 +162,12 @@ public class OrderDetailActivity extends BaseViewActivity {
 
         String yunfei = null;
 
-        if (! (order.getExpress_fee().equals("0.00"))){
+        if (!(order.getExpress_fee().equals("0.00"))) {
             yunfei = getResources().getString(R.string.money) + order.getExpress_fee();
         }
 
         for (OrderItem item : order.getOrder_items()) {
-            if (yunfei!= null){
+            if (yunfei != null) {
                 if (!yunfei.contains(getResources().getString(R.string.mail))
                         && !yunfei.contains(getResources().getString(R.string.expressfree_pay))) {
                     if (item.getSupplier_id().equals("1")) {
@@ -204,12 +204,12 @@ public class OrderDetailActivity extends BaseViewActivity {
                         yunfei = getResources().getString(R.string.mail);
                     }
                 }
-            }else {
+            } else {
                 if (item.getSupplier_id().equals("1")) {
                     yunfei = getResources().getString(R.string.mail);
                 } else if (item.getSupplier_id().equals("48")) {
                     yunfei = getResources().getString(R.string.expressfree_pay);
-                } else{
+                } else {
                     yunfei = getResources().getString(R.string.mail);
                 }
             }
@@ -217,28 +217,14 @@ public class OrderDetailActivity extends BaseViewActivity {
         orderDetailFreightTv.setText(yunfei);
 
 
-        /**
-         *
-         *
-         *
-         */
-        double spendmjz = OrderUtils.getDetailSpendMjz(order);
-        if(spendmjz == 0 ){
-            mjzTv.setText(TextUtils.showPrice(spendmjz));
-        }else {
-            mjzTv.setText(" - "+TextUtils.showPrice(spendmjz));
-        }
-
-//        String user_mjb = (String) SPUtils.get("user_mjb", "0");
-//        double jhb = Double.parseDouble(user_mjb);
         String goods_amount = order.getGoods_amount();
         String express_fee = order.getExpress_fee();
         String pay_by_mjb = order.getPay_by_mjb();
-        if (order.getIs_pay().equals("1")){                            //已支付
+        if (order.getIs_pay().equals("1")) {                            //已支付
             double sum = Double.parseDouble(goods_amount) + Double.parseDouble(express_fee) - Double.parseDouble(pay_by_mjb);
             totalPriceTv.setText(getResources().getString(R.string.money) + new DecimalFormat("0.00").format(sum));
             mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(Double.parseDouble(pay_by_mjb))));
-        }else  if (order.getIs_pay().equals("0")){
+        } else if (order.getIs_pay().equals("0")) {
             totalPriceTv.setText(this.getResources().getString(R.string.money) + order.getShould_pay());
             mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(0)));
         } else if (order.getIs_pay().equals("2")) {         //部分支付
@@ -260,7 +246,7 @@ public class OrderDetailActivity extends BaseViewActivity {
                 EasyDividerItemDecoration.VERTICAL_LIST,
                 R.drawable.divider_mianback
         );
-        orderListAdapter = new OrderDetailAdapter(this,showReturn);
+        orderListAdapter = new OrderDetailAdapter(this, showReturn);
 
         orderListAdapter.setList(order.getOrder_items());
         orderListAdapter.setOnClickEvent(new OrderDetailItemAdapter.OnClickEvent() {
@@ -268,14 +254,14 @@ public class OrderDetailActivity extends BaseViewActivity {
             public void onReturn(int position) {
                 String suppler_tel = order.getOrder_items().get(0).getItem().get(0).getSupplier_tel();
                 String suppler_name = order.getOrder_items().get(0).getItem().get(0).getSupplier_name();
-                showPhoneDialog(suppler_name,suppler_tel);
+                showPhoneDialog(suppler_name, suppler_tel);
             }
         });
         orderDetailRv.setAdapter(orderListAdapter);
         orderDetailRv.setLayoutManager(new LinearLayoutManager(this));
         orderDetailRv.addItemDecoration(dataDecoration);
-       /***/
-       int status = OrderUtils.getOrderStatus(order);
+        /***/
+        int status = OrderUtils.getOrderStatus(order);
         String orderStatusStr = OrderUtils.getOrderStatusStr(status);
 
         /*
@@ -284,10 +270,10 @@ public class OrderDetailActivity extends BaseViewActivity {
         statusTv.setText(orderStatusStr);
         try {
             String tempPaytype = getPaytype(order);
-           //支付方式
+            //支付方式
             paytypeTv.setText(tempPaytype);
 
-            if(tempPaytype.equals("金惠币支付")){
+            if (tempPaytype.equals("金惠币支付")) {
                 paytypeTv.setTextColor(getResources().getColor(R.color.green));
             }
         } catch (Exception e) {
@@ -297,12 +283,12 @@ public class OrderDetailActivity extends BaseViewActivity {
         CountDownTimer timer = new CountDownTimer(getRemainTime(order.getOrder_time()), 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                paytimeTv.setText( getResources().getString(R.string.sy_pay_time) + changeTime(millisUntilFinished));
+                paytimeTv.setText(getResources().getString(R.string.sy_pay_time) + changeTime(millisUntilFinished));
             }
 
             @Override
             public void onFinish() {
-                paytimeTv.setText( getResources().getString(R.string.order_have_cannal));
+                paytimeTv.setText(getResources().getString(R.string.order_have_cannal));
             }
         };
 
@@ -321,7 +307,7 @@ public class OrderDetailActivity extends BaseViewActivity {
                 gotoPayTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        PayOrderActivity.activityStart(OrderDetailActivity.this,ACTIVITY_CODE_PAY,order);
+                        PayOrderActivity.activityStart(OrderDetailActivity.this, ACTIVITY_CODE_PAY, order);
                     }
                 });
                 traceLl.setVisibility(View.GONE);
@@ -334,9 +320,9 @@ public class OrderDetailActivity extends BaseViewActivity {
                 gotoPayTv.setVisibility(View.GONE);
                 paytimeTv.setVisibility(View.GONE);
                 traceLl.setVisibility(View.VISIBLE);
-                if(order.getSupplier_id().equals("1")){
+                if (order.getSupplier_id().equals("1")) {
                     orderListAdapter.setShowReturn(false);
-                }else {
+                } else {
                     orderListAdapter.setShowReturn(true);
                 }
                 break;
@@ -379,7 +365,7 @@ public class OrderDetailActivity extends BaseViewActivity {
                 break;
 
             case Constants.ORDER_TYPE_COMPLETE:
-                if(order.getIs_comment().equals("0")){
+                if (order.getIs_comment().equals("0")) {
                     cancelTv.setVisibility(View.VISIBLE);
                     cancelTv.setText(getResources().getString(R.string.shop_evaluation));
                     cancelTv.setOnClickListener(new View.OnClickListener() {
@@ -388,7 +374,7 @@ public class OrderDetailActivity extends BaseViewActivity {
                             OrderCommentActivity.activityStart(OrderDetailActivity.this);
                         }
                     });
-                }else {
+                } else {
                     cancelTv.setVisibility(View.GONE);
                 }
                 gotoPayTv.setText(getResources().getString(R.string.again_buy));
@@ -428,7 +414,7 @@ public class OrderDetailActivity extends BaseViewActivity {
 
             @Override
             public void onNextResponse(BaseResponse orderResponse) {
-                SPUtils.put("order_need_update","2");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
+                SPUtils.put("order_need_update", "2");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
                 OrderCommentActivity.activityStart(OrderDetailActivity.this);
                 finish();
             }
@@ -441,7 +427,7 @@ public class OrderDetailActivity extends BaseViewActivity {
 
             @Override
             public void onNextResponse(BaseResponse orderResponse) {
-                SPUtils.put("order_need_update","3");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
+                SPUtils.put("order_need_update", "3");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
                 finish();
             }
         };
@@ -453,17 +439,17 @@ public class OrderDetailActivity extends BaseViewActivity {
     protected void loadData() {
     }
 
-    private long  getRemainTime(String ordertime){
-        return  Long.parseLong(ordertime)*1000 + 86400000 - System.currentTimeMillis();
+    private long getRemainTime(String ordertime) {
+        return Long.parseLong(ordertime) * 1000 + 86400000 - System.currentTimeMillis();
     }
 
-    private String  changeTime(long millisUntilFinished){
+    private String changeTime(long millisUntilFinished) {
 //        String timeStr;
         StringBuilder stringBuilder = new StringBuilder();
-        long sec = millisUntilFinished/1000;
+        long sec = millisUntilFinished / 1000;
         int hour = 0;
         int minute = 0;
-        long seocond =0;
+        long seocond = 0;
 
         if (sec <= 0)
             return "00:00:00";
@@ -474,22 +460,22 @@ public class OrderDetailActivity extends BaseViewActivity {
 
             } else {
                 hour = minute / 60;
-                stringBuilder.append(hour +":");
+                stringBuilder.append(hour + ":");
             }
             minute = minute % 60;
-            stringBuilder.append(minute+":");
+            stringBuilder.append(minute + ":");
             seocond = sec % 60;
             stringBuilder.append(seocond);
         }
-        return  stringBuilder.toString();
+        return stringBuilder.toString();
     }
 
-    @OnClick({R.id.order_detail_trace_ll, R.id.order_detail_gotopay_tv,R.id.order_detail_cancel_tv})
+    @OnClick({R.id.order_detail_trace_ll, R.id.order_detail_gotopay_tv, R.id.order_detail_cancel_tv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.order_detail_trace_ll:
                 /**订单跟踪*/
-                OrderTraceActivity.activityStart(this,order);
+                OrderTraceActivity.activityStart(this, order);
                 break;
             case R.id.order_detail_gotopay_tv:
 
@@ -500,28 +486,28 @@ public class OrderDetailActivity extends BaseViewActivity {
         }
     }
 
-    private void addShopcart(Order order){
+    private void addShopcart(Order order) {
 
         List<GoodsOrder> goodsorder = order.getOrder_items().get(0).getItem();
-        for(GoodsOrder goods : goodsorder){
+        for (GoodsOrder goods : goodsorder) {
             try {
                 Goods tempgoods = GoodsChangeUtils.changeGoods(goods);
                 int size = Integer.parseInt(goods.getItem_num());
-                if(tempgoods.getIs_part().equals("1")){
-                    if(goods.getPart_is_bundling().equals("1")){
-                        GoodsSuitDetailActivity.activityStart(OrderDetailActivity.this,goods.getPart_of_id(),0);
-                    }else {
-                        GoodsDetailV3Activity.activityStart(OrderDetailActivity.this,goods.getPart_of_id());
+                if (tempgoods.getIs_part().equals("1")) {
+                    if (goods.getPart_is_bundling().equals("1")) {
+                        GoodsSuitDetailActivity.activityStart(OrderDetailActivity.this, goods.getPart_of_id(), 0);
+                    } else {
+                        GoodsDetailV3Activity.activityStart(OrderDetailActivity.this, goods.getPart_of_id());
                     }
                     return;
                 }
-                for (int i = 0; i <size ; i++) {
-                    if(tempgoods.getIs_pack().equals("1")){
-                        int packNum  = tempgoods.getPack_num()==null?0:Integer.parseInt(tempgoods.getPack_num());
+                for (int i = 0; i < size; i++) {
+                    if (tempgoods.getIs_pack().equals("1")) {
+                        int packNum = tempgoods.getPack_num() == null ? 0 : Integer.parseInt(tempgoods.getPack_num());
                         for (int n = 0; n < packNum; n++) {
                             DbManager.getInstance().insertCart(tempgoods);
                         }
-                    }else {
+                    } else {
                         DbManager.getInstance().insertCart(tempgoods);
                     }
                 }
@@ -538,7 +524,7 @@ public class OrderDetailActivity extends BaseViewActivity {
                 .subscribe(confrimOrderObserver);
     }
 
-    public void showPhoneDialog(String suppler_name,final String suppler_tel){
+    public void showPhoneDialog(String suppler_name, final String suppler_tel) {
         phoneDialog.setTitle(suppler_name + getResources().getString(R.string.Customer_service)).setContent(suppler_tel).setButtonListener(new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -554,68 +540,75 @@ public class OrderDetailActivity extends BaseViewActivity {
         }).create().show();
     }
 
-    private String getPaytype(Order order){
+    private String getPaytype(Order order) {
 
-        if(order.getSupplier_id().equals("1")){
+        if (order.getSupplier_id().equals("1")) {
             /**"冰箱兑换券"
              * getResources().getString(R.string.ice_exchage)
              * */
             return getResources().getString(R.string.ice_exchage);
         }
         StringBuilder paytype = new StringBuilder();
-        for (int i = 0; i < order.getPay().size(); i++) {
-            if(order.getPay().get(i).getIs_ok().equals("0"))continue;
-            String methodid = order.getPay().get(i).getPayment_method_id();
-            switch (methodid){
-                /**"美家钻支付"
-                 * getResources().getString(R.string.mjz_pay)
-                 * */
-                case "1": paytype.append(getResources().getString(R.string.mjz_pay));
-                    paytypeIv.setBackgroundResource(R.drawable.img_pay_mjb);
+        if (order.getPay() != null) {
+            for (int i = 0; i < order.getPay().size(); i++) {
+                if (order.getPay().get(i).getIs_ok().equals("0")) continue;
+                String methodid = order.getPay().get(i).getPayment_method_id();
+                switch (methodid) {
+                    /**"美家钻支付"
+                     * getResources().getString(R.string.mjz_pay)
+                     * */
+                    case "1":
+                        paytype.append(getResources().getString(R.string.mjz_pay));
+                        paytypeIv.setBackgroundResource(R.drawable.img_pay_mjb);
 //                    paytypeIv.setVisibility(View.VISIBLE);
-                    break;
-                /**"余额支付"
-                 * getResources().getString(R.string.order_confirm_paytype_yue)
-                 * */
-                case "2": paytype.append(getResources().getString(R.string.order_confirm_paytype_yue));
-                    paytypeIv.setBackgroundResource(R.drawable.img_pay_ali);
+                        break;
+                    /**"余额支付"
+                     * getResources().getString(R.string.order_confirm_paytype_yue)
+                     * */
+                    case "2":
+                        paytype.append(getResources().getString(R.string.order_confirm_paytype_yue));
+                        paytypeIv.setBackgroundResource(R.drawable.img_pay_ali);
 //                    paytypeIv.setVisibility(View.VISIBLE);
-                    break;
-                /**"微信支付"
-                 * getResources().getString(R.string.order_confirm_paytype_weixin)
-                 * */
-                case "3": paytype.append(getResources().getString(R.string.order_confirm_paytype_weixin));
-                    paytypeIv.setBackgroundResource(R.drawable.img_pay_wechat);
+                        break;
+                    /**"微信支付"
+                     * getResources().getString(R.string.order_confirm_paytype_weixin)
+                     * */
+                    case "3":
+                        paytype.append(getResources().getString(R.string.order_confirm_paytype_weixin));
+                        paytypeIv.setBackgroundResource(R.drawable.img_pay_wechat);
 //                    paytypeIv.setVisibility(View.VISIBLE);
-                    break;
-                /**"支付宝支付"
-                 * getResources().getString(R.string.zfb_pay)
-                 * */
-                case "4": paytype.append(getResources().getString(R.string.zfb_pay));
-                    break;
-                default :return "";
-            }
-            if(i< order.getPay().size() -1){
-                paytype.append(",");
+                        break;
+                    /**"支付宝支付"
+                     * getResources().getString(R.string.zfb_pay)
+                     * */
+                    case "4":
+                        paytype.append(getResources().getString(R.string.zfb_pay));
+                        break;
+                    default:
+                        return "";
+                }
+                if (i < order.getPay().size() - 1) {
+                    paytype.append(",");
+                }
             }
         }
 
-        return  paytype.toString();
+        return paytype.toString();
     }
 
-    private String getAddress(){
-        StringBuilder tempaddress =  new StringBuilder();
+    private String getAddress() {
+        StringBuilder tempaddress = new StringBuilder();
         String province = (String) SPUtils.get("user_address_province", "").toString();
         String city = (String) SPUtils.get("user_address_city", "").toString();
-        tempaddress.append( province);
-        if(! province.equals(city)){
-            tempaddress.append( city);
+        tempaddress.append(province);
+        if (!province.equals(city)) {
+            tempaddress.append(city);
         }
-        tempaddress.append(  (String) SPUtils.get("user_address_district", "").toString() );
-        return  tempaddress.toString();
+        tempaddress.append((String) SPUtils.get("user_address_district", "").toString());
+        return tempaddress.toString();
     }
 
-    public void showConfrimGainDialog(final  String orderid){
+    public void showConfrimGainDialog(final String orderid) {
         final NormalDialogFragment confirmDialog = new NormalDialogFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
@@ -637,11 +630,11 @@ public class OrderDetailActivity extends BaseViewActivity {
                 confirmDialog.dismiss();
             }
         });
-        confirmDialog.show(ft,"confirmDialog");
+        confirmDialog.show(ft, "confirmDialog");
     }
 
 
-    public void showCancerOrderDialog(final String orderid){
+    public void showCancerOrderDialog(final String orderid) {
         final DialogFrgCancelOrder cancelDialog = new DialogFrgCancelOrder();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
@@ -658,16 +651,16 @@ public class OrderDetailActivity extends BaseViewActivity {
         cancelDialog.setFinalBtnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postCancelOrder(orderid,cancelDialog.getRadioButtonStr());
+                postCancelOrder(orderid, cancelDialog.getRadioButtonStr());
                 cancelDialog.dismiss();
             }
         });
-        cancelDialog.show(ft,"cancelDialog");
+        cancelDialog.show(ft, "cancelDialog");
     }
 
-    public void postCancelOrder(String orderid,String reason) {
+    public void postCancelOrder(String orderid, String reason) {
         NetworkManager.getOrderApi()
-                .cancelOrder(SPUtils.getToken(), orderid,reason)
+                .cancelOrder(SPUtils.getToken(), orderid, reason)
                 .compose(RxUtils.androidSchedulers(this))
                 .subscribe(cancelOrderObserver);
     }

@@ -17,8 +17,6 @@ import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.GoodsOrder;
 import com.thlh.baselib.model.Order;
 import com.thlh.baselib.model.OrderItem;
-import com.thlh.baselib.model.OrderPay;
-import com.thlh.baselib.utils.SPUtils;
 import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.order.comment.OrderCommentActivity;
@@ -63,6 +61,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
 
     @Override
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, final int position) {
+
         final Order order = (Order) this.getItem(position);
         final String orderid = order.getOrder_id();
         final double shoudpay = order.getShould_pay();
@@ -91,30 +90,8 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
                 * 状态*/
                 statesTv.setText(context.getResources().getString(R.string.wait_pay));
                 priceTitleTv.setText(context.getResources().getString(R.string.need_pay));
-                mjzTv.setVisibility(View.VISIBLE);
-                finalprice = order.getShould_pay();
-                List<OrderPay> tempPaylist = order.getPay();
-                if (null != tempPaylist && tempPaylist.size() > 0) {
-                    L.e("hahaha tempPaylist.size()" + tempPaylist.size());
-                    for (int i = 0; i < tempPaylist.size(); i++) {
-                        String payment_method_id = tempPaylist.get(i).getPayment_method_id();
-                        if (payment_method_id.equals("1")){
-                            sum = Double.parseDouble(tempPaylist.get(i).getSum());
-                            if (is_pay.equals("0")) {
-                                mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(sum),
-                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
-                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
-                            }else {
-                                mjzTv.setText(TextUtils.showHadMjz(context, new DecimalFormat("0.00").format(sum),
-                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
-                                        (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
-                            }
-                                L.e("sum==================" + sum);
-                        }
+                mjzTv.setVisibility(View.GONE);
 
-                    }
-                }
-               
                 storenameTv.setText(order.getOrder_items().get(0).getStore_name());
                 actionLeftTv.setVisibility(View.VISIBLE);
 
@@ -285,6 +262,7 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         orderImgAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(View convertView, int position) {
+                L.e("orderid============" + order.getOrder_id());
                 OrderDetailActivity.activityStart(context, order);
             }
         });
@@ -295,57 +273,20 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
         ForegroundColorSpan redSpan = new ForegroundColorSpan(context.getResources().getColor(R.color.app_theme));
         builder.setSpan(redSpan, 1, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         goodsNumTv.setText(builder);
-
-        /**
-         * 1,如果不支持金惠币显示   金惠币可抵 零元
-         * 2，如果自己的金惠币不足，显示自己金惠币的数量
-         * 3，如果自己金惠币大于需要抵消的。直接显示需要抵消的
-         *
-         */
-        String user_mjb = (String) SPUtils.get("user_mjb", "0");
-        double jhb = Double.parseDouble(user_mjb);
-
+        String pay_by_mjb = order.getPay_by_mjb();
         if (order.getIs_pay().equals("0")) {        //未付款
             priceTv.setText(context.getResources().getString(R.string.money) + order.getShould_pay());
-            if (jhb > 0) {
-                if (jhb < mjz) {     //mjz=====商品美家钻可支付
-                    mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(jhb),
-                            (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
-                            (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
-                } else {
-                    mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(mjz),
-                            (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
-                            (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
-                }
-            } else {
-                mjzTv.setText(TextUtils.showMjz(context, new DecimalFormat("0.00").format(0),
-                        (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
-                        (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
-            }
+            mjzTv.setText(" - " + TextUtils.showPrice(new DecimalFormat("0.00").format(0)));
 
         } else if (order.getIs_pay().equals("2")) {         //部分支付
             priceTv.setText(context.getResources().getString(R.string.money) + order.getShould_pay());
-            List<OrderPay> pays = order.getPay();
-            for (int i = 0; i < pays.size(); i++) {
-                OrderPay orderPay = pays.get(i);
-                if (orderPay.getPayment_method_id().equals("1")) {
-                    if (orderPay.getIs_ok().equals("1")) {
-                        mjzTv.setText(TextUtils.showHadMjz(context, new DecimalFormat("0.00").format(sum),
-                                (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
-                                (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
-                    }
-                }
-            }
+            mjzTv.setText(TextUtils.showMjz(context, pay_by_mjb));
         } else {                            //已支付
             String goods_amount = order.getGoods_amount();
             String express_fee = order.getExpress_fee();
-            String pay_by_mjb = order.getPay_by_mjb();
             double sum = Double.parseDouble(goods_amount) + Double.parseDouble(express_fee) - Double.parseDouble(pay_by_mjb);
-
+            mjzTv.setText(TextUtils.showMjz(context, pay_by_mjb));
             priceTv.setText(context.getResources().getString(R.string.money) + new DecimalFormat("0.00").format(sum));
-            mjzTv.setText(TextUtils.showHadMjz(context, new DecimalFormat("0.00").format(Double.parseDouble(pay_by_mjb)),
-                    (int) context.getResources().getDimension(R.dimen.icon_mjz_x),
-                    (int) context.getResources().getDimension(R.dimen.icon_mjz_y)));
         }
 
     }
@@ -385,7 +326,6 @@ public class OrderAdapter extends EasyRecyclerViewAdapter {
             }
         }).create().show();
     }
-
 
     public void setCotent_type(int cotent_type) {
         this.cotent_type = cotent_type;

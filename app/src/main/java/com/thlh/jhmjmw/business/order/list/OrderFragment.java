@@ -98,6 +98,7 @@ public class OrderFragment extends BaseFragment {
         orderAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(View convertView, int position) {
+                L.e("orderid============" + orderList.get(position).getOrder_id());
                 OrderDetailActivity.activityStart(getActivity(),orderList.get(position));
             }
         });
@@ -137,8 +138,7 @@ public class OrderFragment extends BaseFragment {
         orderBasePtprRv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<EasyRecyclerView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<EasyRecyclerView> refreshView) {
-                current_page = 1;
-                loadData();
+                reLoadData();
             }
 
             @Override
@@ -175,6 +175,7 @@ public class OrderFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+
         orderObserver = new BaseObserver<OrderResponse>() {
             @Override
             public void onErrorResponse(OrderResponse orderResponse) {
@@ -185,15 +186,18 @@ public class OrderFragment extends BaseFragment {
             @Override
             public void onNextResponse(OrderResponse orderResponse) {
                 orderBasePtprRv.onRefreshComplete();
-                orderList = orderResponse.getData().getOrders();
+                List<Order> orders = orderResponse.getData().getOrders();
                 total_page = orderResponse.getData().getTotal_page();
                 L.e("加载更多数据 cotent_type "+cotent_type+" isLoadingMore" + "isLoadingMore " + isLoadingMore);
                 if (isLoadingMore) {
-                    orderAdapter.setList(orderList, true);
+                    orderList.addAll(orders);
                     isLoadingMore = false;
+                    orderAdapter.setList(orderList);
+                    orderAdapter.notifyDataSetChanged();
                 } else {
-                    if(orderList == null || orderList.size() ==0){
-                        L.e(TAG + "orderList == null || orderList.size() ==0");
+                    orderList.clear();
+                    if(orders == null || orders.size() ==0){
+                        L.e(TAG + "orders == null || orders.size() ==0");
                         if(cotent_type == Constants.ORDER_TYPE_ALL){
                             ((OrderListActivity)getActivity()).showNoinfo();
                         }else {
@@ -201,12 +205,13 @@ public class OrderFragment extends BaseFragment {
                             noinfoview.setVisibility(View.VISIBLE);
                         }
                     }else {
-                        L.e(TAG + "orderList != null");
+                        orderList.addAll(orders);
                         ((OrderListActivity)getActivity()).showOrderList();
                         orderBasePtprRv.setVisibility(View.VISIBLE);
                         noinfoview.setVisibility(View.GONE);
                     }
                     orderAdapter.setList(orderList);
+                    orderAdapter.notifyDataSetChanged();
                     showMsgNum(orderResponse);
                 }
             }
@@ -371,10 +376,7 @@ public class OrderFragment extends BaseFragment {
                 e.printStackTrace();
             }
         }
-//        if(canReBuy){
-//            sweetDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE);
-//            sweetDialog.setTitleText("已加入购物车").show();
-//        }
+
     }
 
 

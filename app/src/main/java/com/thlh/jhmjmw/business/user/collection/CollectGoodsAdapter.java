@@ -45,6 +45,9 @@ public class CollectGoodsAdapter extends BaseGoodsLIstAdapter {
         FrameLayout basecartFl = viewHolder.findViewById(R.id.item_goods_base_cart_fl);
 
         Goods goods = getItem(position);
+        if (!goods.getIs_shelves().equals("0")){
+
+        }
 
         swipeRoot.setSwipeAble(true);
         swipeRoot.setDelegate(new SwipeItemLayout.SwipeItemLayoutDelegate() {
