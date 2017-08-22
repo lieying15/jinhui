@@ -240,7 +240,7 @@
     <string name="pay_choose">请选择支付方式</string>
     <string name="no_money_choose_help">余额不足，请选择第三方支付</string>
     <string name="no_money_show">充值金额必须大于零</string>
-    <string name="mjmw_shop">每家美物商品</string>
+    <string name="mjmw_shop">聚惠美物商品</string>
 
     <string name="shop">商品</string>
     <string name="shop_details">详情</string>
