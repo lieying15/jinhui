@@ -144,7 +144,7 @@
                 "\n"
                 "商城充值¥4500等值购物无忧，\n"
                 "另送万元智能冰箱，智慧生活掌控在手！\n";</string>
-        <string name="myshop_bj">"真正用心的人才会知道，\n"
+    <string name="myshop_bj">"真正用心的人才会知道，\n"
                 "土壤、气温、水分、日照对于橄榄油品质的影响，\n"
                 "我们甚至寻味西班牙，为您甄选百年好品质......\n"
                 "\n"
@@ -230,7 +230,7 @@
                     "2、支付宝支付，并绑定了中国邮政银行储蓄卡。\n"
                     "如给您带来不便，还请谅解，谢谢！"</string>
 
-      <string name="top_up_change_icebox">"天小美温馨提示：鉴于部分银行卡有支付金额限制，请您充值前先确保充值金额在银行限额之内，以便顺利充值。\n" </string>
+    <string name="top_up_change_icebox">"天小美温馨提示：鉴于部分银行卡有支付金额限制，请您充值前先确保充值金额在银行限额之内，以便顺利充值。\n" </string>
 
 
     <string name="mjz_top_up">金惠币充值</string>
@@ -334,7 +334,7 @@
                 "   4.特殊商品运费到付，具体详见商品详情页。\n"
                 "\n"
                 "备注：每家美物商城平台致力于为消费者优选商品，提供源头直采的货物，保障消费者可以放心、安心的使用我们为您选择的商品。每一家供应商或合作厂商都会经过我们严格审核。"</string>
-  <string name="mjmw_icebox_cuxiao">
+    <string name="mjmw_icebox_cuxiao">
 \t\t\t\t\t\t\t\t\t\t金惠币促销规则\n
 1、成功购买每家美物 美的智能冰箱，每台冰箱可赠送¥1500金惠币。\n
 2、当您收到冰箱后，请立即进行冰箱绑定操作。\n
@@ -679,6 +679,7 @@
 
     <!---->
     <string name="return_home">返回首页</string>
+    <string name="return_pay">返回重新支付</string>
     <string name="setting_fail">操作失败</string>
     <string name="resetting_call_phone">请重复操作或联系客服</string>
     <string name="goods_arrive_info">到货后物流公司收取</string>
@@ -733,10 +734,13 @@
     <string name="about_our">每家美物由天汇联合（北京）科技发展有限公司创建，通过强大的大规模集约采购优势、丰富的电子商务管理服务经验和最先进的互 联网技术为用户提供最新最优质的商品。主要经营技术开发；技术推广；技术服务；技术转让；技术咨询；基础软件服务；应用软件服务；计算机系统服务；设计、制作、代理、发布广告；组织文化艺术交流活动；会议服务；承办展览展会互动；企业策划；销售食品、日用品、服务、家用电器、厨房用具、针纺织品、工艺品、文化用品、体育用品、计算机、软件及辅助设备、通讯设备、电子产品、汽车（不含九及以下乘用车）等。</string>
 
     <string name="photo_num_show">最多可添加5张图片</string>
+    <string name="pay_password_hint">您正在输入金惠币支付密码，金惠币支付成功后将进入第三方平台支付订单中剩余金额。</string>
 
+    <string name="system_doing_order">系统正在处理您的订单</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_maxi_capacity" />
+    <string name="title_activity_pay">payActivity</string>
 
 
 </resources>

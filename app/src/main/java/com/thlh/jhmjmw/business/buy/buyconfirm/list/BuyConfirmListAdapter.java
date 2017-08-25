@@ -8,6 +8,7 @@ import com.thlh.baselib.model.CartSupplier;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.buy.buyconfirm.adapter.BuyConfirmListItemAdapter;
 import com.thlh.jhmjmw.business.buy.buyconfirm.adapter.BuyConfirmListSuitAdapter;
+import com.thlh.jhmjmw.other.L;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
@@ -44,9 +45,11 @@ public class BuyConfirmListAdapter extends EasyRecyclerViewAdapter {
             TextView shopcartNameTv = viewHolder.findViewById(R.id.shopcart_supplier_name_tv);
             EasyRecyclerView shopcartRv = viewHolder.findViewById(R.id.shopcart_goods_rv);
 
-
+            L.e("dingdansahgndian===" + cartgoodsmap.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name());
+            L.e("dingdansahgndian===" + cartgoodsmap.getCartgoods().get(0).getGoodsdb().getSupplier().getName());
             if(cartgoodsmap.getCartgoods()!=null &&cartgoodsmap.getCartgoods().size()>0){
-                if(cartgoodsmap.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name().equals("")){
+                if(cartgoodsmap.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name()== null
+                        || cartgoodsmap.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name().equals("")){
                     shopcartNameTv.setText(cartgoodsmap.getCartgoods().get(0).getGoodsdb().getSupplier().getName());
                 }else {
                     shopcartNameTv.setText(cartgoodsmap.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name());

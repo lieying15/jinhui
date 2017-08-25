@@ -22,7 +22,7 @@ import com.thlh.baselib.utils.AliPayResult;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.jhmjmw.R;
-import com.thlh.jhmjmw.business.order.list.OrderListActivity;
+import com.thlh.jhmjmw.business.pay.PayActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.AliPay;
 import com.thlh.jhmjmw.other.L;
@@ -125,6 +125,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
                     DbManager.getInstance().deleteSelectGoods(); //清除购物车
                 }
                 String orderid = generateResponse.getData().getOrder_id();
+                SPUtils.put("orderid",orderid);
                 L.e(TAG + "  generateOrderObserver orderid " + orderid);
                 SPUtils.put("needupdate_userinfo", true); //刷新我的界面
                 //支付密码弹窗判断
@@ -343,26 +344,36 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
             public void onPaySucceed(AliPayResult payResult) {
                 switch (payResult.resultStatus) {
                     case "9000":
-                        mView.showPaySuccessDialog();
+                        L.e("zhifubao====9000");
+                        PayActivity.activityStart(activity);
                         break;
                     case "4000":
-                        mView.showHintDialog( context.getResources().getString(R.string.zfb_pay_fail));
+                        L.e("zhifubao====4000");
+                        PayActivity.activityStart(activity, "2");
+//                        showErrorDialog(getResources().getString(R.string.order_pay_fail));
                         break;
                     case "6001":
-                        mView.showHintDialog(context.getResources().getString(R.string.cannal_zfb_pay));
+                        L.e("zhifubao====6001");
+                        PayActivity.activityStart(activity, "2");
+//                        showErrorDialog(getResources().getString(R.string.cannal_zfb_pay));
                         break;
                     case "6002":
-                        mView.showHintDialog(context.getResources().getString(R.string.net_wrong));
+                        L.e("zhifubao====6002");
+                        PayActivity.activityStart(activity, "2");
+//                        showErrorDialog(getResources().getString(R.string.net_wrong));
                         break;
                     default:
-                        mView.showHintDialog(context.getResources().getString(R.string.zfb_pay_fail));
+                        L.e("zhifubao====default");
+                        PayActivity.activityStart(activity, "2");
+//                        showErrorDialog(getResources().getString(R.string.order_pay_wrong));
                         break;
                 }
             }
 
             @Override
             public void onPayFailed(Exception e) {
-                OrderListActivity.activityStart(activity, Constants.ORDER_TYPE_WAIT_PAY);
+                L.e("zhifubao====fail");
+                PayActivity.activityStart(activity, "2");
             }
         });
         aliPay.pay();

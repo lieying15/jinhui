@@ -62,7 +62,7 @@
             android:value="${CHANNEL_NAME}" />
         <!-- 引导页 -->
         <activity
-            android:name="com.thlh.jhmjmw.business.entrance.GuideActivity"
+            android:name=".business.entrance.GuideActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -72,52 +72,51 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.thlh.jhmjmw.business.index.IndexActivity"
+            android:name=".business.index.IndexActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.thlh.jhmjmw.business.index.shop.ShopActivity"
+            android:name=".business.index.shop.ShopActivity"
             android:screenOrientation="portrait" />
         <!-- android:launchMode="singleTask" -->
         <activity
-            android:name="com.thlh.jhmjmw.business.entrance.login.LoginActivity"
+            android:name=".business.entrance.login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="com.thlh.jhmjmw.business.entrance.regist.RegisterActivity"
+            android:name=".business.entrance.regist.RegisterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.thlh.jhmjmw.business.entrance.regist.RegisterPasswordActivity"
+            android:name=".business.entrance.regist.RegisterPasswordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="com.thlh.jhmjmw.business.pay.PayPasswordActivity"
+            android:name=".business.pay.PayPasswordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.UserInfoActivity"
+            android:name=".business.user.UserInfoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.UserSafeActivity"
+            android:name=".business.user.UserSafeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.password.PasswordChangeActivity"
+            android:name=".business.user.password.PasswordChangeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.PhoneVerifyCodeActivity"
+            android:name=".business.user.PhoneVerifyCodeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.password.PasswordSetActivity"
+            android:name=".business.user.password.PasswordSetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.goodsdetail.GoodsDetailV3Activity"
+            android:name=".business.goods.goodsdetail.GoodsDetailV3Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.suit.GoodsSuitDetailActivity"
+            android:name=".business.goods.suit.GoodsSuitDetailActivity"
             android:screenOrientation="portrait">
 
             <!-- <intent-filter> -->
@@ -126,7 +125,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.BuyConfirmActivity"
+            android:name=".business.buy.buyconfirm.BuyConfirmActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -138,169 +137,170 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.list.BuyConfirmListActivity"
+            android:name=".business.buy.buyconfirm.list.BuyConfirmListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.coupon.CouponExchangeActivity"
+            android:name=".business.goods.coupon.CouponExchangeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.order.trace.OrderTraceActivity"
+            android:name=".business.order.trace.OrderTraceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.order.list.OrderListActivity"
+            android:name=".business.order.list.OrderListActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".business.user.coupon.CouponActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.coupon.CouponActivity"
+            android:name=".business.user.address.AddrManageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.address.AddrManageActivity"
+            android:name=".business.user.address.AddrEditActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.address.AddrEditActivity"
+            android:name=".business.order.comment.OrderCommentWriteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.order.comment.OrderCommentWriteActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.thlh.jhmjmw.business.goods.search.SearchActivity"
+            android:name=".business.goods.search.SearchActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <!-- android:configChanges="keyboardHidden|orientation|screenSize" -->
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.search.SearchResultActivity"
+            android:name=".business.goods.search.SearchResultActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.ServiceCenterActivity"
+            android:name=".business.user.ServiceCenterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.collection.CollectActivity"
+            android:name=".business.user.collection.CollectActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.footprint.FootPrintActivity"
+            android:name=".business.user.footprint.FootPrintActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.info.InfoSystemActivity"
+            android:name=".business.user.info.InfoSystemActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.SettingActivity"
+            android:name=".business.user.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneMangeActivity"
+            android:name=".business.user.UserChangeBindPhoneMangeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneByPwActivity"
+            android:name=".business.user.UserChangeBindPhoneByPwActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneByPhoneActivity"
+            android:name=".business.user.UserChangeBindPhoneByPhoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.UserChangeBindPhoneActivity"
+            android:name=".business.user.UserChangeBindPhoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.wallet.WalletActivity"
+            android:name=".business.user.wallet.WalletActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.recharge.RechargeActivity"
+            android:name=".business.recharge.RechargeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.recharge.RechargeQRActivity"
+            android:name=".business.recharge.RechargeQRActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.wallet.DealRecordActivity"
+            android:name=".business.user.wallet.DealRecordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.wallet.MjzActivity"
+            android:name=".business.user.wallet.MjzActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.order.comment.OrderCommentActivity"
+            android:name=".business.order.comment.OrderCommentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.info.InfoManageActivity"
+            android:name=".business.user.info.InfoManageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.info.InfoTransportionActivity"
+            android:name=".business.user.info.InfoTransportionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.info.InfoCouponActivity"
+            android:name=".business.user.info.InfoCouponActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.info.InfoPromotionActivity"
+            android:name=".business.user.info.InfoPromotionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.suit.GoodsSuitActivity"
+            android:name=".business.goods.suit.GoodsSuitActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.GoodsAdActivity"
+            android:name=".business.goods.GoodsAdActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.buy.shopcart.ShopCartActivity"
+            android:name=".business.buy.shopcart.ShopCartActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.devices.BindDevicesActivity"
+            android:name=".business.devices.BindDevicesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.other.ProtocolRegisterActivity"
+            android:name=".business.other.ProtocolRegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.other.ProtocolRechargeActivity"
+            android:name=".business.other.ProtocolRechargeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.filter.GoodsFilterBrandActivity"
+            android:name=".business.goods.filter.GoodsFilterBrandActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.filter.GoodsFilterSupplierActivity"
+            android:name=".business.goods.filter.GoodsFilterSupplierActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.filter.GoodsFilterActivity"
+            android:name=".business.goods.filter.GoodsFilterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.address.AddressMapActivity"
+            android:name=".business.user.address.AddressMapActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.index.shop.ShopMapActivity"
+            android:name=".business.index.shop.ShopMapActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.other.AboutUsActivity"
+            android:name=".business.other.AboutUsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.order.orderdetail.OrderDetailActivity"
+            android:name=".business.order.orderdetail.OrderDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.other.PhotoPagerActivity"
+            android:name=".business.other.PhotoPagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.devices.IceboxActivity"
+            android:name=".business.devices.IceboxActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.goods.SupplierGoodsActivity"
+            android:name=".business.goods.SupplierGoodsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.pay.PayOrderActivity"
+            android:name=".business.pay.PayOrderActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.selectmjz.SelectPayMjbActivity"
+            android:name=".business.buy.buyconfirm.selectmjz.SelectPayMjbActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.ablum.AlbumTopActivity"
+            android:name=".business.ablum.AlbumTopActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.ablum.AlbumActivity"
+            android:name=".business.ablum.AlbumActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.help.HelpActivity"
+            android:name=".business.user.help.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.buy.buyconfirm.express.BuyExpressActivity"
+            android:name=".business.buy.buyconfirm.express.BuyExpressActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.other.ResponseActivity"
+            android:name=".business.other.ResponseActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.thlh.jhmjmw.business.user.coupon.ExchangeCardActivity"
+            android:name=".business.user.coupon.ExchangeCardActivity"
             android:screenOrientation="portrait" />
 
         <!--
@@ -322,18 +322,18 @@
 
         <!-- 友盟分享 start -->
         <activity
-            android:name="com.thlh.jhmjmw.wxapi.WXEntryActivity"
+            android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.thlh.jhmjmw.wxapi.WXPayEntryActivity"
+            android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop" />
         <!-- 新浪微博 -->
         <activity
-            android:name="com.thlh.jhmjmw.activity.share.WBShareActivity"
+            android:name=".activity.share.WBShareActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -389,10 +389,11 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
-        <!--<service
+        <!--
+            <service
             android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false" />
--->
+        -->
         <!-- 极光 start -->
         <service
             android:name="cn.jpush.android.service.PushService"
@@ -464,7 +465,7 @@
             android:value="de51cfbd61833dc579a0642b" />
 
         <receiver
-            android:name="com.thlh.jhmjmw.receiver.JPushReceiver"
+            android:name=".receiver.JPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -489,12 +490,18 @@
             ATTENTION: This was auto-generated to add Google Play services to your project for
             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
-       <!-- <meta-data
+        <!--
+            <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />-->
+            android:value="@integer/google_play_services_version" />
+        -->
         <!-- 极光 end -->
 
-        <activity android:name="com.thlh.jhmjmw.business.recharge.RechargerAgreementActivity"></activity>
+        <activity android:name=".business.recharge.RechargerAgreementActivity" />
+        <activity
+            android:name=".business.pay.PayActivity"
+            android:label="@string/title_activity_pay"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

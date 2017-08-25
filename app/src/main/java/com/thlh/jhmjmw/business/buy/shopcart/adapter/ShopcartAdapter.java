@@ -12,6 +12,7 @@ import com.thlh.baselib.model.CartSupplierCheck;
 import com.thlh.baselib.model.Cartgoods;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.goods.goodsdetail.GoodsDetailV3Activity;
+import com.thlh.jhmjmw.other.L;
 import com.thlh.viewlib.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
@@ -62,9 +63,11 @@ public class ShopcartAdapter extends EasyRecyclerViewAdapter {
                 notifyDataSetChanged();
                 return;
             }
-
-            if(cartSupplier.getCartgoods()!=null && cartSupplier.getCartgoods().size()>0){
-                if(cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name().equals("")){
+            L.e("dingdansahgndian===" + cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name());
+            L.e("dingdansahgndian===" + cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getName());
+            if(cartSupplier.getCartgoods()!=null &&cartSupplier.getCartgoods().size()>0){
+                if(cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name()== null
+                        || cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name().equals("")){
                     shopcartNameTv.setText(cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getName());
                 }else {
                     shopcartNameTv.setText(cartSupplier.getCartgoods().get(0).getGoodsdb().getSupplier().getStore_name());
@@ -98,7 +101,9 @@ public class ShopcartAdapter extends EasyRecyclerViewAdapter {
             itemAdapter = new ShopcartItemAdapter(context,cartSupplier.getCartgoods(), cartSupplierCheckList.get(position).getGoodsCheckStates(),itemStatusMap);
 
             shopcartRv.setLayoutManager(new LinearLayoutManager(context));
+            shopcartRv.addItemDecoration(new VerticalltemDecoration((int) context.getResources().getDimension(R.dimen.y5)));
             itemAdapter.setList(cartSupplier.getCartgoods());
+            itemAdapter.notifyDataSetChanged();
             itemAdapter.setOnClickEvent(new ShopcartItemAdapter.OnClickListener() {
                 @Override
                 public void onClickSelect(int itemposition) {

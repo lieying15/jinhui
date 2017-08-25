@@ -25,7 +25,6 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.thlh.baselib.base.BaseActivity;
 import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.db.DbManager;
-import com.thlh.baselib.model.ActionResponse;
 import com.thlh.baselib.model.Address;
 import com.thlh.baselib.model.Cartgoods;
 import com.thlh.baselib.model.ExpressSupplier;
@@ -43,7 +42,7 @@ import com.thlh.jhmjmw.business.buy.buyconfirm.list.BuyConfirmListActivity;
 import com.thlh.jhmjmw.business.buy.buyconfirm.selectmjz.SelectPayMjbActivity;
 import com.thlh.jhmjmw.business.entrance.login.LoginActivity;
 import com.thlh.jhmjmw.business.order.list.OrderListActivity;
-import com.thlh.jhmjmw.business.other.ResponseActivity;
+import com.thlh.jhmjmw.business.pay.PayActivity;
 import com.thlh.jhmjmw.business.pay.PayPasswordActivity;
 import com.thlh.jhmjmw.business.user.address.AddrManageActivity;
 import com.thlh.jhmjmw.business.user.password.PasswordSetActivity;
@@ -539,11 +538,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void showPaySuccessDialog() {
-        ActionResponse response = new ActionResponse();
-        response.setHeadertitle(getResources().getString(R.string.pay_money));
-        response.setTitle(getResources().getString(R.string.congratulation));
-        response.setContent(getResources().getString(R.string.pay_money_success));
-        ResponseActivity.activityStart(BuyConfirmActivity.this, response);
+        PayActivity.activityStart(this);
         finish();
     }
 

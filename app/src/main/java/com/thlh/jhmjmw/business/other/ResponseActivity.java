@@ -19,7 +19,6 @@ import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.index.IndexActivity;
 import com.thlh.jhmjmw.business.order.orderdetail.OrderDetailActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
-import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.view.HeaderNormal;
 
 import butterknife.BindView;
@@ -75,7 +74,6 @@ public class ResponseActivity extends BaseActivity {
         setContentView(R.layout.activity_response);
         ButterKnife.bind(this);
         if (actionResponse == null) {
-            L.e(TAG + " actionResponse 数据为空");
             responseBackTv.setText(getResources().getString(R.string.return_home));
             statusIv.setImageResource(R.drawable.img_face_sad_wine);
             responseTitleTv.setText(getResources().getString(R.string.setting_fail));

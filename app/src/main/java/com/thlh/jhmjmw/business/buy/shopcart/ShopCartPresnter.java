@@ -226,15 +226,7 @@ public class ShopCartPresnter implements ShopCartContract.Presenter {
     @Override
     public List<CartSupplier> initCartData() {
         cartSupplierList.clear();
-        L.e("cartSupplierList====p==============" +  cartSupplierList.size());
         cartSupplierList = DbManager.getInstance().getCartSupplierList(false,false);
-        int size = 0;
-        for (int i = 0; i <cartSupplierList.size() ; i++) {
-            List<Cartgoods> cartgoods = cartSupplierList.get(i).getCartgoods();
-            size += cartgoods.size();
-        }
-        L.e("cartSupplierList====size==============" + size);
-        L.e("cartSupplierList====ppp==========" +  cartSupplierList.size());
         return cartSupplierList;
     }
 
@@ -346,36 +338,6 @@ public class ShopCartPresnter implements ShopCartContract.Presenter {
             }
         }
 
-        return  true;
-    }
-
-
-    @Override
-    public boolean judgeCartConditionDelete() {
-        if(!SPUtils.getIsLogin()){
-            mMineView.startLoginActiivty();
-            return false;
-        }
-        //判断选择是否有选择商品
-        boolean selectedgoods = false;
-        for (int i = 0; i < cartSupplierCheckList.size(); i++) {
-            for (int n = 0; n < cartSupplierCheckList.get(i).getGoodsCheckStates().size(); n++) {
-                if( cartSupplierCheckList.get(i).getGoodsCheckStates().get(n)){
-                    selectedgoods = true;
-                    break;
-                }
-            }
-        }
-        if (! selectedgoods) {
-            /*
-            * String.valueOf(R.string.choose_pay_goods)
-            * 购物车列表不选择
-            * 请选中要结算的商品
-            * questions
-            * */
-            mMineView.showHintDialog(context.getResources().getString(R.string.choose_delete_goods));
-            return false;
-        }
         return  true;
     }
 

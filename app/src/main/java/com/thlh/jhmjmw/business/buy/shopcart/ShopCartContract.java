@@ -16,7 +16,7 @@ public interface ShopCartContract {
 
 
 //    interface View extends BaseView<ShopCartContract.Presenter> {
-    interface View extends BaseView{
+    interface View extends BaseView {
 
         void updateRecommandGoods(List<Goods> goodsList);
 
@@ -24,7 +24,7 @@ public interface ShopCartContract {
 
         void updateCartAdapter();
 
-        void showDeleteDialog(final int position,final int itemposition,boolean isdeletall);
+        void showDeleteDialog(final int position, final int itemposition, boolean isdeletall);
 
         void showHintDialog(String msg);
 
@@ -66,8 +66,6 @@ public interface ShopCartContract {
         String getItemidStr();
 
         boolean judgeCartCondition();
-
-        boolean judgeCartConditionDelete();
 
         boolean isSelectAll();
 

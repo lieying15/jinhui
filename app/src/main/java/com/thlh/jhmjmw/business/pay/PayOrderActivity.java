@@ -15,7 +15,6 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.config.Constants;
-import com.thlh.baselib.model.ActionResponse;
 import com.thlh.baselib.model.GoodsOrder;
 import com.thlh.baselib.model.Order;
 import com.thlh.baselib.model.OrderItem;
@@ -29,7 +28,6 @@ import com.thlh.baselib.utils.TextUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.buy.buyconfirm.selectmjz.SelectPayMjbActivity;
 import com.thlh.jhmjmw.business.other.BaseViewActivity;
-import com.thlh.jhmjmw.business.other.ResponseActivity;
 import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.AliPay;
 import com.thlh.jhmjmw.other.L;
@@ -203,6 +201,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                         PayPasswordActivity.activityStart(PayOrderActivity.this, Constants.PAYPW_TYPE_ORDERCONFIRM_PAY, orderid, paytype, itemidAndNumAndMjb);
                         finish();
                     } else {
+                        SPUtils.put("orderid",orderid);
                         postOrderPay(orderid);
                     }
                 }
@@ -229,7 +228,6 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                 SPUtils.put("order_need_update", "1");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
                 //保存支付订单号
                 String pay_no = payResponse.getData().getPay_no();
-                SPUtils.put("pay_no", pay_no);
                 String tempprice = Double.toString(payResponse.getData().getAmount());
                 SPUtils.put("pay_price", tempprice);
                 L.i(TAG + " 支付订单后 orderid " + pay_no + "amont " + tempprice);
@@ -447,23 +445,33 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                 progressMaterial.dismiss();
                 switch (payResult.resultStatus) {
                     case "9000":
-                        dealPaySuccessResult();
+                        L.e("zhifubao====9000");
+                        PayActivity.activityStart(PayOrderActivity.this);
+                        finish();
                         break;
-
                     case "4000":
-                        showErrorDialog(getResources().getString(R.string.order_pay_fail));
+                        L.e("zhifubao====4000");
+                        PayActivity.activityStart(PayOrderActivity.this, "2");
+                        finish();
+//                        showErrorDialog(getResources().getString(R.string.order_pay_fail));
                         break;
-
                     case "6001":
-                        showErrorDialog(getResources().getString(R.string.cannal_zfb_pay));
+                        L.e("zhifubao====6001");
+                        PayActivity.activityStart(PayOrderActivity.this, "2");
+                        finish();
+//                        showErrorDialog(getResources().getString(R.string.cannal_zfb_pay));
                         break;
-
                     case "6002":
-                        showErrorDialog(getResources().getString(R.string.net_wrong));
+                        L.e("zhifubao====6002");
+                        PayActivity.activityStart(PayOrderActivity.this, "2");
+                        finish();
+//                        showErrorDialog(getResources().getString(R.string.net_wrong));
                         break;
-
                     default:
-                        showErrorDialog(getResources().getString(R.string.order_pay_wrong));
+                        L.e("zhifubao====default");
+                        PayActivity.activityStart(PayOrderActivity.this, "2");
+                        finish();
+//                        showErrorDialog(getResources().getString(R.string.order_pay_wrong));
                         break;
                 }
             }
@@ -471,7 +479,9 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             @Override
             public void onPayFailed(Exception e) {
                 progressMaterial.dismiss();
-                showErrorDialog(getResources().getString(R.string.pay_fail));
+                L.e("zhifubao====fail");
+                PayActivity.activityStart(PayOrderActivity.this, "2");
+                finish();
             }
         });
         aliPay.pay();
@@ -536,11 +546,11 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
     }
 
     private void dealPaySuccessResult() {
-        ActionResponse response = new ActionResponse();
-        response.setHeadertitle(getResources().getString(R.string.pay_money));
-        response.setTitle(getResources().getString(R.string.congratulation));
-        response.setContent(getResources().getString(R.string.pay_money_success));
-        ResponseActivity.activityStart(PayOrderActivity.this, response);
+//        ActionResponse response = new ActionResponse();
+//        response.setHeadertitle(getResources().getString(R.string.pay_money));
+//        response.setTitle(getResources().getString(R.string.congratulation));
+//        response.setContent(getResources().getString(R.string.pay_money_success));
+//        ResponseActivity.activityStart(PayOrderActivity.this, response);
         finish();
     }
 
