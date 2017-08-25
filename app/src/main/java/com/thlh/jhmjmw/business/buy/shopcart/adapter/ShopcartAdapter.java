@@ -101,7 +101,7 @@ public class ShopcartAdapter extends EasyRecyclerViewAdapter {
             itemAdapter = new ShopcartItemAdapter(context,cartSupplier.getCartgoods(), cartSupplierCheckList.get(position).getGoodsCheckStates(),itemStatusMap);
 
             shopcartRv.setLayoutManager(new LinearLayoutManager(context));
-            shopcartRv.addItemDecoration(new VerticalltemDecoration((int) context.getResources().getDimension(R.dimen.y5)));
+
             itemAdapter.setList(cartSupplier.getCartgoods());
             itemAdapter.notifyDataSetChanged();
             itemAdapter.setOnClickEvent(new ShopcartItemAdapter.OnClickListener() {

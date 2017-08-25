@@ -119,18 +119,20 @@ public class PayActivity extends BaseViewActivity {
         subscriptionList.add(subscription);
     }
 
-
     @OnClick(R.id.wechat_pay_result_back_btn)
     public void onClick() {
-        if (payState.equals(SUCCESS)){
-            IndexActivity.activityStart(this);
-
-        }else {
-            if (orderid != null) {
-                loadOrderDetails(orderid);
+        if (payState != null) {
+            if (payState.equals(SUCCESS)) {
+                IndexActivity.activityStart(this,IndexActivity.POSITON_HOMEPAGE);
+                finish();
+            } else {
+                if (orderid != null) {
+                    loadOrderDetails(orderid);
+                } else {
+                    finish();
+                }
             }
         }
-        finish();
     }
 
 }

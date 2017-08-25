@@ -285,6 +285,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                 weChatPayRequest = WeChatUtils.postPayRequest(weChatPayRequest, result.getPrepay_id(), result.getNonce_str());
                 msgApi.registerApp(Constants.WECHAT_APP_ID);
                 msgApi.sendReq(weChatPayRequest);
+
             }
         };
 
@@ -446,7 +447,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                 switch (payResult.resultStatus) {
                     case "9000":
                         L.e("zhifubao====9000");
-                        PayActivity.activityStart(PayOrderActivity.this);
+                        PayActivity.activityStart(PayOrderActivity.this,"1");
                         finish();
                         break;
                     case "4000":

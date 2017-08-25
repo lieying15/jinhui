@@ -538,7 +538,7 @@ public class BuyConfirmActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void showPaySuccessDialog() {
-        PayActivity.activityStart(this);
+        PayActivity.activityStart(this,"1");
         finish();
     }
 

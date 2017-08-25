@@ -196,7 +196,7 @@ public class PayPasswordActivity extends BaseActivity {
                 SPUtils.setPayParam(tempprice, paytype, Constants.PAY_PURPOSE_ORDER, pay_no);
 
                 if (payResponse.getData().getAmount() == 0) {
-                    PayActivity.activityStart(PayPasswordActivity.this);
+                    PayActivity.activityStart(PayPasswordActivity.this,"1");
                     finish();
                     return;
                 } else {
@@ -343,7 +343,7 @@ public class PayPasswordActivity extends BaseActivity {
                 switch (payResult.resultStatus) {
                     case "9000":
                         L.e("zhifubao====9000");
-                        PayActivity.activityStart(PayPasswordActivity.this);
+                        PayActivity.activityStart(PayPasswordActivity.this,"1");
                         finish();
                         break;
                     case "4000":

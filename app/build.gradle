@@ -1,0 +1,126 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        applicationId rootProject.ext.android["applicationId"]
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        multiDexEnabled = true
+        jackOptions {
+            enabled true
+        }
+    }
+
+    signingConfigs {
+        Properties properties = new Properties()
+        properties.load(new FileInputStream(file('thlh_keystore_pwd.properties')))
+        release {
+            storeFile file("jh.jks");
+            storePassword properties['storePassword']
+            keyAlias properties['keyAlias']
+            keyPassword properties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.release
+            buildConfigField "int", "DEPLOY_STATE", "0"
+            buildConfigField "boolean", "SHOWLOG", "true"
+            manifestPlaceholders = [UMENG_APPKEY: '571883cde0f55a3c4000197b']
+        }
+
+        integrate {
+            debuggable true
+            signingConfig signingConfigs.release
+            buildConfigField "int", "DEPLOY_STATE", "1"
+            buildConfigField "boolean", "SHOWLOG", "true"
+            manifestPlaceholders = [UMENG_APPKEY: '57188402e0f55a3c37001c09']
+        }
+
+        release {
+            debuggable true
+            buildConfigField "int", "DEPLOY_STATE", "1"
+            buildConfigField "boolean", "SHOWLOG", "true"
+            minifyEnabled false
+            signingConfig signingConfigs.release
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [UMENG_APPKEY: '57188402e0f55a3c37001c09']
+        }
+    }
+
+    afterEvaluate {
+        tasks.matching {
+            it.name.startsWith('dex')
+        }.each { dx ->
+            if (dx.additionalParameters == null) {
+                dx.additionalParameters = []
+            }
+            dx.additionalParameters += '--multi-dex'
+            dx.additionalParameters += "--main-dex-list=$projectDir/multidex.keep".toString()
+
+        }
+    }
+
+
+    productFlavors {//多渠道的配置，可以查看AndroidManifest.xml中的meta-data参考
+        /*  baidu{
+            manifestPlaceholders=[CHANNEL_NAME:"baidu_v1.0"]
+        }
+        yingyongbao {
+            manifestPlaceholders = [ CHANNEL_NAME:"yingyongbao_v1.0"]
+        }
+        xiaomi{
+            manifestPlaceholders=[CHANNEL_NAME:"xiaomi_v1.0"]
+        }
+        qihu360{
+            manifestPlaceholders=[CHANNEL_NAME:"360_v1.0"]
+        }
+        meizu{
+            manifestPlaceholders=[CHANNEL_NAME:"meizu_v1.0"]
+        }
+        huawei{
+            manifestPlaceholders=[CHANNEL_NAME:"huawei_v1.0"]
+        }
+        wandoujia {
+            manifestPlaceholders = [ CHANNEL_NAME:"wandoujia_v1.0" ]
+        }
+        jifeng{
+            manifestPlaceholders=[CHANNEL_NAME:"jifeng_v1.0"]
+        }*/
+        thlh {
+            manifestPlaceholders = [CHANNEL_NAME: "thlh_v1.0"]
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':baselib')
+    compile project(':ucrop')
+    compile rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-apt"]
+    //    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+
+
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
+
+
+
+

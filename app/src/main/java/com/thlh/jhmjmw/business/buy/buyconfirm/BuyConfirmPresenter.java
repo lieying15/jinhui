@@ -345,7 +345,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
                 switch (payResult.resultStatus) {
                     case "9000":
                         L.e("zhifubao====9000");
-                        PayActivity.activityStart(activity);
+                        PayActivity.activityStart(activity,"1");
                         break;
                     case "4000":
                         L.e("zhifubao====4000");
