@@ -129,7 +129,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
                 L.e(TAG + "  generateOrderObserver orderid " + orderid);
                 SPUtils.put("needupdate_userinfo", true); //刷新我的界面
                 //支付密码弹窗判断
-                int user_ispaypass =Integer.parseInt(SPUtils.get("user_ispaypass", "").toString());//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
+                int user_ispaypass = (int) SPUtils.get("user_ispaypass", 0);//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
                 boolean user_paypass_hint = Boolean.valueOf(SPUtils.get("user_paypass_hint", false).toString());//是否进行过弹窗提示
                 L.e("判断设置支付密码弹窗 user_ispaypass:" + user_ispaypass + " user_paypass_hint:" + user_paypass_hint + " paytype:" + paytype + " include:" + paytype.contains(Constants.PAY_TYPE_MJB));
                 if (user_ispaypass == 0 && !user_paypass_hint && paytype.contains(Constants.PAY_TYPE_MJB)) {

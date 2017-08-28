@@ -17,7 +17,7 @@ public class SPUtils {
     /**
      * 保存在手机里面的文件名
      */
-    public static final String FILE_NAME = "share_data";
+    public static final String FILE_NAME = "jinhui_data";
 
     public static boolean getIsLogin() {
         SharedPreferences sp = BaseApplication.getInstance().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);

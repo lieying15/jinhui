@@ -1,6 +1,7 @@
 package com.thlh.jhmjmw.business.entrance.login;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.thlh.baselib.base.BaseApplication;
 import com.thlh.baselib.base.BaseObserver;
@@ -40,6 +41,9 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     //
     private final LoginContract.View mLoginView;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor edit;
+
     public LoginPresenter(LoginContract.View mLoginView,Context contexts) {
         this.mLoginView = mLoginView;
         this.context=contexts;
@@ -159,7 +163,6 @@ public class LoginPresenter implements LoginContract.Presenter {
         SPUtils.put("user_nickname", loginBaseResponse.getData().getAccount().getNickname());
         SPUtils.put("user_inner_member", loginBaseResponse.getData().getAccount().getInner_member());
         SPUtils.put("user_avatar", loginBaseResponse.getData().getAccount().getAvatar());
-        SPUtils.put("user_ispaypass", loginBaseResponse.getData().getAccount().getIs_paypass());//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
         SPUtils.put("user_isch", loginBaseResponse.getData().getAccount().getIs_ch());//是否是扫码用户
         SPUtils.put("user_storeid", loginBaseResponse.getData().getAccount().getStore_id());
         SPUtils.put("user_bind_mobile", loginBaseResponse.getData().getAccount().getBind_mobile());
@@ -171,6 +174,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         SPUtils.put("user_return_goods", loginBaseResponse.getData().getOrder_info().getReturn_goods());
         SPUtils.put("user_wait_comment", loginBaseResponse.getData().getOrder_info().getWait_comment());
         SPUtils.put("user_systeminfo_amount", loginBaseResponse.getData().getSysteminfo().getInfo_amount());
+        SPUtils.put("user_ispaypass", Integer.parseInt(loginBaseResponse.getData().getAccount().getIs_paypass()));//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
     }
 
     private void saveUserAddress(List<Address> addressList) {

@@ -38,6 +38,7 @@ import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.AliPay;
 import com.thlh.jhmjmw.other.L;
 import com.thlh.jhmjmw.other.WeChatUtils;
+import com.thlh.jhmjmw.view.BaseImgDialog;
 import com.thlh.jhmjmw.view.DialogCoupon;
 import com.thlh.jhmjmw.view.DialogNormal;
 import com.thlh.jhmjmw.view.HeaderNormal;
@@ -115,6 +116,7 @@ public class RechargeActivity extends BaseActivity {
     private static final int INPUTNUMBER = 2;
     private int selectnum = 0;
     private String selectMonney = "0";
+    private BaseImgDialog.Builder builder;
 
 
     public static void activityStart(Activity context, String pay_purpose) {
@@ -163,7 +165,7 @@ public class RechargeActivity extends BaseActivity {
         dialogCoupon = new DialogCoupon.Builder(this);
         dialogResult = new DialogNormal.Builder(this);
         dialogHint = new DialogNormal.Builder(this);
-
+        builder = new BaseImgDialog.Builder(this);
         rechargeProtocolCb.setChecked(agreeRechargeProtocol);
         rechargeProtocolCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -309,7 +311,9 @@ public class RechargeActivity extends BaseActivity {
      * @param amount
      */
     private void postRechange(String amount) {
-        progressMaterial.show();
+        if ( progressMaterial != null ){
+            progressMaterial.show();
+        }
 
         //方式
         String temppay = getPaytype();
@@ -666,6 +670,21 @@ public class RechargeActivity extends BaseActivity {
         });
 
         rechargeResultDialog.show(ft, "rechargeResultDialog");
+    }
+
+
+    public void showErrorDialog(String msg) {
+
+        builder.setTitleIvRes(R.drawable.i_recharge_fail)
+                .setTitle(msg)
+                .setLeftBtnStr(getResources().getString(R.string.return_pay))
+                .setLeftClickListener(new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create().show();
+
     }
 
     public void finish() {

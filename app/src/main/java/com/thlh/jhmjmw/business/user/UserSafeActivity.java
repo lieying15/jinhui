@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.base.BaseResponse;
 import com.thlh.baselib.config.Constants;
-import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.jhmjmw.R;
 import com.thlh.jhmjmw.business.other.BaseViewActivity;
@@ -62,7 +62,7 @@ public class UserSafeActivity extends BaseViewActivity {
 
     private DialogNormal.Builder errorDialog;
     private BaseObserver<BaseResponse> setPayPassSwitch;
-    
+
     public static void activityStart(Context context) {
         Intent intent = new Intent();
         intent.setClass(context, UserSafeActivity.class);
@@ -78,6 +78,8 @@ public class UserSafeActivity extends BaseViewActivity {
     protected void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_usersafe);
         ButterKnife.bind(this);
+
+
         errorDialog = new DialogNormal.Builder(this);
         accountLoginPasswordLl.setLLRippleCompleteListener(
                 new RippleLinearLayout.OnRippleCompleteListener() {
@@ -97,7 +99,7 @@ public class UserSafeActivity extends BaseViewActivity {
         });
 
 
-        isSetPayPw = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString());
+        isSetPayPw = (int) SPUtils.get("user_ispaypass", 0);
         bindMobile = (String) SPUtils.get("user_bind_mobile", "").toString();
         if(!bindMobile.equals("")){
             StringBuilder builder = new StringBuilder();
@@ -134,7 +136,7 @@ public class UserSafeActivity extends BaseViewActivity {
             }
         });
 
-        int user_ispaypass = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString());
+        int user_ispaypass = (int) SPUtils.get("user_ispaypass", 0);
 
 //        int user_ispaypass = (int) SPUtils.get("user_ispaypass", 0);//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
         switch (user_ispaypass){
@@ -194,7 +196,7 @@ public class UserSafeActivity extends BaseViewActivity {
     protected void onRestart() {
         super.onRestart();
 //        int user_ispaypass = (int) SPUtils.get("user_ispaypass", 0);//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
-        int user_ispaypass = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString());
+        int user_ispaypass = (int) SPUtils.get("user_ispaypass", 0);
         switch (user_ispaypass){
             case -1 : accountNopaypwBtn.setToggleOn();break;
             case 0 : accountNopaypwBtn.setCanToggle(false);break;
