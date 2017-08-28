@@ -136,11 +136,16 @@ public class WXPayEntryActivity extends BaseViewActivity implements IWXAPIEventH
 
     @OnClick(R.id.wechat_pay_result_back_btn)
     public void onClick() {
-        if (flag) {
-            IndexActivity.activityStart(this,IndexActivity.POSITON_HOMEPAGE);
+        String orderPayNo = (String) SPUtils.get("orderPayNo", "");
+        if (orderPayNo.contains("MR")){
             finish();
-        }else {
-            loadOrderDetails(orderid);
+        }else if (orderPayNo.contains("ZF")) {
+            if (flag) {
+                IndexActivity.activityStart(this, IndexActivity.POSITON_HOMEPAGE);
+                finish();
+            } else {
+                loadOrderDetails(orderid);
+            }
         }
     }
 

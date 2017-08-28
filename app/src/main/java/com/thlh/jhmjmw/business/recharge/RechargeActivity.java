@@ -209,10 +209,12 @@ public class RechargeActivity extends BaseActivity {
             public void onNextResponse(RechargeMjbResponse rechargeMjbResponse) {
                 SPUtils.put("needupdate_userinfo", true);
                 String pay_no = rechargeMjbResponse.getData().getPay_no();
+                L.e("pay_no=====" + pay_no);
                 int is_coupon = rechargeMjbResponse.getData().getIs_coupon(); // Is_coupon =1 已经充值过6999.
                 SPUtils.put("mjbrecharge_getcoupon", is_coupon);
                 double amount = rechargeMjbResponse.getData().getThird_amount();
                 L.e(TAG + " 充值结果  pay_no" + pay_no + " is_coupon" + is_coupon + " amount " + amount);
+                SPUtils.put("orderPayNo",pay_no);
                 //保存支付参数
                 SPUtils.setPayParam(amount + "", pay_third_type, pay_purpose, pay_no);
                 if (amount > 0) {
@@ -443,7 +445,7 @@ public class RechargeActivity extends BaseActivity {
             }
         }
 
-        if (Double.parseDouble(selectMonney) > 0){
+        if (Double.parseDouble(selectMonney) <= 0){
             showWaringDialog(getResources().getString(R.string.no_money_show));
         }
         switch (pay_purpose) {

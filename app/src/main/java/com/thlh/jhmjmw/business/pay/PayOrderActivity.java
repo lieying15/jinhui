@@ -228,6 +228,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
                 SPUtils.put("order_need_update", "1");//更改订单状态：0无变化，1付款，2确认收货，3取消订单,4评价
                 //保存支付订单号
                 String pay_no = payResponse.getData().getPay_no();
+                SPUtils.put("orderPayNo",pay_no);
                 String tempprice = Double.toString(payResponse.getData().getAmount());
                 SPUtils.put("pay_price", tempprice);
                 L.i(TAG + " 支付订单后 orderid " + pay_no + "amont " + tempprice);

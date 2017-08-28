@@ -189,6 +189,7 @@ public class PayPasswordActivity extends BaseActivity {
                 //保存支付订单号
                 String pay_no = payResponse.getData().getPay_no();
                 SPUtils.put("pay_no", pay_no);
+                SPUtils.put("orderPayNo",pay_no);
                 String tempprice = Double.toString(payResponse.getData().getAmount());
                 SPUtils.put("pay_price", tempprice);
                 L.i(TAG + " 生成 orderid " + pay_no + "; amount " + tempprice);
