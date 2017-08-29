@@ -18,6 +18,7 @@ import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.GoodsOrder;
 import com.thlh.baselib.model.Order;
 import com.thlh.baselib.model.OrderItem;
+import com.thlh.baselib.model.OrderPay;
 import com.thlh.baselib.model.response.OrderPayResponse;
 import com.thlh.baselib.model.response.WalletResponse;
 import com.thlh.baselib.model.response.WeChatPayResponse;
@@ -161,7 +162,13 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         }
         if (isPay.equals("2")) {
             goodsOrderList = getCartGoodsFormOrder(order);
-            useMjb = Double.parseDouble(order.getPay_by_mjb()); //可用的每家币
+            List<OrderPay> pay = order.getPay();
+            for (OrderPay orderPay:pay) {
+                if (orderPay.getPayment_method_id().equals("1")){
+                    useMjb = Double.parseDouble(orderPay.getSum()); //可用的每家币
+                }
+            }
+
             for (GoodsOrder goodsOrder : goodsOrderList) { //能用每家币支付的商品加入数组
                 if (!goodsOrder.getIs_mjb().equals("0")) {
                     useMjbItemId.add(goodsOrder.getItem_id());
@@ -388,7 +395,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
 
 
     private void postOrderPay(String orderid) {
-        L.e(TAG + " 下订单 orderid " + orderid + "paytype " + paytype);
+        L.e(TAG + " 下订单 orderid== " + orderid + "paytype ==" + paytype + "itemidAndNumAndMjb==" + itemidAndNumAndMjb);
         NetworkManager.getOrderApi()
                 .payOrderV2(SPUtils.getToken(), orderid, paytype, itemidAndNumAndMjb)
                 .compose(RxUtils.androidSchedulers(this))

@@ -3,7 +3,6 @@ package com.thlh.jhmjmw.business.recharge;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -42,7 +41,7 @@ public class RechargerAgreementActivity extends BaseActivity {
         setContentView(R.layout.activity_recharger_agreement);
         ButterKnife.bind(this);
 
-        if (hadRechargeBox){
+      /*  if (hadRechargeBox){
             beijingortianjinTv.setVisibility(View.GONE);
             shengzhenTv.setVisibility(View.GONE);
             hadRechargeBoxTv.setVisibility(View.VISIBLE);
@@ -60,11 +59,11 @@ public class RechargerAgreementActivity extends BaseActivity {
                 shengzhenTv.setVisibility(View.VISIBLE);
                 hadRechargeBoxTv.setVisibility(View.GONE);
             }
-        }
+        }*/
 
         beijingortianjinTv.setText(getResources().getString(R.string.bjtj));
-        shengzhenTv.setText(getResources().getString(R.string.bjtj));
-        hadRechargeBoxTv.setText(getResources().getString(R.string.bjtj));
+//        shengzhenTv.setText(getResources().getString(R.string.bjtj));
+//        hadRechargeBoxTv.setText(getResources().getString(R.string.bjtj));
     }
 
     @Override

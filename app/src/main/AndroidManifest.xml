@@ -268,7 +268,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".business.order.orderdetail.OrderDetailActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".business.other.PhotoPagerActivity"
             android:screenOrientation="portrait" />
@@ -497,11 +498,13 @@
         -->
         <!-- 极光 end -->
 
-        <activity android:name=".business.recharge.RechargerAgreementActivity" />
+        <activity android:name=".business.recharge.RechargerAgreementActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".business.pay.PayActivity"
             android:label="@string/title_activity_pay"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"></activity>
     </application>
 
 </manifest>

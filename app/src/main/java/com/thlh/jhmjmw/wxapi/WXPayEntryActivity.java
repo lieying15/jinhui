@@ -67,7 +67,7 @@ public class WXPayEntryActivity extends BaseViewActivity implements IWXAPIEventH
         orderObserver = new BaseObserver<OrderDetailsResponse>() {
             @Override
             public void onNextResponse(OrderDetailsResponse orderDetailsResponse) {
-                progressMaterial.show();
+                hideLoadindBar();
                 Order data = orderDetailsResponse.getData();
                 OrderDetailActivity.activityStart(WXPayEntryActivity.this,data);
                 finish();
@@ -75,7 +75,7 @@ public class WXPayEntryActivity extends BaseViewActivity implements IWXAPIEventH
 
             @Override
             public void onErrorResponse(OrderDetailsResponse orderDetailsResponse) {
-                progressMaterial.show();
+                hideLoadindBar();
             }
         };
 
@@ -150,7 +150,7 @@ public class WXPayEntryActivity extends BaseViewActivity implements IWXAPIEventH
     }
 
     private void loadOrderDetails(String orderid) {
-        progressMaterial.show();
+        showLoadingBar();
         Subscription subscription = NetworkManager.getOrderApi()
                 .getOrderDetails(SPUtils.getToken(),orderid)
                 .subscribeOn(Schedulers.io())

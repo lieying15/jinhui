@@ -24,12 +24,12 @@
         "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ucrop_ic_next.png",
-        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ucrop_ic_next.png"
-    },
-    {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
         "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ucrop_ic_next.png",
+        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ucrop_ic_next.png"
     },
     {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
@@ -64,12 +64,12 @@
         "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
-        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
-    },
-    {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
         "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",

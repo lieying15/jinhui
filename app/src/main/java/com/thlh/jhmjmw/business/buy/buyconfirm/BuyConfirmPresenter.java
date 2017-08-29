@@ -301,6 +301,7 @@ public class BuyConfirmPresenter implements BuyConfirmContract.Presenter{
                 }
             }
         }
+        L.e("shopCartInfo=========" + shopCartInfo.toString().trim());
         return shopCartInfo.toString().trim();
     }
 
