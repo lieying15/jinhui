@@ -36,6 +36,7 @@ import com.thlh.jhmjmw.view.DialogNormal;
 import com.thlh.viewlib.progress.ProgressMaterial;
 import com.thlh.viewlib.ripple.RippleRelativeLayout;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -138,8 +139,8 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         msgApi = WXAPIFactory.createWXAPI(this, Constants.WECHAT_APP_ID);
         msgApi.registerApp(Constants.WECHAT_APP_ID);
 
-        user_mjb = (String) SPUtils.get("user_mjb", "0").toString();
-        inner_member = Integer.valueOf(SPUtils.get("user_inner_member", 0).toString());
+        user_mjb = (String) SPUtils.get("user_mjb", "0");
+        inner_member = (int) SPUtils.get("user_inner_member", 0);
         order = getIntent().getParcelableExtra("Order");
         orderid = order.getOrder_id();
         orderItemList = order.getOrder_items();
@@ -151,15 +152,21 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         isPay = order.getIs_pay(); //0 未支付 1已支付 2部分支付
         if (isPay.equals("0")) {
             goodsOrderList = getCartGoodsFormOrder(order);
+            for (GoodsOrder goodsOrder : goodsOrderList) { //能用每家币支付的商品加入数组
+                if (!goodsOrder.getIs_mjb().equals("0")) {
+                    useMjbItemId.add(goodsOrder.getItem_id());
+                }
+                useMjb += Double.parseDouble(goodsOrder.getMjb_value());
+            }
+        }
+        if (isPay.equals("2")) {
+            goodsOrderList = getCartGoodsFormOrder(order);
             useMjb = Double.parseDouble(order.getPay_by_mjb()); //可用的每家币
             for (GoodsOrder goodsOrder : goodsOrderList) { //能用每家币支付的商品加入数组
                 if (!goodsOrder.getIs_mjb().equals("0")) {
                     useMjbItemId.add(goodsOrder.getItem_id());
                 }
             }
-        }
-        if (isPay.equals("2")) {
-
         }
     }
 
@@ -175,7 +182,6 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
         express_fee = Double.parseDouble(order.getExpress_fee());
         pricelistTotalTv.setText(getResources().getString(R.string.money) + amount);
         pricelistExpressTv.setText(getResources().getString(R.string.money) + express_fee);
-        useMjb = Double.parseDouble(order.getPay_by_mjb());//可用的每家币
         updateUseMjb();
         useMjb = useMjb < Double.parseDouble(user_mjb) ? useMjb : Double.parseDouble(user_mjb);
         tempShouldPay = amount + express_fee - useMjb;
@@ -196,7 +202,7 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
             public void onComplete(RippleRelativeLayout rippleRelativeLayout) {
                 if (judgePayCondition()) {
                     itemidAndNumAndMjb = getItemidAndNumAndMjb();
-                    int user_ispaypass = Integer.parseInt(SPUtils.get("user_ispaypass", "0").toString());//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
+                    int user_ispaypass = (int) SPUtils.get("user_ispaypass", 0);//支付密码  -1免密开启不使用支付密码 0未设置 1使用支付密码
                     if (user_ispaypass == 1 && useMjb > 0) {
                         PayPasswordActivity.activityStart(PayOrderActivity.this, Constants.PAYPW_TYPE_ORDERCONFIRM_PAY, orderid, paytype, itemidAndNumAndMjb);
                         finish();
@@ -598,13 +604,15 @@ public class PayOrderActivity extends BaseViewActivity implements View.OnClickLi
     private void updateUseMjb() {
 
         if (useMjb > 0) {
-            pricelistMjbTv.setText("- " + getResources().getString(R.string.money) + order.getPay_by_mjb());
+            DecimalFormat df = new DecimalFormat("0.00");
+            pricelistMjbTv.setText("- " + getResources().getString(R.string.money) + df.format(useMjb));
         } else {
             pricelistMjbTv.setText("- " + getResources().getString(R.string.money) + "0");
         }
         double userMjb = Double.parseDouble(user_mjb);
         useMjb = useMjb > userMjb ? userMjb : useMjb;
-        mjmwcurrencyPriceTv.setText(getResources().getString(R.string.use) + useMjb + getResources().getString(R.string.ch_mjz));
+        DecimalFormat df = new DecimalFormat("0.00");
+        mjmwcurrencyPriceTv.setText(getResources().getString(R.string.use) + df.format(useMjb) + getResources().getString(R.string.ch_mjz));
         shouldpayTv.setText(getResources().getString(R.string.money) + TextUtils.showPrice(tempShouldPay));
         double temptotalprice = tempShouldPay;
         if (temptotalprice == 0 && useMjb > 0) {

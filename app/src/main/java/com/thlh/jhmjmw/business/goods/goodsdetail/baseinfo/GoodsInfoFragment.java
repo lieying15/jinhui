@@ -189,7 +189,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         activity.setAddCartListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleView) {
-                int isch = Integer.valueOf(SPUtils.get("user_isch",0).toString());
+                int isch = (int) SPUtils.get("user_isch",0);
                 if(isch>0){
 //                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
                     activity.showAddCartDialog();
@@ -204,7 +204,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
             @Override
             public void onComplete(RippleLinearLayout rippleRelativeLayout) {
                 if (SPUtils.getIsLogin()){
-                    int isch = Integer.valueOf(SPUtils.get("user_isch",0).toString());
+                    int isch = (int) SPUtils.get("user_isch",0);
                     if(isch>0){
 //                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
                         mPresenter.buyImmediately();
@@ -424,7 +424,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         activity.setAddCartListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleRelativeLayout) {
-                int isch = Integer.valueOf(SPUtils.get("user_isch",0).toString());
+                int isch = (int) SPUtils.get("user_isch",0);
                 if(isch>0){
 //                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
                     activity.showAddCartDialog();

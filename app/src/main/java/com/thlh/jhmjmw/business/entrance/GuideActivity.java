@@ -56,7 +56,7 @@ public class GuideActivity extends BaseViewActivity {
     @Override
     protected void initVariables() {
 
-        if (Boolean.valueOf(SPUtils.get("frist_use", false).toString())) {
+        if ((Boolean)SPUtils.get("frist_use", false)) {
             IndexActivity.activityStart(this);
             finish();
         } else {

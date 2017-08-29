@@ -226,13 +226,15 @@ public class ShopcartFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void updateNoInfoView(int dataCount) {
-        if (shopcartAdapter.getItemCount() == 0) {
-            shopcartNoInfoView.setVisibility(View.VISIBLE);
-            shopcartHeader.setRightVisible(View.INVISIBLE);
-            mPresenter.loadRecommand();
-        } else {
-            shopcartNoInfoView.setVisibility(View.GONE);
-            shopcartHeader.setRightVisible(View.VISIBLE);
+        if (shopcartNoInfoView != null) {
+            if (shopcartAdapter.getItemCount() == 0) {
+                shopcartNoInfoView.setVisibility(View.VISIBLE);
+                shopcartHeader.setRightVisible(View.INVISIBLE);
+                mPresenter.loadRecommand();
+            } else {
+                shopcartNoInfoView.setVisibility(View.GONE);
+                shopcartHeader.setRightVisible(View.VISIBLE);
+            }
         }
     }
 
