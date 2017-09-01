@@ -67,7 +67,15 @@ import cn.jpush.android.api.JPushInterface;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-
+/**
+ * 首页的activity
+ * 添加界面的fragment
+ * 初始定位和网络状态及权限管理
+ * 判断网络广播
+ * 版本信息
+ * 双击back按钮退出
+ *
+ */
 public class IndexActivity extends BaseActivity {
     private static final String TAG = "IndexActivity";
     public final int ACTIVITY_CODE_LOGIN = 1;
