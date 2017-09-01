@@ -28,6 +28,7 @@ android {
             manifestPlaceholders = [UMENG_APPKEY:'57188402e0f55a3c37001c09']
         }
     }
+    buildToolsVersion '25.0.0'
 }
 
 greendao {

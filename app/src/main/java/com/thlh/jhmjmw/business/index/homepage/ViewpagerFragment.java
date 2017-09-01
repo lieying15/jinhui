@@ -3,12 +3,9 @@ package com.thlh.jhmjmw.business.index.homepage;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.thlh.baselib.base.BaseFragment;
 import com.thlh.baselib.base.BaseObserver;
@@ -32,7 +29,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
@@ -125,34 +121,23 @@ public class ViewpagerFragment extends BaseFragment {
     protected void initData() {
         if (flag){
             current_page = 1;
-            goodsList.clear();
             loadHomePageData(true,current_page);
         }
     }
 
     @Override
     protected void loadData() {
-
+        loadGoodsData();
     }
 
     public void loadGoodsData(){
         if (flag){
             current_page = 1;
-            goodsList.clear();
             loadHomePageData(true,current_page);
         }else {
             current_page = 1;
-            goodsList.clear();
             loadSearchData(catid,current_page);
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
     }
 
     @Override
@@ -227,12 +212,15 @@ public class ViewpagerFragment extends BaseFragment {
         searchOserver   = new BaseObserver<SearchResponse>() {
             @Override
             public void onErrorResponse(SearchResponse searchResponse) {
-
+                clearGoodsList();
             }
 
             @Override
             public void onNextResponse(SearchResponse searchResponse) {
                 total_page = searchResponse.getData().getTotal_page();
+                if (current_page == 1){
+                    clearGoodsList();
+                }
                 goodsList.addAll(searchResponse.getData().getItem());
                 goodsAdapter.notifyDataSetChanged();
             }

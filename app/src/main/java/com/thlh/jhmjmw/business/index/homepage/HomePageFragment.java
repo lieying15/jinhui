@@ -400,16 +400,15 @@ public class HomePageFragment extends BaseFragment {
                 if (position > 0) {
                     updateTopTab(position - 1);
                     ((ViewpagerFragment) list.get(position)).setIsHome(false);
-                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
+//                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
                     ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
                     ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
-                } else {
+                }
+                if (position == 0){
                     ((ViewpagerFragment) list.get(position)).setIsHome(true);
-                    ((ViewpagerFragment) list.get(position)).clearGoodsList();
                     for (int i = 0; i < selectStates.size(); i++) {
                         selectStates.setValueAt(i, false);
                     }
-                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
                     ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
                     tabAdapter.setSelectStates(selectStates);
                     tabTextAdapter.setSelectStates(selectStates);
