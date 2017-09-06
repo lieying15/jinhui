@@ -23,5 +23,4 @@ public class BaseResponse{
         this.err_msg = err_msg;
     }
 
-
 }

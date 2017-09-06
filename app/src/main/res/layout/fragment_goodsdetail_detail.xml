@@ -16,7 +16,7 @@
                 android:textColor="#222222"
                 android:textSize="15sp" />
     </FrameLayout>
-    <com.thlh.jhmjmw.view.ItemWebView
+    <WebView
         android:id="@+id/goodsdetail_webview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

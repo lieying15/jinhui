@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!--
     <com.thlh.jhmjmw.view.SlideDetailsLayout
         android:id="@+id/goodsdetail_slidelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+-->
 
         <ScrollView
             android:id="@+id/goodsdetail_scroll"
@@ -21,7 +23,8 @@
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/x10"
                 android:paddingRight="@dimen/x10"
-                android:paddingTop="@dimen/y10">
+                android:paddingTop="@dimen/y10"
+                android:descendantFocusability="blocksDescendants">
                 <!--视频图片-->
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -412,11 +415,10 @@
                     android:background="@drawable/shap_radius_half_bottom_white"
                     android:visibility="gone" />
 
+                <include layout="@layout/fragment_goodsdetail_detail" />
             </LinearLayout>
         </ScrollView>
-
-        <include layout="@layout/fragment_goodsdetail_detail" />
-    </com.thlh.jhmjmw.view.SlideDetailsLayout>
+    <!--</com.thlh.jhmjmw.view.SlideDetailsLayout>-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/goodsdetail_floatbtn"

@@ -96,12 +96,12 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\9c2f82390dc90971711366139058176b686a3e80\\output\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\ucrop_vector_ic_crop.png",
-        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-mdpi\\ucrop_vector_ic_crop.png"
-    },
-    {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\9c2f82390dc90971711366139058176b686a3e80\\output\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\ucrop_vector_ic_crop.png",
+        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\generated\\res\\pngs\\release\\drawable-mdpi\\ucrop_vector_ic_crop.png"
     },
     {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\abc_switch_track_mtrl_alpha.9.png",

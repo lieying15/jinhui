@@ -373,7 +373,7 @@ public class MineFragment extends BaseFragment implements RippleLinearLayout.OnR
     @Override
     public void updateMineNameTv() {
         String nickname = (String) SPUtils.get("user_nickname", "");
-        if (nickname != null) {
+        if (nickname != null && mineNameTv != null) {
             if (nickname.equals("")) {
                 mineNameTv.setText(getResources().getString(R.string.minename));
             } else {

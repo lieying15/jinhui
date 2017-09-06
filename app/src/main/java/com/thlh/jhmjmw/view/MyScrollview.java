@@ -13,7 +13,7 @@ import android.view.ViewConfiguration;
 import android.widget.ScrollView;
 
 
-class MyScrollview extends ScrollView {
+public class MyScrollview extends ScrollView {
     private int downX;
     private int downY;
     private int mTouchSlop;

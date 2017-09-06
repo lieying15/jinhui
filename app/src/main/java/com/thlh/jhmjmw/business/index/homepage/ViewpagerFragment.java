@@ -29,7 +29,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 /**
  * 首页数据
@@ -39,7 +38,6 @@ public class ViewpagerFragment extends BaseFragment {
     private static final String TAG = "ViewpagerFragment";
     @BindView(R.id.homepage_goods_rv)
     RecyclerView homepageGoodsRv;
-    Unbinder unbinder;
     private HomePageGoodsAdapter goodsAdapter;
     private GridLayoutManager goodsRvLM;
     private AnimatCartUtils animatCart;
@@ -143,7 +141,6 @@ public class ViewpagerFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
     }
 
     public void addShopCart(Activity activity, Goods goods) {

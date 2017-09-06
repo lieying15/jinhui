@@ -45,9 +45,9 @@ android {
         }
 
         release {
-            debuggable true
+            debuggable false
             buildConfigField "int", "DEPLOY_STATE", "1"
-            buildConfigField "boolean", "SHOWLOG", "true"
+            buildConfigField "boolean", "SHOWLOG", "false"
             minifyEnabled false
             signingConfig signingConfigs.release
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

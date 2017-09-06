@@ -29,6 +29,7 @@ import com.pili.pldroid.player.PLMediaPlayer;
 import com.pili.pldroid.player.widget.PLVideoView;
 import com.thlh.baselib.base.BaseApplication;
 import com.thlh.baselib.base.BaseFragment;
+import com.thlh.baselib.config.Constants;
 import com.thlh.baselib.model.Comment;
 import com.thlh.baselib.model.GoodsBundling;
 import com.thlh.baselib.model.GoodsDetailProperty;
@@ -46,6 +47,7 @@ import com.thlh.jhmjmw.business.goods.goodsdetail.baseinfo.adapter.GoodsCommentA
 import com.thlh.jhmjmw.business.goods.goodsdetail.baseinfo.adapter.GoodsPropertyAdapter;
 import com.thlh.jhmjmw.business.goods.suit.GoodsSuitActivity;
 import com.thlh.jhmjmw.business.goods.suit.GoodsSuitDetailActivity;
+import com.thlh.jhmjmw.business.recharge.RechargeActivity;
 import com.thlh.jhmjmw.business.recharge.RechargeQRActivity;
 import com.thlh.jhmjmw.other.Deployment;
 import com.thlh.jhmjmw.other.ImageLoader;
@@ -117,11 +119,13 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
     LinearLayout goodsdetailIspackLl;
     @BindView(R.id.goodsdetail_ispart_ll)
     LinearLayout goodsdetailIspartLl;
+    @BindView(R.id.goodsdetail_coupon_ll)
+    LinearLayout goodsdetailCouponLl;
 
     @BindView(R.id.goodsdetail_scroll)
     ScrollView goodsdetailScroll;
-    @BindView(R.id.goodsdetail_slidelayout)
-    SlideDetailsLayout goodsdetailSlidelayout;
+//    @BindView(R.id.goodsdetail_slidelayout)
+//    SlideDetailsLayout goodsdetailSlidelayout;
     @BindView(R.id.goodsdetail_floatbtn)
     FloatingActionButton goodsdetailFloatbtn;
 
@@ -140,6 +144,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
 
     private boolean videoPlaying;
     private AVOptions avOptions;
+    private String url;
 
 
     @Override
@@ -179,7 +184,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         goodsdetailProtertyRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         goodsdetailProtertyRv.setAdapter(propertyAdapter);
         goodsdetailProtertyRv.setNestedScrollingEnabled(false);
-        goodsdetailSlidelayout.setOnSlideDetailsListener(this);
+//        goodsdetailSlidelayout.setOnSlideDetailsListener(this);
 
         commentAdapter = new GoodsCommentAdapter(getActivity());
         goodsdetailCommentRv.setAdapter(commentAdapter);
@@ -189,30 +194,17 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         activity.setAddCartListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleView) {
-                int isch = (int) SPUtils.get("user_isch",0);
-                if(isch>0){
-//                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
-                    activity.showAddCartDialog();
-                    mPresenter.addShopCart();
-                    activity.updateCartTv();
-                }else {
-                    RechargeQRActivity.activityStart(getActivity());
-                }
+                activity.showAddCartDialog();
+                mPresenter.addShopCart();
+                activity.updateCartTv();
             }
         });
         activity.setBuytListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleRelativeLayout) {
                 if (SPUtils.getIsLogin()){
-                    int isch = (int) SPUtils.get("user_isch",0);
-                    if(isch>0){
-//                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
-                        mPresenter.buyImmediately();
-                        BuyConfirmActivity.activityStart(getActivity(),true);
-                    }else {
-                        RechargeQRActivity.activityStart(getActivity());
-                    }
-
+                    mPresenter.buyImmediately();
+                    BuyConfirmActivity.activityStart(getActivity(),true);
                 }else {
                     LoginActivity.activityStart(getActivity());
                 }
@@ -282,7 +274,13 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
     public void showGoodsVideo(String mVideoUrl, String mVideoPic) {
         videoplayIv.setVisibility(View.VISIBLE);
         videoplayFl.setVisibility(View.VISIBLE);
-        ImageLoader.display(mVideoPic, goodsdetailGoodsIv, true);
+
+        if (mVideoPic.contains("http")){
+            url = mVideoPic;
+        }else{
+            url = Deployment.IMAGE_PATH +mVideoPic;
+        }
+        ImageLoader.display(url, goodsdetailGoodsIv, true);
         String proxyUrl = initproxy().getProxyUrl(mVideoUrl); //金山云视频缓存
         videoPlview.setVideoPath(proxyUrl);
     }
@@ -304,12 +302,12 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         videoplayFl.setVisibility(View.GONE);
         plVideoViewRl.setVisibility(View.GONE);
         goodsdetailGoodsIv.setVisibility(View.VISIBLE);
-
-        if (imgUrl.equals("") && imgUrl.contains("http")  ) {
+        if (imgUrl.contains("http") && !imgUrl.equals("")) {
             ImageLoader.display(imgUrl, goodsdetailGoodsIv, Priority.HIGH);
         } else {
-            ImageLoader.display(Deployment.IMAGE_PATH +imgUrl, goodsdetailGoodsIv, Priority.HIGH);
+            ImageLoader.display(Deployment.IMAGE_PATH+imgUrl, goodsdetailGoodsIv, Priority.HIGH);
         }
+
     }
 
     @Override
@@ -410,33 +408,27 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
 
     }
 
-    /**
-     * 显示冰箱页
-     */
     @Override
     public void showGoodsIsIceBox() {
-//        goodsdetailPriceTv.setText(getResources().getString(R.string.goodsdetail_addcart));
-//        goodsdetailPriceTv.setTextColor(getResources().getColor(R.color.white));
-//        goodsdetailPriceTv.setBackgroundResource(R.drawable.shap_radius_theme_r20);
-//        goodsdetailPriceTv.setPadding((int)getResources().getDimension(R.dimen.x20),0,(int)getResources().getDimension(R.dimen.x20),0);
+        goodsdetailCouponLl.setVisibility(View.VISIBLE);
+        goodsdetailPriceTv.setText(getResources().getString(R.string.once_top_up_change));
+        goodsdetailPriceTv.setTextColor(getResources().getColor(R.color.white));
+        goodsdetailPriceTv.setBackgroundResource(R.drawable.shap_radius_theme_r20);
+        goodsdetailPriceTv.setPadding((int)getResources().getDimension(R.dimen.x20),0,(int)getResources().getDimension(R.dimen.x20),0);
         goodsdetailMjzTv.setVisibility(View.GONE);
-        goodsdetailProtertyRv.setVisibility(View.GONE);
         activity.setAddCartListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleRelativeLayout) {
-                int isch = (int) SPUtils.get("user_isch",0);
+                int isch = Integer.valueOf(SPUtils.get("user_isch",0).toString());
                 if(isch>0){
-//                    RechargeActivity.activityStart(getActivity(),Constants.PAY_PURPOSE_MJB);
-                    activity.showAddCartDialog();
-                    mPresenter.addShopCart();
-                    activity.updateCartTv();
+                    RechargeActivity.activityStart(getActivity(), Constants.PAY_PURPOSE_MJB);
                 }else {
                     RechargeQRActivity.activityStart(getActivity());
                 }
             }
         });
-        activity.setBottomCartText(getResources().getString(R.string.goodsdetail_addcart), true);
-      /*  goodsdetailPriceTv.setOnClickListener(new View.OnClickListener() {
+        activity.setBottomCartText(getResources().getString(R.string.top_up_change), true);
+        goodsdetailPriceTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int isch = Integer.valueOf(SPUtils.get("user_isch",0).toString());
@@ -446,7 +438,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
                     RechargeQRActivity.activityStart(getActivity());
                 }
             }
-        });*/
+        });
     }
 
     @Override
@@ -467,7 +459,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
     }
 
     @OnClick({R.id.goodsdetail_supplier_ll, R.id.goodsdetail_promotion_ll,R.id.goodsdetail_floatbtn,
-        R.id.goodsdetail_comment_ll,R.id.goodsdetail_goods_videoplay_fl})
+            R.id.goodsdetail_comment_ll,R.id.goodsdetail_goods_videoplay_fl})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.goodsdetail_supplier_ll:
@@ -513,11 +505,11 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         }
     }
     /**
-    * questions
-    * 1.去掉间隙
-    * 2.详情图上拉没有出现全图，直接拉到商品页
-    * 3,详情页上要添加“— 商品简介 —”
-    * */
+     * questions
+     * 1.去掉间隙
+     * 2.详情图上拉没有出现全图，直接拉到商品页
+     * 3,详情页上要添加“— 商品简介 —”
+     * */
     @Override
     public void onStatucChanged(SlideDetailsLayout.Status status) {
         if (status == SlideDetailsLayout.Status.OPEN) {
@@ -553,6 +545,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
     @Override
     public void showGoodsDetail(String content) {
         activity.setGoodsContent(content);
+
         goodsdetailWebView.loadDataWithBaseURL(null, content, "text/html", "utf-8", null);
         goodsdetailWebView.setMinimumWidth(BaseApplication.width);
         WebSettings webSettings = goodsdetailWebView.getSettings();
@@ -621,7 +614,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         @Override
         public void onBufferingUpdate(PLMediaPlayer plMediaPlayer, int precent) {
             if(videoProgressbar!=null)
-            videoProgressbar.setProgress(precent);
+                videoProgressbar.setProgress(precent);
         }
     };
 
@@ -632,7 +625,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         @Override
         public void onCompletion(PLMediaPlayer plMediaPlayer) {
             if(videoPlview!=null)
-            videoPlview.start();
+                videoPlview.start();
         }
     };
 
@@ -669,11 +662,11 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         @Override
         public boolean onError(PLMediaPlayer plMediaPlayer,int e) {
 //            if (null == goodsDetail.getVideo().get(0).getUrl()) {
-                plVideoViewRl.setVisibility(View.GONE);
-                videoplayIv.setVisibility(View.GONE);
-                goodsdetailGoodsIv.setVisibility(View.VISIBLE);
-                goodsBackgroundIv.setVisibility(View.VISIBLE);
-                videoPlaying = false;
+            plVideoViewRl.setVisibility(View.GONE);
+            videoplayIv.setVisibility(View.GONE);
+            goodsdetailGoodsIv.setVisibility(View.VISIBLE);
+            goodsBackgroundIv.setVisibility(View.VISIBLE);
+            videoPlaying = false;
 //            }
             return true;
         }
@@ -695,7 +688,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
     @Override
     public void gotoTop() {
         goodsdetailScroll.smoothScrollTo(0, 0);
-        goodsdetailSlidelayout.smoothClose(true);
+//        goodsdetailSlidelayout.smoothClose(true);
     }
 
     @Override
@@ -719,5 +712,4 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         super.onDestroy();
         if( videoPlview!=null) videoPlview.stopPlayback();
     }
-
 }

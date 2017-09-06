@@ -148,7 +148,7 @@ public class BaseApplication extends MultiDexApplication {
 	//初始化分享
 	private void initUMengShare() {
 		//微信 appid appsecret
-		PlatformConfig.setWeixin("wxa1a34eeee13e9a53", "677b618f37b12af50e3e4584fd735c0d");
+		PlatformConfig.setWeixin("wx9fea5d86e2148924", "7d0254d9252dc6778f342d5f69bf9b97");
 		//新浪微博 appkey appsecret
 		PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad");
 		// QQ和Qzone appid appkey
