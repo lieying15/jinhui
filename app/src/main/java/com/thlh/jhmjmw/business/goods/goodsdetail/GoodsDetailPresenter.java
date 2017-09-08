@@ -1,7 +1,7 @@
 package com.thlh.jhmjmw.business.goods.goodsdetail;
 
-import com.thlh.baselib.base.BaseResponse;
 import com.thlh.baselib.base.BaseObserver;
+import com.thlh.baselib.base.BaseResponse;
 import com.thlh.baselib.utils.RxUtils;
 import com.thlh.baselib.utils.SPUtils;
 import com.thlh.jhmjmw.network.NetworkManager;

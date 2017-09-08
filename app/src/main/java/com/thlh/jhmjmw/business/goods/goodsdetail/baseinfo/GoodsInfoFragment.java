@@ -285,7 +285,6 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         videoPlview.setVideoPath(proxyUrl);
     }
 
-
     private KSYProxyService initproxy() {
         KSYProxyService proxy = BaseApplication.getKSYProxy(getActivity());
         proxy.setCacheRoot(new File(Environment.getExternalStorageDirectory(), "cachevedio"));
@@ -315,7 +314,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
         goodsdetailIspartLl.setVisibility(View.VISIBLE);
         activity.setBottomCartText(getResources().getString(R.string.suit));
 
-        activity.setAddCartListener(new RippleLinearLayout.OnRippleCompleteListener() {
+        activity.setBuytListener(new RippleLinearLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleLinearLayout rippleView) {
                 if (isBudingPart) {
@@ -452,9 +451,9 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
 
 
     @Override
-    public void showGoodsBunding(ArrayList<GoodsBundling> goodsBundlings) {
+    public void showGoodsBunding(ArrayList<GoodsBundling> goodsBundlings, String is_part) {
         this.goodsBundlings = goodsBundlings;
-        if (goodsBundlings != null)
+        if (goodsBundlings != null && is_part.equals("1"))
             goodsdetailPromotionLl.setVisibility(View.VISIBLE);
     }
 
@@ -504,12 +503,7 @@ public class GoodsInfoFragment extends BaseFragment implements GoodsInfoContract
                 break;
         }
     }
-    /**
-     * questions
-     * 1.去掉间隙
-     * 2.详情图上拉没有出现全图，直接拉到商品页
-     * 3,详情页上要添加“— 商品简介 —”
-     * */
+
     @Override
     public void onStatucChanged(SlideDetailsLayout.Status status) {
         if (status == SlideDetailsLayout.Status.OPEN) {

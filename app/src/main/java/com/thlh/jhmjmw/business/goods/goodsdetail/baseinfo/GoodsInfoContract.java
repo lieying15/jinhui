@@ -45,7 +45,7 @@ public interface GoodsInfoContract  {
 
         void showGoodsProperty(List<GoodsDetailProperty> mPropertyList);
 
-        void showGoodsBunding(ArrayList<GoodsBundling> goodsBundlings);
+        void showGoodsBunding(ArrayList<GoodsBundling> goodsBundlings, String is_part);
 
         void showGoodsIsIceBox();
 

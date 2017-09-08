@@ -2,6 +2,7 @@ package com.thlh.jhmjmw.business.goods.goodsdetail;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,6 +25,7 @@ import com.thlh.jhmjmw.business.goods.goodsdetail.baseinfo.GoodsInfoFragment;
 import com.thlh.jhmjmw.business.goods.goodsdetail.comment.GoodsCommentTopFragment;
 import com.thlh.jhmjmw.business.goods.goodsdetail.imginfo.GoodsImgInfoFragment;
 import com.thlh.jhmjmw.other.L;
+import com.thlh.jhmjmw.view.BaseImgDialog;
 import com.thlh.viewlib.goodsdetailview.NoScrollViewPager;
 import com.thlh.viewlib.ripple.RippleFrameLayout;
 import com.thlh.viewlib.ripple.RippleLinearLayout;
@@ -46,7 +48,7 @@ import static com.thlh.jhmjmw.R.id.goods_bottom_shopcart;
 /**
  * 商品详情页
  */
-public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailContract.View{
+public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailContract.View {
     private static final String TAG = "GoodsDetailV3Activity";
     private final int ACTIVITY_CODE_LOGIN = 1;
     @BindView(R.id.goodsdetail_headerback_iv)
@@ -80,6 +82,8 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     //立即购买
     @BindView(R.id.goods_bottom_buy)
     RippleLinearLayout goodsBottomBuyRl;
+    @BindView(R.id.goods_bottom_buy_tv)
+    TextView goodsBottomBuyTv;
 
     private GoodsDetailContract.Presenter mPresenter;
     private String goods_id;
@@ -91,9 +95,10 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
     private SweetAlertDialog addCartDialog;
-    private boolean isCollected ;
+    private boolean isCollected;
 
-    private String goodsName,goodsContent,goodsImg; //分享用的商品信息
+    private String goodsName, goodsContent, goodsImg; //分享用的商品信息
+    private BaseImgDialog.Builder builder;
 
 
     public static void activityStart(Activity context, String goods_id) {
@@ -119,7 +124,7 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
         goods_id = getIntent().getStringExtra("goods_id");
         L.e(TAG + " goods_id:" + goods_id);
         //初始化tab
-        String[] mSegmentTLTitles = {getResources().getString(R.string.shop),getResources().getString(R.string.shop_details),getResources().getString(R.string.shop_evaluation)};
+        String[] mSegmentTLTitles = {getResources().getString(R.string.shop), getResources().getString(R.string.shop_details), getResources().getString(R.string.shop_evaluation)};
         int[] mIconUnselectIds = {R.drawable.bg_null, R.drawable.bg_null, R.drawable.bg_null};
         int[] mIconSelectIds = {R.drawable.bg_null, R.drawable.bg_null, R.drawable.bg_null};
         for (int i = 0; i < mSegmentTLTitles.length; i++) {
@@ -132,21 +137,22 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     protected void initBaseViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_goods_detail_v3);
         ButterKnife.bind(this);
+        builder = new BaseImgDialog.Builder(this);
         addCartDialog = new SweetAlertDialog(GoodsDetailV3Activity.this, SweetAlertDialog.SUCCESS_TYPE);
         addCartDialog.setTitleText(getResources().getString(R.string.add_car));
         goodsBottomCollect.setOnRippleCompleteListener(new RippleFrameLayout.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleFrameLayout rippleRelativeLayout) {
-                if(SPUtils.getIsLogin()){
+                if (SPUtils.getIsLogin()) {
                     //收藏
-                    if(isCollected){
-                        L.e(TAG +" onComplete isCollected="+isCollected+" postDelCollect");
+                    if (isCollected) {
+                        L.e(TAG + " onComplete isCollected=" + isCollected + " postDelCollect");
                         mPresenter.postDelCollect(goods_id);
-                    }else {
-                        L.e(TAG +" onComplete isCollected="+isCollected+" postCollect");
+                    } else {
+                        L.e(TAG + " onComplete isCollected=" + isCollected + " postCollect");
                         mPresenter.postCollect(goods_id);
                     }
-                }else {
+                } else {
                     LoginActivity.activityStart(GoodsDetailV3Activity.this);
                 }
             }
@@ -188,7 +194,8 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     }
 
     @Override
-    protected void loadData() {}
+    protected void loadData() {
+    }
 
     @Override
     protected void onRestart() {
@@ -196,9 +203,9 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
         updateCartTv();
     }
 
-    @OnClick({R.id.goodsdetail_headerback_iv,R.id.goods_bottom_shopcart,R.id.goodsdetail_share_iv})
+    @OnClick({R.id.goodsdetail_headerback_iv, R.id.goods_bottom_shopcart, R.id.goodsdetail_share_iv})
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.goodsdetail_headerback_iv:
                 finish();
                 break;
@@ -210,6 +217,13 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
 //                shareUtils.showShareWindow();
                 break;
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 
     //ViewPager适配器
@@ -254,9 +268,6 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     }
 
 
-
-
-
     public NoScrollViewPager getGoodsdetailContentVp() {
         return goodsdetailContentVp;
     }
@@ -282,12 +293,13 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     }
 
     public void setBottomCartText(String string, boolean canClick) {
-        goodsBottomAddcartTv.setText(string);
+        goodsBottomBuyTv.setText(string);
         /**
          * 去套装时去掉立即购买
          * */
-        if (string.equals(getResources().getString(R.string.suit))){
-            goodsBottomBuyRl.setVisibility(View.GONE);
+        if (string.equals(getResources().getString(R.string.suit))) {
+            goodsBottomCartRl.setVisibility(View.GONE);
+            goodsBottomAddcartTv.setVisibility(View.GONE);
         }
 
         if (!canClick)
@@ -298,9 +310,6 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
         //产品要求 不显示提示窗口
 //        addCartDialog.show();
     }
-
-
-
 
 
     @Override
@@ -318,10 +327,9 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     }
 
 
-
     //更新商品详情
-    public void setGoodsContent(String goodsContent){
-        if(goodsImgInfoFragment !=null){
+    public void setGoodsContent(String goodsContent) {
+        if (goodsImgInfoFragment != null) {
             goodsImgInfoFragment.updateContent(goodsContent);
         }
     }
@@ -341,7 +349,7 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
 
     @Override
     public void updateCollection(boolean isCollected) {
-        L.e(TAG +" updateCollect isCollected="+isCollected);
+        L.e(TAG + " updateCollect isCollected=" + isCollected);
         this.isCollected = isCollected;
         if (isCollected) {
             goodsdetailCollectIv.setImageResource(R.drawable.icon_collect_wine);
@@ -360,12 +368,11 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
     public void updateCartTv(int num) {
         if (num > 0) {
             goodsdetailShopcartNumTv.setVisibility(View.VISIBLE);
-            TextUtils.showNum(goodsdetailShopcartNumTv,num);
+            TextUtils.showNum(goodsdetailShopcartNumTv, num);
         } else {
             goodsdetailShopcartNumTv.setVisibility(View.INVISIBLE);
         }
     }
-
 
 
     public RippleLinearLayout getGoodsBottomBuyRl() {
@@ -376,14 +383,41 @@ public class GoodsDetailV3Activity extends BaseActivity implements GoodsDetailCo
         return goodsBottomCartRl;
     }
 
-    public void changeToCommentFrg(){
+    public void changeToCommentFrg() {
         goodsdetailTab.setCurrentTab(2);
         goodsdetailContentVp.setCurrentItem(2);
-    };
+    }
 
-    public void setGoodsShareInfo(String goodsName,String goodsContent,String img) {
+    public void setGoodsShareInfo(String goodsName, String goodsContent, String img) {
         this.goodsName = goodsName;
         this.goodsContent = goodsContent;
         this.goodsImg = img;
+    }
+
+    @Override
+    public void showSuccessDialog(String msg) {
+        super.showSuccessDialog(msg);
+    }
+
+    @Override
+    public void showWaringDialog(String msg) {
+        super.showWaringDialog(msg);
+    }
+
+    @Override
+    public void showErrorDialog(String msg) {
+        goodsBottomBuyRl.setBackgroundResource(R.color.gray);
+        goodsBottomCartRl.setBackgroundResource(R.color.gray);
+        goodsBottomBuyRl.setClickable(false);
+        goodsBottomCartRl.setClickable(false);
+        builder.setTitleIvRes(R.drawable.i_recharge_fail)
+                .setTitle(msg)
+                .setLeftBtnStr(getResources().getString(R.string.back))
+                .setLeftClickListener(new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).create().show();
     }
 }

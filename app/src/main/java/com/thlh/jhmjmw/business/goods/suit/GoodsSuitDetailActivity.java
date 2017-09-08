@@ -353,7 +353,18 @@ public class GoodsSuitDetailActivity extends BaseActivity {
     }
 
     private String changeContent(String content) {
-        String tempgoodsCotent = content.replaceAll("/BmUploadFile/ueditor/", Deployment.IMAGE_PATH + "/BmUploadFile/ueditor/");
+        String tempgoodsCotent = "";
+        String[] array = content.split("/BmUploadFile/ueditor/");
+        for (int i =0;i<array.length-1;i++){
+            if ("src=".equals(array[i].substring(array[i].length()-5,array[i].length()-1))){
+                tempgoodsCotent += array[i]+"http://v2.mjmw365.com/BmUploadFile/ueditor/";
+            }else {
+                tempgoodsCotent += array[i]+"/BmUploadFile/ueditor/";
+            }
+        }
+        tempgoodsCotent+=array[array.length-1];
+
+//                String tempgoodsCotent = goodsCotent.replaceAll("/BmUploadFile/ueditor/", Deployment.IMAGE_PATH + "/BmUploadFile/ueditor/");
         L.i(TAG + " tempgoodsCotent:" + tempgoodsCotent);
         tempgoodsCotent = tempgoodsCotent.replace("<p><br/></p>", "");
         return tempgoodsCotent;

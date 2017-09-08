@@ -36,10 +36,11 @@
     <TextView
         android:id="@+id/dialog_base_bottom_tv"
         android:layout_width="300dp"
-        android:layout_height="36dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="5dp"
-        android:gravity="center"
+        android:layout_marginRight="5dp"
         android:background="@drawable/selector_stoke_mainback_r50"
+        android:gravity="center"
         android:text="确认"
         android:textColor="@color/app_theme"
         android:textSize="@dimen/text_size_small_x" />

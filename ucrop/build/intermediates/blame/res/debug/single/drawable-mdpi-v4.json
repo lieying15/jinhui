@@ -44,12 +44,12 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\9c2f82390dc90971711366139058176b686a3e80\\output\\res\\drawable-mdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ucrop_vector_loader.png",
-        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ucrop_vector_loader.png"
-    },
-    {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\9c2f82390dc90971711366139058176b686a3e80\\output\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ucrop_vector_loader.png",
+        "source": "E:\\Workspace\\jinhui\\ucrop\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ucrop_vector_loader.png"
     },
     {
         "merged": "E:\\Workspace\\jinhui\\ucrop\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",

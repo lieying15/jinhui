@@ -132,11 +132,12 @@ public class GoodsInfoPresenter implements GoodsInfoContract.Presenter {
                 //处理商品套装数据
                 final ArrayList<GoodsBundling> tempbunding = new ArrayList<GoodsBundling>();
                 List<GoodsBundling> goodsbunding  = goodsDetail.getBundling();
+                String is_part = goodsDetail.getIs_part();
                 if (goodsbunding.size() > 0) {
                     for (GoodsBundling bundling : goodsbunding) {
                         tempbunding.add(bundling);
                     }
-                    mInfoView.showGoodsBunding(tempbunding);
+                    mInfoView.showGoodsBunding(tempbunding,is_part);
                 }
 
                 if(!canbuy){

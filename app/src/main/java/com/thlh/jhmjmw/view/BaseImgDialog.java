@@ -32,11 +32,9 @@ public class BaseImgDialog extends Dialog {
         private OnClickListener leftClickListener;
         private ImageView titleIv;
 
-
         public Builder(Context context) {
             this.context = context;
         }
-
 
         public Builder setTitle(String title) {
             this.title = title;
@@ -47,7 +45,6 @@ public class BaseImgDialog extends Dialog {
             this.titleIv = titleIv;
             return this;
         }
-
 
         public Builder setTitleIvRes(int titleIvRes) {
             this.titleIvRes = titleIvRes;
