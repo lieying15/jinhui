@@ -129,12 +129,11 @@ public class ViewpagerFragment extends BaseFragment {
     }
 
     public void loadGoodsData(){
+        current_page = 1;
         if (flag){
-            current_page = 1;
             loadHomePageData(true,current_page);
         }else {
-            current_page = 1;
-            loadSearchData(catid,current_page);
+//            loadSearchData(catid,current_page);
         }
     }
 
@@ -205,7 +204,8 @@ public class ViewpagerFragment extends BaseFragment {
     }
 
     public void loadSearchData(String catid, int current_page) {
-        L.e(TAG + " loadSearchData  catid:" + catid +" current_page：" +current_page );
+        String catid1 = getCatid();
+        L.e(TAG + " loadSearchData  catid==:" + catid1 +" current_page：" +current_page );
         searchOserver   = new BaseObserver<SearchResponse>() {
             @Override
             public void onErrorResponse(SearchResponse searchResponse) {
@@ -224,7 +224,7 @@ public class ViewpagerFragment extends BaseFragment {
         };
 
         NetworkManager.getSearchApi()
-                .getSearch(catid ,current_page , Constants.PageDataCount)
+                .getSearch(catid1 ,current_page , Constants.PageDataCount)
                 .compose(RxUtils.androidSchedulers(this))
                 .subscribe(searchOserver);
     }
@@ -235,7 +235,6 @@ public class ViewpagerFragment extends BaseFragment {
     }
 
     public void setCatid(String catid){
-        goodsList.clear();
         this.catid = catid;
     }
 
@@ -249,13 +248,18 @@ public class ViewpagerFragment extends BaseFragment {
     }
 
     public void clearGoodsList(){
-        goodsList.clear();
-        goodsAdapter.notifyDataSetChanged();
+        if (goodsList != null) {
+            goodsList.clear();
+            goodsAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        goodsList.clear();
+        if (goodsList != null) {
+            goodsList.clear();
+            goodsAdapter.notifyDataSetChanged();
+        }
     }
 }

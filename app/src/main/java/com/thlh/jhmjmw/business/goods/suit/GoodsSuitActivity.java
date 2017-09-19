@@ -15,23 +15,28 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thlh.baselib.base.BaseActivity;
+import com.thlh.baselib.base.BaseObserver;
 import com.thlh.baselib.db.DbManager;
 import com.thlh.baselib.model.Cartgoods;
 import com.thlh.baselib.model.Goods;
 import com.thlh.baselib.model.GoodsBundling;
 import com.thlh.baselib.model.GoodsBundlingItem;
 import com.thlh.baselib.model.GoodsDb;
+import com.thlh.baselib.model.GoodsDetail;
 import com.thlh.baselib.model.Supplier;
+import com.thlh.baselib.model.response.GoodsDetailResponse;
 import com.thlh.baselib.utils.AnimatCartUtils;
 import com.thlh.baselib.utils.GoodsChangeUtils;
 import com.thlh.baselib.utils.S;
 import com.thlh.baselib.utils.SPUtils;
+import com.thlh.baselib.utils.Tos;
 import com.thlh.jhmjmw.R;
-import com.thlh.jhmjmw.business.goods.suit.adapter.GoodsSuitAdapter;
 import com.thlh.jhmjmw.business.buy.shopcart.ShopCartActivity;
+import com.thlh.jhmjmw.business.goods.suit.adapter.GoodsSuitAdapter;
+import com.thlh.jhmjmw.network.NetworkManager;
 import com.thlh.jhmjmw.other.L;
-import com.thlh.viewlib.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.thlh.viewlib.easyrecyclerview.widget.EasyRecyclerView;
+import com.thlh.viewlib.recyclerview.EasyGridItemDecoration;
 import com.thlh.viewlib.sweetdialog.SweetAlertDialog;
 import com.thlh.viewlib.tablayout.MsgView;
 
@@ -41,6 +46,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * 产品套装
@@ -82,9 +89,12 @@ public class GoodsSuitActivity extends BaseActivity {
     private GsonBuilder builder;
     private String jsonListTest;
     private SweetAlertDialog cartDialog;
+    private Goods goods;
 
     private boolean isLogin;
     private int goods_num;
+    private BaseObserver<GoodsDetailResponse> goodsdetailObserver;
+    private GoodsDetail goodsDetail;
 
     public static void activityStart(Context context, ArrayList<GoodsBundling> bundingList) {
         Intent intent = new Intent();
@@ -120,7 +130,8 @@ public class GoodsSuitActivity extends BaseActivity {
                 boolean hasSelectGoos = false;
                 for (int i = 0; i < bundingList.size(); i++) {
                     if (checkList.get(i)) {
-                        addShopcart(i);
+//                        addShopCart(i);
+                        loadShop(bundingList.get(i).getItem_id());
                         hasSelectGoos = true;
                     }
                 }
@@ -135,17 +146,12 @@ public class GoodsSuitActivity extends BaseActivity {
         suitAdapter = new GoodsSuitAdapter(this, checkList);
         suitRv.setAdapter(suitAdapter);
         suitRv.setLayoutManager(new LinearLayoutManager(this));
+        suitRv.addItemDecoration(new EasyGridItemDecoration(this));
         suitAdapter.setList(bundingList);
         suitAdapter.setEventListener(new GoodsSuitAdapter.OnClickListener() {
             @Override
-            public void addShopcart(int position) {
-                addShopcart(position);
-            }
-
-            @Override
-            public void onTitleArrow(int position) {
-//                checkList.set(position, !checkList.get(position));
-//                suitAdapter.notifyDataSetChanged();
+            public void addShopCart(int position) {
+                loadShop(bundingList.get(position).getItem_id());
             }
 
             @Override
@@ -157,12 +163,22 @@ public class GoodsSuitActivity extends BaseActivity {
             }
         });
 
-        suitAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
+        goodsdetailObserver = new BaseObserver<GoodsDetailResponse>() {
+
             @Override
-            public void onItemClick(View convertView, int position) {
-                GoodsSuitDetailActivity.activityStart(GoodsSuitActivity.this, bundingList.get(position).getItem_id(), position);
+            public void onNextResponse(GoodsDetailResponse goodsDetailResponse) {
+                hideLoadindBar();
+                goodsDetail = goodsDetailResponse.getData().getItem();
+                addShopCart(goodsDetail);
             }
-        });
+
+            @Override
+            public void onErrorResponse(GoodsDetailResponse goodsDetailResponse) {
+                hideLoadindBar();
+                Tos.show(goodsDetailResponse.getErr_msg());
+            }
+        };
+
     }
 
 
@@ -170,7 +186,7 @@ public class GoodsSuitActivity extends BaseActivity {
         double temptotalprice = 0;
         for (int i = 0; i < bundingList.size(); i++) {
             if (checkList.get(i)) {
-                temptotalprice += Double.parseDouble(bundingList.get(i).getItem_price());
+                temptotalprice += Double.parseDouble(bundingList.get(i).getPrice());
             }
         }
         shopcartTotalPriceTv.setText("" + temptotalprice);
@@ -196,8 +212,17 @@ public class GoodsSuitActivity extends BaseActivity {
         }
     }
 
-    private void addShopcart(int position) {
-        GoodsBundling goodsBundling = bundingList.get(position);
+    public void loadShop(String itemid) {
+        showLoadingBar();
+        subscription = NetworkManager.getGoodsDataApi()
+                .getGoodsDetail(SPUtils.getToken(), itemid)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(goodsdetailObserver);
+    }
+
+    private void addShopCart(GoodsDetail goodsDetail) {
+        GoodsBundling goodsBundling = goodsDetail.getBundling().get(0);
         if (goodsBundling == null) {
             new S.Builder(goodssuitSnakecl, getResources().getString(R.string.youhui_suit)).create().show();
         }
@@ -205,7 +230,7 @@ public class GoodsSuitActivity extends BaseActivity {
         Supplier supplier = new Supplier();
         supplier.setId("-1");
         supplier.setName(getResources().getString(R.string.suit_));
-
+        DbManager.getInstance().insertSupplier(supplier);
         for (GoodsBundlingItem item : goodsBundling.getItem()) {
             Supplier itemSupplier = new Supplier();
             itemSupplier.setId(item.getSupplier_id());
@@ -218,25 +243,16 @@ public class GoodsSuitActivity extends BaseActivity {
             bundingItem.setSupplier(itemSupplier);
             DbManager.getInstance().insertGoods(bundingItem);
         }
-        DbManager.getInstance().insertSupplier(supplier);
-        Goods goods = new Goods();
-        goods.setItem_id(goodsBundling.getItem_id());
-        goods.setItem_price(goodsBundling.getItem_price());
-        goods.setItem_name(goodsBundling.getItem_name());
-        goods.setItem_img_thumb(goodsBundling.getItem_thumb());
-        goods.setStorage(goodsBundling.getStorage());
-        goods.setIs_bundling("1");
-        goods.setSupplier_id("-1");
-        goods.setSupplier(supplier);
-        goods.setIs_mjb("1");
+        goods = GoodsChangeUtils.changeGoods(goodsDetail);
         GoodsDb goodsDb = GoodsChangeUtils.changeGoodsDb(goods);
-        DbManager.getInstance().insertGoods(goodsDb);
-        Cartgoods insertCartGoods = new Cartgoods();
-        long goodsDbid = DbManager.getInstance().getGoodsDBid(goodsBundling.getItem_id());
+        long goodsDbid = DbManager.getInstance().getGoodsDBid(goodsDb.getItem_id());
         if (goodsDbid == -1) {
             goodsDbid = DbManager.getInstance().getGoodsSize() + 1;
         }
         goodsDb.setDbid(goodsDbid);
+        DbManager.getInstance().insertGoods(goodsDb);
+
+        Cartgoods insertCartGoods = new Cartgoods();
         insertCartGoods.setGoodsdb(goodsDb);
         insertCartGoods.setDb_goods_id(goodsDbid);
         insertCartGoods.setBunding_info(bundinginfo);
@@ -249,7 +265,41 @@ public class GoodsSuitActivity extends BaseActivity {
         } else {
             goodsdetailShopcartNumTv.setVisibility(View.INVISIBLE);
         }
+
+        cartDialog.setTitleText(getResources().getString(R.string.add_car)).show();
     }
+
+    private void insetShopCart(int position) {
+        GoodsBundling goodsBundling = bundingList.get(position);
+        if (goodsBundling == null) {
+            return;
+        }
+        GoodsDetail bundle = goodsBundling.getBundle();
+        String bundinginfo = gson.toJson(goodsBundling, GoodsBundling.class);
+        Supplier supplier = new Supplier();
+        supplier.setId("-1");
+        supplier.setName(getResources().getString(R.string.suit_));
+        DbManager.getInstance().insertSupplier(supplier);
+
+
+
+        goods = GoodsChangeUtils.changeGoods(bundle);
+        GoodsDb goodsDb = GoodsChangeUtils.changeGoodsDb(goods);
+
+
+        long goodsDbid = DbManager.getInstance().getGoodsDBid(goodsDb.getItem_id());
+        if (goodsDbid == -1) {
+            goodsDbid = DbManager.getInstance().getGoodsSize() + 1;
+        }
+        goodsDb.setDbid(goodsDbid);
+        DbManager.getInstance().insertGoods(goodsDb);
+        Cartgoods insertCartGoods = new Cartgoods();
+        insertCartGoods.setGoodsdb(goodsDb);
+        insertCartGoods.setDb_goods_id(goodsDbid);
+        insertCartGoods.setBunding_info(bundinginfo);
+        DbManager.getInstance().insertCart(insertCartGoods);
+    }
+
 
     public void finish() {
         super.finish();

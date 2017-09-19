@@ -10,7 +10,7 @@ import com.thlh.jhmjmw.R;
 import butterknife.BindView;
 
 public class GoodsImgInfoFragment extends BaseFragment {
-    private static final String TAG = "GoodsInfoFragment";
+    private static final String TAG = "GoodsImgInfoFragment";
     @BindView(R.id.goodsdetail_webview)
     WebView goodsdetailWebview;
 

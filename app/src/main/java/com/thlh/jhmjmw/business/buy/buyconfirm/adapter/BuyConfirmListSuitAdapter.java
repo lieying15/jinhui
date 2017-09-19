@@ -58,7 +58,7 @@ public class BuyConfirmListSuitAdapter extends EasyRecyclerViewAdapter {
         * ￥
         *
         * */
-        suitPriceTv.setText(context.getResources().getString(R.string.money) + goodsBundling.getItem_price());
+        suitPriceTv.setText(context.getResources().getString(R.string.money) + goodsBundling.getPrice());
         suitNumTv.setText(cartgoods.getGoods_num()+"");
 
         EasyRecyclerView suitItemRv = viewHolder.findViewById(R.id.shopcart_suit_item_rv);

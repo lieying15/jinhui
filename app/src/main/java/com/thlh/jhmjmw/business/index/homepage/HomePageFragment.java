@@ -17,7 +17,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -342,7 +341,6 @@ public class HomePageFragment extends BaseFragment {
             @Override
             public void onItemClick(View convertView, int position) {
                 L.e(TAG + " tabAdapter onItemClick");
-                Log.e("homepageViewpageRv", position + "");
                 updateTopTab(position);
             }
         });
@@ -355,8 +353,7 @@ public class HomePageFragment extends BaseFragment {
         tabTextAdapter.setOnItemClickListener(new EasyRecyclerViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(View convertView, int position) {
-                L.e(TAG + " tabAdapter onItemClick");
-                Log.e("homepageViewpageRv", position + "");
+                L.e(TAG + " tabTextAdapter onItemClick");
                 updateTopTab(position);
             }
         });
@@ -398,11 +395,11 @@ public class HomePageFragment extends BaseFragment {
             @Override
             public void onPageSelected(int position) {
                 if (position > 0) {
-                    updateTopTab(position - 1);
                     ((ViewpagerFragment) list.get(position)).setIsHome(false);
+                    updateTopTab(position - 1);
 //                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).clearGoodsList();
-                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
-                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
+//                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
+//                    ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).loadGoodsData();
                 }
                 if (position == 0){
                     ((ViewpagerFragment) list.get(position)).setIsHome(true);
@@ -459,6 +456,9 @@ public class HomePageFragment extends BaseFragment {
 
     public void updateTopTab(int position) {
 
+        catid = categoryTopList.get(position).getCatid();
+        ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
+        L.e(TAG + " catid====" + catid);
         for (int i = 0; i < selectStates.size(); i++) {
             selectStates.setValueAt(i, false);
         }
@@ -466,8 +466,7 @@ public class HomePageFragment extends BaseFragment {
         tabAdapter.setSelectStates(selectStates);
         tabTextAdapter.setSelectStates(selectStates);
         homepageViewpageRv.setCurrentItem(position + 1);
-        catid = categoryTopList.get(position).getCatid();
-        ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())).setCatid(catid);
+        ((ViewpagerFragment) list.get(homepageViewpageRv.getCurrentItem())). loadSearchData(catid,1);
     }
 
     public void gotoTop() {

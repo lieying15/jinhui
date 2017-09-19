@@ -402,7 +402,7 @@
     <string name="every_limit">每人限购 </string>
 
     <string name="once_top_up_change">立即充值兑换 </string>
-    <string name="top_up_change">充值兑换 </string>
+    <string name="top_up_change">立即购买 </string>
 
     <string name="good_probability">好评率( </string>
     <string name="info_message">物流消息 </string>

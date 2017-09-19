@@ -34,21 +34,13 @@ public class GoodsSuitGridItemAdapter extends EasyRecyclerViewAdapter {
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, final int position) {
 
         GoodsBundlingItem goodsitem = (GoodsBundlingItem) this.getItem(position);
-
         ImageView goodsIv = viewHolder.findViewById(R.id.goodssuit_goods_iv);
-
-//        Glide.with(context)
-//                .load(Deployment.IMAGE_PATH + goodsitem.getItem_img_thumb())
-//                .into( goodsIv);
-
         if (goodsitem.getItem_img_thumb().contains("http")){
             url = goodsitem.getItem_img_thumb();
         }else {
             url = Deployment.IMAGE_PATH + goodsitem.getItem_img_thumb();
         }
         ImageLoader.display(url,goodsIv);
-
-
     }
 
     @Override

@@ -89,7 +89,7 @@ public class ShopcarSuitAdapter extends EasyRecyclerViewAdapter {
         *￥
         * R.string.money
         * */
-        suitPriceTv.setText(context.getResources().getString(R.string.money) + goodsBundling.getItem_price());
+        suitPriceTv.setText(context.getResources().getString(R.string.money) + goodsBundling.getPrice());
 
         suitNumTv.setText(cartgoods.getGoods_num()+"");
 

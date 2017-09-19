@@ -35,7 +35,7 @@
                     android:id="@+id/toolbar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/y130"
+                    android:minHeight="@dimen/y140"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
                     <!--轮播图和八个图标-->
                     <LinearLayout
@@ -106,7 +106,7 @@
                     <LinearLayout
                         android:id="@+id/homepage_tabtext_ll"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/y130"
+                        android:layout_height="@dimen/y140"
                         android:orientation="vertical"
                         android:background="@color/app_mainback"
                         android:visibility="gone"

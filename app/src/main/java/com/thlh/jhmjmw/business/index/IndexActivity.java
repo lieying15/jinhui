@@ -428,7 +428,17 @@ public class IndexActivity extends BaseActivity {
                 tofragment = choicenessFragment;
                 break;
             case BottomTabViewV3.POSITON_SHOP:
-                ShopActivity.activityStartForResult(IndexActivity.this, ACTIVITY_CODE_SHOP, homepageBtab.currIndex);
+                if (isLogin) {
+                    ShopActivity.activityStartForResult(IndexActivity.this, ACTIVITY_CODE_SHOP, homepageBtab.currIndex);
+                } else {
+                    homepageBtab.setNeedChangeTabView(false);
+                    Intent intent = new Intent();
+                    intent.putExtra("startType", LoginActivity.START_TYPE_HOMEPAGE);
+                    intent.setClass(IndexActivity.this, LoginActivity.class);
+                    startActivityForResult(intent, ACTIVITY_CODE_LOGIN);
+                    return;
+                }
+
                 return;
             case BottomTabViewV3.POSITON_SHOPCART:
                 tofragment = shopCartFragment;
